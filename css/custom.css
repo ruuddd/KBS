@@ -21,10 +21,14 @@ body {
 
 .container {
   width: auto;
-  max-width: 680px;
+  max-width: 780px;
   padding: 0 15px;
 }
 p
 {
 	margin-bottom: 0px;
+}
+.alt-navbar
+{
+	min-width: 955px;
 }
