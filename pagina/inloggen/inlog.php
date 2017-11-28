@@ -16,7 +16,7 @@ session_start();
         <div class="container">
             <?php
             //include die een DIV met HTML print
-            include 'pagina/inloggen/melding.inc.php';
+            include 'melding.inc.php';
             
             if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
                 //laadt nu pas de beveiligde inhoud
