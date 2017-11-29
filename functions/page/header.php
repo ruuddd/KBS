@@ -17,13 +17,13 @@
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link" href="../../index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Artikelen</a>
+                            <a class="nav-link" href="pagina/webShop.php">Artikelen</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Over ons</a>
+                            <a class="nav-link" href="pagina/overOns.php">Over ons</a>
                         </li>
                 </div>
                 </li>
