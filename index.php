@@ -62,9 +62,6 @@
 	  </div>
     </nav>
 
-=======
-      
->>>>>>> 203570d88fa5875c22429a4615acb38f774b4893
     <main role="main">
 
 
@@ -80,45 +77,7 @@
 
     </main>
 
-<<<<<<< HEAD
-=======
-    <footer class="footer">
-	<div class="container">
-      <p>&copy; De Ferver 2017</p>
-    </div>
-	</footer>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="icon" href="images/favicon.ico">
 
-        <title>Webshop De Ferver Terherne</title>
-
-        <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/custom.css" rel="stylesheet">
-
-        <!-- Custom styles for this template -->
-        <link href="jumbotron.css" rel="stylesheet">
-    </head>
-
-    <body>
-
-        <?php
-        include_once 'functions/page/header.php';
-        ?>
-
-        <main role="main">
-
-          
-
-    </main>
-
-
->>>>>>> 203570d88fa5875c22429a4615acb38f774b4893
     <?php
     include_once 'functions/page/footer.php';
     ?>
