@@ -29,47 +29,12 @@
     <?php
     include_once 'functions/page/header.php';
     ?>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> bfe6ae7e31c842fbadff9081060120382a65b6da
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-	<div class="container alt-navbar">
-      <a class="navbar-brand" href="#">
-		<img src="images/web/logo.jpg" height="50" width="65" alt="Ferver Logo"/>
-	  </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Artikelen</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Over ons</a>
-          </li>
-        </ul>
-            </div>
-        <form class="form-inline my-2 my-lg-0">
-		  <input type="search" placeholder="Search">
-		  <div class="nav-item">
-            <a class="nav-link" href="pagina/inloggen/inlog.php">Inloggen</a>
-          </div>
-        </form>
-      </div>
-	  </div>
-    </nav>
 
     <main role="main">
 
 
         <?php 
-<!--        <?php 
             foreach ($arr as $titleData)
             {
                 if($arr["2"])
@@ -78,7 +43,6 @@
                 }
             }
         ?> 
-        ?> -->
 
     </main>
 <<<<<<< HEAD
