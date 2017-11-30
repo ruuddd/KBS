@@ -41,7 +41,7 @@ if($actie == 'uitloggen'){
     }
 }
 //de verwerking is klaar, ga via een redirect weer terug naar de index
-header('Location: ../../index.html');
+header('Location: ../../index.php');
 exit();
 ?>
 </html>

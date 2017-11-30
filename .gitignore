@@ -1,3 +1,4 @@
 /nbproject/private/
 # dbConnect niet uploaden naar git
 functions/dbConnect.php
+index.html
