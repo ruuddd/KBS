@@ -21,11 +21,11 @@ function checkUser($user, $password)
 	$dbPass = $user[0]["password"];
 	if (password_verify($password,$dbPass)) 
 	{
-		echo "Mag inloggen";
+		return true;
 	}
 	else
 	{
-		echo "Mag niet inloggen";
+		return false;
 	}
 }
 

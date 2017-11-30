@@ -1,7 +1,7 @@
 
 <!doctype html>
                <?php
-               include '/CRUD/read.php'; 
+               include 'functions/CRUD/read.php'; 
                ?>
 <html lang="en">
   <head>
@@ -24,11 +24,9 @@
 
   <body>
 
-<<<<<<< HEAD
     <?php
     include_once 'functions/page/header.php';
     ?>
-=======
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 	<div class="container alt-navbar">
       <a class="navbar-brand" href="#">
@@ -60,7 +58,6 @@
       </div>
 	  </div>
     </nav>
->>>>>>> 1fa02f77bce4c557f75a2ae83470643e4cd12eb2
 
     <main role="main">
 
@@ -111,11 +108,6 @@
           
 
     </main>
-
-<<<<<<< HEAD
-=======
-
->>>>>>> dec169e69de7eba5d1c03f67f4ff32e779572f7d
     <?php
     include_once 'functions/page/footer.php';
     ?>
