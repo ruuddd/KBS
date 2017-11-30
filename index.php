@@ -4,6 +4,7 @@
                <?php
                include 'functions/CRUD/read.php'; 
                ?>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -28,6 +29,10 @@
     <?php
     include_once 'functions/page/header.php';
     ?>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> bfe6ae7e31c842fbadff9081060120382a65b6da
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 	<div class="container alt-navbar">
       <a class="navbar-brand" href="#">

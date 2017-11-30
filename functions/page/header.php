@@ -19,11 +19,9 @@
                         <li class="nav-item active">
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pagina/webShop.php">Artikelen</a>
                             <a class="nav-link" href="../../pagina/webShop.php">Artikelen</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pagina/overOns.php">Over ons</a>
                             <a class="nav-link" href="../../pagina/overOns.php">Over ons</a>
                         </li>
                 </div>
