@@ -1,6 +1,5 @@
 
 <!doctype html>
-<<<<<<< HEAD
                <?php
                include ("functions/CRUD/read.php"); 
                ?>
@@ -25,38 +24,9 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-	<div class="container alt-navbar">
-      <a class="navbar-brand" href="#">
-		<img src="images/web/logo.jpg" height="50" width="65" alt="Ferver Logo"/>
-	  </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Artikelen</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Over ons</a>
-          </li>
-            </div>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-		  <input type="search" placeholder="Search">
-		  <div class="nav-item">
-            <a class="nav-link" href="pagina/inloggen/inlog.php">Inloggen</a>
-          </div>
-        </form>
-      </div>
-	  </div>
-    </nav>
+    <?php
+    include_once 'functions/page/header.php';
+    ?>
 
     <main role="main">
 
@@ -102,7 +72,6 @@
         include_once 'functions/page/header.php';
         ?>
 
-<<<<<<< HEAD
         <main role="main">
 
             <!-- Main jumbotron for a primary marketing message or call to action -->
@@ -155,8 +124,7 @@
 
     </main>
 
-=======
->>>>>>> afd122a9f851ff8c0c089d81394e897e72e22757
+
     <?php
     include_once 'functions/page/footer.php';
     ?>
