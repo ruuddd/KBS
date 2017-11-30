@@ -2,7 +2,7 @@
 <!doctype html>
 <<<<<<< HEAD
                <?php
-               include ("functions/CRUD/read.php"); 
+               include '/CRUD/read.php'; 
                ?>
 <html lang="en">
   <head>
@@ -45,9 +45,8 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Over ons</a>
           </li>
-            </div>
-          </li>
         </ul>
+            </div>
         <form class="form-inline my-2 my-lg-0">
 		  <input type="search" placeholder="Search">
 		  <div class="nav-item">
