@@ -1,5 +1,5 @@
 <?php
 	$db = "mysql:host=localhost;dbname=webshop;port=3306";
-	$user = "wp06b";
-	$pass = "123456";
+	$user = "memelord";
+	$pass = "Kak1Kak1";
 	$pdo = new PDO($db, $user, $pass);
