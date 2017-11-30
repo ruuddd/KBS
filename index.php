@@ -1,7 +1,7 @@
 
 <!doctype html>
                <?php
-               include '/CRUD/read.php'; 
+               include 'functions/CRUD/read.php'; 
                ?>
 <html lang="en">
   <head>
@@ -24,11 +24,9 @@
 
   <body>
 
-<<<<<<< HEAD
     <?php
     include_once 'functions/page/header.php';
     ?>
-=======
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 	<div class="container alt-navbar">
       <a class="navbar-brand" href="#">
@@ -60,7 +58,6 @@
       </div>
 	  </div>
     </nav>
->>>>>>> 1fa02f77bce4c557f75a2ae83470643e4cd12eb2
 
     <main role="main">
 
@@ -77,45 +74,6 @@
 
     </main>
 
-    <footer class="footer">
-	<div class="container">
-      <p>&copy; De Ferver 2017</p>
-    </div>
-	</footer>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="icon" href="images/favicon.ico">
-
-        <title>Webshop De Ferver Terherne</title>
-
-        <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/custom.css" rel="stylesheet">
-
-        <!-- Custom styles for this template -->
-        <link href="jumbotron.css" rel="stylesheet">
-    </head>
-
-    <body>
-
-        <?php
-        include_once 'functions/page/header.php';
-        ?>
-
-        <main role="main">
-
-          
-
-    </main>
-
-<<<<<<< HEAD
-=======
-
->>>>>>> dec169e69de7eba5d1c03f67f4ff32e779572f7d
     <?php
     include_once 'functions/page/footer.php';
     ?>
