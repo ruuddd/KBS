@@ -1,8 +1,10 @@
 
 <!doctype html>
+
                <?php
-               include '/CRUD/read.php'; 
+               include 'functions/CRUD/read.php'; 
                ?>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -24,48 +26,14 @@
 
   <body>
 
-<<<<<<< HEAD
     <?php
     include_once 'functions/page/header.php';
     ?>
-=======
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-	<div class="container alt-navbar">
-      <a class="navbar-brand" href="#">
-		<img src="images/web/logo.jpg" height="50" width="65" alt="Ferver Logo"/>
-	  </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Artikelen</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Over ons</a>
-          </li>
-        </ul>
-            </div>
-        <form class="form-inline my-2 my-lg-0">
-		  <input type="search" placeholder="Search">
-		  <div class="nav-item">
-            <a class="nav-link" href="pagina/inloggen/inlog.php">Inloggen</a>
-          </div>
-        </form>
-      </div>
-	  </div>
-    </nav>
->>>>>>> 1fa02f77bce4c557f75a2ae83470643e4cd12eb2
-
+      
     <main role="main">
 
 
-        <?php 
+<!--        <?php 
             foreach ($arr as $titleData)
             {
                 if($arr["2"])
@@ -73,7 +41,7 @@
                     print($titleData["content"]);
                 }
             }
-        ?> 
+        ?> -->
 
     </main>
 
@@ -112,10 +80,7 @@
 
     </main>
 
-<<<<<<< HEAD
-=======
 
->>>>>>> dec169e69de7eba5d1c03f67f4ff32e779572f7d
     <?php
     include_once 'functions/page/footer.php';
     ?>
