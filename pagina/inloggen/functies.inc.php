@@ -1,6 +1,7 @@
 <?php
 
-function hashWachtwoord($wachtwoord){
+function hashWachtwoord($wachtwoord)
+{
     $options = [
         'cost' => 12,
     ];
