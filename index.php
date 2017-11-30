@@ -60,29 +60,16 @@
 
     <main role="main">
 
-      <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <div class="container">
-		<div class="row"> 
-          <div class="col-md-4">
-            <h2><?php if($row["contentid"] == 1)
-                    {print($content);}?> </h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          </div>
-		  <div class="col-md-4">
-            <h2>ARTIKELEN</h2>
-            <p>test </p>
-          </div>
-		  <div class="col-md-4">
-            <h2> <?php if($contentid == 2)
-                    {print($content[1]);
-                    } else if($contentid == 4){print ($content[3]);}?> </h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          </div>
-        </div>
-		</div>
-      </div>
-      </div> <!-- /container -->
+
+        <?php 
+            foreach ($arr as $titleData)
+            {
+                if($arr["2"])
+                {
+                    print($titleData["content"]);
+                }
+            }
+        ?> 
 
     </main>
 
@@ -91,7 +78,6 @@
       <p>&copy; De Ferver 2017</p>
     </div>
 	</footer>
-=======
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -116,35 +102,9 @@
         include_once 'functions/page/header.php';
         ?>
 
-        <main role="main">
-
-            <!-- Main jumbotron for a primary marketing message or call to action -->
-            <div class="jumbotron">
-                <div class="container">
-                    <div class="row"> 
-                        <div class="col-md-4">
-                            <h2>Heading</h2>
-                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                        </div>
-                        <div class="col-md-4">
-                            <h2>ARTIKELEN</h2>
-                            <p>test </p>
-                        </div>
-                        <div class="col-md-4">
-                            <h2>Heading</h2>
-                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- /container -->
-
-    </main>
-
     <?php
     include_once 'functions/page/footer.php';
     ?>
->>>>>>> 144c307e69cabbf62051c6cc6072cfe07f426b8f
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -153,9 +113,6 @@
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
     <script src="js/vendor/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-<<<<<<< HEAD
   </body>
-=======
 </body>
->>>>>>> 144c307e69cabbf62051c6cc6072cfe07f426b8f
 </html>
