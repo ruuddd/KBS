@@ -68,7 +68,6 @@
     <main role="main">
 
 
-        <?php 
 <!--        <?php 
             foreach ($arr as $titleData)
             {
@@ -77,7 +76,6 @@
                     print($titleData["content"]);
                 }
             }
-        ?> 
         ?> -->
 
     </main>
