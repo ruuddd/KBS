@@ -34,11 +34,7 @@
     <main role="main">
 
 
-<<<<<<< HEAD
-<!--        <?php 
-=======
         <?php 
->>>>>>> 6e327bad5be9bd2837b1b309060a59ec50b9d584
             foreach ($arr as $titleData)
             {
                 if($arr["2"])
@@ -46,19 +42,6 @@
                     print($titleData["content"]);
                 }
             }
-<<<<<<< HEAD
-        ?> -->
-=======
-        ?> 
->>>>>>> 6e327bad5be9bd2837b1b309060a59ec50b9d584
-
-    </main>
-<<<<<<< HEAD
-=======
-
-
->>>>>>> bfe6ae7e31c842fbadff9081060120382a65b6da
-    <?php
     include_once 'functions/page/footer.php';
     ?>
 
