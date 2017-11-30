@@ -1,5 +1,6 @@
 
 <!doctype html>
+
                <?php
                include 'functions/CRUD/read.php'; 
                ?>
@@ -63,6 +64,7 @@
 
 
         <?php 
+<!--        <?php 
             foreach ($arr as $titleData)
             {
                 if($arr["2"])
@@ -71,43 +73,14 @@
                 }
             }
         ?> 
+        ?> -->
 
     </main>
+<<<<<<< HEAD
+=======
 
-    <footer class="footer">
-	<div class="container">
-      <p>&copy; De Ferver 2017</p>
-    </div>
-	</footer>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="icon" href="images/favicon.ico">
 
-        <title>Webshop De Ferver Terherne</title>
-
-        <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/custom.css" rel="stylesheet">
-
-        <!-- Custom styles for this template -->
-        <link href="jumbotron.css" rel="stylesheet">
-    </head>
-
-    <body>
-
-        <?php
-        include_once 'functions/page/header.php';
-        ?>
-
-        <main role="main">
-
-          
-
-    </main>
+>>>>>>> bfe6ae7e31c842fbadff9081060120382a65b6da
     <?php
     include_once 'functions/page/footer.php';
     ?>
