@@ -15,7 +15,7 @@
 
     <title>Webshop De Ferver Terherne</title>
     
-    even wijzigen.
+    even wijzig.
 
 
     <!-- Bootstrap core CSS -->
