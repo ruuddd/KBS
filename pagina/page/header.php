@@ -34,14 +34,16 @@
                         <?php 
                             if ($_SESSION['ingelogd']) 
                             {
-                                echo "maak er wat moois van";
+                                print('<a class="nav-link" href="pagina/inloggen/geheim.inc.php">' . $_SESSION['gebruikersnaam'] . '</a>' );
                             }
                             else
                             {
                         ?>
 
                         <a class="nav-link" href="pagina/inloggen/inlog.php">Inloggen</a>
-                        <?php } ?>
+                        <?php
+                            } 
+                        ?>
                     </div>
                 </form>
             </div>

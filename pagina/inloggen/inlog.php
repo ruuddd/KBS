@@ -25,13 +25,13 @@ session_start();
         <div class="container">
             <?php
             //include die een DIV met HTML print
-            include '../inloggen/melding.inc.php';
+            include 'melding.inc.php';
             
             
             if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
                 //laadt nu pas de beveiligde inhoud
-                include '../inloggen/geheim.inc.php';
-                print('<a href="../inloggen/verwerk.php?actie=uitloggen">Uitloggen</a>');
+                include 'geheim.inc.php';
+                print('<a href="verwerk.php?actie=uitloggen">Uitloggen</a>');
             } else {
                 ?>
             <div class="row main">

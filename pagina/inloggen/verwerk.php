@@ -2,7 +2,9 @@
 <html>
 <?php
 session_start();
-include_once './includes/functies.inc.php';
+include_once 'functies.inc.php';
+include 'dbCheck.php';
+include '../../functions/dbConnect.php';
 
 //actueel ondersteund alternatief voor $_POST['gebruikersnaam'] etc
 $gebruikersnaam = filter_input(INPUT_POST, 'gebruikersnaam');   //filter_input is de betere versie van $_POST['gebruikersnaam'];
@@ -21,12 +23,14 @@ if($actie == 'uitloggen'){
         //merk de backslash op in de wachtwoord String
         
         //controleer gebruiker (bestaat de gebruiker?)
+
+        $user = getUser($gebruikersnaam, $pdo);
         
         //controleer het wachtwoord 
         
         //hey heeft de gebruiker zich volledig aangemeld (via email etc...)
         
-        if($gebruikersnaam == "beheerder" && password_verify($wachtwoord, "$2y$12\$yH0e4.TJcJFCnUUYaav7hOdXdruTrsohwUwaaiA1TTVqy9Nszkoce")){
+        if(logUser($user, $wachtwoord)){
             //sessie variabelen worden hierpas aangemaakt en toegewezen
             $_SESSION['melding'] = "Je bent ingelogd als $gebruikersnaam";
             $_SESSION['ingelogd'] = true;
