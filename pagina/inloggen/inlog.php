@@ -30,7 +30,7 @@ session_start();
             
             if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
                 //laadt nu pas de beveiligde inhoud
-                include 'geheim.inc.php';
+                include '../mijn.php';
                 print('<a href="verwerk.php?actie=uitloggen">Uitloggen</a>');
             } else {
                 ?>

@@ -16,7 +16,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Webshop De Ferver Terherne</title>
+    <title>De Ferver Home</title>
 
 
     <!-- Bootstrap core CSS -->

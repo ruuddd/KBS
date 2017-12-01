@@ -2,4 +2,4 @@
 
 session_start();
 
-print("Welkom" . " " . $_SESSION['gebruikersnaam']);
+print("Welkom" . " " . $_SESSION['firstname']);

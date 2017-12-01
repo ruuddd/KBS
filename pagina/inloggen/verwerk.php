@@ -7,6 +7,7 @@ include 'dbCheck.php';
 include '../../functions/dbConnect.php';
 
 //actueel ondersteund alternatief voor $_POST['gebruikersnaam'] etc
+$link = "../inloggen/inlog.php";
 $gebruikersnaam = filter_input(INPUT_POST, 'gebruikersnaam');   //filter_input is de betere versie van $_POST['gebruikersnaam'];
 $wachtwoord = filter_input(INPUT_POST, 'wachtwoord');
 $actie = filter_input(INPUT_GET, 'actie');
@@ -35,6 +36,10 @@ if($actie == 'uitloggen'){
             $_SESSION['melding'] = "Je bent ingelogd als $gebruikersnaam";
             $_SESSION['ingelogd'] = true;
             $_SESSION['gebruikersnaam'] = $gebruikersnaam;
+            $_SESSION['firstname'] = $user['firstname'];
+            $_SESSION['fullname'] = $user['firstname']." ".$user['insertion']." ".$user['lastname'];
+            $link = ' ../../index.php';
+
         }else{
             //wees nooit te specifiek waarom de gebruiker niet kan inloggen.
             $_SESSION['melding'] = "Combinatie van gebruikersnaam/wachtwoord is onbekend";
@@ -45,7 +50,7 @@ if($actie == 'uitloggen'){
     }
 }
 //de verwerking is klaar, ga via een redirect weer terug naar de index
-header('Location: ../../index.php');
+header('Location: '.$link);
 exit();
 ?>
 </html>

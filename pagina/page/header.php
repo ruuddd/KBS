@@ -34,7 +34,7 @@
                         <?php 
                             if ($_SESSION['ingelogd']) 
                             {
-                                print('<a class="nav-link" href="pagina/mijn.php">' . $_SESSION['gebruikersnaam'] . '</a>' );
+                                print('<a class="nav-link" href="pagina/mijn.php">' . $_SESSION['fullname'] . '</a>' );
                             }
                             else
                             {
