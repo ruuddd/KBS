@@ -17,11 +17,7 @@
     <link rel="icon" href="../../../../favicon.ico">
 
     <title>Webshop De Ferver Terherne</title>
-<<<<<<< HEAD
-=======
-    
-    even wijzig.
->>>>>>> a41b4b2cbd84d74e6fc80991416a45c28e34db4d
+
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
