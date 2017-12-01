@@ -23,6 +23,7 @@
 
        <main role="main">
 
+           <p>registreren</p>
 
     </main>
         

@@ -17,6 +17,7 @@
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
+                            <a class="nav-link" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../../pagina/webShop.php">Artikelen</a>
@@ -30,7 +31,17 @@
                 <form class="form-inline my-2 my-lg-0">
                     <input type="search" placeholder="Search">
                     <div class="nav-item">
+                        <?php 
+                            if ($_SESSION['ingelogd']) 
+                            {
+                                echo "maak er wat moois van";
+                            }
+                            else
+                            {
+                        ?>
+
                         <a class="nav-link" href="pagina/inloggen/inlog.php">Inloggen</a>
+                        <?php } ?>
                     </div>
                 </form>
             </div>

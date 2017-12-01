@@ -16,19 +16,21 @@ function getUser($email, $conn)
     }
 }
 
-function checkUser($user, $password)
+function logUser($user, $password)
 {
 	$dbPass = $user[0]["password"];
 	if (password_verify($password,$dbPass)) 
 	{
+		echo "ja";
 		return true;
 	}
 	else
 	{
+		echo "nee";
 		return false;
 	}
 }
 
 $user = getUser('ruudlouwerse@live.nl', $pdo);
 $pass = 'test1';
-checkUser($user, $pass);
+logUser($user, $pass);

@@ -1,9 +1,10 @@
+<?php
+    session_start();
+    include 'functions/CRUD/read.php'; 
+?>
+
 
 <!doctype html>
-
-               <?php
-               include 'functions/CRUD/read.php'; 
-               ?>
 
 <html lang="en">
   <head>
