@@ -18,7 +18,7 @@
     
     <body>
         <?php
-        include_once '../functions/page/header.php';
+        include_once 'page/header.php';
         ?>
 
         <main role="main">
@@ -28,7 +28,7 @@
     </main>
         
         <?php
-        include_once '../functions/page/footer.php';
+        include_once 'page/footer.php';
         ?>
     </body>
 
