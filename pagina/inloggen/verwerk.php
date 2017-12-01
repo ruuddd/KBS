@@ -20,7 +20,7 @@ if($actie == 'uitloggen'){
         //onderstaand controleer je of de juiste login gegevens zijn ingevoerd
         //merk de backslash op in de wachtwoord String
         
-        //controleer gebruiker (bestaad de gebruiker?)
+        //controleer gebruiker (bestaat de gebruiker?)
         
         //controleer het wachtwoord 
         

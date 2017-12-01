@@ -2,10 +2,7 @@
     session_start();
     include 'functions/CRUD/read.php'; 
 ?>
-
-
 <!doctype html>
-
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -18,7 +15,6 @@
     
     even wijzig.
 
-
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/custom.css" rel="stylesheet">
@@ -26,13 +22,11 @@
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
   </head>
-
   <body>
 
     <?php
-    include_once 'functions/page/header.php';
+    include_once 'pagina/page/header.php';
     ?>
-
 
     <main role="main">
 
@@ -45,7 +39,7 @@
                     print($titleData["content"]);
                 }
             }
-    include_once 'functions/page/footer.php';
+    include_once 'pagina/page/footer.php';
     ?>
 
     <!-- Bootstrap core JavaScript
