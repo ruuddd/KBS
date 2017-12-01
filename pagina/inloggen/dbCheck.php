@@ -14,6 +14,10 @@ function getUser($email, $conn)
     	$result = $checkPassConn->fetchAll(); //Maakt een array van de rij die opgehaald wordt uit de database.
     	return $result; //Geeft de array door.
     }
+    else
+    {
+    	echo "fout";
+    }
 }
 
 function logUser($user, $password)
@@ -21,16 +25,16 @@ function logUser($user, $password)
 	$dbPass = $user[0]["password"];
 	if (password_verify($password,$dbPass)) 
 	{
-		echo "ja";
+		//echo "ja";
 		return true;
 	}
 	else
 	{
-		echo "nee";
+		//echo "nee";
 		return false;
 	}
 }
 
-$user = getUser('ruudlouwerse@live.nl', $pdo);
-$pass = 'test1';
+$user = getUser($user, $pdo);
+
 logUser($user, $pass);
