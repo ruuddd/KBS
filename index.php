@@ -1,11 +1,8 @@
 <?php
     session_start();
     include 'functions/CRUD/read.php'; 
-<<<<<<< HEAD
     include "functions/dbConnect.php";
-=======
     //print_r( $_SESSION['check']);
->>>>>>> 45047dc153a2000a2973ee52efbd103abae95fb9
 ?>
 <!doctype html>
 <html lang="en">
@@ -33,6 +30,53 @@
     ?>
 
     <main role="main">
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+            <div class="jumbotron">
+                <div class="container">
+                    <div class="row"> 
+                        <div class="col-md-4">
+                            <h2>Heading</h2>
+                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="slideshow-container">
+                                <div class="mySlides fade">
+                                    <div class="numbertext">1 / 3</div>
+                                    <img src="images/artikelen/sjaal.jpg" height="400" width="65" style="width:100%">
+                                    <div class="text">sjaal</div>
+                                </div>
+
+                                <div class="mySlides fade">
+                                    <div class="numbertext">2 / 3</div>
+                                    <img src="images/artikelen/tas.jpg" height="400" width="65" style="width:100%">
+                                    <div class="text">tas</div>
+                                </div>
+
+                                <div class="mySlides fade">
+                                    <div class="numbertext">3 / 3</div>
+                                    <img src="images/artikelen/jas.jpg" height="400" width="65" style="width:100%">
+                                    <div class="text">jas</div>
+                                </div>
+
+                                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                            </div>
+                            <br>
+
+                            <div style="text-align:center">
+                                <span class="dot" onclick="currentSlide(1)"></span> 
+                                <span class="dot" onclick="currentSlide(2)"></span> 
+                                <span class="dot" onclick="currentSlide(3)"></span> 
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h2>Heading</h2>
+                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- /container -->
 
 
         <?php  
