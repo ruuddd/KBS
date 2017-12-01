@@ -1,7 +1,11 @@
 <?php
     session_start();
     include 'functions/CRUD/read.php'; 
+<<<<<<< HEAD
+    include "functions/dbConnect.php";
+=======
     //print_r( $_SESSION['check']);
+>>>>>>> 45047dc153a2000a2973ee52efbd103abae95fb9
 ?>
 <!doctype html>
 <html lang="en">
@@ -31,16 +35,12 @@
     <main role="main">
 
 
-        <?php 
-            foreach ($arr as $titleData)
-            {
-                if($arr["2"])
-                {
-                    print($titleData["content"]);
-                }
-            }
-    include_once 'pagina/page/footer.php';
-    ?>
+        <?php  
+        
+            print_r(getPage($_GET['page'], $pdo));
+   
+        include_once 'pagina/page/footer.php';
+        ?>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
