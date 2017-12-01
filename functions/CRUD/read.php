@@ -1,7 +1,11 @@
             <?php
-            include "functions/dbConnect.php";
             
-            $stmt = $pdo->prepare("SELECT * FROM content");
-            $stmt->execute();
-            $arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $pdo = null;
+            
+            function getPage($page, $pdo)
+            {
+                $stmt = $pdo->prepare("SELECT content FROM content WHERE content_id = '".$page."'");
+                $stmt->execute();
+                $arr = $stmt->fetchall(PDO::FETCH_ASSOC);
+                return $arr;
+                $pdo = null;
+            }
