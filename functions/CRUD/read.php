@@ -7,5 +7,6 @@
                 $stmt->execute();
                 $arr = $stmt->fetchall(PDO::FETCH_ASSOC);
                 return $arr;
+                return $arr["0"];
                 $pdo = null;
             }

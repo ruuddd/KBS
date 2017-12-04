@@ -88,6 +88,7 @@
         <?php  
         
             print_r(getPage($_GET['page'], $pdo));
+            print(getPage($_GET['page'], $pdo)["content"]);
    
         include_once 'pagina/page/footer.php';
         ?>
