@@ -1,11 +1,9 @@
 <?php
     session_start();
     include 'functions/CRUD/read.php'; 
-<<<<<<< HEAD
+
     include "functions/dbConnect.php";
-=======
-    //print_r( $_SESSION['check']);
->>>>>>> 45047dc153a2000a2973ee52efbd103abae95fb9
+    
 ?>
 <!doctype html>
 <html lang="en">

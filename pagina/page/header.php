@@ -31,10 +31,13 @@
                 <form class="form-inline my-2 my-lg-0">
                     <input type="search" placeholder="Search">
                     <div class="nav-item">
-                        <?php 
-                            if ($_SESSION['ingelogd']) 
-                            {
-                                print('<a class="nav-link" href="pagina/mijn.php">' . $_SESSION['fullname'] . '</a>' );
+                        <?php
+                            if(!empty($_SESSION['ingelogd']))
+                            { 
+                                if ($_SESSION['ingelogd']) 
+                                {
+                                    print('<a class="nav-link" href="pagina/mijn.php">' . $_SESSION['fullname'] . '</a>' );
+                                }
                             }
                             else
                             {
@@ -42,6 +45,7 @@
 
                         <a class="nav-link" href="pagina/inloggen/inlog.php">Inloggen</a>
                         <?php
+                                
                             } 
                         ?>
                     </div>
