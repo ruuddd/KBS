@@ -35,6 +35,7 @@ if($actie == 'uitloggen'){
             $_SESSION['melding'] = "Je bent ingelogd als $gebruikersnaam";
             $_SESSION['ingelogd'] = true;
             $_SESSION['gebruikersnaam'] = $gebruikersnaam;
+            $_SESSION['role'] = $user[0]['role'];
         }else{
             //wees nooit te specifiek waarom de gebruiker niet kan inloggen.
             $_SESSION['melding'] = "Combinatie van gebruikersnaam/wachtwoord is onbekend";
