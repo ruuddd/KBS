@@ -7,6 +7,7 @@ include 'dbCheck.php';
 include '../../functions/dbConnect.php';
 
 //actueel ondersteund alternatief voor $_POST['gebruikersnaam'] etc
+$link = "../inloggen/inlog.php";
 $gebruikersnaam = filter_input(INPUT_POST, 'gebruikersnaam');   //filter_input is de betere versie van $_POST['gebruikersnaam'];
 $wachtwoord = filter_input(INPUT_POST, 'wachtwoord');
 $actie = filter_input(INPUT_GET, 'actie');
@@ -14,7 +15,7 @@ $actie = filter_input(INPUT_GET, 'actie');
 if($actie == 'uitloggen'){
     session_destroy();  //gooi de oude sessie weg
     session_start();//start weer een nieuwe
-    $_SESSION['melding'] = "Je bent uitgelogd, tot snel!";
+    $_SESSION['melding'] = "U bent nu uitgelogd";
 }else{
     //in alle andere gevallen doe een inlog poging
     if(!is_null($gebruikersnaam) && !is_null($wachtwoord)){ //controleer of de variabelen niet leeg zijn
@@ -35,18 +36,25 @@ if($actie == 'uitloggen'){
             $_SESSION['melding'] = "Je bent ingelogd als $gebruikersnaam";
             $_SESSION['ingelogd'] = true;
             $_SESSION['gebruikersnaam'] = $gebruikersnaam;
+<<<<<<< HEAD
             $_SESSION['role'] = $user[0]['role'];
+=======
+            $_SESSION['firstname'] = $user['firstname'];
+            $_SESSION['fullname'] = $user['firstname']." ".$user['insertion']." ".$user['lastname'];
+            $link = ' ../../index.php';
+
+>>>>>>> 3438d1eaa81389a0fee977b71f8f9f94bb79b087
         }else{
             //wees nooit te specifiek waarom de gebruiker niet kan inloggen.
-            $_SESSION['melding'] = "Combinatie van gebruikersnaam/wachtwoord is onbekend";
+            $_SESSION['melding'] = "Uw gebruikersnaam of wachtwoord is niet juist";
         }
     }else{
         // er zijn geen waardes geset via het formulier
-        $_SESSION['melding'] = "Combinatie van gebruikersnaam/wachtwoord is onbekend";
+        $_SESSION['melding'] = "Uw gebruikersnaam of wachtwoord is niet juist";
     }
 }
 //de verwerking is klaar, ga via een redirect weer terug naar de index
-header('Location: ../../index.php');
+header('Location: '.$link);
 exit();
 ?>
 </html>

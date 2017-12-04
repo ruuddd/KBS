@@ -9,9 +9,10 @@ function getUser($email, $conn)
     $userCheck->execute();
     if ($userCheck->rowcount() == 1) //Kijkt of er een gebruiker met de aangegeven naam opgehaald kan worden.
     {
-    	$checkPassConn = $conn->prepare("SELECT password, firstname, role FROM person WHERE email='".$email."'");
+    	$checkPassConn = $conn->prepare("SELECT password, firstname, lastname, insertion, role FROM person WHERE email='".$email."'");
     	$checkPassConn->execute();
     	$result = $checkPassConn->fetchAll(); //Maakt een array van de rij die opgehaald wordt uit de database.
+    	$result = $result[0];
     	return $result; //Geeft de array door.
     }
     else
@@ -22,7 +23,7 @@ function getUser($email, $conn)
 
 function logUser($user, $password)
 {
-	$dbPass = $user[0]["password"];
+	$dbPass = $user["password"];
 	if (password_verify($password,$dbPass)) 
 	{
 		//echo "ja";

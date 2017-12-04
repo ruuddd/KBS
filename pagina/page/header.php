@@ -17,13 +17,13 @@
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="../../index.php">Home</a>
+                            <a class="nav-link" href="../../index.php?page=home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pagina/webShop.php">Artikelen</a>
+                            <a class="nav-link" href="../../index.php?page=artikelen">Artikelen</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pagina/overOns.php">Over ons</a>
+                            <a class="nav-link" href="../../index.php?page=overons">Over ons</a>
                         </li>
                 </div>
                 </li>
@@ -31,10 +31,13 @@
                 <form class="form-inline my-2 my-lg-0">
                     <input type="search" placeholder="Search">
                     <div class="nav-item">
-                        <?php 
-                            if ($_SESSION['ingelogd']) 
-                            {
-                                print('<a class="nav-link" href="pagina/mijn.php">' . $_SESSION['gebruikersnaam'] . '</a>' );
+                        <?php
+                            if(!empty($_SESSION['ingelogd']))
+                            { 
+                                if ($_SESSION['ingelogd']) 
+                                {
+                                    print('<a class="nav-link" href="pagina/mijn.php">' . $_SESSION['fullname'] . '</a>' );
+                                }
                             }
                             else
                             {
@@ -42,6 +45,7 @@
 
                         <a class="nav-link" href="pagina/inloggen/inlog.php">Inloggen</a>
                         <?php
+                                
                             } 
                         ?>
                     </div>
