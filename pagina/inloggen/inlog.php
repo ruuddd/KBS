@@ -19,7 +19,7 @@ session_start();
         <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 
-        <title>Admin</title>
+        <title>Inloggen bij De Ferver</title>
     </head>
     <body>
         <div class="container">

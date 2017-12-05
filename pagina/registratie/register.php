@@ -18,15 +18,15 @@ session_start();
         <!-- Fonts -->
         <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-<<<<<<< HEAD
-=======
-        <title>Dankjewel voor het registreren</title>
->>>>>>> bd2f23bf49043edbb360ff312b79f3a94dfb99b5
 
-        <title>Admin</title>
+        <title>Registreren bij De Ferver</title>
     </head>
     <body>
         <div class="container">
+            <?php
+                include '../inloggen/melding.inc.php';
+            ?>
+
             <div class="row main">
                 <div class="panel-heading">
                    <div class="panel-title text-center">
@@ -34,7 +34,7 @@ session_start();
                     </div>
                 </div> 
                 <div class="main-login main-center">
-                    <form class="form-horizontal" method="post" action="#">
+                    <form class="form-horizontal" method="post" action="verwerk.php">
                         
                         <div class="form-group">
                             <label for="name" class="cols-sm-2 control-label">Voornaam *</label>
