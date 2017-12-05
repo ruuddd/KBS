@@ -3,8 +3,9 @@
     include 'functions/CRUD/read.php'; 
 
 
-    include "functions/dbConnect.php";
+    //print_r( $_SESSION['check']);
 
+    include 'functions/dbConnect.php'; 
 ?>
 <!doctype html>
 <html lang="en">
@@ -30,23 +31,64 @@
     <?php
     include_once 'pagina/page/header.php';
     ?>
+    <?php include_once 'pagina/page/header.php'; ?>
 
     <main role="main">
         <!-- Main jumbotron for a primary marketing message or call to action -->
             <div class="jumbotron">
                 <div class="container">
                     <div class="row"> 
-                        <?php print(getPage($_GET['page'], $pdo)); ?>
+                        <div class="col-md-4">
+                            <h2>Heading</h2>
+                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="slideshow-container">
+                                <div class="mySlides fade">
+                                    <div class="numbertext">1 / 3</div>
+                                    <img src="images/artikelen/sjaal.jpg" height="400" width="65" style="width:100%">
+                                    <div class="text">sjaal</div>
+                                </div>
+
+                                <div class="mySlides fade">
+                                    <div class="numbertext">2 / 3</div>
+                                    <img src="images/artikelen/tas.jpg" height="400" width="65" style="width:100%">
+                                    <div class="text">tas</div>
+                                </div>
+
+                                <div class="mySlides fade">
+                                    <div class="numbertext">3 / 3</div>
+                                    <img src="images/artikelen/jas.jpg" height="400" width="65" style="width:100%">
+                                    <div class="text">jas</div>
+                                </div>
+
+                                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                            </div>
+                            <br>
+
+                            <div style="text-align:center">
+                                <span class="dot" onclick="currentSlide(1)"></span> 
+                                <span class="dot" onclick="currentSlide(2)"></span> 
+                                <span class="dot" onclick="currentSlide(3)"></span> 
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h2>Heading</h2>
+                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        </div>
+                        <?php print(getPage($_GET['page'], $pdo)["content"]); ?>
                     </div>
                 </div>
             </div>
         </div> <!-- /container -->
 
+     <?php  include_once 'pagina/page/footer.php'; ?>
 
         <?php  
         
-            //print_r(getPage($_GET['page'], $pdo));
-            
+            print_r(getPage($_GET['page'], $pdo));
+            print(getPage($_GET['page'], $pdo)["content"]);
    
         include_once 'pagina/page/footer.php';
         ?>
