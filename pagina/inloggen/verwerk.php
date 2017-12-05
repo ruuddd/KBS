@@ -8,7 +8,7 @@ include '../../functions/dbConnect.php';
 
 //actueel ondersteund alternatief voor $_POST['gebruikersnaam'] etc
 $link = "../inloggen/inlog.php";
-$gebruikersnaam = filter_input(INPUT_POST, 'gebruikersnaam');   //filter_input is de betere versie van $_POST['gebruikersnaam'];
+$emailadres = filter_input(INPUT_POST, 'emailadres');   //filter_input is de betere versie van $_POST['gebruikersnaam'];
 $wachtwoord = filter_input(INPUT_POST, 'wachtwoord');
 $actie = filter_input(INPUT_GET, 'actie');
 
@@ -18,14 +18,14 @@ if($actie == 'uitloggen'){
     $_SESSION['melding'] = "U bent nu uitgelogd";
 }else{
     //in alle andere gevallen doe een inlog poging
-    if(!is_null($gebruikersnaam) && !is_null($wachtwoord)){ //controleer of de variabelen niet leeg zijn
+    if(!is_null($emailadres) && !is_null($wachtwoord)){ //controleer of de variabelen niet leeg zijn
         
         //onderstaand controleer je of de juiste login gegevens zijn ingevoerd
         //merk de backslash op in de wachtwoord String
         
         //controleer gebruiker (bestaat de gebruiker?)
 
-        $user = getUser($gebruikersnaam, $pdo);
+        $user = getUser($emailadres, $pdo);
         
         //controleer het wachtwoord 
         

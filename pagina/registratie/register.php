@@ -41,7 +41,7 @@ session_start();
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="first_name" id="name"  placeholder="Voer uw voornaam in"/>
+                                    <input type="text" class="form-control" name="voornaam" id="name"  placeholder="Voer uw voornaam in"/>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@ session_start();
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="insertion" id="name"  placeholder="Voer uw tussenvoegsel in"/>
+                                    <input type="text" class="form-control" name="tussenvoegsel" id="name"  placeholder="Voer uw tussenvoegsel in"/>
                                 </div>
                             </div>
                         </div>
@@ -61,7 +61,7 @@ session_start();
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="last_name" id="name"  placeholder="Voer uw achetnaam in"/>
+                                    <input type="text" class="form-control" name="achternaam" id="name"  placeholder="Voer uw achetnaam in"/>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@ session_start();
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="email" id="email"  placeholder="Voer uw e-mailadres in"/>
+                                    <input type="text" class="form-control" name="emailadres" id="email"  placeholder="Voer uw e-mailadres in"/>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,7 @@ session_start();
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                    <input type="password" class="form-control" name="password" id="password"  placeholder="Voer uw wachtwoord in"/>
+                                    <input type="password" class="form-control" name="wachtwoord" id="password"  placeholder="Voer uw wachtwoord in"/>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +91,7 @@ session_start();
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                    <input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Bevestig uw wachtwoord"/>
+                                    <input type="password" class="form-control" name="bevestig_wachtwoord" id="confirm"  placeholder="Bevestig uw wachtwoord"/>
                                 </div>
                             </div>
                         </div>

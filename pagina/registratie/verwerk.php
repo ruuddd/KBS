@@ -8,17 +8,21 @@ include '../../functions/dbConnect.php';
 
 //actueel ondersteund alternatief voor $_POST['gebruikersnaam'] etc
 $link = "../inloggen/inlog.php";
-$gebruikersnaam = filter_input(INPUT_POST, 'gebruikersnaam');   //filter_input is de betere versie van $_POST['gebruikersnaam'];
+$voornaam = filter_input(INPUT_POST, 'voornaam');
+$tussenvoegsel = filter_input(INPUT_POST, 'tussenvoegsel'); 
+$achternaam = filter_input(INPUT_POST, 'achternaam'); 
+$emailadres = filter_input(INPUT_POST, 'emailadres');   //filter_input is de betere versie van $_POST['gebruikersnaam'];
 $wachtwoord = filter_input(INPUT_POST, 'wachtwoord');
+$bevestig_wachtwoord = filter_input(INPUT_POST, 'bevestig_wachtwoord'); 
 $actie = filter_input(INPUT_GET, 'actie');
 
-if($actie == 'uitloggen'){
+if($actie == 'register'){
     session_destroy();  //gooi de oude sessie weg
     session_start();//start weer een nieuwe
     $_SESSION['melding'] = "U bent nu uitgelogd";
 }else{
     //in alle andere gevallen doe een inlog poging
-    if(!is_null($gebruikersnaam) && !is_null($wachtwoord)){ //controleer of de variabelen niet leeg zijn
+    if(!is_null($voornaam) && !is_null($achternaam) && !is_null('emailadres') && !is_null('wachtwoord') && !is_null('bevestig_wachtwoord')){ //controleer of de variabelen niet leeg zijn
         
         //onderstaand controleer je of de juiste login gegevens zijn ingevoerd
         //merk de backslash op in de wachtwoord String

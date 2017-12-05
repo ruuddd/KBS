@@ -42,30 +42,30 @@ session_start();
                 <div class="main-login main-center">
                     <form class="form-horizontal" method="post" action="../inloggen/verwerk.php">
                         <div class="form-group">
-                            <label for="username" class="cols-sm-2 control-label">Username</label>
+                            <label for="username" class="cols-sm-2 control-label">E-mailadres</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="gebruikersnaam" id="username"  placeholder="Enter your Username"/>
+                                    <input type="text" class="form-control" name="emailadres" id="username"  placeholder="Voer uw emailadres in"/>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="password" class="cols-sm-2 control-label">Password</label>
+                            <label for="password" class="cols-sm-2 control-label">Wachtwoord</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                    <input type="password" class="form-control" name="wachtwoord" id="password"  placeholder="Enter your Password"/>
+                                    <input type="password" class="form-control" name="wachtwoord" id="password"  placeholder="Voer uw wachtwoord in"/>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group ">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Sign in</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Log in</button>
                         </div>
                         <div class="login-register">
-                            <a href="../registratie/register.php">Create account</a> or <a href="reset_password.php">Reset password</a>
+                            <a href="../registratie/register.php">Creëer account</a> or <a href="reset_password.php">Herstel wachtwoord</a>
                         </div>
                     </form>
                 </div>
