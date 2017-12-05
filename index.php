@@ -5,6 +5,7 @@
 
     //print_r( $_SESSION['check']);
 
+    include 'functions/dbConnect.php'; 
 ?>
 <!doctype html>
 <html lang="en">
@@ -30,6 +31,7 @@
     <?php
     include_once 'pagina/page/header.php';
     ?>
+    <?php include_once 'pagina/page/header.php'; ?>
 
     <main role="main">
         <!-- Main jumbotron for a primary marketing message or call to action -->
@@ -75,11 +77,13 @@
                             <h2>Heading</h2>
                             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
                         </div>
+                        <?php print(getPage($_GET['page'], $pdo)["content"]); ?>
                     </div>
                 </div>
             </div>
         </div> <!-- /container -->
 
+     <?php  include_once 'pagina/page/footer.php'; ?>
 
         <?php  
         
