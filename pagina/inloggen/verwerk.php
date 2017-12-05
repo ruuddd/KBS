@@ -36,14 +36,11 @@ if($actie == 'uitloggen'){
             $_SESSION['melding'] = "Je bent ingelogd als $gebruikersnaam";
             $_SESSION['ingelogd'] = true;
             $_SESSION['gebruikersnaam'] = $gebruikersnaam;
-<<<<<<< HEAD
             $_SESSION['role'] = $user[0]['role'];
-=======
             $_SESSION['firstname'] = $user['firstname'];
             $_SESSION['fullname'] = $user['firstname']." ".$user['insertion']." ".$user['lastname'];
             $link = ' ../../index.php';
 
->>>>>>> 3438d1eaa81389a0fee977b71f8f9f94bb79b087
         }else{
             //wees nooit te specifiek waarom de gebruiker niet kan inloggen.
             $_SESSION['melding'] = "Uw gebruikersnaam of wachtwoord is niet juist";
