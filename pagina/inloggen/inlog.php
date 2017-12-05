@@ -65,7 +65,7 @@ session_start();
                             <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Sign in</button>
                         </div>
                         <div class="login-register">
-                            <a href="create_account.php">Create account</a> or <a href="reset_password.php">Reset password</a>
+                            <a href="../registratie/register.php">Create account</a> or <a href="reset_password.php">Reset password</a>
                         </div>
                     </form>
                 </div>

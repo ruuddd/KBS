@@ -1,10 +1,7 @@
 <?php
     session_start();
     include 'functions/CRUD/read.php'; 
-
-
-    include "functions/dbConnect.php";
-
+    include 'functions/dbConnect.php'; 
 ?>
 <!doctype html>
 <html lang="en">
@@ -27,9 +24,7 @@
   </head>
   <body>
 
-    <?php
-    include_once 'pagina/page/header.php';
-    ?>
+    <?php include_once 'pagina/page/header.php'; ?>
 
     <main role="main">
         <!-- Main jumbotron for a primary marketing message or call to action -->
@@ -42,11 +37,4 @@
             </div>
         </div> <!-- /container -->
 
-
-        <?php  
-        
-            //print_r(getPage($_GET['page'], $pdo));
-            
-   
-        include_once 'pagina/page/footer.php';
-        ?>
+     <?php  include_once 'pagina/page/footer.php'; ?>
