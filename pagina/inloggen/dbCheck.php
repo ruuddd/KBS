@@ -17,7 +17,7 @@ function getUser($email, $conn)
     }
     else
     {
-    	echo "fout";
+    	return true;
     }
 }
 
@@ -36,6 +36,16 @@ function logUser($user, $password)
 	}
 }
 
-$user = getUser($user, $pdo);
+function createUser($name, $email, $password, $password_check, $conn)
+{
+    if (isset($name, $email, $password, $password_check) )
+    {
+        echo "test1";
+        // if (getUser($email, $conn)) 
+        // {
+        //     print("Email-adres bestaat al");
+        // }
+    }
+}
 
-logUser($user, $pass);
+createUser("peter", "", "wachtwoord", "wachtwoord", $pdo);
