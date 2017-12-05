@@ -32,6 +32,7 @@
                 <div class="container">
                     <div class="row"> 
                         <?php print(getPage($_GET['page'], $pdo)); ?>
+                        <?php print(getPage(check(), $pdo)); ?>
                     </div>
                 </div>
             </div>
