@@ -18,6 +18,10 @@ session_start();
         <!-- Fonts -->
         <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+<<<<<<< HEAD
+=======
+        <title>Dankjewel voor het registreren</title>
+>>>>>>> bd2f23bf49043edbb360ff312b79f3a94dfb99b5
 
         <title>Admin</title>
     </head>
