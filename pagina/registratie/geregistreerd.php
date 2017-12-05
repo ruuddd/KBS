@@ -51,18 +51,18 @@
             }
         }
 
-        checkEmpty(filter_input(INPUT_POST, 'voornaam'));
-        checkEmpty(filter_input(INPUT_POST, 'achternaam'));
-        checkEmpty(filter_input(INPUT_POST, 'e-mailadres'));
-        checkEmpty(filter_input(INPUT_POST, 'wachtwoord'));
-        checkEmpty(filter_input(INPUT_POST, 'bevestigWachtwoord'));
-        checkEmpty(filter_input(INPUT_POST, 'land'));
-        checkEmpty(filter_input(INPUT_POST, 'postcode'));
-        checkEmpty(filter_input(INPUT_POST, 'straatnaam'));
-        checkEmpty(filter_input(INPUT_POST, 'huisnummer'));
+        checkEmpty($_POST["voornaam"]);
+        checkEmpty($_POST["achternaam"]);
+        checkEmpty($_POST["e-mailadres"]);
+        checkEmpty($_POST["wachtwoord"]);
+        checkEmpty($_POST["bevestigWachtwoord"]);
+        checkEmpty($_POST["land"]);
+        checkEmpty($_POST["postcode"]);
+        checkEmpty($_POST["straatnaam"]);
+        checkEmpty($_POST["huisnummer"]);
 
-        minChar(INPUT_POST, 'wachtwoord', 8);
-        minChar(INPUT_POST, 'bevestigWachtwoord', 8);
+        minChar(POST["wachtwoord"], 8);
+        minChar(POST["bevestigWachtwoord"], 8);
 
         print("Dankjewel voor het aanmaken van een account");
         ?>
