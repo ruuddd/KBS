@@ -3,13 +3,13 @@
 include "../../functions/dbConnect.php";
 include_once 'functies.inc.php';
 
-function getUser($email, $conn)
+function getUser($emailadres, $conn)
 {            
-    $userCheck = $conn->prepare("SELECT email FROM person WHERE email='".$email."'");
+    $userCheck = $conn->prepare("SELECT email FROM person WHERE email='".$emailadres."'");
     $userCheck->execute();
     if ($userCheck->rowcount() == 1) //Kijkt of er een gebruiker met de aangegeven naam opgehaald kan worden.
     {
-    	$checkPassConn = $conn->prepare("SELECT password, firstname, lastname, insertion, role FROM person WHERE email='".$email."'");
+    	$checkPassConn = $conn->prepare("SELECT password, firstname, lastname, insertion, role FROM person WHERE email='".$emailadres."'");
     	$checkPassConn->execute();
     	$result = $checkPassConn->fetchAll(); //Maakt een array van de rij die opgehaald wordt uit de database.
     	$result = $result[0];
@@ -21,10 +21,10 @@ function getUser($email, $conn)
     }
 }
 
-function logUser($user, $password)
+function logUser($emailadres, $wachtwoord)
 {
 	$dbPass = $user["password"];
-	if (password_verify($password,$dbPass)) 
+	if (password_verify($wachtwoord, $dbPass)) 
 	{
 		//echo "ja";
 		return true;
@@ -36,16 +36,14 @@ function logUser($user, $password)
 	}
 }
 
-function createUser($name, $email, $password, $password_check, $conn)
+function createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonummer, $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $wachtwoord, $bevestig_wachtwoord, $pdo)
 {
-    if (isset($name, $email, $password, $password_check) )
-    {
-        echo "test1";
-        // if (getUser($email, $conn)) 
-        // {
-        //     print("Email-adres bestaat al");
-        // }
-    }
-}
+    $adresGegevens = $pdo->prepare(
+        "INSERT INTO 'address' (`address_id`, `country`, `zipcode`, `streetname`, `addressnumber`, `city`)
+        VALUES ('".$land."', '".$postcode."', '".$straatnaam."', '".$huisnummer."', '".$woonplaats."'"); 
 
-createUser("peter", "", "wachtwoord", "wachtwoord", $pdo);
+        "INSERT INTO 'person' (`email`, `role`, `address_id`, `password`, `firstname`, `lastname`, `phonenumber`, `insertion`) 
+        VALUES ('".$emailadres."', '1', LAST_INSERT_ID(), '".$wachtwoord."', '".$voornaam."', '".$achternaam."', '".$telefoonummer."', '".$tussenvoegsel."'");
+    );
+    $adresGegevens->execute();
+}

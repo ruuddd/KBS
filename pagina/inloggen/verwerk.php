@@ -27,10 +27,6 @@ if($actie == 'uitloggen'){
 
         $user = getUser($emailadres, $pdo);
         
-        //controleer het wachtwoord 
-        
-        //hey heeft de gebruiker zich volledig aangemeld (via email etc...)
-        
         if(logUser($user, $wachtwoord)){
             //sessie variabelen worden hierpas aangemaakt en toegewezen
             $_SESSION['melding'] = "Je bent ingelogd als $gebruikersnaam";

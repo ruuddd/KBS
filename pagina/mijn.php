@@ -3,7 +3,7 @@
 
 session_start();
 
-print('<a href="../index.php">HOME</a>');
+print('<a href="../index.php">HOME</a><br>');
 
 print("Welkom" . " " . $_SESSION['firstname']); 
 ?>	<br><br>
