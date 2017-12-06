@@ -36,14 +36,16 @@ function logUser($emailadres, $wachtwoord)
 	}
 }
 
-function createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonummer, $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $wachtwoord, $bevestig_wachtwoord, $pdo)
+function createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $wachtwoord, $bevestig_wachtwoord, $pdo)
 {
-    $adresGegevens = $pdo->prepare(
-        "INSERT INTO 'address' (`address_id`, `country`, `zipcode`, `streetname`, `addressnumber`, `city`)
-        VALUES ('".$land."', '".$postcode."', '".$straatnaam."', '".$huisnummer."', '".$woonplaats."'"); 
+    //$adresGegevens = $pdo->prepare(
+        $query = "INSERT INTO 'address' (`address_id`, `country`, `zipcode`, `streetname`, `addressnumber`, `city`) VALUES ('2', '".$land."', '".$postcode."', '".$straatnaam."', '".$huisnummer."', '".$woonplaats."'");
+    //$adresGegevens->execute();
 
-        "INSERT INTO 'person' (`email`, `role`, `address_id`, `password`, `firstname`, `lastname`, `phonenumber`, `insertion`) 
-        VALUES ('".$emailadres."', '1', LAST_INSERT_ID(), '".$wachtwoord."', '".$voornaam."', '".$achternaam."', '".$telefoonummer."', '".$tussenvoegsel."'");
-    );
-    $adresGegevens->execute();
+    //$persoonsGegevens = $pdo->prepare(
+    //    "INSERT INTO 'person' (`email`, `role`, `address_id`, `password`, `firstname`, `lastname`, `phonenumber`, `insertion`) 
+    //    VALUES ('".$emailadres."', '1', '2', '".$wachtwoord."', '".$voornaam."', '".$achternaam."', '".$telefoonnummer."', '".$tussenvoegsel."'");
+    //$persoonsGegevens->execute();
+    
+    print($query);
 }
