@@ -21,7 +21,7 @@ function getUser($emailadres, $conn)
     }
 }
 
-function logUser($emailadres, $wachtwoord)
+function logUser($user, $wachtwoord)
 {
 	$dbPass = $user["password"];
 	if (password_verify($wachtwoord, $dbPass)) 
