@@ -18,3 +18,22 @@
                 return $arr['0']["content"];
                 //$pdo = null;
             }
+            
+                        function getProducts($search, $pdo)
+            {   if (isset($search)){                      
+                $stmt = $pdo->prepare("SELECT p.product_id, p.product_name FROM product p JOIN productcategory PC ON P.product_id = PC.product_id JOIN category C ON C.category_id=PC.category_id WHERE product_name LIKE '%".$search."%' OR category_name LIKE '%".$search."%'");
+                $stmt->execute();
+                $products = $stmt->fetchall(PDO::FETCH_ASSOC);
+                return $products;
+                //$pdo = null;
+            }
+            }
+            
+            function search(){
+                if (isset($_GET['search'])){
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }

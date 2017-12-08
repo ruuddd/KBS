@@ -15,19 +15,19 @@
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="../../index.php?page=home">Home</a>
+                            <a class="nav-link" href="index.php?page=home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../../index.php?page=artikelen">Artikelen</a>
+                            <a class="nav-link" href="index.php?page=artikelen">Artikelen</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../../index.php?page=overons">Over ons</a>
+                            <a class="nav-link" href="index.php?page=overons">Over ons</a>
                         </li>
                 </div>
                 </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input type="search" placeholder="Search">
+                    <form class="form-inline my-2 my-lg-0" method="GET">
+                    <input type="search" placeholder="Search" name="search">
                     <div class="nav-item">
                         <?php
                             if(!empty($_SESSION['ingelogd']))
