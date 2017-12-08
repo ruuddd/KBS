@@ -22,6 +22,7 @@ function getUser($emailadres, $conn)
 }
 
 function logUser($emailadres, $wachtwoord)
+function logUser($user, $wachtwoord)
 {
 	$dbPass = $user["password"];
 	if (password_verify($wachtwoord, $dbPass)) 
@@ -36,3 +37,12 @@ function logUser($emailadres, $wachtwoord)
 	}
 }
 
+//function createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $wachtwoord, $bevestig_wachtwoord, $pdo)
+//{
+//    $adresGegevens = $pdo->prepare("INSERT INTO 'address' (`address_id`, `country`, `zipcode`, `streetname`, `addressnumber`, `city`) VALUES (?, ?, ?, ?, ?, ?)");
+//    $adresGegevens->execute(['2', $land, $postcode, $straatnaam, $huisnummer, $woonplaats]);
+//
+//    $persoonsGegevens = $pdo->prepare("INSERT INTO 'person' (`email`, `role`, `address_id`, `password`, `firstname`, `lastname`, `phonenumber`, `insertion`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+//    $persoonsGegevens->execute([$emailadres, '1', '2', $wachtwoord, $voornaam, $achternaam, $telefoonnummer, $tussenvoegsel]);
+//    
+//}
