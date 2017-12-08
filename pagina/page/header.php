@@ -22,6 +22,13 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?page=overons">Over ons</a>
+                            <a class="nav-link" href="?page=home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="?page=artikelen">Artikelen</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="?page=overons">Over ons</a>
                         </li>
                 </div>
                 </li>
