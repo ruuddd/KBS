@@ -22,6 +22,7 @@ session_start();
         <title>Registreren bij De Ferver</title>
     </head>
     <body>
+            <?php include_once '../page/header.php'; ?>
         <div class="container">
             <?php
                 include '../inloggen/melding.inc.php';
@@ -61,7 +62,7 @@ session_start();
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="achternaam" id="name"  placeholder="Voer uw achetnaam in"/>
+                                    <input type="text" class="form-control" name="achternaam" id="name"  placeholder="Voer uw achternaam in"/>
                                 </div>
                             </div>
                         </div>
@@ -85,6 +86,47 @@ session_start();
                                 </div>
                             </div>
                         </div>
+
+
+                        <div class="form-group">
+                            <label for="password" class="cols-sm-2 control-label">Wachtwoord *</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                    <input type="password" class="form-control" name="wachtwoord" id="password"  placeholder="Voer uw wachtwoord in"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirm" class="cols-sm-2 control-label">Bevestig wachtwoord *</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                    <input type="password" class="form-control" name="bevestig_wachtwoord" id="confirm"  placeholder="Bevestig uw wachtwoord"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="login-register">
+                            <p><strong>
+                                Velden met een * zijn verplicht
+                            </strong></p>
+                        </div>
+
+                        <div class="form-group ">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Registreer</button>
+                        </div>
+
+                        <div class="login-register">
+                            <a href="../inloggen/inlog.php">Login</a>
+                         </div>
+                    </form>
+
+                </div>
+                <div class="main-login main-center">
+                    <form class="form-horizontal" method="post" action="verwerk.php">
+                            
 
                         <div class="form-group">
                             <label for="email" class="cols-sm-2 control-label">Straatnaam *</label>
@@ -135,40 +177,7 @@ session_start();
                                 </div>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <label for="password" class="cols-sm-2 control-label">Wachtwoord *</label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                    <input type="password" class="form-control" name="wachtwoord" id="password"  placeholder="Voer uw wachtwoord in"/>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="confirm" class="cols-sm-2 control-label">Bevestig wachtwoord *</label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                    <input type="password" class="form-control" name="bevestig_wachtwoord" id="confirm"  placeholder="Bevestig uw wachtwoord"/>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="login-register">
-                            <p><strong>
-                                Velden met een * zijn verplicht
-                            </strong></p>
-                        </div>
-
-                        <div class="form-group ">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Registreer</button>
-                        </div>
-
-                        <div class="login-register">
-                            <a href="../inloggen/inlog.php">Login</a>
-                         </div>
+                        
                     </form>
                 </div>
             </div>
@@ -176,4 +185,5 @@ session_start();
 
         <script type="text/javascript" src="assets/js/bootstrap.js"></script>
     </body>
+        <?php include_once '../page/footer.php'; ?>
 </html>
