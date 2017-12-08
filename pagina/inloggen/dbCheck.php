@@ -3,6 +3,7 @@
 include "../../functions/dbConnect.php";
 include_once 'functies.inc.php';
 
+
 function getUser($emailadres, $conn)
 {            
     $userCheck = $conn->prepare("SELECT email FROM person WHERE email='".$emailadres."'");

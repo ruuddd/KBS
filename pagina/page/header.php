@@ -15,13 +15,13 @@
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="../../index.php?page=home">Home</a>
+                            <a class="nav-link" href="?page=home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../../index.php?page=artikelen">Artikelen</a>
+                            <a class="nav-link" href="?page=artikelen">Artikelen</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../../index.php?page=overons">Over ons</a>
+                            <a class="nav-link" href="?page=overons">Over ons</a>
                         </li>
                 </div>
                 </li>

@@ -20,6 +20,7 @@ if($actie == 'uitloggen'){
     if(!is_null($emailadres) && !is_null($wachtwoord)){ 
 
         $user = getUser($emailadres, $pdo);
+        print_r($user);
         
         if(logUser($user, $wachtwoord)){
             //sessie variabelen worden hierpas aangemaakt en toegewezen
@@ -37,7 +38,7 @@ if($actie == 'uitloggen'){
         }
     }else{
         // er zijn geen waardes geset via het formulier
-        $_SESSION['melding'] = "Uw emailadres of wachtwoord is niet juist";
+        $_SESSION['melding'] = "meme";
     }
 }
 //de verwerking is klaar, ga via een redirect weer terug naar de index

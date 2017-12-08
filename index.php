@@ -18,6 +18,7 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/custom.css" rel="stylesheet">
+    <link href="css/artikel.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
@@ -38,3 +39,6 @@
         </div> <!-- /container -->
 
      <?php  include_once 'pagina/page/footer.php'; ?>
+</main>
+</body>
+</html>
