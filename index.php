@@ -32,19 +32,27 @@
             <div class="jumbotron">
                 <div class="container">
                     <div class="row"> 
-                        <?php print(getPage(check(), $pdo)); 
-                        if (search()){
-                                foreach ((getProducts($_GET['search'], $pdo)) as $key => $value) {
-                                    print($value['product_id'].$value['product_name'].'</br>');
-                                }
-                        } ?>
+                        <?php print(getPage(check(), $pdo));?>
                         
                     </div>
                 </div>
             </div>
         </div> <!-- /container -->
-
-     <?php  include_once 'pagina/page/footer.php'; ?>
+        <table>
+     <?php  
+            if (search()){
+                foreach ((getProducts($_POST['search'], $pdo)) as $key => $value) {
+                    print '<tr>';
+                    foreach ($value as $key => $value) {
+                        print('<tr><th>'.$key.'</th>'.'<td>'.$value.'</td></tr>');
+                    }
+                    print('</tr>');
+                    }
+                }
+                print '</table>';
+                include_once 'pagina/page/footer.php';
+    ?>
+            
 </main>
 </body>
 </html>

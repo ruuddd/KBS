@@ -28,6 +28,7 @@
                 </li>
                 </ul>
                     <form class="form-inline my-2 my-lg-0" method="GET">
+                    <form class="form-inline my-2 my-lg-0" method="POST">
                     <input type="search" placeholder="Search" name="search">
                     <div class="nav-item">
                         <?php
