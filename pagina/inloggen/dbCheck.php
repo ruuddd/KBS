@@ -22,7 +22,10 @@ function getUser($emailadres, $conn)
     }
 }
 
+<<<<<<< HEAD
 function logUser($emailadres, $wachtwoord)
+=======
+>>>>>>> 4152c7aed0db887dc729b880ac946d86e2735b7e
 function logUser($user, $wachtwoord)
 {
 	$dbPass = $user["password"];

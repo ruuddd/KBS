@@ -32,7 +32,13 @@
             <div class="jumbotron">
                 <div class="container">
                     <div class="row"> 
-                        <?php print(getPage(check(), $pdo)); ?>
+                        <?php print(getPage(check(), $pdo)); 
+                        if (search()){
+                                foreach ((getProducts($_GET['search'], $pdo)) as $key => $value) {
+                                    print($value['product_id'].$value['product_name'].'</br>');
+                                }
+                        } ?>
+                        
                     </div>
                 </div>
             </div>
