@@ -42,12 +42,12 @@ if($actie == 'uitloggen'){
         }
     }else{
         // er zijn geen waardes geset via het formulier
-<<<<<<< HEAD
+
         $_SESSION['melding'] = "meme";
-=======
+
         $_SESSION['melding'] = "Uw gebruikersnaam of wachtwoord is niet juist";
         $_SESSION['melding'] = "Uw emailadres of wachtwoord is niet juist";
->>>>>>> 29b4e0392d0bfe3f051c067b9e4d926712de426c
+
     }
 }
 //de verwerking is klaar, ga via een redirect weer terug naar de index
