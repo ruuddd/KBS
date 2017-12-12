@@ -5,7 +5,7 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en">
-    <head> 
+    <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
 
@@ -26,55 +26,55 @@ session_start();
             <?php
             //include die een DIV met HTML print
             include 'melding.inc.php';
-            
-            
+
+
             if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
                 //laadt nu pas de beveiligde inhoud
                 include '../mijn.php';
                 print('<a href="verwerk.php?actie=uitloggen">Uitloggen</a>');
             } else {
                 ?>
-            <div class="row main">
-                <div class="panel-heading">
-                    <div class="panel-title text-center">
+                <div class="row main">
+                    <div class="panel-heading">
+                        <div class="panel-title text-center">
+                        </div>
                     </div>
-                </div> 
-                <div class="main-login main-center">
-                    <form class="form-horizontal" method="post" action="../inloggen/verwerk.php">
-                        <div class="form-group">
-                            <label for="username" class="cols-sm-2 control-label">E-mailadres</label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="emailadres" id="username"  placeholder="Voer uw emailadres in"/>
+                    <div class="main-login main-center">
+                        <form class="form-horizontal" method="post" action="../inloggen/verwerk.php">
+                            <div class="form-group">
+                                <label for="username" class="cols-sm-2 control-label">E-mailadres</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control" name="emailadres" id="username"  placeholder="Voer uw emailadres in"/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="password" class="cols-sm-2 control-label">Wachtwoord</label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                    <input type="password" class="form-control" name="wachtwoord" id="password"  placeholder="Voer uw wachtwoord in"/>
+                            <div class="form-group">
+                                <label for="password" class="cols-sm-2 control-label">Wachtwoord</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                        <input type="password" class="form-control" name="wachtwoord" id="password"  placeholder="Voer uw wachtwoord in"/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="form-group ">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Log in</button>
-                        </div>
-                        <div class="login-register">
-                            <a href="../registratie/register.php">Creëer account</a> or <a href="reset_password.php">Herstel wachtwoord</a>
-                        </div>
-                    </form>
+                            <div class="form-group ">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Log in</button>
+                            </div>
+                            <div class="login-register">
+                                <a href="../registratie/register.php">Creëer account</a> or <a href="reset_password.php">Herstel wachtwoord</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <?php
+                <?php
             }
             ?>
         </div>
 
-        <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+        <script type="../../js/javascript" src="../../js/bootstrap.js"></script>
     </body>
 </html>
