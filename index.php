@@ -40,7 +40,20 @@ include 'functions/dbConnect.php';
         <div class="jumbotron">
             <div class="container">
                 <div class="row">
-                    <?php print(getPage(check(), $pdo)); ?>
+                    <?php 
+                        if (check() == "webshop") 
+                        {
+                            include_once "pagina/webShop.php";
+                        }
+                        elseif(check() == "login")
+                        {
+                            include_once "pagina/inloggen/inlog.php";
+                        }
+                        else
+                        {
+                            print(getPage(check(), $pdo)); 
+                        }
+                    ?>
 
                 </div>
             </div>

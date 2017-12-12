@@ -11,11 +11,9 @@
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
         <style class="cp-pen-styles"></style></head>
     <?php
-    include "../functions/CRUD/read.php";
 
-    include "../functions/dbConnect.php";
 
-    include "page/header.php"
+    include "pagina/page/header.php";
     ?>
 
     <div id="app">
