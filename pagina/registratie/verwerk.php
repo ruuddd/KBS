@@ -22,18 +22,18 @@ $wachtwoord = filter_input(INPUT_POST, 'wachtwoord');
 $bevestig_wachtwoord = filter_input(INPUT_POST, 'bevestig_wachtwoord'); 
 $actie = filter_input(INPUT_GET, 'actie');
 
-if(!is_null($voornaam) && !is_null($tussenvoegsel) && !is_null($achternaam) && !is_null($emailadres) && !is_null($telefoonnummer) && !is_null($straatnaam) && !is_null($huisnummer) && !is_null($postcode) && !is_null($woonplaats) && !is_null($land) && !is_null($wachtwoord) && !is_null($bevestig_wachtwoord))
-    { //controleer of de variabelen niet leeg zijn
-        if(createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $wachtwoord, $bevestig_wachtwoord, $pdo))
-        {
-            //sessie variabelen worden hierpas aangemaakt en toegewezen
-            $_SESSION['melding'] = "Welkom $voornaam, uw account is succesvol gecreërd.";
-            $_SESSION['ingelogd'] = true;
-            $_SESSION['gebruikersnaam'] = $gebruikersnaam;
-            $_SESSION['role'] = $user[0]['role'];
-            $_SESSION['firstname'] = $user['firstname'];
-            $_SESSION['fullname'] = $user['firstname']." ".$user['insertion']." ".$user['lastname'];
+if(!is_null($voornaam) && !is_null($achternaam) && !is_null($emailadres) && !is_null($telefoonnummer) && !is_null($straatnaam) && !is_null($huisnummer) && !is_null($postcode) && !is_null($woonplaats) && !is_null($land) && !is_null($wachtwoord) && !is_null($bevestig_wachtwoord))
+   { //controleer of de variabelen niet leeg zijn
+         if(getUser($emailadres, $pdo))
+         {
+            //sessie variabelen worden hierpas aangemaakt en toegewezen\
+            echo "gebruiker bestaad al";
             $link = ' ../../index.php';
+        }
+        else
+        {
+            echo $voornaam." ".$achternaam." ".$emailadres." ".$telefoonnummer." ".$straatnaam." ".$huisnummer." ".$postcode." ".$woonplaats." ".$land." ".$wachtwoord." ".$bevestig_wachtwoord;
+            createUser($voornaam,$tussenvoegsel,$achternaam,$emailadres,$telefoonnummer,$straatnaam,$huisnummer,$postcode,$woonplaats,$land,$wachtwoord,$bevestig_wachtwoord,$pdo);
         }
     }
 

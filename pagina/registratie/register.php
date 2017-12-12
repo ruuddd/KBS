@@ -121,7 +121,6 @@ session_start();
                         <div class="login-register">
                             <a href="../inloggen/inlog.php">Login</a>
                          </div>
-                    </form>
 
                 </div>
                 <div class="main-login main-center">
