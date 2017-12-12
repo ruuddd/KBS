@@ -6,10 +6,10 @@
         <link rel="shortcut icon" type="image/x-icon" href="../images/web/logo.jpg" />
         <link rel="mask-icon" type="" href="g" color="#111" />
         <link rel="canonical" href="https://codepen.io/travishorn/pen/qmBYxj?depth=everything&order=popularity&page=36&q=vue&show_forks=false" />
-
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-        <style class="cp-pen-styles"></style></head>
+        <style class="cp-pen-styles"></style>
+    </head>
     <?php
 
 
@@ -32,11 +32,13 @@
                     $artikelNaam = $value['product_name'];
                     $artikelPrijs = $value['product_price'];
                     $artikelAfbeelding = $value['product_image'];
+                    $artikelBeschrijving = $value['product_description'];
                     print ( '
                     <div class = "col-md-3" v-for = "item in selling">
                     <div class = "card"><img src = "' . $artikelAfbeelding . '" align = "middle" height = "250" width = "250" alt = "' . $artikelNaam . '"/>
                     <div class = "card-block">
                     <h4 class = "card-title">' . $artikelNaam . '</h4>
+                    <h5 class = "card-title">' .$artikelBeschrijving. '</h4>
                     <div class = "card-text">€' . $artikelPrijs . '</div>
                   <div class="row justify-content-end">
                     <form><button type="submit" class="btn btn-primary" action="winkelmandje.php" :data-id="item.id">Toevoegen aan winkelmandje</button></form>
@@ -47,6 +49,10 @@
                 ');
                 }
                 ?>
+                
+                
+                
+                
             </div>
             <div class="modal fade" id="cart">
                 <div class="modal-dialog">

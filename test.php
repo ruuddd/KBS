@@ -1,73 +1,84 @@
-<?php
-session_start();
-include 'functions/CRUD/read.php';
-include 'functions/dbConnect.php';
-?>
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="icon" href="../../../../favicon.ico">
-        <link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
-        <link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
-        <link rel="canonical" href="https://codepen.io/travishorn/pen/qmBYxj?depth=everything&order=popularity&page=36&q=vue&show_forks=false" />
 
+<!DOCTYPE html>
+<html lang='en' class=''>
+    <head>
+        <meta charset='UTF-8'><meta name="webshop" content="noindex">
+        <link rel="shortcut icon" type="image/x-icon" href="../images/web/logo.jpg" />
+        <link rel="mask-icon" type="" href="g" color="#111" />
+        <link rel="canonical" href="https://codepen.io/travishorn/pen/qmBYxj?depth=everything&order=popularity&page=36&q=vue&show_forks=false" />
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-        <style class="cp-pen-styles"></style></head>
+        <style class="cp-pen-styles"></style>
+    </head>
+    <?php
 
-    <title>De Ferver</title>
 
+    include "pagina/page/header.php";
+    ?>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
-    <link href="css/artikel.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- Custom styles for this template -->
-    <link href="jumbotron.css" rel="stylesheet">
-</head>
-<body>
-
-    <?php include_once 'pagina/page/header.php'; ?>
-
-    <main role="main">
-        <!-- Main jumbotron for a primary marketing message or call to action -->
-        <div class="jumbotron">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <h2>Over ons</h2>
-                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    </div>
-                    <div class="col-md-4">
-                        <p>
-                            <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDESEbdN1coYtidmaUzpeLLh8LatzBDjz0'></script><div style='overflow:hidden;height:250px;width:450px;'><div id='gmap_canvas' style='height:250px;width:450px;'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div> <a href='http://maps-generator.com/nl'>Maps-Generator.com/nl</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=d6615c9024e217904a4c0ed0c77fc0ad4e697094'></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:13, center:new google.maps.LatLng(53.0409292, 5.7805336000000125), mapTypeId: google.maps.MapTypeId.ROADMAP}; map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions); marker = new google.maps.Marker({map: map, position: new google.maps.LatLng(53.0409292, 5.7805336000000125)}); infowindow = new google.maps.InfoWindow({content:'<strong>De Ferver</strong><br>Buorren 51<br>493 LD Terherne<br>'}); google.maps.event.addListener(marker, 'click', function(){infowindow.open(map, marker); }); infowindow.open(map, marker); }google.maps.event.addDomListener(window, 'load', init_map);</script>
-                        </p>
+    <div id="app">
+        <div class="container mt-3 mt-sm-5">
+            <div class="row justify-content-between mb-3">
+                <div class="col-md-9">
+                    <h1 class="display-1">Shop</h1>
+                </div>
+                <div class="col-md-3 text-right">
+                    <button class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#cart"><i class="fa fa-shopping-cart"></i><?php $aantalWinkelmandje ?></button>
+                </div>
+            </div>
+            <div class = "row">
+                <?php
+                foreach (findAllProducts($pdo) as $key => $value) {
+                    $artikelNaam = $value['product_name'];
+                    $artikelPrijs = $value['product_price'];
+                    $artikelAfbeelding = $value['product_image'];
+                    $artikelBeschrijving = $value['product_description'];
+                    print ( '
+                    <div class = "col-md-3" v-for = "item in selling">
+                    <div class = "card"><img src = "' . $artikelAfbeelding . '" align = "middle" height = "250" width = "250" alt = "' . $artikelNaam . '"/>
+                    <div class = "card-block">
+                    <h4 class = "card-title">' . $artikelNaam . '</h4>
+                    <h5 class = "card-title">' .$artikelBeschrijving. '</h4>
+                    <div class = "card-text">€' . $artikelPrijs . '</div>
+                  <div class="row justify-content-end">
+                    <form><button type="submit" class="btn btn-primary" action="winkelmandje.php" :data-id="item.id">Toevoegen aan winkelmandje</button></form>
+                  </div>
+                </div>
+              </div>
+            </div>
+                ');
+                }
+                ?>
+            </div>
+            <div class="modal fade" id="cart">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Cart</h5>
+                            <button class="close" type="button" data-dismiss="modal">×</button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table">
+                                <tbody>
+                                    <tr v-for="item in cart">
+                                        <td>{{ item.name }}</td>
+                                        <td>${{ item.price / 100 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><strong>${{ cartTotal / 100 }}</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-dismiss="modal">Continue shopping</button>
+                            <button class="btn btn-primary">Check out</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div> <!-- /container -->
-    <table>
-        <?php
-        if (search()) {
-            foreach ((searchProducts($_POST['search'], $pdo)) as $key => $value) {
-                print '<tr>';
-                foreach ($value as $key => $value) {
-                    print('<tr><th>' . $key . '</th>' . '<td>' . $value . '</td></tr>');
-                }
-                print('</tr>');
-            }
-        }
-        print '</table>';
-        include_once 'pagina/page/footer.php';
-        ?>
 
-</main>
-</body>
+    </body>
 </html>

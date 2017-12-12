@@ -14,7 +14,6 @@ include 'functions/dbConnect.php';
         <link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
         <link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
         <link rel="canonical" href="https://codepen.io/travishorn/pen/qmBYxj?depth=everything&order=popularity&page=36&q=vue&show_forks=false" />
-
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
         <style class="cp-pen-styles"></style></head>
@@ -40,19 +39,19 @@ include 'functions/dbConnect.php';
         <div class="jumbotron">
             <div class="container">
                 <div class="row">
-                    <?php 
-                        if (check() == "webshop") 
-                        {
-                            include_once "pagina/webShop.php";
-                        }
-                        elseif(check() == "login")
-                        {
-                            include_once "pagina/inloggen/inlog.php";
-                        }
-                        else
-                        {
-                            print(getPage(check(), $pdo)); 
-                        }
+                    <?php
+                    if (check() == "webshop") 
+                    {
+                        include_once "pagina/webShop.php";
+                    } 
+                    elseif (check() == "login") 
+                    {
+                        include_once "pagina/inloggen/inlog.php";
+                    } 
+                    else 
+                    {
+                        print(getPage(check(), $pdo));
+                    }
                     ?>
 
                 </div>
@@ -60,19 +59,19 @@ include 'functions/dbConnect.php';
         </div>
     </div> <!-- /container -->
     <table>
-        <?php
-        if (search()) {
-            foreach ((searchProducts($_POST['search'], $pdo)) as $key => $value) {
-                print '<tr>';
-                foreach ($value as $key => $value) {
-                    print('<tr><th>' . $key . '</th>' . '<td>' . $value . '</td></tr>');
-                }
-                print('</tr>');
-            }
+<?php
+if (search()) {
+    foreach ((searchProducts($_POST['search'], $pdo)) as $key => $value) {
+        print '<tr>';
+        foreach ($value as $key => $value) {
+            print('<tr><th>' . $key . '</th>' . '<td>' . $value . '</td></tr>');
         }
-        print '</table>';
-        include_once 'pagina/page/footer.php';
-        ?>
+        print('</tr>');
+    }
+}
+print '</table>';
+include_once 'pagina/page/footer.php';
+?>
 
 </main>
 </body>
