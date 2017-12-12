@@ -26,7 +26,7 @@
             
             function searchProducts($search, $pdo)
             {
-                $stmt = $pdo->prepare("SELECT * FROM product p JOIN productcategory PC ON P.product_id = PC.product_id JOIN category C ON C.category_id=PC.category_id WHERE product_name LIKE '%".$search."%' OR category_name LIKE '%".$search."%'");
+                $stmt = $pdo->prepare("SELECT * FROM product p JOIN productcategory PC ON P.product_id = PC.product_id JOIN category C ON C.category_id=PC.category_id WHERE product_name LIKE '%".$search."%' OR category_name LIKE '%".$search."%' OR Product_description LIKE '%".$search."%'");
                 $stmt->execute();
                 $products = $stmt->fetchall(PDO::FETCH_ASSOC);
                 return $products;
