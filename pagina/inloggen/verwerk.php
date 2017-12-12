@@ -27,7 +27,7 @@ if($actie == 'uitloggen'){
             $_SESSION['melding'] = "Je bent ingelogd als $emailadres";
             $_SESSION['ingelogd'] = true;
             $_SESSION['emailadres'] = $emailadres;
-            $_SESSION['role'] = $user[0]['role'];
+            $_SESSION['role'] = $user['role'];
             $_SESSION['firstname'] = $user['firstname'];
             $_SESSION['fullname'] = $user['firstname']." ".$user['insertion']." ".$user['lastname'];
             $link = ' ../../index.php';
@@ -44,7 +44,7 @@ if($actie == 'uitloggen'){
     }
 }
 //de verwerking is klaar, ga via een redirect weer terug naar de index
-//header('Location: '.$link);
+header('Location: '.$link);
 exit();
 ?>
 </html>
