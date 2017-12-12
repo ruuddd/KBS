@@ -6,3 +6,5 @@ function hashWachtwoord($wachtwoord) {
     ];
     return password_hash($wachtwoord, PASSWORD_BCRYPT, $options);
 }
+
+echo hashWachtwoord('Kak1Kak1');

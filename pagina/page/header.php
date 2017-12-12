@@ -18,7 +18,7 @@
                     <a class="nav-link" href="?page=home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="pagina/webShop.php">Artikelen</a>
+                    <a class="nav-link" href="?page=webshop">Artikelen</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="?page=overons">Over ons</a>
@@ -39,7 +39,7 @@
                     } else {
                         ?>
 
-                        <a class="nav-link" href="pagina/inloggen/inlog.php">Inloggen</a>
+                        <a class="nav-link" href="?page=login">Inloggen</a>
                         <?php
                     }
                     ?>
