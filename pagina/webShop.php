@@ -1,51 +1,64 @@
 
-<!DOCTYPE html><html class=''>
-<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/qq7886/pen/zBGrwq" />
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/travishorn/pen/qmBYxj?depth=everything&order=popularity&page=36&q=vue&show_forks=false" />
 
-<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
-<link rel='stylesheet' href=../css/artikelpage.css>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<style class="cp-pen-styles"></style></head><body>
 
-<style class="cp-pen-styles">
-</style></head><body>
 <div id="app">
-  <div id="product">
-    <item v-for="item in items" v-bind:item_data="item"></item>
-  </div>
-  <div id="cart">
-    <div id="head">
-      <h3>Shopping Cart</h3>
-      <div id="price">Price</div>
-      <div id="quantity">Quantity</div>
-      <div id="total">Total</div>
+  <div class="container mt-3 mt-sm-5">
+    <div class="row justify-content-between mb-3">
+      <div class="col-md-9">
+        <h1 class="display-1">Shop</h1>
+      </div>
+      <div class="col-md-3 text-right">
+        <button class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#cart"><i class="fa fa-shopping-cart"></i><?php $aantalWinkelmandje ?></button>
+      </div>
     </div>
-    <buyitem v-for="buyitem in buyitems" v-bind:buy_data="buyitem"></buyitem>
-    <h5 v-if="total()">Sum: $ {{total()}}</h5>
+    <?php print("
+    <div class="row">
+      <div class="col-md-3" v-for="item in selling">
+        <div class="card"><img class="card-img-top" :src="item.image" :alt="item.name"/>
+          <div class="card-block">
+            <h4 class="card-title"><?php $artikelNaam ?></h4>
+            <div class="card-text"><?php $artikelPrijs ?></div>
+            <div class="row justify-content-end">
+              <button class="btn btn-primary" action="winkelmandje.php" :data-id="item.id">Toevoegen aan winkelmandje</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>");
+?>
+  <div class="modal fade" id="cart">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Cart</h5>
+          <button class="close" type="button" data-dismiss="modal">×</button>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <tbody>
+              <tr v-for="item in cart">
+                <td>{{ item.name }}</td>
+                <td>${{ item.price / 100 }}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong>${{ cartTotal / 100 }}</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-dismiss="modal">Continue shopping</button>
+          <button class="btn btn-primary">Check out</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-
-<template id="product-box">
-  <div class="box">
-    <img :src="item_data.img"/>
-    <i class="fa fa-plus" v-on:click="addItem(item_data)"></i>
-    <h2>{{item_data.title}}</h2>
-    <p>$ {{item_data.price}}</p>
-  </div>
-</template>
-
-<template id="buy-box">
-  <div class="row">
-    <img :src="buy_data.img"/>
-    <h4>{{buy_data.title}}</h4>
-    <p>$ {{buy_data.price}}</p>
-    <div class="qty-minus" v-on:click="minusQty(buy_data)">-</div>
-    <div class="qty">{{buy_data.qty}}</div>
-    <div class="qty-plus" v-on:click="plusQty(buy_data)">+</div>
-    <div class="del" v-on:click="removeItem(buy_data)">Remove</div>
-    <div class="totalprice">{{buy_data.total}}</div>
-  </div>
-</template>
-<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js'></script>
-<script src='../js/artikelen.js'>
-</script>
 </body></html>
