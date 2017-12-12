@@ -1,6 +1,16 @@
 
 <!DOCTYPE html><html lang='en' class=''>
+<<<<<<< HEAD
     <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<head><meta charset='UTF-8'><meta name="webshop" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="images/web/logo" /><link rel="mask-icon" type="" href="" color="#111" /><link rel="canonical" href="https://codepen.io/travishorn/pen/qmBYxj?depth=everything&order=popularity&page=36&q=vue&show_forks=false" />
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 3ea41eb4b8076e87c7d27266b86dde6037eeafab
+>>>>>>> b5da8e682a5f8d7786600e31b63c7172cbfb6165
     <head>
         <meta charset='UTF-8'><meta name="robots" content="noindex">
         <link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
@@ -12,6 +22,7 @@
         <style class="cp-pen-styles"></style></head><body>
         <?php
         include "../functions/CRUD/read.php";
+<<<<<<< HEAD
 
         <head><script src = '//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/travishorn/pen/qmBYxj?depth=everything&order=popularity&page=36&q=vue&show_forks=false" />
 
@@ -40,11 +51,50 @@
                     print (
                     '<div class="col-md-3" v-for="item in selling">
                   <div class="card"><img class="card-img-top" :src="../images/artikelen/sjaal.jpg" :alt="item.name"/>
+=======
+=======
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/travishorn/pen/qmBYxj?depth=everything&order=popularity&page=36&q=vue&show_forks=false" />
+>>>>>>> 3ea41eb4b8076e87c7d27266b86dde6037eeafab
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<style class="cp-pen-styles"></style></head><body>
+<?php   include "../functions/CRUD/read.php";
+<<<<<<< HEAD
+<<<<<<< HEAD
+        include "../functions/dbConnect.php";     
+        include 'page/header.php';
+=======
+=======
+>>>>>>> 3ea41eb4b8076e87c7d27266b86dde6037eeafab
+>>>>>>> a18fb036fb4d11e9c4fdcc65e95754c8f56e8aa3
+        include "../functions/dbConnect.php";
+>>>>>>> 3ea41eb4b8076e87c7d27266b86dde6037eeafab
+?>
+<div id="app">
+  <div class="container mt-3 mt-sm-5">
+    <div class="row justify-content-between mb-3">
+      <div class="col-md-9">
+        <h1 class="display-1">Shop</h1>
+      </div>
+      <div class="col-md-3 text-right">
+        <button class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#cart"><i class="fa fa-shopping-cart"></i><?php $aantalWinkelmandje ?></button>
+      </div>
+    </div>
+      <div class="row">
+        <?php foreach (findAllProducts($pdo) as $key => $value) { 
+        $artikelNaam = $value['product_name'];
+        $artikelPrijs= $value['product_price'];
+        $artikelAfbeelding = $value['product_image'];
+        print ( 
+                '
+                    <div class="col-md-3" v-for="item in selling">
+                  <div class="card"><img class="card-img-top" img src="'.$artikelAfbeelding.'" alt="'.$artikelNaam.'"/>
+>>>>>>> b5da8e682a5f8d7786600e31b63c7172cbfb6165
                     <div class="card-block">
                       <h4 class="card-title">'.$artikelNaam. '</h4>
                       <div class="card-text">'.$artikelPrijs.'</div>
                       <div class="row justify-content-end">
-                        <button class="btn btn-primary" action="winkelmandje.php" :data-id="item.id">Toevoegen aan winkelmandje</button>
+                        <button class="btn btn-primary" action="winkelmandje.php" data-id="item.id">Toevoegen aan winkelmandje</button>
                       </div>
                     </div>
                     <div class="col-md-3 text-right">
@@ -117,8 +167,18 @@
 </div>');
 }
 ?>
+<<<<<<< HEAD
 </div>
 <div class="modal fade" id="cart">
+=======
+             </div>
+<<<<<<< HEAD
+ 
+    <?php include_once 'page/footer.php';?>
+</body></html>
+=======
+  <div class="modal fade" id="cart">
+>>>>>>> b5da8e682a5f8d7786600e31b63c7172cbfb6165
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -149,3 +209,7 @@
 </div>
 </body></html>
 >>>>>>> a18fb036fb4d11e9c4fdcc65e95754c8f56e8aa3
+<<<<<<< HEAD
+>>>>>>> 3ea41eb4b8076e87c7d27266b86dde6037eeafab
+=======
+>>>>>>> 3ea41eb4b8076e87c7d27266b86dde6037eeafab
