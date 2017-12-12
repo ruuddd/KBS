@@ -18,7 +18,7 @@ function getUser($emailadres, $conn)
     }
     else
     {
-    	return false;
+    	return true;
     }
 }
 
