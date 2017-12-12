@@ -1,5 +1,6 @@
 
-<!DOCTYPE html><html lang='en' class=''>
+<!DOCTYPE html>
+<html lang='en' class=''>
     <head>
         <meta charset='UTF-8'><meta name="webshop" content="noindex">
         <link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
@@ -13,7 +14,10 @@
     include "../functions/CRUD/read.php";
 
     include "../functions/dbConnect.php";
+
+    include "page/header.php"
     ?>
+
     <div id="app">
         <div class="container mt-3 mt-sm-5">
             <div class="row justify-content-between mb-3">
