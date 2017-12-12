@@ -43,9 +43,9 @@ function logUser($emailadres, $wachtwoord)
 function createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $wachtwoord, $bevestig_wachtwoord, $pdo)
 {
     $query = "INSERT INTO `person` (`email`, `role`, `adress_id`, `password`, `firstname`, `lastname`, `phonenumber`, `insertion`) VALUES ('$emailadres', '1', '1', '$wachtwoord', '$voornaam', '$achternaam', '$telefoonnummer', NULL)";
-   $adresGegevens = $pdo->prepare($query);
-   $adresGegevens->execute();
+    $adresGegevens = $pdo->prepare($query);
+    $adresGegevens->execute();
 
-   // $persoonsGegevens = $pdo->prepare("INSERT INTO 'person' (`email`, `role`, `address_id`, `password`, `firstname`, `lastname`, `phonenumber`, `insertion`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-   // $persoonsGegevens->execute([$emailadres, '1', '2', $wachtwoord, $voornaam, $achternaam, $telefoonnummer, $tussenvoegsel]);
+    $persoonsGegevens = $pdo->prepare("INSERT INTO 'person' (`email`, `role`, `address_id`, `password`, `firstname`, `lastname`, `phonenumber`, `insertion`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $persoonsGegevens->execute([$emailadres, '1', '2', $wachtwoord, $voornaam, $achternaam, $telefoonnummer, $tussenvoegsel]);
 }

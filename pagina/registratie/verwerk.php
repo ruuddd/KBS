@@ -32,7 +32,7 @@
             createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $wachtwoord, $bevestig_wachtwoord, $pdo);
         }
     }
-
+    
     exit();
     ?>
 </html>
