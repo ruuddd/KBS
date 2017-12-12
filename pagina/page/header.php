@@ -18,13 +18,10 @@
                     <a class="nav-link" href="?page=home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?page=webshop">Artikelen</a>
+                    <a class="nav-link" href="?pagina/webShop.php">Artikelen</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="?page=overons">Over ons</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="pagina/webShop.php">TEST</a>
                 </li>
 
         </div>
