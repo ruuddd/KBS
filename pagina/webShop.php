@@ -1,9 +1,12 @@
 
 <!DOCTYPE html><html lang='en' class=''>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <head><meta charset='UTF-8'><meta name="webshop" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="images/web/logo" /><link rel="mask-icon" type="" href="" color="#111" /><link rel="canonical" href="https://codepen.io/travishorn/pen/qmBYxj?depth=everything&order=popularity&page=36&q=vue&show_forks=false" />
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> 3ea41eb4b8076e87c7d27266b86dde6037eeafab
     <head>
         <meta charset='UTF-8'><meta name="robots" content="noindex">
         <link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
@@ -23,9 +26,12 @@
 <style class="cp-pen-styles"></style></head><body>
 <?php   include "../functions/CRUD/read.php";
 <<<<<<< HEAD
+<<<<<<< HEAD
         include "../functions/dbConnect.php";     
         include 'page/header.php';
 =======
+=======
+>>>>>>> 3ea41eb4b8076e87c7d27266b86dde6037eeafab
 >>>>>>> a18fb036fb4d11e9c4fdcc65e95754c8f56e8aa3
         include "../functions/dbConnect.php";
 >>>>>>> 3ea41eb4b8076e87c7d27266b86dde6037eeafab
@@ -163,4 +169,7 @@
 </div>
 </body></html>
 >>>>>>> a18fb036fb4d11e9c4fdcc65e95754c8f56e8aa3
+<<<<<<< HEAD
+>>>>>>> 3ea41eb4b8076e87c7d27266b86dde6037eeafab
+=======
 >>>>>>> 3ea41eb4b8076e87c7d27266b86dde6037eeafab
