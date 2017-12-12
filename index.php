@@ -42,7 +42,7 @@
         <table>
      <?php  
             if (search()){
-                foreach ((getProducts($_POST['search'], $pdo)) as $key => $value) {
+                foreach ((searchProducts($_POST['search'], $pdo)) as $key => $value) {
                     print '<tr>';
                     foreach ($value as $key => $value) {
                         print('<tr><th>'.$key.'</th>'.'<td>'.$value.'</td></tr>');

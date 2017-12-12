@@ -15,7 +15,7 @@
         <button class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#cart"><i class="fa fa-shopping-cart"></i><?php $aantalWinkelmandje ?></button>
       </div>
     </div>
-    <?php print("
+    <?php print('
     <div class="row">
       <div class="col-md-3" v-for="item in selling">
         <div class="card"><img class="card-img-top" :src="item.image" :alt="item.name"/>
@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-  </div>");
+  </div>');
 ?>
   <div class="modal fade" id="cart">
     <div class="modal-dialog">
