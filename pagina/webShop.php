@@ -28,7 +28,15 @@
             </div>
             <div class = "row">
                 <?php
-                foreach (findAllProducts($pdo) as $key => $value) {
+                if (search())
+                    {
+                    $products = searchProducts($_POST['search'], $pdo);
+                    }
+                    else
+                        {
+                        $products = findAllProducts($pdo);
+                        }
+                foreach ($products as $key => $value) {
                     $artikelNaam = $value['product_name'];
                     $artikelPrijs = $value['product_price'];
                     $artikelAfbeelding = $value['product_image'];
@@ -45,7 +53,7 @@
               </div>
             </div>
                 ');
-                }
+                    }
                 ?>
             </div>
             <div class="modal fade" id="cart">

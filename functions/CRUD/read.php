@@ -5,7 +5,7 @@
                 $page="home";
                 if(search())
                 {
-                    $page='artikelen';
+                    $page='webshop';
                 }
                 else if (isset($_GET['page']))
                 {

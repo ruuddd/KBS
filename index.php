@@ -59,18 +59,7 @@ include 'functions/dbConnect.php';
             </div>
         </div>
     </div> <!-- /container -->
-    <table>
         <?php
-        if (search()) {
-            foreach ((searchProducts($_POST['search'], $pdo)) as $key => $value) {
-                print '<tr>';
-                foreach ($value as $key => $value) {
-                    print('<tr><th>' . $key . '</th>' . '<td>' . $value . '</td></tr>');
-                }
-                print('</tr>');
-            }
-        }
-        print '</table>';
         include_once 'pagina/page/footer.php';
         ?>
 
