@@ -24,14 +24,14 @@
                     <button class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#cart"><i class="fa fa-shopping-cart"></i><?php $aantalWinkelmandje ?></button>
                 </div>
             </div>
-
+ <div class = "row">
             <?php
             foreach (findAllProducts($pdo) as $key => $value) {
                 $artikelNaam = $value['product_name'];
                 $artikelPrijs = $value['product_price'];
                 $artikelAfbeelding = $value['product_image'];
                 print ( '
-                    <div class = "row">
+                   
                     <div class = "col-md-3" v-for = "item in selling">
                     <div class = "card"><img src = "' . $artikelAfbeelding . '" align = "middle" height = "250" width = "250" alt = "' . $artikelNaam . '"/>
                     <div class = "card-block">
@@ -43,11 +43,11 @@
                 </div>
               </div>
             </div>
-          </div>
+          
 
        ');
             }
-            ?>
+            ?></div>
 
             <div class="modal fade" id="cart">
                 <div class="modal-dialog">
