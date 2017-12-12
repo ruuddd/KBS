@@ -1,0 +1,32 @@
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+}
+
+table,th,td{
+    border: 2px solid black;
+}
+
+th,td{
+    padding: 10px;
+    text-align: left;
+    vertical-align: bottom;
+}
+td{
+    vertical-align: middle;
+}
+
+th{
+    height: 50px;
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+#koop{
+    width: 80%;
+    border: 2px solid black;
+    padding-left: 10px;
+}
