@@ -4,7 +4,9 @@
 
 <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 <style class="cp-pen-styles"></style></head><body>
-
+<?php   include "../functions/CRUD/read.php";
+        include "../functions/dbConnect.php";
+?>
 <div id="app">
   <div class="container mt-3 mt-sm-5">
     <div class="row justify-content-between mb-3">
@@ -15,13 +17,16 @@
         <button class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#cart"><i class="fa fa-shopping-cart"></i><?php $aantalWinkelmandje ?></button>
       </div>
     </div>
-    <?php print('
-    <div class="row">
+      <div class="row">
+    <?php foreach (findAllProducts($pdo) as $key => $value) { 
+        $artikelNaam = $value['product_name'];
+        $artikelPrijs= $value['product_price'];
+        print (   '
       <div class="col-md-3" v-for="item in selling">
         <div class="card"><img class="card-img-top" :src="item.image" :alt="item.name"/>
           <div class="card-block">
-            <h4 class="card-title"><?php $artikelNaam ?></h4>
-            <div class="card-text"><?php $artikelPrijs ?></div>
+            <h4 class="card-title">'.$artikelNaam. '</h4>
+            <div class="card-text">'.$artikelPrijs.'</div>
             <div class="row justify-content-end">
               <button class="btn btn-primary" action="winkelmandje.php" :data-id="item.id">Toevoegen aan winkelmandje</button>
             </div>
@@ -29,8 +34,15 @@
         </div>
       </div>
     </div>
-  </div>');
+ ');
+//    foreach ($value as $value){
+//        print ($value);
+//    }
+//    print("</br>");
+    }
+
 ?>
+             </div>
   <div class="modal fade" id="cart">
     <div class="modal-dialog">
       <div class="modal-content">

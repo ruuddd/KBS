@@ -38,3 +38,10 @@
                     return false;
                 }
             }
+            
+            function findAllProducts($pdo){
+                $stmt = $pdo->prepare("SELECT * FROM product"); 
+                $stmt->execute();
+                $allProducts = $stmt->fetchall(PDO::FETCH_ASSOC);
+                return $allProducts;
+            }
