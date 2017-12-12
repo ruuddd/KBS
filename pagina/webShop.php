@@ -18,23 +18,9 @@
       </div>
     </div>
       <div class="row">
-    <?php foreach (findAllProducts($pdo) as $key => $value) { 
+        <?php foreach (findAllProducts($pdo) as $key => $value) { 
         $artikelNaam = $value['product_name'];
         $artikelPrijs= $value['product_price'];
-        print (   '
-      <div class="col-md-3" v-for="item in selling">
-        <div class="card"><img class="card-img-top" :src="item.image" :alt="item.name"/>
-          <div class="card-block">
-            <h4 class="card-title">'.$artikelNaam. '</h4>
-            <div class="card-text">'.$artikelPrijs.'</div>
-            <div class="row justify-content-end">
-              <button class="btn btn-primary" action="winkelmandje.php" :data-id="item.id">Toevoegen aan winkelmandje</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
- ');
 //    foreach ($value as $value){
 //        print ($value);
 //    }
