@@ -54,7 +54,7 @@
                     </div>
                     <?php print('
                     <div class="details col-md-6">
-                        <h3 class="product-title"></h3>
+                        <h3 class="'.$artikelNaam.'"></h3>
                         <div class="rating">
                             <div class="stars">
                                 <span class="fa fa-star checked"></span>
@@ -65,8 +65,8 @@
                             </div>
                             <span class="review-no">41 reviews</span>
                         </div>
-                        <p class="product-description">lorem ipsum enzo</p>
-                        <h4 class="price">Prijs: <span>drietig geld</span></h4>
+                        <p class="product-description">'.$artikelBeschrijving.'</p>
+                        <h4 class="price">Prijs: <span>'.$artikelPrijs.'</span></h4>
                         <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
                         <h5 class="sizes">sizes:
                             <span class="size" data-toggle="tooltip" title="small">s</span>
