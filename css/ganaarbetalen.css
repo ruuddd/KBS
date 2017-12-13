@@ -1,0 +1,12 @@
+/*#metaccount{
+    width: 33%;
+    height: 100px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: red;
+}*/
+
+#zonderaccount{
+    float: right;
+    position: relative;
+}
