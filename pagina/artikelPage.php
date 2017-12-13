@@ -55,20 +55,9 @@
                     ?>
                     <?php print('
                     <div class="details col-md-6">
-                        <h3 class="'.$artikelNaam.'"></h3>
-                        <div class="rating">
-                            <div class="stars">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                            <span class="review-no">41 reviews</span>
-                        </div>
+                        <h3 class="">'.$artikelNaam.'</h3>
                         <p class="product-description">'.$artikelBeschrijving.'</p>
-                        <h4 class="price">Prijs: <span>'.$artikelPrijs.'</span></h4>
-                        <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+                        <h4 class="price">Prijs: <span>€'.$artikelPrijs.'</span></h4>
                         <h5 class="sizes">sizes:
                             <span class="size" data-toggle="tooltip" title="small">s</span>
                             <span class="size" data-toggle="tooltip" title="medium">m</span>
