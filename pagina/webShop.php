@@ -13,8 +13,8 @@
                     $artikelPrijs = $value['product_price'];
                     $artikelAfbeelding = $value['product_image'];
                     $artikelBeschikbaarheid = $value['availability'];
-                    print ( '
-                    <div onclick="location.href="?page=artikel";" style="cursor:pointer; class = "col-md-3" v-for = "item in selling">
+                    print ( '<a href="?page=artikel>
+                    <div style="cursor:pointer; class = "col-md-3" v-for = "item in selling">
                     <div class = "card"><img src = "' . $artikelAfbeelding . '" align = "middle" height = "250" width = "250" alt = "' . $artikelNaam . '"/>
                     <div class = "card-block">
                     <h6 class = "card-title">' . $artikelNaam . '</h6>
@@ -25,7 +25,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> </a>
                 ');
                     }
                 ?>
