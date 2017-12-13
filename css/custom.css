@@ -192,7 +192,23 @@ a:hover
   to {opacity: 1}
 }
 
-login-register a{
-    color: black;
+/*** maak de hoogte en breedte gelijk aan je afbeeldingen **/
+#slideshow {
+position:relative;
+height:300px;
+width:450px;
 }
-
+#slideshow .slide {
+position:absolute;
+top:0;
+left:0;
+z-index:8;
+opacity:0.0;
+}
+#slideshow div.active {
+z-index:10;
+opacity:1.0;
+}
+#slideshow div.last-active {
+z-index:9;
+}

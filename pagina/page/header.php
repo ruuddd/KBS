@@ -23,12 +23,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="?page=overons">Over ons</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?page=test">TEST</a>
+                </li>
 
         </div>
         </li>
         </ul>
             <form class="form-inline my-2 my-lg-0" method="POST">
                 <input type="search" placeholder="Search" name="search">
+                
                 <div class="nav-item">
                     <?php
                     if (!empty($_SESSION['ingelogd'])) {
