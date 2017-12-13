@@ -3,6 +3,7 @@
 <link href="/kbs/css/custom.css" rel="stylesheet" type="text/css">
 
 
+
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container alt-navbar">
         <a class="navbar-brand" href="#">
@@ -30,24 +31,24 @@
         </div>
         </li>
         </ul>
-            <form class="form-inline my-2 my-lg-0" method="POST">
-                <input type="search" placeholder="Search" name="search">
-                
-                <div class="nav-item">
-                    <?php
-                    if (!empty($_SESSION['ingelogd'])) {
-                        if ($_SESSION['ingelogd']) {
-                            print('<a class="nav-link" href="pagina/mijn.php">' . $_SESSION['fullname'] . '</a>');
-                        }
-                    } else {
-                        ?>
+        <form class="form-inline my-2 my-lg-0" method="POST">
+            <input type="search" placeholder="Search" name="search">
 
-                        <a class="nav-link" href="/KBS/login/">Inloggen</a>
-                        <?php
+            <div class="nav-item">
+                <?php
+                if (!empty($_SESSION['ingelogd'])) {
+                    if ($_SESSION['ingelogd']) {
+                        print('<a class="nav-link" href="pagina/mijn.php">' . $_SESSION['fullname'] . '</a>');
                     }
+                } else {
                     ?>
-                </div>
-            </form>
+
+                    <a class="nav-link" href="/KBS/login/">Inloggen</a>
+                    <?php
+                }
+                ?>
+            </div>
+        </form>
     </div>
 </div>
 </nav>
