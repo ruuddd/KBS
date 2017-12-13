@@ -53,3 +53,11 @@
                 $allProducts = $stmt->fetchall(PDO::FETCH_ASSOC);
                 return $allProducts;
             }
+            
+                        function findOneProduct($product, $pdo)
+            {
+                $stmt = $pdo->prepare("SELECT * FROM product where product_id = '$product'"); 
+                $stmt->execute();
+                $oneProduct = $stmt->fetchall(PDO::FETCH_ASSOC);
+                return $oneProduct;
+            }

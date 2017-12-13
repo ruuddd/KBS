@@ -13,7 +13,11 @@
                     $artikelPrijs = $value['product_price'];
                     $artikelAfbeelding = $value['product_image'];
                     $artikelBeschikbaarheid = $value['availability'];
-                    print ( '<a href="?page=artikel_'.$value['product_id'].'">
+<<<<<<< HEAD
+                    print ( '<a href="?page=artikel">
+=======
+                    print ( '<a href="?page=artikel&product='.$value['product_id'].'">
+>>>>>>> e6c56396962114a6c26ee92a06c61f1550348e6a
                     <div style="cursor:pointer; class = "col-md-3" v-for = "item in selling">
                     <div class = "card"><img src = "' . $artikelAfbeelding . '" align = "middle" height = "250" width = "250" alt = "' . $artikelNaam . '"/>
                     <div class = "card-block">
