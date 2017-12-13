@@ -6,7 +6,7 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container alt-navbar">
         <a class="navbar-brand" href="#">
-            <img src="images/web/logo.jpg" height="50" width="65" alt="Ferver Logo"/>
+            <img src="/KBS/images/web/logo.jpg" height="50" width="65" alt="Ferver Logo"/>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
