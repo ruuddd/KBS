@@ -28,7 +28,8 @@ include 'functions/dbConnect.php';
 
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
-        
+    
+    <link href="winkelmandje.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 
@@ -51,7 +52,11 @@ include 'functions/dbConnect.php';
                     elseif (check() == "artikel") 
                     {
                         include_once "pagina/artikelPage.php";
-                    } 
+                    }
+                    elseif (check() == "winkelmandje")
+                    {
+                        include_once "pagina/winkelmandje.php";
+                    }
                     else 
                     {
                         print(getPage(check(), $pdo));

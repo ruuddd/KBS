@@ -19,7 +19,17 @@
   </head>
 
   <body>
+    <?php 
+    foreach (findOneProduct($_GET['product'], $pdo) as $value)
+        {
+                    $artikelNaam = $value['product_name'];
+                    $artikelPrijs = $value['product_price'];
+                    $artikelAfbeelding = $value['product_image'];
+                    $artikelBeschikbaarheid = $value['availability'];
+                    $artikelBeschrijving = $value['product_description'];
+        }
     
+    ?>
     <div class="container">
         <div class="card">
             <div class="container-fliud">
@@ -42,8 +52,9 @@
                         </ul>
                         
                     </div>
+                    <?php print('
                     <div class="details col-md-6">
-                        <h3 class="product-title">doe maar kopen</h3>
+                        <h3 class="product-title"></h3>
                         <div class="rating">
                             <div class="stars">
                                 <span class="fa fa-star checked"></span>
@@ -71,7 +82,7 @@
                         <div class="action">
                             <button class="add-to-cart btn btn-default" type="button">add to cart</button>
                             <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
-                        </div>
+                        </div>' )?>
                     </div>
                 </div>
             </div>
