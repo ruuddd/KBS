@@ -28,7 +28,8 @@ include 'functions/dbConnect.php';
 
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
-        
+    
+    <link href="winkelmandje.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 
