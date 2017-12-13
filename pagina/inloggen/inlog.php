@@ -1,24 +1,3 @@
-
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
-
-        <!-- Website CSS style -->
-        <link rel="stylesheet" type="text/css" href="../../css/login.css">
-
-        <!-- Website Font style -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-
-        <!-- Fonts -->
-        <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-
-        <title>Inloggen bij De Ferver</title>
-    </head>
-    <body>
-        <div class="container">
             <?php
             //include die een DIV met HTML print
             include 'pagina/inloggen/melding.inc.php';
@@ -69,8 +48,5 @@
                 <?php
             }
             ?>
-        </div>
 
         <script type="../../js/javascript" src="../../js/bootstrap.js"></script>
-    </body>
-</html>
