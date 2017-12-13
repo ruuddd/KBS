@@ -29,7 +29,7 @@
                     $artikelBeschrijving = $value['product_description'];
         }
     
-    ?>
+    print('
     <div class="container">
         <div class="card">
             <div class="container-fliud">
@@ -37,7 +37,7 @@
                     <div class="preview col-md-6">
                         
                         <div class="preview-pic tab-content">
-                          <div class="tab-pane active" id="pic-1"><img src="https://cdn.suitableshop.com/img/poriginal/save-the-duck-giga4-jas-giubbotto-rood--25265-1.jpg" /></div>
+                          <div class="tab-pane active" id="pic-1"><img src="'.$artikelAfbeelding.'" /></div>
                           <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
                           <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>
                           <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>
@@ -51,7 +51,8 @@
                           <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
                         </ul>
                         
-                    </div>
+                    </div> ')
+                    ?>
                     <?php print('
                     <div class="details col-md-6">
                         <h3 class="'.$artikelNaam.'"></h3>
