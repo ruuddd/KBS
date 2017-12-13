@@ -60,17 +60,8 @@ include 'functions/dbConnect.php';
 
                 </div>
             </div>
-        </div>
-<<<<<<< HEAD
-    </div> <!-- /container -->
+        </div> 
 </main>
-
-=======
-    </div> <!-- /container -->  
-    <table>
-
-</main>
->>>>>>> 8c2e40b473aa56d838dc38b34b8aec130c76ec0d
         <?php
         include_once 'pagina/page/footer.php';
         ?>
