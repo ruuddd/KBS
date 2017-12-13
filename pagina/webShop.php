@@ -18,9 +18,9 @@
                     <div class = "col-md-3" v-for = "item in selling">
                     <div class = "card"><img src = "' . $artikelAfbeelding . '" align = "middle" height = "250" width = "250" alt = "' . $artikelNaam . '"/>
                     <div class = "card-block">
-                    <h4 class = "card-title">' . $artikelNaam . '</h4>
+                    <h6 class = "card-title">' . $artikelNaam . '</h6>
                     <div class = "card-text">Nog <strong> ' .$artikelBeschikbaarheid. ' </strong> beschikbaar</div><br>
-                    <div class = "card-text">€' . $artikelPrijs . '</div>
+                    <div class = "card-text">€' . $artikelPrijs . '</div><br>
                   <div class="row justify-content-end">
                     <form><button type="submit" class="btn btn-primary" action="winkelmandje.php" :data-id="item.id">Toevoegen aan winkelmandje</button></form>
                   </div>
