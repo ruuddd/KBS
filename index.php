@@ -16,7 +16,10 @@ include 'functions/dbConnect.php';
         <link rel="canonical" href="https://codepen.io/travishorn/pen/qmBYxj?depth=everything&order=popularity&page=36&q=vue&show_forks=false" />
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-        <style class="cp-pen-styles"></style></head>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+        <style class="cp-pen-styles"></style>
+    </head>
 
     <title>De Ferver</title>
 
@@ -55,6 +58,10 @@ include 'functions/dbConnect.php';
                     elseif (check() == "winkelmandje")
                     {
                         include_once "pagina/winkelmandje.php";
+                    }
+                    elseif (check() == "test")
+                    {
+                        include_once "test.php";
                     }
                     else 
                     {
