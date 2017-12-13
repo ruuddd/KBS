@@ -69,4 +69,6 @@ input::-webkit-input-placeholder {
 .login-register{
 	font-size: 11px;
 	text-align: center;
+        color: black;
 }
+

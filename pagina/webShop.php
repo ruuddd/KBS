@@ -47,7 +47,6 @@
                     <div class = "card"><img src = "' . $artikelAfbeelding . '" align = "middle" height = "250" width = "250" alt = "' . $artikelNaam . '"/>
                     <div class = "card-block">
                     <h4 class = "card-title">' . $artikelNaam . '</h4>
-                    <h5 class = "card-title">' .$artikelBeschrijving. '</h5>
                     <div class = "card-text">Nog <strong> ' .$artikelBeschikbaarheid. ' </strong> beschikbaar</div><br>
                     <div class = "card-text">€' . $artikelPrijs . '</div>
                   <div class="row justify-content-end">
