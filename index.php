@@ -10,8 +10,6 @@ include 'functions/dbConnect.php';
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="icon" href="../../../../favicon.ico">
-        <link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
         <link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
         <link rel="canonical" href="https://codepen.io/travishorn/pen/qmBYxj?depth=everything&order=popularity&page=36&q=vue&show_forks=false" />
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
@@ -48,6 +46,10 @@ include 'functions/dbConnect.php';
                     {
                         include_once "pagina/inloggen/inlog.php";
                     } 
+                    elseif (check() == "artikel") 
+                    {
+                        include_once "pagina/artikelPage.php";
+                    } 
                     else 
                     {
                         print(getPage(check(), $pdo));
@@ -58,12 +60,8 @@ include 'functions/dbConnect.php';
             </div>
         </div>
     </div> <!-- /container -->
-<<<<<<< HEAD
-    <table>
-
-=======
 </main>
->>>>>>> 9d41b86ee4644bfa8a62883e8db3f095ccc33634
+
         <?php
         include_once 'pagina/page/footer.php';
         ?>
