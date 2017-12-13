@@ -1,6 +1,6 @@
 <!-- Bootstrap core CSS -->
-<link href="/kbs/css/bootstrap.min.css" rel="stylesheet">
-<link href="/kbs/css/custom.css" rel="stylesheet">
+<link href="/kbs/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/kbs/css/custom.css" rel="stylesheet" type="text/css">
 
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
