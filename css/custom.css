@@ -17,8 +17,9 @@ body {
 .card {
   padding: 4px;
 }
-.col-md-3{
-  max-width: 33%;
+
+.card-block{
+    color: black;
 }
 
 
