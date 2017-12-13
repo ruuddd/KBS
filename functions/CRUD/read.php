@@ -17,11 +17,35 @@
             
             function getPage($page, $pdo)
             {
-                $stmt = $pdo->prepare("SELECT content FROM content WHERE webpage = '".$page."'");
+                if (checkPage($page, $pdo)) 
+                {
+                    $stmt = $pdo->prepare("SELECT content FROM content WHERE webpage = '".$page."'");
+                    $stmt->execute();
+                    $arr = $stmt->fetchall(PDO::FETCH_ASSOC);
+                    return $arr['0']["content"];
+                    //$pdo = null; 
+                }
+                else
+                {
+                    $stmt = $pdo->prepare("SELECT content FROM content WHERE webpage ='error'");
+                    $stmt->execute();
+                    $arr = $stmt->fetchall(PDO::FETCH_ASSOC);
+                    return $arr['0']["content"];
+                }
+            }
+
+            function checkPage($page, $pdo)
+            {
+                $stmt = $pdo->prepare("SELECT webpage FROM content");
                 $stmt->execute();
-                $arr = $stmt->fetchall(PDO::FETCH_ASSOC);
-                return $arr['0']["content"];
-                //$pdo = null;
+                $webpage = $stmt->fetchall(PDO::FETCH_ASSOC);
+                $error = false;
+                foreach ($webpage as $key => $value) {
+                    if ($page == $value["webpage"]) {
+                        $error = true;
+                    }
+                }
+                return $error;
             }
             
             function searchProducts($search, $pdo)

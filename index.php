@@ -64,6 +64,7 @@ include 'functions/dbConnect.php';
                     }
                     else 
                     {
+                        checkPage(check(), $pdo);
                         print(getPage(check(), $pdo));
                     }
                     ?>
