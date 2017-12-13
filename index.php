@@ -21,14 +21,14 @@ include 'functions/dbConnect.php';
     <title>De Ferver</title>
 
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS --><link href="css/artikel.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
-    <link href="css/artikel.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
+        
 </head>
 <body>
 
@@ -61,9 +61,16 @@ include 'functions/dbConnect.php';
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
     </div> <!-- /container -->
 </main>
 
+=======
+    </div> <!-- /container -->  
+    <table>
+
+</main>
+>>>>>>> 8c2e40b473aa56d838dc38b34b8aec130c76ec0d
         <?php
         include_once 'pagina/page/footer.php';
         ?>

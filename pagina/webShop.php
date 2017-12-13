@@ -1,32 +1,4 @@
 
-<!DOCTYPE html>
-<html lang='en' class=''>
-    <head>
-        <meta charset='UTF-8'><meta name="webshop" content="noindex">
-        <link rel="shortcut icon" type="image/x-icon" href="../images/web/logo.jpg" />
-        <link rel="mask-icon" type="" href="g" color="#111" />
-        <link rel="canonical" href="https://codepen.io/travishorn/pen/qmBYxj?depth=everything&order=popularity&page=36&q=vue&show_forks=false" />
-        <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
-        <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-        <style class="cp-pen-styles"></style>
-    </head>
-    <?php
-
-
-    include "pagina/page/header.php";
-    ?>
-
-    <div id="app">
-        <div class="container mt-3 mt-sm-5">
-            <div class="row justify-content-between mb-3">
-                <div class="col-md-9">
-                    <h1 class="display-1">Shop</h1>
-                </div>
-                <div class="col-md-3 text-right">
-                    <button class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#cart"><i class="fa fa-shopping-cart"></i><?php $aantalWinkelmandje ?></button>
-                </div>
-            </div>
-            <div class = "row">
                 <?php
                 if (search())
                     {
@@ -45,9 +17,15 @@
                     <div onclick="location.href="?page=artikel";" style="cursor:pointer; class = "col-md-3" v-for = "item in selling">
                     <div class = "card"><img src = "' . $artikelAfbeelding . '" align = "middle" height = "250" width = "250" alt = "' . $artikelNaam . '"/>
                     <div class = "card-block">
+<<<<<<< HEAD
                     <h4 class = "card-title">' . $artikelNaam . '</h4>
                     <h5 class = "card-title">' .$artikelBeschrijving. '</h4>
                     <div class = "card-text">€' . $artikelPrijs . '</div>
+=======
+                    <h6 class = "card-title">' . $artikelNaam . '</h6>
+                    <div class = "card-text">Nog <strong> ' .$artikelBeschikbaarheid. ' </strong> beschikbaar</div><br>
+                    <div class = "card-text">€' . $artikelPrijs . '</div><br>
+>>>>>>> 8c2e40b473aa56d838dc38b34b8aec130c76ec0d
                   <div class="row justify-content-end">
                     <form><button type="submit" class="btn btn-primary" action="winkelmandje.php" :data-id="item.id">Toevoegen aan winkelmandje</button></form>
                   </div>
@@ -58,10 +36,6 @@
                     }
                 ?>
                 
-                
-                
-                
-            </div>
             <div class="modal fade" id="cart">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -90,7 +64,4 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-    </body>
-</html>
