@@ -15,16 +15,16 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="?page=home">Home</a>
+                    <a class="nav-link" href="/KBS/home/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?page=webshop">Artikelen</a>
+                    <a class="nav-link" href="/KBS/webshop/">Artikelen</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?page=overons">Over ons</a>
+                    <a class="nav-link" href="/KBS/overons/">Over ons</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?page=test">TEST</a>
+                    <a class="nav-link" href="/KBS/test/">TEST</a>
                 </li>
 
         </div>
@@ -42,7 +42,7 @@
                     } else {
                         ?>
 
-                        <a class="nav-link" href="?page=login">Inloggen</a>
+                        <a class="nav-link" href="/KBS/login/">Inloggen</a>
                         <?php
                     }
                     ?>
