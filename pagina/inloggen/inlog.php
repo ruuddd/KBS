@@ -40,7 +40,7 @@
                                 <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Log in</button>
                             </div>
                             <div class="login-register">
-                                <a href="../registratie/register.php">Creëer een account</a> of <a href="reset_password.php">Herstel wachtwoord</a>
+                                <a href="/kbs/registratie/">Creëer een account</a> of <a href="reset_password.php">Herstel wachtwoord</a>
                             </div>
                         </form>
                     </div>

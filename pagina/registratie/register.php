@@ -1,31 +1,5 @@
-<?php
-session_start();
-//print_r( $_SESSION);
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-    <head> 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
-
-        <!-- Website CSS style -->
-        <link rel="stylesheet" type="text/css" href="../../css/login.css">
-
-        <!-- Website Font style -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-
-        <!-- Fonts -->
-        <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-
-        <title>Registreren bij De Ferver</title>
-    </head>
-    <body>
-            <?php include_once '../page/header.php'; ?>
-        <div class="container">
             <?php
-                include '../inloggen/melding.inc.php';
+                include_once 'pagina/inloggen/melding.inc.php';
             ?>
 
             <div class="row main">
@@ -35,7 +9,7 @@ session_start();
                     </div>
                 </div> 
                 <div class="main-login main-center">
-                    <form class="form-horizontal" method="post" action="verwerk.php">
+                    <form class="form-horizontal" method="post" action="/kbs/pagina/registratie/verwerk.php">
                         
                         <div class="form-group">
                             <label for="name" class="cols-sm-2 control-label">Voornaam *</label>
@@ -180,9 +154,3 @@ session_start();
                     </form>
                 </div>
             </div>
-        </div>
-
-        <script type="text/javascript" src="assets/js/bootstrap.js"></script>
-    </body>
-        <?php include_once '../page/footer.php'; ?>
-</html>
