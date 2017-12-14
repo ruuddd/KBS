@@ -33,7 +33,6 @@ body {
 
 .container {
   width: auto;
-  max-width: 960px;
   padding: 0 15px;
 }
 p
@@ -42,7 +41,7 @@ p
 }
 .alt-navbar
 {
-	min-width: 1100px;
+	min-width: 1300px;
 }
 .jumbotron
 {
