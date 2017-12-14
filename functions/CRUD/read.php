@@ -93,3 +93,20 @@
                 $basketProducts = $stmt->fetchall(PDO::FETCH_ASSOC);
                 return $basketProducts;
             }
+            
+            function insertSession($pdo)
+            {   
+                $stmt = $pdo->prepare("INSERT INTO sessie (basket_id, order_id) VALUES (,)"); 
+                $stmt->execute();
+                $sessionId=$pdo->lastInsertId();
+                return $sessionId;
+            }
+            
+            function checkSessionId($pdo)
+            {
+                if (!(isset($_SESSION['id'])))
+                {
+                    $_SESSION['id']= insertSession($pdo);
+                }
+                
+            }
