@@ -92,13 +92,16 @@ input:-moz-placeholder {
 input::-webkit-input-placeholder {
     color: #999;
 }
-a
+.nav-link
 {
     color: rgba(255,255,255,.5);
 }
-a:hover
-{
+.nav-link:hover{
     color: rgba(255,255,255,.75);
+}
+a
+{
+    color: black;
 }
 
 * {box-sizing:border-box}
