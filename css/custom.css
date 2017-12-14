@@ -99,9 +99,14 @@ input::-webkit-input-placeholder {
 .nav-link:hover{
     color: rgba(255,255,255,.75);
 }
-a
-{
+a{
     color: black;
+}
+
+.login-register
+{
+    color: grey;
+    font-style: italic;
 }
 
 * {box-sizing:border-box}

@@ -43,7 +43,7 @@
                 } else {
                     ?>
 
-                    <a class="nav-link" href="/KBS/login/">Inloggen</a>
+                    <a class="nav-link" href="/KBS/login/">Inloggen/registreren</a>
                     <?php
                 }
                 ?>
