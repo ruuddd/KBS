@@ -78,10 +78,18 @@
                 return $allProducts;
             }
             
-                        function findOneProduct($product, $pdo)
+            function findOneProduct($product, $pdo)
             {
                 $stmt = $pdo->prepare("SELECT * FROM product where product_id = '$product'"); 
                 $stmt->execute();
                 $oneProduct = $stmt->fetchall(PDO::FETCH_ASSOC);
                 return $oneProduct;
+            }
+            
+            function basketProducts($sessionId, $pdo)
+            {
+                $stmt = $pdo->prepare("SELECT * FROM basket LEFT JOIN product ON basket.product_id=product.product_id  JOIN session on basket.basket_id=session.basket_id  where session_id = '$sessionId'"); 
+                $stmt->execute();
+                $basketProducts = $stmt->fetchall(PDO::FETCH_ASSOC);
+                return $basketProducts;
             }
