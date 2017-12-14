@@ -62,6 +62,10 @@ include 'functions/dbConnect.php';
                     {
                         include_once "test.php";
                     }
+                    elseif (check() == "mijn" ) 
+                    {
+                        include_once "pagina/mijn.php";
+                    }
                     else 
                     {
                         checkPage(check(), $pdo);

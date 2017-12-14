@@ -38,7 +38,7 @@
                 <?php
                 if (!empty($_SESSION['ingelogd'])) {
                     if ($_SESSION['ingelogd']) {
-                        print('<a class="nav-link" href="pagina/mijn.php">' . $_SESSION['fullname'] . '</a>');
+                        print('<a class="nav-link" href="/KBS/mijn/">' . $_SESSION['fullname'] . '</a>');
                     }
                 } else {
                     ?>
