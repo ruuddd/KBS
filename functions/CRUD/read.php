@@ -110,3 +110,9 @@
                 }
                 return $_SESSION['id'];
             }
+            
+            function addProductToBasket($pdo, $product, $sessionId)
+            {
+                $stmt = $pdo->prepare("INSERT INTO basket(basket_id, product_id, amount) VALUES (".$sessionId.",".$product.",1)"); 
+                $stmt->execute();
+            }
