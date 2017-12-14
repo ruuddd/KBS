@@ -1,6 +1,3 @@
-            <?php
-                include_once 'pagina/inloggen/melding.inc.php';
-            ?>
 
             <div class="row main">
                 <div class="panel-heading">
