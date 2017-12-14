@@ -1,6 +1,9 @@
 html {
   position: relative;
   min-height: 100%;
+  overflow-y: scroll;
+  margin-left:auto;
+  margin-right:auto;
 }
 body {
   margin-bottom: 60px; /* Margin bottom by footer height */
@@ -30,7 +33,7 @@ body {
 
 .container {
   width: auto;
-  max-width: 950px;
+  max-width: 960px;
   padding: 0 15px;
 }
 p
