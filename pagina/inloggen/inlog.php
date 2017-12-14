@@ -6,7 +6,7 @@
             if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
                 //laadt nu pas de beveiligde inhoud
                 include '../mijn.php';
-                print('<a href="pagina/inloggen/verwerk.php?actie=uitloggen">Uitloggen</a>');
+                print('<a href="/kbs/pagina/inloggen/verwerk.php?actie=uitloggen">Uitloggen</a>');
             } else {
                 ?>
                 <div class="row main">
@@ -15,7 +15,7 @@
                         </div>
                     </div>
                     <div class="main-login main-center">
-                        <form class="form-horizontal" method="post" action="pagina/inloggen/verwerk.php">
+                        <form class="form-horizontal" method="post" action="/kbs/pagina/inloggen/verwerk.php">
                             <div class="form-group">
                                 <label for="username" class="cols-sm-2 control-label">E-mailadres</label>
                                 <div class="cols-sm-10">
