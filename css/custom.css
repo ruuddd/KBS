@@ -216,3 +216,9 @@ opacity:1.0;
 #slideshow div.last-active {
 z-index:9;
 }
+
+.footertext
+{
+      right: 0;
+    position: absolute;
+}

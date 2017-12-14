@@ -4,7 +4,7 @@
 
 <footer class="footer">
     <div class="container">
-        <p>&copy; De Ferver 2017</p>
+        <p class="footertext">&copy; De Ferver 2017</p>
     </div>
 </footer>
 
