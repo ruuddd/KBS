@@ -88,7 +88,7 @@
             
             function basketProducts($sessionId, $pdo)
             {
-                $stmt = $pdo->prepare("SELECT * FROM basket LEFT JOIN product ON basket.product_id=product.product_id  JOIN session on basket.basket_id=session.basket_id  where session_id = '$sessionId'"); 
+                $stmt = $pdo->prepare("SELECT * FROM basket LEFT JOIN product ON basket.product_id=product.product_id  JOIN sessie on basket.basket_id=sessie.basket_id  where basket.basket_id = '$sessionId'"); 
                 $stmt->execute();
                 $basketProducts = $stmt->fetchall(PDO::FETCH_ASSOC);
                 return $basketProducts;
@@ -108,5 +108,5 @@
                 {
                     $_SESSION['id']= insertSession($pdo);
                 }
-                
+                return $_SESSION['id'];
             }

@@ -6,8 +6,10 @@
     </head>
     <body>
         <?php
-        checkSessionId();
-        $productInfo = basketProducts($_SESSION['id'], $pdo)
+        checkSessionId($pdo);
+                $_SESSION['id']=1;
+        $productInfo = basketProducts($_SESSION['id'], $pdo);
+
         ?>
         <div class="container">
             <table id="cart" class="table table-hover table-condensed">
@@ -29,7 +31,7 @@
                     <tr>
                         <td data-th="Product">
                             <div class="row">
-                                <div class="col-sm-2 hidden-xs"><img src="'.$value['product_image'].'" alt="'.$value['product_name'].'" class="img-responsive"/></div>
+                                <div class="col-sm-2 hidden-xs"><img src="'.$value['product_image'].'"" height = "250" width = "250" alt="'.$value['product_name'].'" class="img-responsive"/></div>
                                 <div class="col-sm-10">
                                     <h4 class="nomargin">Product 1</h4>
                                     <p>'.$value['product_description'].'</p>
