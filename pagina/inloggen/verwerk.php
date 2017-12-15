@@ -7,7 +7,7 @@ include 'dbCheck.php';
 include '../../functions/dbConnect.php';
 
 //actueel ondersteund alternatief voor $_POST['gebruikersnaam'] etc
-$link = "../../?page=login";
+$link = "../../login/";
 $emailadres = filter_input(INPUT_POST, 'emailadres');   
 $wachtwoord = filter_input(INPUT_POST, 'wachtwoord');
 $actie = filter_input(INPUT_GET, 'actie');
@@ -30,7 +30,7 @@ if($actie == 'uitloggen'){
             $_SESSION['role'] = $user['role'];
             $_SESSION['firstname'] = $user['firstname'];
             $_SESSION['fullname'] = $user['firstname']." ".$user['insertion']." ".$user['lastname'];
-            $link = "../../";
+            $link = "../../home/";
 
         }else{
             //wees nooit te specifiek waarom de gebruiker niet kan inloggen.
