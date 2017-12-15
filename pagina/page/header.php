@@ -10,8 +10,9 @@
             <img src="http://drpattydental.com/wp-content/uploads/2017/05/placeholder.png" height="50" width="65" alt="Ferver Logo"/>
         </a>
         <a class="navbar-brand" href="/KBS/winkelmandje/">
-            <img src="https://image.freepik.com/iconen-gratis/winkelmandje-in-een-cirkel_318-57625.jpg" height="50" width="65" alt="Winkelmandje"/>
+            <span class="glyphicon glyphicon-shopping-cart"></span>
         </a>
+        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,6 +40,7 @@
 
             <div class="nav-item">
                 <?php
+                $date = date('Y-m-d H:i:s');
                 if (!empty($_SESSION['ingelogd'])) {
                     if ($_SESSION['ingelogd']) {
                         print('<a class="nav-link" href="/KBS/mijn/">' . $_SESSION['fullname'] . '</a>');
