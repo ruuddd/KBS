@@ -116,3 +116,9 @@
                 $stmt = $pdo->prepare("INSERT INTO basket(basket_id, product_id, amount) VALUES (".$sessionId.",".$product.",1)"); 
                 $stmt->execute();
             }
+            
+            function removeProductFromBasket($pdo, $product, $sessionId)
+            {
+                $stmt = $pdo->prepare("DELETE FROM basket where basket_id = ".$sessionId." AND product_id = ".$product.""); 
+                $stmt->execute();
+            }
