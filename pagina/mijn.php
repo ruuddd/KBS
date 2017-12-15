@@ -2,8 +2,8 @@
 <?php
 
 
-print("Welkom" . " " . $_SESSION['firstname']); 
-?>	<br><br>
+print("Welkom" . " " . $_SESSION['firstname'] . "&nbsp;"); 
+?>	
 
 <?php
-print('<a href="/kbs/pagina/inloggen/verwerk.php?actie=uitloggen">Uitloggen</a>');
+print('<a href="/kbs/pagina/inloggen/verwerk.php?actie=uitloggen"><strong>Uitloggen</strong></a>');

@@ -7,4 +7,4 @@ function hashWachtwoord($wachtwoord) {
     return password_hash($wachtwoord, PASSWORD_BCRYPT, $options);
 }
 
-echo hashWachtwoord('hallo');
+//echo hashWachtwoord('hallo');
