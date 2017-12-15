@@ -6,6 +6,10 @@
     </head>
     <body>
         <?php
+                            if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['removeProduct']))
+                    {
+                        removeProductFromBasket($pdo,$_POST['artikelId'] , $_SESSION['id']);
+                    }
         checkSessionId($pdo);
                 $_SESSION['id']=1;
         $productInfo = basketProducts($_SESSION['id'], $pdo);
@@ -25,6 +29,7 @@
                 <tbody>
                     <?php
                     $totalPrice=0;
+                    
                     foreach ($productInfo as $value)
                     {
                         print('
@@ -45,11 +50,13 @@
                         <td data-th="Subtotal" class="text-center">€'.$value['amount']*$value['product_price'].'</td>
                         <td class="actions" data-th="">
                             <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+                            <form method="post"><button class="btn btn-danger btn-sm" name="removeProduct"><i class="fa fa-trash-o"></i></button>
+                            <input type="hidden" name="artikelId" value="'.$value['product_id'].'"</input></form>
                         </td>
                     </tr>');
                                 $totalPrice+=$value['product_price']*$value['amount'];
                     }
+
                             ?>
                 </tbody>
                 <tfoot>
