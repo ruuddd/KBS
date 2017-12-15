@@ -11,6 +11,7 @@
         </a>
         
         <a class="navbar-brand" href="/KBS/winkelmandje/">
+            <img src="winkelmand.png" height="50" width="65" alt="winkelmand"/>
         </a>
         
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
