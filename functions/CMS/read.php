@@ -2,26 +2,81 @@
 
 function home($conn)
 {
-	$content = $conn->prepare("SELECT * FROM content");
+	$content = $conn->prepare("SELECT * FROM product");
     $content->execute();
     $result = $content->fetchAll();
-    $return = "<table>";
+    $return = "<a href='?actie=aToevoegen'>toevoegen<a/>
+
+    <table>";
     foreach ($result as $key => $value) 
     {
-    	$id = $value["content_id"];
-    	$content = $value["content"];
-    	$index = $key+1;
-    	$return .= "<tr><td>$index</td><td>$id</td><td>$content</td></tr>";
+    	$product_name = $value["product_name"];
+    	$availability = $value["availability"];
+    	$return .= "<tr><td>$product_name</td><td>$availability</td></tr>";
     }
     $return .= "</tr>";
 	return $return;
 }
 
-function insertHome($conn, $content_id, $newText, $newContent)
+function aToevoegen($conn)
 {
-	$stmt = $conn->prepare("INSERT INTO content (content_id, content, language) VALUES (:content_id, :content, :language)");
-    $stmt->bindParam(':content', $newContent);
-	$stmt->bindParam(':language', $newText);
-	$stmt->bindParam(':content_id', $content_id);
-	$stmt->execute();
+    
+    ?> 
+        <form action="?actie=home&insertArtikel" method="post" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>
+                        naam
+                    </td>
+                    <td>
+                        <input type="text" name="naam" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        prijs
+                    </td>
+                    <td>
+                        <input type="number" name="prijs" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        beschrijving
+                    </td>
+                    <td>
+                        <input type="text" name="beschrijving" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input name="file" type='file' onchange="readURL(this);" />
+                    </td>
+                    <td>
+                        <img id="image" width="250" height="250" src="http://www.pixedelic.com/themes/geode/demo/wp-content/uploads/sites/4/2014/04/placeholder4.png" alt="your image" />
+                        <div onclick="openFile()" class="selectFile"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        aantal
+                    </td>
+                    <td>
+                        <input type="number" name="aantal" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        <input type="submit" name="">
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+
+    <?php
+    return $ret;
 }

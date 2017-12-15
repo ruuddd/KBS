@@ -137,3 +137,9 @@ function updateAmount($pdo, $amount, $productId, $basketId)
     $stmt = $pdo->prepare("UPDATE basket SET amount = ".$amount." WHERE product_id = ".$productId." AND basket_id = ".$basketId."");
     $stmt->execute();   
 }
+
+//function generateRandomKey($pdo,$email, $date, $basketId)
+//{
+//    $stmt = $pdo->prepare("INSERT INTO order(order_id, email, date, basket_id,) VALUES (".uniqid('', true).",".$email." ,".$date." ,".$basketId.")");
+//    $stmt->execute();
+//}

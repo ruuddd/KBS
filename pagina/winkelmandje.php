@@ -17,10 +17,7 @@
         }
         
         checkSessionId($pdo);
-<<<<<<< HEAD
-=======
-        $_SESSION['id']=1;
->>>>>>> a108e5cf5f621171ea5e75c5b095ce0cf03ea90c
+
         $productInfo = basketProducts($_SESSION['id'], $pdo);
 
         ?>

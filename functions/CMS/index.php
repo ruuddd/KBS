@@ -2,21 +2,50 @@
 
 session_start();
 include("../loginCheck.php");
+include("create.php");
+?>
+	<style type="text/css">
+		input[type='file'] {
+  color: transparent;
+}
+  .file 
+  {
+  	position: absolute;
+  	margin-left: 227px;
+  	margin-top: 104px;
+  }
+
+	</style>
+<?php
 if (checkRights($_SESSION, 1))
 {
 	include('read.php');
 	include('../dbConnect.php');
-	$page = "home";
-	if(!empty($_GET['page']))
+	$actie = "home";
+	if(!empty($_GET['actie']))
 	{
-		$page = $_GET['page'];
-	}
-	print($page($pdo));
-	if ($actie == "insertPage") 
-	{
-		insertHome($pdo, 3, 'Nederlands', 'dit is een tekst die is aangemaakt in de php code');
+		$actie = $_GET['actie'];
 	}
 	
+	if ($actie == "insertArtikel") 
+	{
+		$webpage = $_POST["webpage"];
+		$content = $_POST["content"];
+		$taal = $_POST["taal"];
+		print(insertHome($pdo, $webpage, $taal, $content));
+	}
+	else
+	{
+		if (isset($_GET["insertArtikel"])) 
+		{
+			insertArtikel($pdo, $_POST["naam"], $_POST["prijs"], $_POST["beschrijving"], $_FILES["file"], $_POST["aantal"]);
+		}
+		print($actie($pdo));
+	}
+	?>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript" src="../../js/image.js"></script>
+	<?php
 }
 else
 {
