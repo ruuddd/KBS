@@ -24,7 +24,7 @@ foreach ($products as $key => $value)
                         <div class = "card-text">Nog <strong> ' . $artikelBeschikbaarheid . ' </strong> beschikbaar</div><br>
                             <div class = "card-text">€' . $artikelPrijs . '</div><br>
                                 <div class="row justify-content-end">
-                                <form method="post"><button type="submit" class="btn btn-primary" action="winkelmandje.php" name="addToBasket">Toevoegen aan winkelmandje</button></form>
+                                <form method="post"><button type="submit" class="btn btn-primary" action="winkelmandje.php" name="addToBasket">Toevoegen aan winkelmand</button></form>
                             </div>
                         </div>
                     </div>
