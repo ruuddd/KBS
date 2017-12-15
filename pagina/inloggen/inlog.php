@@ -9,7 +9,7 @@ if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
     print('<a href="/kbs/pagina/inloggen/verwerk.php?actie=uitloggen">Uitloggen</a>');
 } else {
     ?>
-    <div class="row main">
+    <div class="row main centerinlog">
         <div class="panel-heading">
             <div class="panel-title text-center">
             </div>
