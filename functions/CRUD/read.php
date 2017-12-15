@@ -131,3 +131,9 @@ function findAllUsers($pdo)
     $allUsers = $stmt->fetchall(PDO::FETCH_ASSOC);
     return $allUsers;
 }
+
+function updateAmount($pdo, $amount, $productId, $basketId)
+{
+    $stmt = $pdo->prepare("UPDATE basket SET amount = ".$amount." WHERE product_id = ".$productId." AND basket_id = ".$basketId."");
+    $stmt->execute();   
+}
