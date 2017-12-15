@@ -70,6 +70,10 @@ include 'functions/dbConnect.php';
                     {
                         include_once "pagina/registratie/register.php";
                     }
+                    elseif(check() == "mail")
+                    {
+                        include_once "pagina/phpMail.php";
+                    }
                     else 
                     {
                         checkPage(check(), $pdo);
