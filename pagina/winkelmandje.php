@@ -6,11 +6,21 @@
     </head>
     <body>
         <?php
-                            if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['removeProduct']))
-                    {
-                        removeProductFromBasket($pdo,$_POST['artikelId'] , $_SESSION['id']);
-                    }
+        if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['removeProduct']))
+        {
+            removeProductFromBasket($pdo,$_POST['artikelId'] , $_SESSION['id']);
+        }
+                
+        if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['refreshProduct']))
+        {
+            updateAmount($pdo, $_POST['amount'], $_POST['artikelId'], $_SESSION['id']);
+        }
+        
         checkSessionId($pdo);
+<<<<<<< HEAD
+=======
+        $_SESSION['id']=1;
+>>>>>>> a108e5cf5f621171ea5e75c5b095ce0cf03ea90c
         $productInfo = basketProducts($_SESSION['id'], $pdo);
 
         ?>
@@ -44,12 +54,12 @@
                         </td>
                         <td data-th="Price">€'.$value['product_price'].'</td>
                         <td data-th="Quantity">
-                            <input type="number" class="form-control text-center" value="'.$value['amount'].'">
+                            <form method="post"><input type="number" name="amount" class="form-control text-center" value="'.$value['amount'].'">
                         </td>
                         <td data-th="Subtotal" class="text-center">€'.$value['amount']*$value['product_price'].'</td>
                         <td class="actions" data-th="">
-                            <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-                            <form method="post"><button class="btn btn-danger btn-sm" name="removeProduct"><i class="fa fa-trash-o"></i></button>
+                            <button class="btn btn-info btn-sm" name="refreshProduct"><i class="fa fa-refresh"></i></button>
+                            <button class="btn btn-danger btn-sm" name="removeProduct"><i class="fa fa-trash-o"></i></button>
                             <input type="hidden" name="artikelId" value="'.$value['product_id'].'"</input></form>
                         </td>
                     </tr>');
