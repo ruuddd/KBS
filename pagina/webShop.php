@@ -1,5 +1,6 @@
 
 <?php
+//haalt producten op; alle producten die searchproducts find als er gezocht word en anders alle beschikbare producten
 if (search())
 {
     $products = searchProducts($_POST['search'], $pdo);
@@ -17,6 +18,7 @@ foreach ($products as $key => $value)
     $artikelId=$value['product_id'];
     if ($artikelBeschikbaarheid>0)
     {
+        //print per product waar meer dan 0 van is een card met productnaam, foto, hoeveelheid en prijs
         print 
         ( 
             '<a href="/KBS/artikel/' . $artikelId . '" name='.$artikelId.'>
@@ -37,6 +39,7 @@ foreach ($products as $key => $value)
         );
     }    
 }
+//bij "toevoegen aan mandje" kijkt of er sessieid is en maakt het anders aan en voegt hem dan toe aan het mandje
 if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['addToBasket']))
 {
     checkSessionId($pdo);

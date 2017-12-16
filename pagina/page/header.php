@@ -40,6 +40,7 @@
             <div class="nav-item">
                 <?php
                 $date = date('Y-m-d H:i:s');
+                //kijkt of ingelogd is; zoja toont de volledige naam, anders de login link
                 if (!empty($_SESSION['ingelogd'])) {
                     if ($_SESSION['ingelogd']) {
                         print('<a class="nav-link" href="/KBS/mijn/">' . $_SESSION['fullname'] . '</a>');
@@ -55,7 +56,7 @@
             </div>
             <div class="nav-item">
                 <a class="navbar-brand" href="/KBS/winkelmandje/">
-                <img src="file:///shopping-cart-button.png" height="50" width="50" alt="winkelmand"/>
+                <img src="../shopping-cart-button.png" height="50" width="50" alt="winkelmand"/>
             </div>
         </a>
         </form>
