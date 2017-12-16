@@ -39,5 +39,6 @@ foreach ($products as $key => $value)
 }
 if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['addToBasket']))
 {
+    checkSessionId($pdo);
     addProductToBasket($pdo,$_POST['artikelId'] , $_SESSION['id']);
 }

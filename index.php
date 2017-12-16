@@ -43,6 +43,7 @@ include 'functions/dbConnect.php';
             <div class="container">
                 <div class="row">
                     <?php
+                    //include een pagina als de link van die pagina is ingevuld
                     if (check() == "webshop") 
                     {
                         include_once "pagina/webShop.php";
@@ -74,6 +75,9 @@ include 'functions/dbConnect.php';
                     elseif(check() == "mail")
                     {
                         include_once "pagina/phpMail.php";
+                    }
+                    elseif(check() == "ganaarbetalen"){
+                        include_once 'pagina/gaNaarBetalen.php';
                     }
                     else 
                     {

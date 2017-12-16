@@ -49,15 +49,7 @@ function basketProducts($sessionId, $pdo)
     $stmt->execute();
     $basketProducts = $stmt->fetchall(PDO::FETCH_ASSOC);
     return $basketProducts;
-}
-            
-function insertSession($pdo)
-{   
-    $stmt = $pdo->prepare("INSERT INTO sessie (basket_id, order_id) VALUES (,)"); 
-    $stmt->execute();
-    $sessionId=$pdo->lastInsertId();
-    return $sessionId;
-}
+} 
             
 function checkSessionId($pdo)
 {
@@ -66,6 +58,14 @@ function checkSessionId($pdo)
         $_SESSION['id']= insertSession($pdo);
     }
     return $_SESSION['id'];
+}
+
+function insertSession($pdo)
+{   
+    $stmt = $pdo->prepare("INSERT INTO sessie (order_id) VALUES (NULL)"); 
+    $stmt->execute();
+    $sessionId=$pdo->lastInsertId();
+    return $sessionId;
 }
             
 function addProductToBasket($pdo, $product, $sessionId)

@@ -1,75 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>DE FERVER</title>
-        <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
-        <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-        <link href="../css/custom.css" rel="stylesheet" type="text/css"/>
-        <link href="../css/login.css" rel="stylesheet" type="text/css"/>
-    </head>
-
     <body>
 
         <form>
-            <div class="container">
-                <?php
-                //include die een DIV met HTML print
-                include '../pagina/inloggen/melding.inc.php';
-
-
-                if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
-                    //laadt nu pas de beveiligde inhoud
-                    include '../mijn.php';
-                    print('<a href="pagina/inloggen/verwerk.php?actie=uitloggen">Uitloggen</a>');
-                } else {
-                    ?>
-                    <div class="row main">
-                        <div class="panel-heading">
-                            <div class="panel-title text-center">
-                            </div>
-                        </div>
-                        
-                        <div class="main-login main-center">
-                            <form class="form-horizontal" method="post" action="pagina/inloggen/verwerk.php">
-                                
-                                <div class="form-group">
-                                    <label for="username" class="cols-sm-2 control-label">E-mailadres</label>
-                                    <div class="cols-sm-10">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                            <input type="text" class="form-control" name="emailadres" id="username"  placeholder="Voer uw emailadres in"/>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="password" class="cols-sm-2 control-label">Wachtwoord</label>
-                                    <div class="cols-sm-10">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                            <input type="password" class="form-control" name="wachtwoord" id="password"  placeholder="Voer uw wachtwoord in"/>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group ">
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Log in</button>
-                                </div>
-                                <div class="login-register">
-                                    <a href="../registratie/register.php">Creëer account</a> or <a href="reset_password.php">Herstel wachtwoord</a>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <?php
-                }
-                ?>
-            </div>
-        </form>
-        <form>
             <div class="container" >
                 <?php
-                include '../pagina/inloggen/melding.inc.php';
                 ?>
 
                 <div id="zonderaccount" class="row main">
@@ -131,27 +66,6 @@
                                 </div>
                             </div>
 
-
-                            <div class="form-group">
-                                <label for="password" class="cols-sm-2 control-label">Wachtwoord *</label>
-                                <div class="cols-sm-10">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                        <input type="password" class="form-control" name="wachtwoord" id="password"  placeholder="Voer uw wachtwoord in"/>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="confirm" class="cols-sm-2 control-label">Bevestig wachtwoord *</label>
-                                <div class="cols-sm-10">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                        <input type="password" class="form-control" name="bevestig_wachtwoord" id="confirm"  placeholder="Bevestig uw wachtwoord"/>
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="login-register">
                                 <p><strong>
                                         Velden met een * zijn verplicht
@@ -159,7 +73,7 @@
                             </div>
 
                             <div class="form-group ">
-                                <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Registreer</button>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Betaal</button>
                             </div>
 
                             <div class="login-register">

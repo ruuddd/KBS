@@ -10,9 +10,7 @@
             <img src="http://drpattydental.com/wp-content/uploads/2017/05/placeholder.png" height="50" width="65" alt="Ferver Logo"/>
         </a>
         
-        <a class="navbar-brand" href="/KBS/winkelmandje/">
-            <img src="winkelmand.png" height="50" width="65" alt="winkelmand"/>
-        </a>
+
         
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -53,7 +51,13 @@
                     <?php
                 }
                 ?>
+                    
             </div>
+            <div class="nav-item">
+                <a class="navbar-brand" href="/KBS/winkelmandje/">
+                <img src="file:///shopping-cart-button.png" height="50" width="50" alt="winkelmand"/>
+            </div>
+        </a>
         </form>
     </div>
 </div>
