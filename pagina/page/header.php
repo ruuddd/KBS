@@ -10,9 +10,7 @@
             <img src="http://drpattydental.com/wp-content/uploads/2017/05/placeholder.png" height="50" width="65" alt="Ferver Logo"/>
         </a>
         
-        <a class="navbar-brand" href="/KBS/winkelmandje/">
-            <img src="winkelmand.png" height="50" width="65" alt="winkelmand"/>
-        </a>
+
         
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -42,6 +40,7 @@
             <div class="nav-item">
                 <?php
                 $date = date('Y-m-d H:i:s');
+                //kijkt of ingelogd is; zoja toont de volledige naam, anders de login link
                 if (!empty($_SESSION['ingelogd'])) {
                     if ($_SESSION['ingelogd']) {
                         print('<a class="nav-link" href="/KBS/mijn/">' . $_SESSION['fullname'] . '</a>');
@@ -49,11 +48,17 @@
                 } else {
                     ?>
 
-                    <a class="nav-link" href="/KBS/login/">Inloggen/registreren</a>
+                    <a class="nav-link " href="/KBS/login/">Mijn account</a>
                     <?php
                 }
                 ?>
+                    
             </div>
+            <div class="nav-item">
+                <a class="navbar-brand" href="/KBS/winkelmandje/">
+                <img src="../shopping-cart-button.png" height="50" width="50" alt="winkelmand"/>
+            </div>
+        </a>
         </form>
     </div>
 </div>

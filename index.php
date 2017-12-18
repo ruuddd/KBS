@@ -23,10 +23,10 @@ include 'functions/dbConnect.php';
 
     <title>De Ferver</title>
 
-
     <!-- Bootstrap core CSS --><link href="css/artikel.css" rel="stylesheet">
         <link href="../css/winkelmandjenew.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="css/artikel.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
@@ -42,6 +42,7 @@ include 'functions/dbConnect.php';
             <div class="container">
                 <div class="row">
                     <?php
+                    //include een pagina als de link van die pagina is ingevuld
                     if (check() == "webshop") 
                     {
                         include_once "pagina/webShop.php";
@@ -77,6 +78,9 @@ include 'functions/dbConnect.php';
                     elseif(check() == "BestellingAfgerond")
                     {
                         include_once "pagina/BestellingAfgerond.php";
+                    }
+                    elseif(check() == "ganaarbetalen"){
+                        include_once 'pagina/gaNaarBetalen.php';
                     }
                     else 
                     {

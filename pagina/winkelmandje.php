@@ -16,7 +16,7 @@
             updateAmount($pdo, $_POST['amount'], $_POST['artikelId'], $_SESSION['id']);
         }
         
-        checkSessionId($pdo);
+        $_SESSION['id']= checkSessionId($pdo);
 
         $productInfo = basketProducts($_SESSION['id'], $pdo);
 
@@ -73,7 +73,7 @@
                         <td><a href="/KBS/webshop/" class="btn btn-warning"><i class="fa fa-angle-left"></i>Verder winkelen</a></td>
                         <td colspan="2" class="hidden-xs"></td>
                         <td class="hidden-xs text-center"><strong>€<?php print($totalPrice); ?></strong></td>
-                        <td><a href="#" class="btn btn-success btn-block">Bestelling afronden<i class="fa fa-angle-right"></i></a></td>
+                        <td><a href="/KBS/ganaarbetalen/" class="btn btn-success btn-block">Bestelling afronden<i class="fa fa-angle-right"></i></a></td>
                     </tr>
                 </tfoot>
             </table>

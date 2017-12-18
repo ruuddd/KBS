@@ -1,4 +1,5 @@
 <?php
+//haalt content voor pagina's op of returnt een error als het een foute pagina is
 function checkPage($page, $pdo)
 {
     $stmt = $pdo->prepare("SELECT webpage FROM content");
@@ -14,7 +15,7 @@ function checkPage($page, $pdo)
         }
     return $error;
 }
-            
+//kijkt of er wat in de zoekbalk is gezet            
 function search()
 {
     if (isset($_POST['search']))
@@ -26,7 +27,7 @@ function search()
         return false;
     }
 }
-            
+//haalt gegevens op van alle producted in de database            
 function findAllProducts($pdo)
 {
     $stmt = $pdo->prepare("SELECT * FROM product"); 
@@ -34,7 +35,7 @@ function findAllProducts($pdo)
     $allProducts = $stmt->fetchall(PDO::FETCH_ASSOC);
     return $allProducts;
 }
-            
+//haalt gegevens op van een product wat in de functie is gestopt            
 function findOneProduct($product, $pdo)
 {
     $stmt = $pdo->prepare("SELECT * FROM product where product_id = '$product'"); 
@@ -42,23 +43,15 @@ function findOneProduct($product, $pdo)
     $oneProduct = $stmt->fetchall(PDO::FETCH_ASSOC);
     return $oneProduct;
 }
-            
+//haalt alle producten en gegevens op van het sessie id wat in de functie staat (winkelmand)            
 function basketProducts($sessionId, $pdo)
 {
     $stmt = $pdo->prepare("SELECT * FROM basket LEFT JOIN product ON basket.product_id=product.product_id  JOIN sessie on basket.basket_id=sessie.basket_id  where basket.basket_id = '$sessionId'"); 
     $stmt->execute();
     $basketProducts = $stmt->fetchall(PDO::FETCH_ASSOC);
     return $basketProducts;
-}
-            
-function insertSession($pdo)
-{   
-    $stmt = $pdo->prepare("INSERT INTO sessie (basket_id, order_id) VALUES (,)"); 
-    $stmt->execute();
-    $sessionId=$pdo->lastInsertId();
-    return $sessionId;
-}
-            
+} 
+//kijkt of er een sessionid is(winkelmand) en anders maakt een nieuwe aan            
 function checkSessionId($pdo)
 {
     if (!(isset($_SESSION['id'])))
@@ -67,19 +60,27 @@ function checkSessionId($pdo)
     }
     return $_SESSION['id'];
 }
-            
+//maakt nieuwe sessie aan (zie checksessionid)
+function insertSession($pdo)
+{   
+    $stmt = $pdo->prepare("INSERT INTO sessie (order_id) VALUES (NULL)"); 
+    $stmt->execute();
+    $sessionId=$pdo->lastInsertId();
+    return $sessionId;
+}
+//voegt een product aan het winkelmandje toe           
 function addProductToBasket($pdo, $product, $sessionId)
 {
     $stmt = $pdo->prepare("INSERT INTO basket(basket_id, product_id, amount) VALUES (".$sessionId.",".$product.",1)"); 
     $stmt->execute();
 }
-            
+//haalt een product uit het winkelmandje
 function removeProductFromBasket($pdo, $product, $sessionId)
 {
     $stmt = $pdo->prepare("DELETE FROM basket where basket_id = ".$sessionId." AND product_id = ".$product.""); 
     $stmt->execute();
 }
-
+//zet $page op de huidige pagina in de url, standaard home als niks ingevuld is en webshop als er gezocht word in de zoekbalk
 function check() 
 {
     $page = "home";
@@ -94,7 +95,7 @@ function check()
 
     return $page;
 }
-
+//haalt content uit de database
 function getPage($page, $pdo) 
 {
     if (checkPage($page, $pdo)) 
@@ -113,8 +114,7 @@ function getPage($page, $pdo)
         return $arr['0']["content"];
     }
 }
-
-
+//haalt alle producten op waar de naam, beschrijving of een categorie heeft wat lijkt op wat in de zoekbalk staat
 function searchProducts($search, $pdo) 
 {
     $stmt = $pdo->prepare("SELECT * FROM product p JOIN productcategory PC ON P.product_id = PC.product_id JOIN category C ON C.category_id=PC.category_id WHERE product_name LIKE '%" . $search . "%' OR category_name LIKE '%" . $search . "%' OR Product_description LIKE '%" . $search . "%'");
@@ -123,7 +123,7 @@ function searchProducts($search, $pdo)
     return $products;
     //$pdo = null;
 }
-
+//haalt alle gebruikersgegevens op
 function findAllUsers($pdo) 
 {
     $stmt = $pdo->prepare("SELECT * FROM person");
@@ -131,13 +131,13 @@ function findAllUsers($pdo)
     $allUsers = $stmt->fetchall(PDO::FETCH_ASSOC);
     return $allUsers;
 }
-
+//veranderd de hoeveelheid van een product in het winkelmandje 
 function updateAmount($pdo, $amount, $productId, $basketId)
 {
     $stmt = $pdo->prepare("UPDATE basket SET amount = ".$amount." WHERE product_id = ".$productId." AND basket_id = ".$basketId."");
     $stmt->execute();   
 }
-
+//maakt een bestelling aan
 //function generateRandomKey($pdo,$email, $date, $basketId)
 //{
 //    $stmt = $pdo->prepare("INSERT INTO order(order_id, email, date, basket_id,) VALUES (".uniqid('', true).",".$email." ,".$date." ,".$basketId.")");
