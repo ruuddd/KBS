@@ -41,7 +41,7 @@
     }
 
 //de verwerking is klaar, ga via een redirect weer terug naar de index
-   // header('Location: ' . $link);
+    header('Location: ' . $link);
     exit();
     ?>
 </html>

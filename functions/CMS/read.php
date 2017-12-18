@@ -19,11 +19,24 @@ function home($conn)
 	return $return;
 }
 
+function getCategories($conn)
+{
+    $categories = $conn->prepare("SELECT * FROM category");
+    $categories->execute();
+    $result = $categories->fetchAll();
+    $options = "<datalist id='category'>";
+    foreach ($result as $key => $value) 
+    {
+        $category_name = $value["category_name"];
+        $options .= "<option value='$category_name'/>";
+    }
+    $options .= "</datalist>";
+    return $options;
+}
+
 function aToevoegen($conn)
 {
-    
-    ?> 
-        <form action="?actie=home&insertArtikel" method="post" enctype="multipart/form-data">
+    $form = '<form action="?actie=home&insertArtikel" method="post" enctype="multipart/form-data">
             <table>
                 <tr>
                     <td>
@@ -31,6 +44,10 @@ function aToevoegen($conn)
                     </td>
                     <td>
                         <input type="text" name="naam" />
+                    </td>
+                    <td>
+                        <input list="category" name="category">
+                        '. getCategories($conn) .'
                     </td>
                 </tr>
                 <tr>
@@ -51,7 +68,7 @@ function aToevoegen($conn)
                 </tr>
                 <tr>
                     <td>
-                        <input name="file" type='file' onchange="readURL(this);" />
+                        <input name="file" type="file" onchange="readURL(this);" />
                     </td>
                     <td>
                         <img id="image" width="250" height="250" src="http://www.pixedelic.com/themes/geode/demo/wp-content/uploads/sites/4/2014/04/placeholder4.png" alt="your image" />
@@ -75,9 +92,6 @@ function aToevoegen($conn)
                     </td>
                 </tr>
             </table>
-        </form>
-
-
-    <?php
-    return $ret;
+        </form>';
+    return $form;
 }

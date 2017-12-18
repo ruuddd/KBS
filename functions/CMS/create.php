@@ -2,7 +2,6 @@
 
 function checkImg($product_image)
 {
-    print_r($product_image);
     $uploads_dir = '../../images/artikelen/';
     if ($product_image["error"] == UPLOAD_ERR_OK) 
     {
@@ -25,5 +24,12 @@ function insertArtikel($conn, $product_name, $product_price, $product_descriptio
 	$stmt->bindParam(':product_description', $product_description);
 	$stmt->bindParam(':availability', $availability);
 	$stmt->execute();
+
+    
+    
+    $stmt = $conn->prepare("INSERT INTO productcategory (product_id, category_id) VALUES (:product_id, :category_id)");
+    $stmt->bindParam(':product_id', $product_id);
+    $stmt->bindParam(':category_id', $category_id);
+    $stmt->execute();
     return home($conn);
 }
