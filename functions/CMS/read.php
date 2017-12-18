@@ -5,6 +5,8 @@ function home($conn)
 	$content = $conn->prepare("SELECT * FROM product");
     $content->execute();
     $result = $content->fetchAll();
+    $result = json_encode($result);
+    print_r($result);
     $return = "<a href='?actie=aToevoegen'>toevoegen<a/>
 
     <table>";
@@ -28,7 +30,8 @@ function getCategories($conn)
     foreach ($result as $key => $value) 
     {
         $category_name = $value["category_name"];
-        $options .= "<option value='$category_name'/>";
+        $category_id = $value["category_id"];
+        $options .= "<option value='$category_id'>$category_name</option>";
     }
     $options .= "</datalist>";
     return $options;
@@ -46,7 +49,7 @@ function aToevoegen($conn)
                         <input type="text" name="naam" />
                     </td>
                     <td>
-                        <input list="category" name="category">
+                        <input list="category" name="category_id">
                         '. getCategories($conn) .'
                     </td>
                 </tr>

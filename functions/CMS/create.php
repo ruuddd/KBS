@@ -14,22 +14,25 @@ function checkImg($product_image)
     return basename($product_image["name"]);
 }
 
-function insertArtikel($conn, $product_name, $product_price, $product_description, $product_image, $availability)
+function insertArtikel($conn, $product_name, $product_price, $product_description, $product_image, $availability, $category_id)
 {
 	$product_image_Url = checkImg($product_image);
-	$stmt = $conn->prepare("INSERT INTO product (product_name, product_price, product_image, product_description, availability) VALUES (:product_name, :product_price,:product_image, :product_description, :availability)");
-	$stmt->bindParam(':product_name', $product_name);
+   // if (empty($product_name), empty($product_price), empty($product_description), empty($availability), empty($category_id)) 
+    //{
+        $stmt = $conn->prepare("INSERT INTO product (product_name, product_price, product_image, product_description, availability) VALUES (:product_name, :product_price,:product_image, :product_description, :availability)");
+    $stmt->bindParam(':product_name', $product_name);
     $stmt->bindParam(':product_price', $product_price);
     $stmt->bindParam(':product_image', $product_image_Url);
-	$stmt->bindParam(':product_description', $product_description);
-	$stmt->bindParam(':availability', $availability);
-	$stmt->execute();
+    $stmt->bindParam(':product_description', $product_description);
+    $stmt->bindParam(':availability', $availability);
+    $stmt->execute();
 
-    
-    
-    $stmt = $conn->prepare("INSERT INTO productcategory (product_id, category_id) VALUES (:product_id, :category_id)");
-    $stmt->bindParam(':product_id', $product_id);
+
+
+    $stmt = $conn->prepare("INSERT INTO productcategory (product_id, category_id) VALUES (LAST_INSERT_ID(), :category_id)");
     $stmt->bindParam(':category_id', $category_id);
     $stmt->execute();
+ //   }
+	
     return home($conn);
 }
