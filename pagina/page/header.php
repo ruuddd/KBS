@@ -30,10 +30,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/KBS/test/">TEST</a>
                 </li>
-
+            </ul>
         </div>
-        </li>
-        </ul>
+
+        
         <form class="form-inline my-2 my-lg-0" method="POST">
             <input type="search" placeholder="Search" name="search">
 
@@ -57,9 +57,9 @@
             <div class="nav-item">
                 <a class="navbar-brand" href="/KBS/winkelmandje/">
                 <img src="http://localhost/KBS/shopping-cart-button.png" height="50" width="50" alt="winkelmand"/>
+                <a class="navbar-brand" href="/KBS/winkelmandje/"></a>
+                <img src="../shopping-cart-button.png" height="50" width="50" alt="winkelmand"/>
             </div>
-        </a>
         </form>
     </div>
-</div>
 </nav>
