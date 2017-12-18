@@ -52,18 +52,27 @@
                 //kijkt of ingelogd is; zoja toont de volledige naam, anders de login link
                 if (!empty($_SESSION['ingelogd'])) {
                     if ($_SESSION['ingelogd']) {
-                        print('<a class="nav-link" href="/KBS/mijn/">' . $_SESSION['fullname'] . '</a>');
+                        //print('<a class="nav-link" href="/KBS/mijn/">' . $_SESSION['fullname'] . '</a>');
+                        print(
+                                '                    <div class="dropdown nav-link nav-item">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">' . $_SESSION['fullname'] . '
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="/kbs/mijn/">Mijn account</a></li>
+                            <li><a href="/kbs/pagina/inloggen/verwerk.php?actie=uitloggen">Uitloggen</a></li>
+                        </ul>
+                    </div>'
+                        );
                     }
                 } else {
                     ?>
 
                     <div class="dropdown nav-link nav-item">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Mijn account
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Inloggen | Registreren
                         </button>
                         <ul class="dropdown-menu">
                             <li><a href="/KBS/login/">Inloggen </a></li>
                             <li><a href="/kbs/registratie/">Registreren</a></li>
-                            <li><a href="/KBS/uitloggen">Uitloggen</a></li>
                         </ul>
                     </div>
 
