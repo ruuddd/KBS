@@ -3,6 +3,7 @@ session_start();
 include 'functions/CRUD/read.php';
 include 'functions/dbConnect.php';
 include 'functions/loginCheck.php';
+include 'pagina/inloggen/dbCheck.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -66,7 +67,11 @@ include 'functions/loginCheck.php';
                         include_once 'pagina/gaNaarBetalen.php';
                     } elseif (check() == "bestellingafgerond") {
                         include_once 'pagina/BestellingAfgerond.php';
-                    } else {
+                    } 
+                    elseif (check() == "bestellingVerwerk") {
+                        include_once "pagina/bestellingVerwerk.php";
+                    }
+                    else {
                         checkPage(check(), $pdo);
                         print(getPage(check(), $pdo));
                     }
