@@ -5,8 +5,6 @@ function home($conn)
 	$content = $conn->prepare("SELECT * FROM product");
     $content->execute();
     $result = $content->fetchAll();
-    $result = json_encode($result);
-    print_r($result);
     $return = "<a href='?actie=aToevoegen'>toevoegen<a/>
 
     <table>";
@@ -15,7 +13,8 @@ function home($conn)
     	$product_name = $value["product_name"];
     	$availability = $value["availability"];
         $url = $value["product_image"];
-    	$return .= "<tr><td>$product_name</td><td>$availability</td><td>$url</td></tr>";
+        $product_id = $value["product_id"];
+    	$return .= "<tr><td>$product_name</td><td>$availability</td><td>$url</td><td><a href='?actie=removeProduct&productId=$product_id'>x</a></td></tr>";
     }
     $return .= "</tr>";
 	return $return;
@@ -58,7 +57,7 @@ function aToevoegen($conn)
                         prijs
                     </td>
                     <td>
-                        <input type="number" name="prijs" />
+                        <input type="number" name="prijs" step="any" />
                     </td>
                 </tr>
                 <tr>
