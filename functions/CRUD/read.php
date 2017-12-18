@@ -118,7 +118,7 @@ function getPage($page, $pdo)
 function searchProducts($search, $pdo) 
 {
   
-    $stmt = $pdo->prepare("SELECT * FROM product p LEFT JOIN productcategory PC ON P.product_id = PC.product_id LEFT JOIN category C ON C.category_id=PC.category_id WHERE p.product_name LIKE '%" . $search . "%' OR c.category_name LIKE '%" . $search . "%' OR p.Product_description LIKE '%" . $search . "%'");
+    $stmt = $pdo->prepare("SELECT p.product_id, p.product_name, p.product_price, p.product_description, p.product_image, p.availability FROM product p LEFT JOIN productcategory PC ON P.product_id = PC.product_id LEFT JOIN category C ON C.category_id=PC.category_id WHERE p.product_name LIKE '%" . $search . "%' OR c.category_name LIKE '%" . $search . "%' OR p.Product_description LIKE '%" . $search . "%'");
     $stmt->execute();
     $products = $stmt->fetchall(PDO::FETCH_ASSOC);
     return $products;
