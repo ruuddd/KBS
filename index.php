@@ -79,8 +79,13 @@ include 'functions/dbConnect.php';
                     {
                         include_once "pagina/BestellingAfgerond.php";
                     }
-                    elseif(check() == "ganaarbetalen"){
+                    elseif(check() == "ganaarbetalen")
+                    {
                         include_once 'pagina/gaNaarBetalen.php';
+                    }                    
+                    elseif(check() == "bestellingafgerond")
+                    {
+                        include_once 'pagina/BestellingAfgerond.php';
                     }
                     else 
                     {
