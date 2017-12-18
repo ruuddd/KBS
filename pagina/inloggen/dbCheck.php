@@ -35,5 +35,5 @@ function createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefo
     $adresGegevens->execute([NULL, $land, $postcode, $straatnaam, $huisnummer, $woonplaats]);
 
     $persoonsGegevens = $pdo->prepare("INSERT INTO `person` (`email`, `role`, `address_id`, `password`, `firstname`, `lastname`, `phonenumber`, `insertion`) VALUES (?, ?, LAST_INSERT_ID(), ?, ?, ?, ?, ?)");
-    $persoonsGegevens->execute([$emailadres, 1, hashWachtwoord($wachtwoord), $voornaam, $achternaam, $telefoonnummer, $tussenvoegsel]);
+    $persoonsGegevens->execute([$emailadres, 2, hashWachtwoord($wachtwoord), $voornaam, $achternaam, $telefoonnummer, $tussenvoegsel]);
 }
