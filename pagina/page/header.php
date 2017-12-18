@@ -56,10 +56,7 @@
             </div>
             <div class="nav-item">
                 <a class="navbar-brand" href="/KBS/winkelmandje/">
-                <img src="http://localhost/KBS/shopping-cart-button.png" height="50" width="50" alt="winkelmand"/>
-                <a class="navbar-brand" href="/KBS/winkelmandje/"></a>
-                <img src="../shopping-cart-button.png" height="50" width="50" alt="winkelmand"/>
-            </div>
+                    <img src="http://localhost/KBS/shopping-cart-button.png" height="50" width="50" alt="winkelmand"/></a>
         </form>
     </div>
 </nav>
