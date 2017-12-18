@@ -2,6 +2,7 @@
 session_start();
 include 'functions/CRUD/read.php';
 include 'functions/dbConnect.php';
+include 'functions/loginCheck.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -24,13 +25,13 @@ include 'functions/dbConnect.php';
     <title>De Ferver</title>
 
     <!-- Bootstrap core CSS --><link href="css/artikel.css" rel="stylesheet">
-        <link href="../css/winkelmandjenew.css" rel="stylesheet">
-        <link href="css/artikel.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="../css/winkelmandjenew.css" rel="stylesheet">
+    <link href="css/artikel.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
-    
+
 </head>
 <body>
 
@@ -43,52 +44,29 @@ include 'functions/dbConnect.php';
                 <div class="row">
                     <?php
                     //include een pagina als de link van die pagina is ingevuld
-                    if (check() == "webshop") 
-                    {
+                    if (check() == "webshop") {
                         include_once "pagina/webShop.php";
-                    } 
-                    elseif (check() == "login") 
-                    {
+                    } elseif (check() == "login") {
                         include_once "pagina/inloggen/inlog.php";
-                    } 
-                    elseif (check() == "artikel") 
-                    {
+                    } elseif (check() == "artikel") {
                         include_once "pagina/artikelPage.php";
-                    }
-                    elseif (check() == "winkelmandje")
-                    {
+                    } elseif (check() == "winkelmandje") {
                         include_once "pagina/winkelmandje.php";
-                    }
-                    elseif (check() == "test")
-                    {
+                    } elseif (check() == "test") {
                         include_once "test.php";
-                    }
-                    elseif (check() == "mijn" ) 
-                    {
+                    } elseif (check() == "mijn") {
                         include_once "pagina/mijn.php";
-                    }
-                    elseif(check() == "registratie")
-                    {
+                    } elseif (check() == "registratie") {
                         include_once "pagina/registratie/register.php";
-                    }
-                    elseif(check() == "mail")
-                    {
+                    } elseif (check() == "mail") {
                         include_once "pagina/phpMail.php";
-                    }
-                    elseif(check() == "BestellingAfgerond")
-                    {
+                    } elseif (check() == "BestellingAfgerond") {
                         include_once "pagina/BestellingAfgerond.php";
-                    }
-                    elseif(check() == "ganaarbetalen")
-                    {
+                    } elseif (check() == "ganaarbetalen") {
                         include_once 'pagina/gaNaarBetalen.php';
-                    }                    
-                    elseif(check() == "bestellingafgerond")
-                    {
+                    } elseif (check() == "bestellingafgerond") {
                         include_once 'pagina/BestellingAfgerond.php';
-                    }
-                    else 
-                    {
+                    } else {
                         checkPage(check(), $pdo);
                         print(getPage(check(), $pdo));
                     }
@@ -96,11 +74,11 @@ include 'functions/dbConnect.php';
 
                 </div>
             </div>
-        </div> 
-</main>
-        <?php
-        include_once 'pagina/page/footer.php';
-        ?>
+        </div>
+    </main>
+                    <?php
+                    include_once 'pagina/page/footer.php';
+                    ?>
 
 </body>
 </html>

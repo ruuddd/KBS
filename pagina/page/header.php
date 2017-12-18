@@ -2,9 +2,7 @@
 <link href="/kbs/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="/kbs/css/custom.css" rel="stylesheet" type="text/css">
 
-<?php
-include 'functions/loginCheck.php';
-?>
+
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container alt-navbar">
@@ -30,13 +28,12 @@ include 'functions/loginCheck.php';
                     <a class="nav-link" href="/KBS/overons/">Over ons</a>
                 </li>
                 <?php
-                if (!empty($_SESSION['ingelogd'])) {
-                    checkRights($user, 1);
+                if (!empty($_SESSION['ingelogd']) && checkRights($user, 1)) {
+                    print(
+                            '<li class="nav-item">
+                        <a class="nav-link" href="/KBS/functions/CMS/">CMS</a>
+                    </li>');
                 }
-                print(
-                        '<li class="nav-item">
-                    <a class="nav-link" href="/KBS/functions/CMS/">CMS</a>
-                </li>')
                 ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/KBS/test/">TEST</a>
