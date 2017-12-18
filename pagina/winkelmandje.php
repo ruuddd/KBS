@@ -66,12 +66,10 @@
                             ?>
                 </tbody>
                 <tfoot>
-                    <tr class="visible-xs">
-                        <td class="text-center"><strong>Totaal bedrag</strong></td>
-                    </tr>
                     <tr>
                         <td><a href="/KBS/webshop/" class="btn btn-warning"><i class="fa fa-angle-left"></i>Verder winkelen</a></td>
-                        <td colspan="2" class="hidden-xs"></td>
+                        <td class="text-center"><strong>Totaal bedrag:</strong></td>
+                        <td colspan="1" class="hidden-xs"></td>
                         <td class="hidden-xs text-center"><strong>€<?php print($totalPrice); ?></strong></td>
                         <td><a href="/KBS/ganaarbetalen/" class="btn btn-success btn-block">Bestelling afronden<i class="fa fa-angle-right"></i></a></td>
                     </tr>
