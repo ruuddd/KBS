@@ -6,7 +6,7 @@
         </div>
     </div> 
     <div class="main-login main-center">
-        <form class="form-horizontal" method="post" action="/kbs//bestellingVerwerk/">
+        <form class="form-horizontal" method="post" action="/kbs/bestellingVerwerk/">
 
             <div class="form-group">
                 <label for="name" class="cols-sm-2 control-label">Voornaam *</label>
@@ -131,27 +131,3 @@
         </form>
     </div>
 </div>
-<?php
-//actueel ondersteund alternatief voor $_POST['gebruikersnaam'] etc
-    $voornaam = filter_input(INPUT_POST, 'voornaam1');
-    $tussenvoegsel = filter_input(INPUT_POST, 'tussenvoegsel1');
-    $achternaam = filter_input(INPUT_POST, 'achternaam1');
-    $emailadres = filter_input(INPUT_POST, 'emailadres1');
-    $telefoonnummer = filter_input(INPUT_POST, 'telefoonnummer1');
-    $straatnaam = filter_input(INPUT_POST, 'straatnaam1');
-    $huisnummer = filter_input(INPUT_POST, 'huisnummer1');
-    $postcode = filter_input(INPUT_POST, 'postcode1');
-    $woonplaats = filter_input(INPUT_POST, 'woonplaats1');
-    $land = filter_input(INPUT_POST, 'land');
-
-    if (!empty($voornaam) && !empty($achternaam) && !empty($emailadres) && !empty($telefoonnummer) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land)) 
-    {
-        createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, 'gdasd', $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo);
-    } 
-    else 
-    {
-        $_SESSION['melding'] = "Vul de verplichte velden in";
-    }
-
-//de verwerking is klaar, ga via een redirect weer terug naar de index
-    ?>

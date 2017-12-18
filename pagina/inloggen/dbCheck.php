@@ -1,6 +1,4 @@
 <?php
-
-include "../../functions/dbConnect.php";
 include_once 'functies.inc.php';
 
 function getUser($emailadres, $conn) {
@@ -30,9 +28,8 @@ function logUser($emailadres, $wachtwoord) {
     }
 }
 
-function createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, $wachtwoord, $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo) {
-    $query = "INSERT INTO `address` (`address_id`, `country`, `zipcode`, `streetname`, `addressnumber`, `city`) VALUES (NULL, ".$land.", ".$postcode.", ".$straatnaam.", ".$huisnummer.", ".$woonplaats.")";
-    print $query;
+function createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, $wachtwoord, $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo) 
+{    
     $adresGegevens = $pdo->prepare("INSERT INTO `address` (`address_id`, `country`, `zipcode`, `streetname`, `addressnumber`, `city`) VALUES (?, ?, ?, ?, ?, ?)");
     $adresGegevens->execute([NULL, $land, $postcode, $straatnaam, $huisnummer, $woonplaats]);
 

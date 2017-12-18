@@ -139,8 +139,8 @@ function updateAmount($pdo, $amount, $productId, $basketId)
     $stmt->execute();   
 }
 //maakt een bestelling aan
-//function generateRandomKey($pdo,$email, $date, $basketId)
-//{
-//    $stmt = $pdo->prepare("INSERT INTO order(order_id, email, date, basket_id,) VALUES (".uniqid('', true).",".$email." ,".$date." ,".$basketId.")");
-//    $stmt->execute();
-//}
+function generateRandomKey($pdo,$email, $date, $basketId)
+{
+    $stmt = $pdo->prepare("INSERT INTO bestelling(order_id, email, date, basket_id) VALUES (NULL,'".$email."' ,'".$date."' ,'".$basketId."')");
+    $stmt->execute();
+}

@@ -18,6 +18,7 @@
     if (!empty($voornaam) && !empty($achternaam) && !empty($emailadres) && !empty($telefoonnummer) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land)) 
     {
         createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, "NULL", $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo); 
+        generateRandomKey($pdo, $emailadres, $date, $_SESSION['id']);
         $link = "../bestellingafgerond/";
 
     } 
