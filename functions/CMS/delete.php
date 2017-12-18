@@ -6,8 +6,13 @@ function removeProduct($conn)
 	{
 		if (!empty($_GET["productId"])) 
 		{
-			$stmt = $pdo->prepare("DELETE FROM productcategory WHERE category_id = ?");
-			$stmt->execute([$cat]);
+
+			$stmt = $conn->prepare("DELETE FROM productcategory WHERE product_id = ?");
+			$stmt->execute([$_GET["productId"]]);
+
+			$stmt = $conn->prepare("DELETE FROM product WHERE product_id = ?");
+			$stmt->execute([$_GET["productId"]]);
+			header("location: /kbs/functions/cms/");
 		}
 	}
 }
