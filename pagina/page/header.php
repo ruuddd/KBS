@@ -55,11 +55,9 @@
                     
             </div>
             <div class="nav-item">
-                <a class="navbar-brand" href="/KBS/winkelmandje/">
+                <a class="navbar-brand" href="/KBS/winkelmandje/"></a>
                 <img src="../shopping-cart-button.png" height="50" width="50" alt="winkelmand"/>
             </div>
-        </a>
         </form>
     </div>
-</div>
 </nav>
