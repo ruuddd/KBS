@@ -15,7 +15,7 @@ include 'pagina/inloggen/melding.inc.php';
                 <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" name="voornaam" id="name"  placeholder="Voer uw voornaam in"/>
+                        <input required type="text" class="form-control" name="voornaam" id="name"  placeholder="Voer uw voornaam in"/>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@ include 'pagina/inloggen/melding.inc.php';
                 <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" name="achternaam" id="name"  placeholder="Voer uw achternaam in"/>
+                        <input required type="text" class="form-control" name="achternaam" id="name"  placeholder="Voer uw achternaam in"/>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@ include 'pagina/inloggen/melding.inc.php';
                 <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" name="emailadres" id="email"  placeholder="Voer uw e-mailadres in"/>
+                        <input required type="text" class="form-control" name="emailadres" id="email"  placeholder="Voer uw e-mailadres in"/>
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@ include 'pagina/inloggen/melding.inc.php';
                 <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" name="telefoonnummer" id="email"  placeholder="Voer uw telefoonnummer in"/>
+                        <input required type="text" class="form-control" name="telefoonnummer" id="email"  placeholder="Voer uw telefoonnummer in"/>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@ include 'pagina/inloggen/melding.inc.php';
                 <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                        <input type="password" class="form-control" name="wachtwoord" id="password"  placeholder="Voer uw wachtwoord in"/>
+                        <input required type="password" class="form-control" name="wachtwoord" id="password"  placeholder="Voer uw wachtwoord in"/>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@ include 'pagina/inloggen/melding.inc.php';
                 <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                        <input type="password" class="form-control" name="bevestig_wachtwoord" id="confirm"  placeholder="Bevestig uw wachtwoord"/>
+                        <input required type="password" class="form-control" name="bevestig_wachtwoord" id="confirm"  placeholder="Bevestig uw wachtwoord"/>
                     </div>
                 </div>
             </div>
@@ -105,7 +105,7 @@ include 'pagina/inloggen/melding.inc.php';
                 <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" name="straatnaam" id="email"  placeholder="Voer uw straatnaam in"/>
+                        <input required type="text" class="form-control" name="straatnaam" id="email"  placeholder="Voer uw straatnaam in"/>
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@ include 'pagina/inloggen/melding.inc.php';
                 <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" name="huisnummer" id="email"  placeholder="Voer uw huisnummer in"/>
+                        <input required type="text" class="form-control" name="huisnummer" id="email"  placeholder="Voer uw huisnummer in"/>
                     </div>
                 </div>
             </div>
@@ -125,7 +125,7 @@ include 'pagina/inloggen/melding.inc.php';
                 <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" name="postcode" id="email"  placeholder="Voer uw postcode in"/>
+                        <input required type="text" class="form-control" name="postcode" id="email"  placeholder="Voer uw postcode in"/>
                     </div>
                 </div>
             </div>
@@ -135,7 +135,7 @@ include 'pagina/inloggen/melding.inc.php';
                 <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" name="woonplaats" id="email"  placeholder="Voer uw woonplaats in"/>
+                        <input required type="text" class="form-control" name="woonplaats" id="email"  placeholder="Voer uw woonplaats in"/>
                     </div>
                 </div>
             </div>
@@ -145,7 +145,7 @@ include 'pagina/inloggen/melding.inc.php';
                 <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" name="land" id="email"  placeholder="Voer uw land in"/>
+                        <input required type="text" class="form-control" name="land" id="email"  placeholder="Voer uw land in"/>
                     </div>
                 </div>
             </div>
