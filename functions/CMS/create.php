@@ -12,10 +12,7 @@ function checkImg($product_image)
         $name = basename($product_image["name"]);
         move_uploaded_file($tmp_name, "$uploads_dir$name");
     }
-    else
-    {
-        echo "eroor";
-    }
+    return basename($product_image["name"]);
 }
 
 function insertArtikel($conn, $product_name, $product_price, $product_description, $product_image, $availability)
