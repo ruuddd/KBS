@@ -16,7 +16,7 @@
             updateAmount($pdo, $_POST['amount'], $_POST['artikelId'], $_SESSION['id']);
         }
         
-        $_SESSION['id']= checkSessionId($pdo);
+        checkSessionId($pdo);
 
         $productInfo = basketProducts($_SESSION['id'], $pdo);
 
