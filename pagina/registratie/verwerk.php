@@ -20,16 +20,19 @@
     $postcode = filter_input(INPUT_POST, 'postcode');
     $woonplaats = filter_input(INPUT_POST, 'woonplaats');
     $land = filter_input(INPUT_POST, 'land');
-    $actie = filter_input(INPUT_GET, 'actie');
 
-    if (!is_null($voornaam) && !is_null($achternaam) && !is_null($emailadres) && !is_null($telefoonnummer) && !is_null($wachtwoord) && !is_null($bevestig_wachtwoord) && !is_null($straatnaam) && !is_null($huisnummer) && !is_null($woonplaats) && !is_null($postcode) && !is_null($land) && $wachtwoord == $bevestig_wachtwoord) { //controleer of de variabelen niet leeg zijn
-        createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, $wachtwoord, $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo);
-        $_SESSION['melding'] = "U bent geregistreerd!";
-        $link = "../../login/";
+    if (!empty($voornaam) && !empty($achternaam) && !empty($emailadres) && !empty($telefoonnummer) && !empty($wachtwoord) && !empty($bevestig_wachtwoord) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land)) { //controleer of de variabelen niet leeg zijn
+        if ($wachtwoord == $bevestig_wachtwoord && $wachtwoord > 6) {
+            createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, $wachtwoord, $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo);
+
+            $_SESSION['melding'] = "U bent geregistreerd!";
+            $link = "../../login/";
+        } else {
+            $_SERVER['melding'] = "De wachtwoorden komen niet overeen";
+        }
     } else {
-        $_SESSION['melding'] = "Er is iets fout gegaan";
+        $_SESSION['melding'] = "Vul de verplichte velden in";
     }
-
 
 //de verwerking is klaar, ga via een redirect weer terug naar de index
     header('Location: ' . $link);
