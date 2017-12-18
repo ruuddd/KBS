@@ -57,25 +57,10 @@
                     </div>
                 </div>
             </div>
-
-            <div class="login-register">
-                <p><strong>
-                        Velden met een * zijn verplicht
-                    </strong></p>
-            </div>
-
-            <div class="form-group ">
-                <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Naar betalen</button>
-                <input type="hidden" href="KBS/bestellingafgerond/">
-            </div>
-
-            <div class="login-register">
-                <a href="inloggen/inlog.php">Login</a>
-            </div>
-
-    </div>
+            
+<!--    </div>
      <div class="main-login main-center">
-        <form class="form-horizontal" method="post" action="verwerk.php">
+        <form class="form-horizontal" method="post" action="verwerk.php">-->
 
 
             <div class="form-group">
@@ -127,7 +112,19 @@
                     </div>
                 </div>
             </div>
+                        <div class="login-register">
+                <p><strong>
+                        Velden met een * zijn verplicht
+                    </strong></p>
+            </div>
+                        <div class="form-group ">
+                <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Naar betalen</button>
+                <input type="hidden" href="KBS/bestellingafgerond/">
+            </div>
 
+            <div class="login-register">
+                <a href="inloggen/inlog.php">Login</a>
+            </div>
         </form>
     </div>
 </div>

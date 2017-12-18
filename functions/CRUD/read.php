@@ -143,4 +143,6 @@ function generateRandomKey($pdo,$email, $date, $basketId)
 {
     $stmt = $pdo->prepare("INSERT INTO bestelling(order_id, email, date, basket_id) VALUES (NULL,'".$email."' ,'".$date."' ,'".$basketId."')");
     $stmt->execute();
+    $query = $pdo->prepare("UPDATE sessie SET order_id = LAST_INSERT_ID() WHERE basket_id = ".$basketId."");
+    $query->execute();
 }
