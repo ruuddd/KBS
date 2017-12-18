@@ -117,9 +117,7 @@ function getPage($page, $pdo)
 //haalt alle producten op waar de naam, beschrijving of een categorie heeft wat lijkt op wat in de zoekbalk staat
 function searchProducts($search, $pdo) 
 {
-    $query = "SELECT * FROM product p JOIN productcategory PC ON P.product_id = PC.product_id JOIN category C ON C.category_id=PC.category_id WHERE p.product_name LIKE '%" . $search . "%' OR c.category_name LIKE '%" . $search . "%' OR p.Product_description LIKE '%" . $search . "%'";
-    print $query;
-    $stmt = $pdo->prepare("SELECT * FROM product p JOIN productcategory PC ON P.product_id = PC.product_id JOIN category C ON C.category_id=PC.category_id WHERE p.product_name LIKE '%" . $search . "%' OR c.category_name LIKE '%" . $search . "%' OR p.Product_description LIKE '%" . $search . "%'");
+  
     $stmt->execute();
     $products = $stmt->fetchall(PDO::FETCH_ASSOC);
     return $products;
