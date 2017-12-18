@@ -61,9 +61,9 @@
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Mijn account
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#">HTML</a></li>
-                            <li><a href="#">CSS</a></li>
-                            <li><a href="#">JavaScript</a></li>
+                            <li><a href="/KBS/login/">Inloggen </a></li>
+                            <li><a href="/kbs/registratie/">Registreren</a></li>
+                            <li><a href="/KBS/uitloggen">Uitloggen</a></li>
                         </ul>
                     </div>
 
