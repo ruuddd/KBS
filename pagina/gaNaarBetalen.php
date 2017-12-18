@@ -73,7 +73,7 @@
                             </div>
 
                             <div class="form-group ">
-                                <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Betaal</button>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block login-button" href="/kbs/bestellingafgerond/">Naar betalen</button>
                             </div>
 
                             <div class="login-register">
