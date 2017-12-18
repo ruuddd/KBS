@@ -22,13 +22,13 @@
     $land = filter_input(INPUT_POST, 'land');
 
     if (!empty($voornaam) && !empty($achternaam) && !empty($emailadres) && !empty($telefoonnummer) && !empty($wachtwoord) && !empty($bevestig_wachtwoord) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land)) { //controleer of de variabelen niet leeg zijn
-        if ($wachtwoord == $bevestig_wachtwoord && $wachtwoord > 6) {
+        if ($wachtwoord == $bevestig_wachtwoord && strlen($wachtwoord) > 5) {
             createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, $wachtwoord, $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo);
 
             $_SESSION['melding'] = "U bent geregistreerd!";
             $link = "../../login/";
         } else {
-            $_SERVER['melding'] = "De wachtwoorden komen niet overeen";
+            $_SERVER['melding'] = "Uw wachtwoorden komen niet overeen of zijn niet lang genoeg (minimaal 6 tekens)";
         }
     } else {
         $_SESSION['melding'] = "Vul de verplichte velden in";

@@ -62,7 +62,7 @@ include 'pagina/inloggen/melding.inc.php';
 
 
             <div class="form-group">
-                <label for="password" class="cols-sm-2 control-label">Wachtwoord *</label>
+                <label for="password" class="cols-sm-2 control-label">Wachtwoord * (minimaal 6 tekens)</label>
                 <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>

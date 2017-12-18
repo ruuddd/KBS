@@ -18,7 +18,7 @@
         $_SESSION['melding'] = "U bent nu uitgelogd";
     } else {
         //in alle andere gevallen doe een inlog poging
-        if (!(empty($emailadres)) && !(empty($wachtwoord))) {
+        if (!empty($emailadres) && !empty($wachtwoord)) {
 
             $user = getUser($emailadres, $pdo);
 
