@@ -67,11 +67,9 @@ include 'pagina/inloggen/dbCheck.php';
                         include_once 'pagina/gaNaarBetalen.php';
                     } elseif (check() == "bestellingafgerond") {
                         include_once 'pagina/BestellingAfgerond.php';
-                    } 
-                    elseif (check() == "bestellingVerwerk") {
+                    } elseif (check() == "bestellingVerwerk") {
                         include_once "pagina/bestellingVerwerk.php";
-                    }
-                    else {
+                    } else {
                         checkPage(check(), $pdo);
                         print(getPage(check(), $pdo));
                     }
@@ -81,9 +79,9 @@ include 'pagina/inloggen/dbCheck.php';
             </div>
         </div>
     </main>
-                    <?php
-                    include_once 'pagina/page/footer.php';
-                    ?>
+    <?php
+    include_once 'pagina/page/footer.php';
+    ?>
 
 </body>
 </html>
