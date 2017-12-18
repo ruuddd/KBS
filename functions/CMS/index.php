@@ -3,6 +3,7 @@
 session_start();
 include("../loginCheck.php");
 include("create.php");
+include("delete.php");
 ?>
 	<style type="text/css">
 		input[type='file'] {
