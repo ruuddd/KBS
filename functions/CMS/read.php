@@ -12,7 +12,8 @@ function home($conn)
     {
     	$product_name = $value["product_name"];
     	$availability = $value["availability"];
-    	$return .= "<tr><td>$product_name</td><td>$availability</td></tr>";
+        $url = $value["product_image"];
+    	$return .= "<tr><td>$product_name</td><td>$availability</td><td>$url</td></tr>";
     }
     $return .= "</tr>";
 	return $return;

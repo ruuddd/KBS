@@ -21,21 +21,27 @@
     $woonplaats = filter_input(INPUT_POST, 'woonplaats');
     $land = filter_input(INPUT_POST, 'land');
 
-    if (!empty($voornaam) && !empty($achternaam) && !empty($emailadres) && !empty($telefoonnummer) && !empty($wachtwoord) && !empty($bevestig_wachtwoord) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land)) { //controleer of de variabelen niet leeg zijn
-        if ($wachtwoord == $bevestig_wachtwoord && strlen($wachtwoord) > 5) {
+    if (!empty($voornaam) && !empty($achternaam) && !empty($emailadres) && !empty($telefoonnummer) && !empty($wachtwoord) && !empty($bevestig_wachtwoord) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land)) 
+    { //controleer of de variabelen niet leeg zijn
+        if ($wachtwoord == $bevestig_wachtwoord && strlen($wachtwoord) > 5) 
+        {
             createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, $wachtwoord, $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo);
 
             $_SESSION['melding'] = "U bent geregistreerd!";
             $link = "../../login/";
-        } else {
+        } 
+        else 
+        {
             $_SERVER['melding'] = "Uw wachtwoorden komen niet overeen of zijn niet lang genoeg (minimaal 6 tekens)";
         }
-    } else {
+    } 
+    else 
+    {
         $_SESSION['melding'] = "Vul de verplichte velden in";
     }
 
 //de verwerking is klaar, ga via een redirect weer terug naar de index
-    header('Location: ' . $link);
+   // header('Location: ' . $link);
     exit();
     ?>
 </html>

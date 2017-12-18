@@ -2,29 +2,29 @@
 
 function checkImg($product_image)
 {
-	$target_dir = "uploads/";
-	$target_file = $target_dir . basename($product_image["name"]);
-	$uploadOk = 1;
-	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-	// Check if image file is a actual image or fake image
-    $check = getimagesize($product_image["tmp_name"]);
-    if($check !== false) 
+    print_r($product_image);
+    $uploads_dir = '../../images/artikelen/';
+    if ($product_image["error"] == UPLOAD_ERR_OK) 
     {
-        echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
-    } else 
+        $tmp_name = $product_image["tmp_name"];
+        // basename() may prevent filesystem traversal attacks;
+        // further validation/sanitation of the filename may be appropriate
+        $name = basename($product_image["name"]);
+        move_uploaded_file($tmp_name, "$uploads_dir$name");
+    }
+    else
     {
-        echo "File is not an image.";
-        $uploadOk = 0;
+        echo "eroor";
     }
 }
 
 function insertArtikel($conn, $product_name, $product_price, $product_description, $product_image, $availability)
 {
-	$product_image = checkImg($product_image);
-	$stmt = $conn->prepare("INSERT INTO product (product_name, product_price, product_description, availability) VALUES (:product_name, :product_price, :product_description, :availability)");
+	$product_image_Url = checkImg($product_image);
+	$stmt = $conn->prepare("INSERT INTO product (product_name, product_price, product_image, product_description, availability) VALUES (:product_name, :product_price,:product_image, :product_description, :availability)");
 	$stmt->bindParam(':product_name', $product_name);
     $stmt->bindParam(':product_price', $product_price);
+    $stmt->bindParam(':product_image', $product_image_Url);
 	$stmt->bindParam(':product_description', $product_description);
 	$stmt->bindParam(':availability', $availability);
 	$stmt->execute();
