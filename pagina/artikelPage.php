@@ -1,25 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>product</title>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-
         <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/custom.css" rel="stylesheet">
     <link href="../css/artikel.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="../jumbotron.css" rel="stylesheet">
-
   </head>
-
   <body>
     <?php 
+    //haalt informatie op van het product waar op geklikt is in de webshop
     foreach (findOneProduct($_GET['product'], $pdo) as $value)
         {
                     $artikelNaam = $value['product_name'];
@@ -28,7 +17,7 @@
                     $artikelBeschikbaarheid = $value['availability'];
                     $artikelBeschrijving = $value['product_description'];
         }
-    
+    //toont de informatie door html te printen
     print('
     <div class="container">
         <div class="card">

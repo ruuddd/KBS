@@ -1,5 +1,5 @@
 <?php
-
+//hasht het wachtwoord
 function hashWachtwoord($wachtwoord) {
     $options = [
         'cost' => 12,
