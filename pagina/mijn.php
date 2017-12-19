@@ -1,12 +1,12 @@
-
 <?php
 
-print("Welkom" . " " . $_SESSION['firstname'] . "&nbsp;" . " <br>"); 
-print_r(getUser($_SESSION['emailadres'], $pdo));
-foreach(getUser($_SESSION['emailadres'], $pdo) as $key => $value){
-        //if(($key = 'password')){
-            echo "SLEUTEL: $key;  Waarde: $value<br />\n";
-    //}
-}
+$gebruikersGegevens = getUser($_SESSION['emailadres'], $pdo);
+//$adresGegevens = ;
+
+print("E-mailadres: " . $gebruikersGegevens['email'] . "<br />\n");
+print("Voornaam: " . $gebruikersGegevens['firstname'] . "<br />\n");
+print("Tussenvoegsel: " . $gebruikersGegevens['insertion'] . "<br />\n");
+print("Achternaam: " . $gebruikersGegevens['lastname'] . "<br />\n");
+print("Telefoonnummer: " . $gebruikersGegevens['phonenumber'] . "<br />\n");
 
 print('<a href="/kbs/pagina/inloggen/verwerk.php?actie=uitloggen"><strong>Uitloggen</strong></a>');
