@@ -5,7 +5,7 @@ function getUser($emailadres, $conn) {
     $userCheck = $conn->prepare("SELECT email FROM person WHERE email='" . $emailadres . "'");
     $userCheck->execute();
     if ($userCheck->rowcount() == 1) { //Kijkt of er een gebruiker met de aangegeven naam opgehaald kan worden.
-        $checkPassConn = $conn->prepare("SELECT * FROM person WHERE email='" . $emailadres . "'");
+        $checkPassConn = $conn->prepare("SELECT * FROM person JOIN address ON person.address_id=address.address_id WHERE email='" . $emailadres . "'");
         $checkPassConn->execute();
         $result = $checkPassConn->fetchAll(PDO::FETCH_ASSOC); //Maakt een array van de rij die opgehaald wordt uit de database.
         $result = $result[0];

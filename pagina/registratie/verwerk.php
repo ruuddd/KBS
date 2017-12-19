@@ -21,7 +21,7 @@
     $woonplaats = filter_input(INPUT_POST, 'woonplaats');
     $land = filter_input(INPUT_POST, 'land');
 
-    if (!empty($voornaam) && !empty($achternaam) && !empty($emailadres) && !empty($telefoonnummer) && !empty($wachtwoord) && !empty($bevestig_wachtwoord) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land)) 
+    if (!empty($voornaam) && !empty($achternaam) && !empty($emailadres) && !empty($telefoonnummer) && !empty($wachtwoord) && !empty($bevestig_wachtwoord) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land) ) 
     { //controleer of de variabelen niet leeg zijn
         if ($wachtwoord == $bevestig_wachtwoord && strlen($wachtwoord) > 5) 
         {

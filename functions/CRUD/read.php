@@ -147,3 +147,19 @@ function generateRandomKey($pdo,$email, $date, $basketId)
     $query->execute();
     $_SESSION['id'] = NULL;
 }
+
+function checkEmailExists($pdo, $email){
+        $stmt = $pdo->prepare("SELECT email FROM person");
+        $allEmails = $stmt->execute(PDO::FETCH_ASSOC);
+        foreach ($allEmails as $value) {
+            if ($email == $value)
+                {
+                $check = true;
+                }
+                else 
+                    {
+                    $check = false;
+                    }
+        }
+        return $check;
+}

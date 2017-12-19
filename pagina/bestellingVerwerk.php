@@ -1,7 +1,6 @@
 
     <?php
 //actueel ondersteund alternatief voor $_POST['gebruikersnaam'] etc
-    $link = "../ganaarbetalen/";
     $voornaam = filter_input(INPUT_POST, 'voornaam');
     $tussenvoegsel = filter_input(INPUT_POST, 'tussenvoegsel');
     $achternaam = filter_input(INPUT_POST, 'achternaam');
@@ -14,17 +13,16 @@
     $land = filter_input(INPUT_POST, 'land');
 
     
-
-    if (!empty($voornaam) && !empty($achternaam) && !empty($emailadres) && !empty($telefoonnummer) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land)) 
+if (!$_SESSION['ingelogd']){
+    if (!empty($voornaam) && !empty($achternaam) && !empty($emailadres) && !empty($telefoonnummer) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land) && !checkEmailExists($pdo, $emailadres)) 
     {
         createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, "NULL", $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo); 
         generateRandomKey($pdo, $emailadres, $date, $_SESSION['id']);
-        $link = "../bestellingafgerond/";
-
+        
     } 
     else 
     {
         $_SESSION['melding'] = "Vul de verplichte velden in";
     }
-
+}
 //de verwerking is klaar, ga via een redirect weer terug naar de index
