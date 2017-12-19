@@ -1,48 +1,77 @@
-<div class="col-md-4">
-    <h2>Heading</h2>
-    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-</div>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/slideShow.css">
+        <?php
+        include 'functions/CRUD/read.php';
+        include 'functions/dbConnect.php';
+        ?>
+    </head>
+    <body>
+
+        <div class="slideshow-container">
+
+            <?php
+            $artikelId = "";
+            $products = findAllProducts($pdo);
+            foreach ($products as $key => $value) {
+                $artikelNaam = $value['product_name'];
+                $artikelPrijs = $value['product_price'];
+                $artikelAfbeelding = $value['product_image'];
+                $artikelBeschikbaarheid = $value['availability'];
+                $artikelId = $value['product_id'];
+            }
 
 
 
-<div class="col-md-4">
-    <script type="text/javascript">
-        function slideSwitch() {
-            var $active = $('#slideshow div.active');
+            for ($i = 0; $i < 3; $i++) {
+                $artikel = findOneProduct($artikelId, $pdo);
+                foreach ($artikel as $key => $value) {
+                    print(
+                            '<div class="mySlides fade">
+                <a href="/KBS/artikel/' . $value['product_id'] . '" ><img src = "images/artikelen/' . $value['product_image'] . '" height = "400" width = "300"></a>
+                <div class="text">' . $value['product_name'] . '</div>
+            </div>');
+                }
+                $artikelId = $artikelId - 1;
+            }
+            ?>
 
-            if ($active.length == 0)
-                $active = $('#slideshow div:last');
+        </div>
 
-            var $next = $active.next().length ? $active.next()
-                    : $('#slideshow div:first');
+        <br>
 
-            $active.addClass('last-active');
-
-            $next.css({opacity: 0.0})
-                    .addClass('active')
-                    .animate({opacity: 1.0}, 1000, function () {
-                        $active.removeClass('active last-active');
-                    });
-        }
-
-        $(function () {
-            setInterval("slideSwitch()", 6000);
-        });
-    </script>
-
-    <div id="slideshow">
-        <div class="slide active"><a href="http://www.zelf-een-site-maken.nl"><img
-                    src="http://www.zelf-een-site-maken.nl/slideshow/frankrijk1.jpg" alt="Slideshow Image 1" /></a></div>
-        <div class="slide"><a href="http://www.zelf-een-site-maken.nl"><img
-                    src="http://www.zelf-een-site-maken.nl/slideshow/frankrijk2.jpg" alt="Slideshow Image 2" /></a></div>
-        <div class="slide"><a href="http://www.zelf-een-site-maken.nl"><img
-                    src="http://www.zelf-een-site-maken.nl/slideshow/frankrijk3.jpg" alt="Slideshow Image 3" /></a></div>
-    </div>
-</div>
+        <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
 
 
+        <script>
+            var slideIndex = 0;
+            showSlides();
 
-<div class="col-md-4">
-    <h2>Heading</h2>
-    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-</div>
+            function showSlides() {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("dot");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) {
+                    slideIndex = 1
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                setTimeout(showSlides, 5000); // Change image every 2 seconds
+            }
+        </script>
+
+    </body>
+</html>
