@@ -95,10 +95,10 @@ input::-webkit-input-placeholder {
 }
 .nav-link
 {
-    color: rgba(255,255,255,.5);
+    color: white;
 }
 .nav-link:hover{
-    color: rgba(255,255,255,.75);
+    color: rgba(255,255,255,.5);
 }
 a{
     color: black;
@@ -250,7 +250,8 @@ a{
 }
 
 .centerinlog{
-    margin: auto; max-width: 300px;
+    max-width: 300px;
+    margin-right: -300px;
 }
 
 .btn-primary{

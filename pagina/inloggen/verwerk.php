@@ -33,7 +33,7 @@
                 $link = "../../home/";
             } else {
                 //wees nooit te specifiek waarom de gebruiker niet kan inloggen.
-                $_SESSION['melding'] = "Uw emailadres of wachtwoord is niet juist";
+                $_SESSION['melding'] = "Uw emailadres en/of wachtwoord is niet juist";
             }
         } else {
             // er zijn geen waardes geset via het formulier
