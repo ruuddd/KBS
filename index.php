@@ -63,7 +63,7 @@ include 'pagina/inloggen/dbCheck.php';
                     } elseif (check() == "mail") {
                         include_once "pagina/phpMail.php";
                     } elseif (check() == "BestellingAfgerond") {
-                        include_once "pagina/BestellingAfgerond.php";
+                        include_once "pagina/BestellingAfgerond.php";                                                                                      
                     } elseif (check() == "ganaarbetalen") {
                         include_once 'pagina/gaNaarBetalen.php';
                     } elseif (check() == "bestellingafgerond") {
