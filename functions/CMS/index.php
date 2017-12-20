@@ -43,7 +43,10 @@ if (checkRights($_SESSION, 1))
 	{
 		if (isset($_GET["insertArtikel"])) 
 		{
-			echo $_POST["category_id"];
+			insertArtikel($pdo, $_POST["naam"], $_POST["prijs"], $_POST["beschrijving"], $_FILES["file"], $_POST["aantal"], $_POST["category_id"]);
+		}
+		elseif (isset($_GET["updateArtikel"])) 
+		{
 			insertArtikel($pdo, $_POST["naam"], $_POST["prijs"], $_POST["beschrijving"], $_FILES["file"], $_POST["aantal"], $_POST["category_id"]);
 		}
 		print($actie($pdo));

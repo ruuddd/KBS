@@ -22,12 +22,16 @@ function home($conn)
 
 function getCategories($conn)
 {
+    //SQL
     $categories = $conn->prepare("SELECT * FROM category");
     $categories->execute();
+    //FetchAll haalt de data op uit de database en zet het in een array
     $result = $categories->fetchAll();
     $options = "<datalist id='category'>";
+    //De foreach loopt door de array
     foreach ($result as $key => $value) 
     {
+        //Per rij wordt er een optie toegevoegd aan de variabele optie
         $category_name = $value["category_name"];
         $category_id = $value["category_id"];
         $options .= "<option value='$category_id'>$category_name</option>";
@@ -38,6 +42,7 @@ function getCategories($conn)
 
 function aToevoegen($conn)
 {
+    //Zet een formulier in de variabele form
     $form = '<form action="?actie=home&insertArtikel" method="post" enctype="multipart/form-data">
             <table>
                 <tr>
@@ -49,7 +54,8 @@ function aToevoegen($conn)
                     </td>
                     <td>
                         <input list="category" name="category_id">
-                        '. getCategories($conn) .'
+                        '. getCategories($conn); //Haalt een lijst met categorien op
+                         .'
                     </td>
                 </tr>
                 <tr>
@@ -121,7 +127,7 @@ function aUpdate($conn, $product_id)
         $category_id = $value["category_id"];
     }
 
-    $form = '<form action="?actie=home&insertArtikel" method="post" enctype="multipart/form-data">
+    $form = '<form action="?actie=home&updateArtikel" method="post" enctype="multipart/form-data">
             <table>
                 <tr>
                     <td>
@@ -153,7 +159,7 @@ function aUpdate($conn, $product_id)
                 </tr>
                 <tr>
                     <td>
-                        <input name="file" type="file" onchange="readURL(this);" />
+                        <input name="file" type="file" value="/kbs/images/artikelen/'.$product_image.'" onchange="readURL(this);" />
                     </td>
                     <td>
                         <img id="image" width="250" height="250" src="/kbs/images/artikelen/'.$product_image.'" alt="your image" />
