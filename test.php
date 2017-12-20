@@ -12,7 +12,7 @@
 
         <div class="slideshow-container">
 
-            );<?php
+            <?php
             $artikelId = "";
             $products = findAllProducts($pdo);
             foreach ($products as $key => $value) {
@@ -31,7 +31,7 @@
                     print(
                             '<div class="mySlides fade">
                 <a href="/KBS/artikel/' . $value['product_id'] . '" ><img src = "images/artikelen/' . $value['product_image'] . '" height = "400" width = "300"></a>
-                <div class="text">' . $value['product_name'] . '</div>
+                <div class="text" style="color: black;">' . $value['product_name'] . '</div>
             </div>');
                 }
                 $artikelId = $artikelId - 1;

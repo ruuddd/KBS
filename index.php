@@ -70,11 +70,15 @@ include 'pagina/inloggen/dbCheck.php';
                         include_once 'pagina/BestellingAfgerond.php';
                     } elseif (check() == "bestellingVerwerk") {
                         include_once "pagina/bestellingVerwerk.php";
+                    } elseif (check() == "home"){
+                        include_once "home.php";
                     } else {
                         checkPage(check(), $pdo);
                         print(getPage(check(), $pdo));
                     }
                     ?>
+                    
+                    
 
                 </div>
             </div>
