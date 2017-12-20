@@ -15,7 +15,7 @@ include 'pagina/inloggen/dbCheck.php';
         <link rel="icon" href="images/web/logo.jpg">
         <link rel="shortcut icon" type="image/x-icon" href="images/web/logo.jpg" />
         <link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
-        <link rel="stylesheet" href="css/slideShow.css">
+        <link rel="stylesheet" href="../css/slideShow.css">
         <link rel="canonical" href="https://codepen.io/travishorn/pen/qmBYxj?depth=everything&order=popularity&page=36&q=vue&show_forks=false" />
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
