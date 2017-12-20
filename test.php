@@ -12,7 +12,7 @@
 
         <div class="slideshow-container">
 
-            <?php
+            );<?php
             $artikelId = "";
             $products = findAllProducts($pdo);
             foreach ($products as $key => $value) {
