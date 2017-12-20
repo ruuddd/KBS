@@ -14,7 +14,7 @@ function home($conn)
     	$availability = $value["availability"];
         $url = $value["product_image"];
         $product_id = $value["product_id"];
-    	$return .= "<tr><td>$product_name</td><td>$availability</td><td>$url</td><td><a href='?actie=removeProduct&productId=$product_id'>x</a></td></tr>";
+    	$return .= "<tr><td>$product_name</td><td>$availability</td><td>$url</td><td><a href='?actie=removeProduct&productId=$product_id'>x</a></td><td><a href='?actie=aUpdate&productId=$product_id'>-</a></td></tr>";
     }
     $return .= "</tr>";
 	return $return;
@@ -96,4 +96,88 @@ function aToevoegen($conn)
             </table>
         </form>';
     return $form;
+}
+
+function aUpdate($conn, $product_id)
+{
+    $product = $conn->prepare("SELECT * FROM `product` JOIN `productcategory` JOIN `category` WHERE `product`.product_id = ? GROUP BY `product`.`product_id`");
+    $product->execute([$product_id]);
+    $result = $product->fetchAll();
+
+    $product_name = "";
+    $product_price = "";
+    $product_description = "";
+    $product_image = "";
+    $availability = "";
+    $category_name = "";
+
+    foreach ($result as $key => $value) 
+    {
+        $product_name = $value["product_name"];
+        $product_price = $value["product_price"];
+        $product_description = $value["product_description"];
+        $product_image = $value["product_image"];
+        $availability = $value["availability"];
+        $category_id = $value["category_id"];
+    }
+
+    $form = '<form action="?actie=home&insertArtikel" method="post" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>
+                        naam
+                    </td>
+                    <td>
+                        <input type="text" name="naam" value="'.$product_name.'" />
+                    </td>
+                    <td>
+                        <input list="category" name="category_id" value="'.$category_id.'">
+                        '. getCategories($conn) .'
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        prijs
+                    </td>
+                    <td>
+                        <input type="number" name="prijs" step="any" value="'.$product_price.'" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        beschrijving
+                    </td>
+                    <td>
+                        <input type="text" name="beschrijving" value="'.$product_description.'" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input name="file" type="file" onchange="readURL(this);" />
+                    </td>
+                    <td>
+                        <img id="image" width="250" height="250" src="/kbs/images/artikelen/'.$product_image.'" alt="your image" />
+                        <div onclick="openFile()" class="selectFile"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        aantal
+                    </td>
+                    <td>
+                        <input type="number" name="aantal" value="'.$availability.'" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        <input type="submit" name="">
+                    </td>
+                </tr>
+            </table>
+        </form>';
+        return $form;
+
 }

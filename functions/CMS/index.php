@@ -35,6 +35,10 @@ if (checkRights($_SESSION, 1))
 		$taal = $_POST["taal"];
 		print(insertHome($pdo, $webpage, $taal, $content));
 	}
+	elseif ($actie == "aUpdate") 
+	{
+		print($actie($pdo, $_GET["productId"]));
+	}
 	else
 	{
 		if (isset($_GET["insertArtikel"])) 
