@@ -19,11 +19,7 @@ include("../../pagina/page/header.php");
   }
 
 	</style>
-	<main role="main">
-        <!-- Main jumbotron for a primary marketing message or call to action -->
-        <div class="jumbotron">
-            <div class="container">
-                <div class="row">
+
 <?php
 include '../../pagina/inloggen/melding.inc.php';
 if (checkRights($_SESSION, 1))
@@ -60,12 +56,7 @@ if (checkRights($_SESSION, 1))
 		print($actie($pdo));
 	}
 	?>
-			</div>
-		</div>
-	</div>
-</main>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script type="text/javascript" src="../../js/image.js"></script>
+			
 	<?php
 	include("../../pagina/page/footer.php");
 }

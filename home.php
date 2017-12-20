@@ -18,7 +18,7 @@
         foreach ($artikel as $key => $value) {
             print(
                     '<div class="mySlides fade">
-                <a href="/KBS/artikel/' . $value['product_id'] . '" ><img src = "images/artikelen/' . $value['product_image'] . '" height = "400" width = "300"></a>
+                <a href="/KBS/artikel/' . $value['product_id'] . '" ><img src = "../images/artikelen/' . $value['product_image'] . '" height = "400" width = "300"></a>
                 <div class="text" style="color: black;">' . $value['product_name'] . '</div>
             </div>');
         }
