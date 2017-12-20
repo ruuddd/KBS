@@ -17,15 +17,21 @@ function insertArtikel($conn, $product_name, $product_price, $product_descriptio
 {
 
 	$product_image_Url = checkImg($product_image); //Checkt en upload de afbeelding
-    $stmt = $conn->prepare("INSERT INTO product (product_name, product_price, product_image, product_description, availability) VALUES (:product_name, :product_price,:product_image, :product_description, :availability)"); //De prepare SQL voor het inserten van een product
-    $stmt->bindParam(':product_name', $product_name); //bindParam bind een variabele aan een plek in de prepare statement
-    $stmt->bindParam(':product_price', $product_price);
-    $stmt->bindParam(':product_image', $product_image_Url);
-    $stmt->bindParam(':product_description', $product_description);
-    $stmt->bindParam(':availability', $availability);
-    //Voert de SQL uit
-    $stmt->execute();
-
+    if (empty($product_name) & empty($product_price) & empty($product_description) & empty($availability) & empty($category_id)) 
+    {
+        
+    }
+    else
+    {
+        $stmt = $conn->prepare("INSERT INTO product (product_name, product_price, product_image, product_description, availability) VALUES (:product_name, :product_price,:product_image, :product_description, :availability)"); //De prepare SQL voor het inserten van een product
+        $stmt->bindParam(':product_name', $product_name); //bindParam bind een variabele aan een plek in de prepare statement
+        $stmt->bindParam(':product_price', $product_price);
+        $stmt->bindParam(':product_image', $product_image_Url);
+        $stmt->bindParam(':product_description', $product_description);
+        $stmt->bindParam(':availability', $availability);
+        //Voert de SQL uit
+        $stmt->execute();
+    }
 
     //Uitleg zie hierboven
     $stmt = $conn->prepare("INSERT INTO productcategory (product_id, category_id) VALUES (LAST_INSERT_ID(), :category_id)");

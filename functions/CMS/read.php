@@ -54,7 +54,7 @@ function aToevoegen($conn)
                     </td>
                     <td>
                         <input list="category" name="category_id">
-                        '. getCategories($conn); //Haalt een lijst met categorien op
+                        '. getCategories($conn) //Haalt een lijst met categorien op
                          .'
                     </td>
                 </tr>
