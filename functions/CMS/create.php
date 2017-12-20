@@ -19,7 +19,7 @@ function insertArtikel($conn, $product_name, $product_price, $product_descriptio
 	$product_image_Url = checkImg($product_image); //Checkt en upload de afbeelding
     if (empty($product_name) || empty($product_price) || empty($product_description) || empty($availability) || empty($category_id)) 
     {
-        
+        $_SESSION["melding"] = "Hey je moet alles invullen";   
     }
     else
     {
