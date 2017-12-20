@@ -1,12 +1,14 @@
 <?php
+    $gebruikersGegevens = getUser($_SESSION['emailadres'], $pdo);
+?>
 
-$gebruikersGegevens = getUser($_SESSION['emailadres'], $pdo);
-//$adresGegevens = ;
+<table>
+    <tr><th>1</th><th>2</th></tr>
+    <tr><td>E-mailadres</td><td><?= $gebruikersGegevens['email']?></td></tr>
+    <tr><td>Voornaam</td><td><input type="text" value="<?= $gebruikersGegevens['firstname']?>"/></td></tr>
+    <tr><td>Tussenvoegsel</td><td><input type="text" value="<?= $gebruikersGegevens['insertion']?>"/></td></tr>
+    <tr><td>Achternaam</td><td><input type="text" value="<?= $gebruikersGegevens['lastname']?>"/></td></tr>
+    <tr><td>Telefoonnummer</td><td><input type="text" value="<?= $gebruikersGegevens['phonenumber']?>"/></td></tr>
+    <tr><td>land</td><td><input type="text" value="<?= $gebruikersGegevens['country']?>"/></td></tr>
+</table>
 
-print("E-mailadres: " . $gebruikersGegevens['email'] . "<br />\n");
-print("Voornaam: " . $gebruikersGegevens['firstname'] . "<br />\n");
-print("Tussenvoegsel: " . $gebruikersGegevens['insertion'] . "<br />\n");
-print("Achternaam: " . $gebruikersGegevens['lastname'] . "<br />\n");
-print("Telefoonnummer: " . $gebruikersGegevens['phonenumber'] . "<br />\n");
-
-print('<a href="/kbs/pagina/inloggen/verwerk.php?actie=uitloggen"><strong>Uitloggen</strong></a>');
