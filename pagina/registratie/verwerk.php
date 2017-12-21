@@ -25,7 +25,6 @@
     { //controleer of de variabelen niet leeg zijn
         if ($wachtwoord == $bevestig_wachtwoord && strlen($wachtwoord) > 5) 
         {
-           // echo $voornaam." -". $tussenvoegsel." -". $achternaam." -". $emailadres." -". $telefoonnummer." -". $wachtwoord." -". $straatnaam." -". $huisnummer." -". $postcode." -". $woonplaats." -". $land;
             createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, $wachtwoord, $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo);
 
             $_SESSION['melding'] = "U bent geregistreerd!";
@@ -42,7 +41,7 @@
     }
 
 //de verwerking is klaar, ga via een redirect weer terug naar de index
-    //header('Location: ' . $link);
+    header('Location: ' . $link);
     exit();
     ?>
 </html>
