@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-            if ($_SESSION['ingelogd'])
+            if (isset($_SESSION['ingelogd']))
                 {
                 $voornaam = $_SESSION['firstname'];
                 $tussenvoegsel = $_SESSION['insertion'];
@@ -44,7 +44,7 @@
                 <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                        <input required type="text" class="form-control" name="voornaam" id="name"  placeholder="Voer uw voornaam in" value="<?php print ($voornaam);?>"
+                        <input required type="text" class="form-control" name="voornaam" id="name"  placeholder="Voer uw voornaam in" value="<?php print ($voornaam);?>">
                     </div>
                 </div>
             </div>
