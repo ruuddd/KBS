@@ -35,6 +35,7 @@
                 <tbody>
                     <?php
                     $totalPrice=0;
+                    $winkelmandItems=0;
                     
                     foreach ($productInfo as $value)
                     {

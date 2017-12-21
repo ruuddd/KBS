@@ -85,6 +85,7 @@
             <div class="nav-item">
                 <a class="nav-item" href="/KBS/winkelmandje/">
                     <img src="http://localhost/KBS/shopping-cart-button.png" height="50" width="50" alt="winkelmand"/></a>
+                   <span  class="cart-items-count"><span class=" notification-counter">243</span></span>
         </form>
     </div>
 </nav>
