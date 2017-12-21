@@ -5,6 +5,8 @@ if (isset($_SESSION['melding'])) {
     <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
     <?= $_SESSION['melding']; ?>
 </div>
+
 <?php
 }
+
 ?>

@@ -13,11 +13,12 @@
     $land = filter_input(INPUT_POST, 'land');
 
     
-if (!$_SESSION['ingelogd']){
+if (!isset($_SESSION['ingelogd'])){
     if (!empty($voornaam) && !empty($achternaam) && !empty($emailadres) && !empty($telefoonnummer) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land) && !checkEmailExists($pdo, $emailadres)) 
     {
         createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, "NULL", $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo); 
-        generateRandomKey($pdo, $emailadres, $date, $_SESSION['id']);
+        createOrder($pdo, $emailadres, $date, $_SESSION['id']);
+        include_once('BestellingAfgerond.php');
         
     } 
     else 

@@ -139,7 +139,7 @@ function updateAmount($pdo, $amount, $productId, $basketId)
     $stmt->execute();   
 }
 //maakt een bestelling aan
-function generateRandomKey($pdo,$email, $date, $basketId)
+function createOrder($pdo,$email, $date, $basketId)
 {
     $stmt = $pdo->prepare("INSERT INTO bestelling(order_id, email, date, basket_id) VALUES (NULL,'".$email."' ,'".$date."' ,'".$basketId."')");
     $stmt->execute();
@@ -150,16 +150,18 @@ function generateRandomKey($pdo,$email, $date, $basketId)
 
 function checkEmailExists($pdo, $email){
         $stmt = $pdo->prepare("SELECT email FROM person");
-        $allEmails = $stmt->execute(PDO::FETCH_ASSOC);
-        foreach ($allEmails as $value) {
+        $stmt->execute();
+        $allEmails = $stmt->fetchall();
+        foreach ($allEmails as $value) 
+        {
             if ($email == $value)
-                {
+            {
                 $check = true;
-                }
-                else 
-                    {
-                    $check = false;
-                    }
+            }
+            else 
+            {
+                $check = false;
+            }
         }
         return $check;
 }

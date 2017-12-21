@@ -119,3 +119,21 @@ a{
     background-color: #343a40!important;
     border-color: #343a40!important;
 }
+
+
+/*CMS css*/
+
+input[type='file'] 
+{
+    color: transparent;
+}
+.file 
+{
+    position: absolute;
+    margin-left: 227px;
+    margin-top: 104px;
+}
+.alert
+{
+    width: 100%;
+}

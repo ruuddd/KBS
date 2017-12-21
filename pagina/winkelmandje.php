@@ -38,6 +38,7 @@
                     
                     foreach ($productInfo as $value)
                     {
+                        $winkelmandItems++;
                         print('
                     <tr>
                         <td data-th="Product">
@@ -71,7 +72,8 @@
                         <td class="text-center"><strong>Totaal bedrag:</strong></td>
                         <td colspan="1" class="hidden-xs"></td>
                         <td class="hidden-xs text-center"><strong>€<?php print($totalPrice); ?></strong></td>
-                        <td><a href="/KBS/ganaarbetalen/" class="btn btn-success btn-block">Bestelling afronden<i class="fa fa-angle-right"></i></a></td>
+                        <?php if($winkelmandItems>0)
+                            {print('<td><a href="/KBS/ganaarbetalen/" class="btn btn-success btn-block">Bestelling afronden<i class="fa fa-angle-right"></i></a></td>');} ?>
                     </tr>
                 </tfoot>
             </table>
