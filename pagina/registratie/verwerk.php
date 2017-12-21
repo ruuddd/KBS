@@ -33,7 +33,7 @@
         } 
         else 
         {
-            $_SERVER['melding'] = "Uw wachtwoorden komen niet overeen of zijn niet lang genoeg (minimaal 6 tekens)";
+            $_SESSION['melding'] = "Uw wachtwoorden komen niet overeen of zijn niet lang genoeg (minimaal 6 tekens)";
         }
     } 
     else 
