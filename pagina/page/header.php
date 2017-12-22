@@ -1,9 +1,10 @@
 <!-- Bootstrap core CSS -->
-<link href="/kbs/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="/kbs/css/custom.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="/kbs/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container alt-navbar">
@@ -85,7 +86,7 @@
             <div class="nav-item">
                 <a class="nav-item" href="/KBS/winkelmandje/">
                     <img src="http://localhost/KBS/shopping-cart-button.png" height="50" width="50" alt="winkelmand"/></a>
-                   <span  class="cart-items-count"><span class=" notification-counter">243</span></span>
+                <span  class="cart-items-count"><span class=" notification-counter">243</span></span>
         </form>
     </div>
 </nav>

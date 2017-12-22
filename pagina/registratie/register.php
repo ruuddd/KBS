@@ -2,11 +2,13 @@
 include 'pagina/inloggen/melding.inc.php';
 ?>
 <div class="row main">
-    <div class="panel-heading">
-        <div class="panel-title text-center">
-            <hr />
-        </div>
-    </div> 
+
+    <div class="login-register">
+        <p><strong>
+                Velden met een * zijn verplicht
+            </strong></p>
+    </div>
+
     <div class="main-login main-center">
         <form class="form-horizontal" method="post" action="/kbs/pagina/registratie/verwerk.php">
 
@@ -81,75 +83,67 @@ include 'pagina/inloggen/melding.inc.php';
                 </div>
             </div>
 
-            <div class="login-register">
-                <p><strong>
-                        Velden met een * zijn verplicht
-                    </strong></p>
-            </div>
-
-            <div class="form-group ">
-                <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Registreer</button>
-            </div>
-
-            <div class="login-register">
-                <a href="../inloggen/inlog.php">Login</a>
-            </div>
-
-    </div>
-    <div class="main-login main-center">
-        <form class="form-horizontal" method="post" action="verwerk.php">
+            <form class="form-horizontal" method="post" action="verwerk.php">
 
 
-            <div class="form-group">
-                <label for="email" class="cols-sm-2 control-label">Straatnaam *</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                        <input required type="text" class="form-control" name="straatnaam" id="email"  placeholder="Voer uw straatnaam in"/>
+                <div class="form-group">
+                    <label for="email" class="cols-sm-2 control-label">Straatnaam *</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input required type="text" class="form-control" name="straatnaam" id="email"  placeholder="Voer uw straatnaam in"/>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label for="email" class="cols-sm-2 control-label">Huisnummer *</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                        <input required type="text" class="form-control" name="huisnummer" id="email"  placeholder="Voer uw huisnummer in"/>
+                <div class="form-group">
+                    <label for="email" class="cols-sm-2 control-label">Huisnummer *</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input required type="text" class="form-control" name="huisnummer" id="email"  placeholder="Voer uw huisnummer in"/>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label for="email" class="cols-sm-2 control-label">Postcode *</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                        <input required type="text" class="form-control" name="postcode" id="email"  placeholder="Voer uw postcode in"/>
+                <div class="form-group">
+                    <label for="email" class="cols-sm-2 control-label">Postcode *</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input required type="text" class="form-control" name="postcode" id="email"  placeholder="Voer uw postcode in"/>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label for="email" class="cols-sm-2 control-label">Woonplaats *</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                        <input required type="text" class="form-control" name="woonplaats" id="email"  placeholder="Voer uw woonplaats in"/>
+                <div class="form-group">
+                    <label for="email" class="cols-sm-2 control-label">Woonplaats *</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input required type="text" class="form-control" name="woonplaats" id="email"  placeholder="Voer uw woonplaats in"/>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label for="email" class="cols-sm-2 control-label">Land *</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                        <input required type="text" class="form-control" name="land" id="email"  placeholder="Voer uw land in"/>
+                <div class="form-group">
+                    <label for="email" class="cols-sm-2 control-label">Land *</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input required type="text" class="form-control" name="land" id="email"  placeholder="Voer uw land in"/>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </form>
+                <div class="form-group ">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Registreer</button>
+                </div>
+
+                <div class="login-register">
+                    <a href="../inloggen/inlog.php">Login</a>
+                </div>
+
+            </form>
     </div>
 </div>

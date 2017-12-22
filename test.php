@@ -6,6 +6,7 @@
         <?php
         include 'functions/CRUD/read.php';
         include 'functions/dbConnect.php';
+        include 'pagina/page/header.php';
         ?>
     </head>
     <body>
