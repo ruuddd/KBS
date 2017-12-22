@@ -1,6 +1,7 @@
 
 <?php
 
+$_SESSION['winkelmandItems']=0;
 //haalt producten op; alle producten die searchproducts find als er gezocht wordt en anders alle beschikbare producten
 if (search()) {
     $products = searchProducts($_POST['search'], $pdo);

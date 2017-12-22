@@ -147,8 +147,9 @@ function createOrder($pdo,$email, $date, $basketId)
     $query->execute();
     $_SESSION['id'] = NULL;
 }
-
-function checkEmailExists($pdo, $email){
+//kijkt of de email al bestaat en returnt true of false bij ja of nee
+function checkEmailExists($pdo, $email)
+{
         $stmt = $pdo->prepare("SELECT email FROM person");
         $stmt->execute();
         $allEmails = $stmt->fetchall();
@@ -164,4 +165,22 @@ function checkEmailExists($pdo, $email){
             }
         }
         return $check;
+}
+//telt het aantal items in een winkelmand
+function countBasketItems($pdo, $sessionId)
+{
+    $itemsAmount = 0;
+    if (isset($sessionId))
+    {
+        $stmt = $pdo->prepare("SELECT basket_id, count(product_id) as items FROM basket WHERE basket_id= ".$sessionId." GROUP BY basket_id");
+        $stmt->execute();
+        $itemsAmount = $stmt->fetch(PDO::FETCH_ASSOC);
+        $itemsAmount =  $itemsAmount['items'];
+        if (empty($itemsAmount))
+        {
+            $itemsAmount='0';
+        }
+    }
+    return $itemsAmount;
+    
 }
