@@ -5,9 +5,9 @@ html {
     margin-left:auto;
     margin-right:auto;
 }
-
-body > .container{
-    padding-top: 60px;
+html, body{
+    margin:0px;
+    padding:0px;
 }
 
 body {
@@ -44,6 +44,9 @@ p
 {
     margin-bottom: 0px;
 }
+
+
+
 .alt-navbar
 {
     min-width: 1300px;
@@ -233,4 +236,9 @@ form
     padding-right: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+.navbar{
+    border-radius: 0px;
+    position: fixed;
 }
