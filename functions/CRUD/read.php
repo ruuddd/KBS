@@ -51,13 +51,26 @@ function basketProducts($sessionId, $pdo)
     $basketProducts = $stmt->fetchall(PDO::FETCH_ASSOC);
     return $basketProducts;
 } 
-//kijkt of er een sessionid is(winkelmand) en anders maakt een nieuwe aan            
+//Kijkt of er een sessionid is(winkelmand) en anders maakt een nieuwe aan. 
+//Als er een sessieid op de website is maar die is in de database verwijderd, maakt hij dezelfde weer aan.            
 function checkSessionId($pdo)
 {
     if (!(isset($_SESSION['id'])))
     {
         $_SESSION['id']= insertSession($pdo);
     }
+    else
+    {
+    $stmt1 = $pdo->prepare("select basket_id FROM sessie WHERE basket_id = ".$_SESSION['id']." "); 
+    $stmt1->execute();
+    $sessies = $stmt1->fetch(PDO::FETCH_ASSOC);
+    print_r($sessies);
+    }
+    if (empty($sessies['basket_id'])){
+    $stmt2 = $pdo->prepare("INSERT INTO sessie (basket_id, order_id) VALUES (".$_SESSION['id'].",NULL)"); 
+    $stmt2->execute();
+    }
+    
     return $_SESSION['id'];
 }
 //maakt nieuwe sessie aan (zie checksessionid)
