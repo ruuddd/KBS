@@ -37,9 +37,6 @@
                     </li>');
                 }
                 ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="/KBS/test/">TEST</a>
-                </li>
             </ul>
         </div>
 
@@ -59,7 +56,8 @@
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">' . $_SESSION['fullname'] . '
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="/kbs/mijn/">Mijn account</a></li>
+                            <li><a href="/kbs/gegevens/">Mijn gegevens</a></li>
+                            <li><a href="/kbs/orders/">Mijn orders</a></li>
                             <li><a href="/kbs/pagina/inloggen/verwerk.php?actie=uitloggen">Uitloggen</a></li>
                         </ul>
                     </div>'
