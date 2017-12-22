@@ -86,11 +86,7 @@
             <div class="nav-item">
                 <a class="nav-item" href="/KBS/winkelmandje/">
                     <img src="http://localhost/KBS/shopping-cart-button.png" height="50" width="50" alt="winkelmand"/></a>
-<<<<<<< HEAD
-                <span  class="cart-items-count"><span class=" notification-counter">243</span></span>
-=======
                 <span  class="cart-items-count"><span class=" notification-counter"><?php print(countBasketItems($pdo, $_SESSION['id'])); ?></span></span>
->>>>>>> 954e0921799e1c670161da86c55a14e116d07c37
         </form>
     </div>
 </nav>

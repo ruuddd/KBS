@@ -64,7 +64,6 @@ function checkSessionId($pdo)
     $stmt1 = $pdo->prepare("select basket_id FROM sessie WHERE basket_id = ".$_SESSION['id']." "); 
     $stmt1->execute();
     $sessies = $stmt1->fetch(PDO::FETCH_ASSOC);
-    print_r($sessies);
     }
     if (empty($sessies['basket_id'])){
     $stmt2 = $pdo->prepare("INSERT INTO sessie (basket_id, order_id) VALUES (".$_SESSION['id'].",NULL)"); 
