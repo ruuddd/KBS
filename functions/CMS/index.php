@@ -2,31 +2,27 @@
 
 session_start();
 include("../loginCheck.php");
-include("create.php");
-include("delete.php");
-
+include("warning.php");
 include("../../pagina/page/header.php");
+include '../../functions/CRUD/read.php';
 ?>
-	<style type="text/css">
-		input[type='file'] {
-  color: transparent;
-}
-  .file 
-  {
-  	position: absolute;
-  	margin-left: 227px;
-  	margin-top: 104px;
-  }
-
-	</style>
-
+ <main role="main">
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container">
+                <div class="row">
 <?php
-include '../../pagina/inloggen/melding.inc.php';
+//checkRights checkt of de gebruiker wel de juiste rechten heeft om het CMS te gebruiken
 if (checkRights($_SESSION, 1))
 {
+	//Include voor het ophalen van de pagina's
 	include('read.php');
+	include("create.php");
+	include("delete.php");
 	include('../dbConnect.php');
+	//Zet een standaart actie die als pagina wordt geopend
 	$actie = "home";
+	//Checken welke link er wordt aangegeven en haalt de pagina bij deze link op
 	if(!empty($_GET['actie']))
 	{
 		$actie = $_GET['actie'];
@@ -51,16 +47,23 @@ if (checkRights($_SESSION, 1))
 		}
 		elseif (isset($_GET["updateArtikel"])) 
 		{
-			insertArtikel($pdo, $_POST["naam"], $_POST["prijs"], $_POST["beschrijving"], $_FILES["file"], $_POST["aantal"], $_POST["category_id"]);
+			updateArtikel($pdo, $_POST["naam"], $_POST["prijs"], $_POST["beschrijving"], $_FILES["file"], $_POST["aantal"], $_POST["category_id"]);
 		}
+		//Laad de meldingen
+		print(warning($_SESSION, "cms_melding"));
+		//Opent een pagina als er geen optie was voor een custom pagina
 		print($actie($pdo));
 	}
 	?>
-			
+			   </div>
+            </div>
+        </div>
+    </main>
 	<?php
 	include("../../pagina/page/footer.php");
 }
 else
 {
-	echo "Go away";
+	$_SESSION["cms_norights"] = "U heeft geen rechten om hier te zijn.";
+	print(warning($_SESSION, "cms_norights"));
 }

@@ -16,7 +16,7 @@ function home($conn)
         $product_id = $value["product_id"];
     	$return .= "<tr><td>$product_name</td><td>$availability</td><td>$url</td><td><a href='?actie=removeProduct&productId=$product_id'>x</a></td><td><a href='?actie=aUpdate&productId=$product_id'>-</a></td></tr>";
     }
-    $return .= "</tr>";
+    $return .= "</tr></table>";
 	return $return;
 }
 
