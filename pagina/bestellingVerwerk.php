@@ -13,17 +13,17 @@
     $land = filter_input(INPUT_POST, 'land');
 
     
-if (!isset($_SESSION['ingelogd'])){
-    if (!empty($voornaam) && !empty($achternaam) && !empty($emailadres) && !empty($telefoonnummer) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land) && !checkEmailExists($pdo, $emailadres)) 
+if (!empty($voornaam) && !empty($achternaam) && !empty($emailadres) && !empty($telefoonnummer) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land) && !checkEmailExists($pdo, $emailadres)){
+    if (!isset($_SESSION['ingelogd'])) 
     {
         createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, "NULL", $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo); 
         createOrder($pdo, $emailadres, $date, $_SESSION['id']);
         include_once('BestellingAfgerond.php');
         
     } 
-    else 
+
+}    else 
     {
         $_SESSION['melding'] = "Vul de verplichte velden in";
     }
-}
 //de verwerking is klaar, ga via een redirect weer terug naar de index

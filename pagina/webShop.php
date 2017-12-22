@@ -1,6 +1,7 @@
 
 <?php
 
+$_SESSION['winkelmandItems']=0;
 //haalt producten op; alle producten die searchproducts find als er gezocht wordt en anders alle beschikbare producten
 if (search()) {
     $products = searchProducts($_POST['search'], $pdo);
@@ -35,6 +36,7 @@ foreach ($products as $key => $value) {
         );
     }
 }
+print $_SESSION['id'];
 //bij "toevoegen aan mandje" kijkt of er sessieid is en maakt het anders aan en voegt hem dan toe aan het mandje
 if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['addToBasket'])) {
     checkSessionId($pdo);

@@ -51,13 +51,26 @@ function basketProducts($sessionId, $pdo)
     $basketProducts = $stmt->fetchall(PDO::FETCH_ASSOC);
     return $basketProducts;
 } 
-//kijkt of er een sessionid is(winkelmand) en anders maakt een nieuwe aan            
+//Kijkt of er een sessionid is(winkelmand) en anders maakt een nieuwe aan. 
+//Als er een sessieid op de website is maar die is in de database verwijderd, maakt hij dezelfde weer aan.            
 function checkSessionId($pdo)
 {
     if (!(isset($_SESSION['id'])))
     {
         $_SESSION['id']= insertSession($pdo);
     }
+    else
+    {
+    $stmt1 = $pdo->prepare("select basket_id FROM sessie WHERE basket_id = ".$_SESSION['id']." "); 
+    $stmt1->execute();
+    $sessies = $stmt1->fetch(PDO::FETCH_ASSOC);
+    print_r($sessies);
+    }
+    if (empty($sessies['basket_id'])){
+    $stmt2 = $pdo->prepare("INSERT INTO sessie (basket_id, order_id) VALUES (".$_SESSION['id'].",NULL)"); 
+    $stmt2->execute();
+    }
+    
     return $_SESSION['id'];
 }
 //maakt nieuwe sessie aan (zie checksessionid)
@@ -147,8 +160,9 @@ function createOrder($pdo,$email, $date, $basketId)
     $query->execute();
     $_SESSION['id'] = NULL;
 }
-
-function checkEmailExists($pdo, $email){
+//kijkt of de email al bestaat en returnt true of false bij ja of nee
+function checkEmailExists($pdo, $email)
+{
         $stmt = $pdo->prepare("SELECT email FROM person");
         $stmt->execute();
         $allEmails = $stmt->fetchall();
@@ -164,4 +178,22 @@ function checkEmailExists($pdo, $email){
             }
         }
         return $check;
+}
+//telt het aantal items in een winkelmand
+function countBasketItems($pdo, $sessionId)
+{
+    $itemsAmount = 0;
+    if (isset($sessionId))
+    {
+        $stmt = $pdo->prepare("SELECT basket_id, count(product_id) as items FROM basket WHERE basket_id= ".$sessionId." GROUP BY basket_id");
+        $stmt->execute();
+        $itemsAmount = $stmt->fetch(PDO::FETCH_ASSOC);
+        $itemsAmount =  $itemsAmount['items'];
+        if (empty($itemsAmount))
+        {
+            $itemsAmount='0';
+        }
+    }
+    return $itemsAmount;
+    
 }
