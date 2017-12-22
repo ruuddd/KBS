@@ -226,9 +226,17 @@ form
     color: rgba(255,255,255,.5);
     position: relative;
     text-align: center;
+}
+
+.mijn-table{
     padding-left: 5px;
     padding-right: 5px;
     padding-top: 5px;
+<<<<<<< HEAD
     padding-bottom: 5px;
 }
 
+=======
+    padding-bottom: 5px;  
+}
+>>>>>>> cbcf8318ec38f85736e23a59869f9a4abd73c6a4
