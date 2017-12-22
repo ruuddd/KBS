@@ -67,9 +67,9 @@
                         <td colspan="1" class="hidden-xs"></td>
                         <td class="hidden-xs text-center"><strong>€<?php print($totalPrice); ?></strong></td>
                         <?php if(countBasketItems($pdo, $_SESSION['id'])>0){
-                                if(isset($_SESSION['ingelogd']))
+                                if(!isset($_SESSION['ingelogd']))
                                 {print('<td><a href="/KBS/ganaarbetalen/" class="btn btn-success btn-block">Bestelling afronden<i class="fa fa-angle-right"></i></a></td>');
-                                }elseif (!isset($_SESSION['ingelogd'])){
+                                }elseif (isset($_SESSION['ingelogd'])){
                                     print('<td><a href="/KBS/bestellingBevestig/" class="btn btn-success btn-block">Bestelling afronden<i class="fa fa-angle-right"></i></a></td>');
                                 }
                                 }
