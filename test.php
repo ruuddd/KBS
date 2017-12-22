@@ -3,11 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/slideShow.css">
-        <?php
-        include 'functions/CRUD/read.php';
-        include 'functions/dbConnect.php';
-        include 'pagina/page/header.php';
-        ?>
+
     </head>
     <body>
 

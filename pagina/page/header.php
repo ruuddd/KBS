@@ -49,7 +49,7 @@
 
             <div class="nav-item">
                 <?php
-                $date = date('Y-m-d H:i:s');
+                $date = date('Y-m-d');
                 //kijkt of ingelogd is; zoja toont de volledige naam, anders de login link
                 if (!empty($_SESSION['ingelogd'])) {
                     if ($_SESSION['ingelogd']) {
@@ -86,7 +86,16 @@
             <div class="nav-item">
                 <a class="nav-item" href="/KBS/winkelmandje/">
                     <img src="http://localhost/KBS/shopping-cart-button.png" height="50" width="50" alt="winkelmand"/></a>
-                <span  class="cart-items-count"><span class=" notification-counter"><?php print(countBasketItems($pdo, $_SESSION['id'])); ?></span></span>
+                <span  class="cart-items-count"><span class=" notification-counter">
+                    <?php if (isset($_SESSION['id']))
+                        {
+                        print(countBasketItems($pdo, $_SESSION['id']));
+                        }
+                else
+                    {
+                    print ('0');
+                    }?>
+                    </span></span>
         </form>
     </div>
 </nav>
