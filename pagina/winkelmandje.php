@@ -41,7 +41,7 @@
                                 <div class="col-sm-2 hidden-xs"><img src="/kbs/images/artikelen/' . $value['product_image'] . '"" height = "250" width = "250" alt="' . $value['product_name'] . '" class="img-responsive"/></div>
                                 <div class="col-sm-10">
                                     <a href="/KBS/artikel/' . $value['product_id'] . '" ><p class="nomargin">' . $value['product_name'] . '</hp></a>
-                                    <a href="/KBS/artikel/' . $value['product_id'] . '" ><h4>' . $value['product_description'] . '</h4><a/>
+                                    <a href="/KBS/artikel/' . $value['product_id'] . '" ><h5>' . $value['product_description'] . '</h5><a/>
                                 </div>
                             </div>
                         </td>
