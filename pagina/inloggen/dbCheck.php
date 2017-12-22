@@ -15,6 +15,15 @@ function getUser($emailadres, $conn) {
     }
 }
 
+function updateUser($voornaam, $tussenvoegsel, $achternaam, $telefoonnummer, $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $email, $addressId) 
+{    
+    $adresGegevens = $pdo->prepare("UPDATE `address`(`country`, `zipcode`, `streetname`, `addressnumber`, `city`) VALUES (?, ?, ?, ?, ?, ?) WHERE address_id= '".$addressId. "'");
+    $adresGegevens->execute([$land, $postcode, $straatnaam, $huisnummer, $woonplaats]);
+
+    $persoonsGegevens = $pdo->prepare("UPDATE `person` (firstname, lastname, phonenumber, insertion) VALUES (?, ?, ?, ?) WHERE email= '".$email. "'");
+    $persoonsGegevens->execute([$voornaam, $achternaam, $telefoonnummer, $tussenvoegsel]);
+}
+
 //function logUser($emailadres, $wachtwoord)
 
 function logUser($emailadres, $wachtwoord) {
