@@ -40,8 +40,8 @@
                             <div class="row">
                                 <div class="col-sm-2 hidden-xs"><img src="/kbs/images/artikelen/' . $value['product_image'] . '"" height = "250" width = "250" alt="' . $value['product_name'] . '" class="img-responsive"/></div>
                                 <div class="col-sm-10">
-                                    <h4 class="nomargin">' . $value['product_name'] . '</h4>
-                                    <p>' . $value['product_description'] . '</p>
+                                    <a href="/KBS/artikel/' . $value['product_id'] . '" ><p class="nomargin">' . $value['product_name'] . '</hp></a>
+                                    <a href="/KBS/artikel/' . $value['product_id'] . '" ><h4>' . $value['product_description'] . '</h4><a/>
                                 </div>
                             </div>
                         </td>
