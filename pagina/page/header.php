@@ -37,9 +37,6 @@
                     </li>');
                 }
                 ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="/KBS/test/">TEST</a>
-                </li>
             </ul>
         </div>
 
@@ -85,7 +82,7 @@
 
             <div class="nav-item">
                 <a class="nav-item" href="/KBS/winkelmandje/">
-                    <img src="http://localhost/KBS/shopping-cart-button.png" height="50" width="50" alt="winkelmand"/></a>
+                    <img src="/KBS/images/web/shopping-cart-button.png" height="50" width="50" alt="winkelmand"/></a>
                 <span  class="cart-items-count"><span class=" notification-counter"><?php print(countBasketItems($pdo, $_SESSION['id'])); ?></span></span>
         </form>
     </div>

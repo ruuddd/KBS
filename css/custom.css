@@ -5,6 +5,11 @@ html {
     margin-left:auto;
     margin-right:auto;
 }
+
+body > .container{
+    padding-top: 60px;
+}
+
 body {
     margin-bottom: 60px; /* Margin bottom by footer height */
 }
@@ -226,3 +231,4 @@ form
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
