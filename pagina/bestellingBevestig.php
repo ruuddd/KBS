@@ -1,4 +1,5 @@
-<?php                 
+<?php
+if ($_SESSION){
     $voornaam = $_SESSION['firstname'];
     $tussenvoegsel = $_SESSION['insertion'];
     $achternaam = $_SESSION['lastname'];
@@ -9,6 +10,18 @@
     $straatnaam = $_SESSION['streetname'];
     $huisnummer = $_SESSION['addressnumber'];
     $stad = $_SESSION['city'];
+}else{
+    $voornaam = $_SESSION['firstname'];
+    $tussenvoegsel = $_SESSION['insertion'];
+    $achternaam = $_SESSION['lastname'];
+    $emailadres = $_SESSION['emailadres'];
+    $telefoonnummer = $_SESSION['phonenumber'];
+    $land = $_SESSION['country'];
+    $postcode = $_SESSION['zipcode'];
+    $straatnaam = $_SESSION['streetname'];
+    $huisnummer = $_SESSION['addressnumber'];
+    $stad = $_SESSION['city'];
+}
 ?>
  <div class="container">
 
@@ -94,7 +107,7 @@
     	</div>
     </div>
 </div>
-
+<a href="/KBS/BestellingBevestig/" class="btn btn-success btn-block">Bestelling bevestigen<i class="fa fa-angle-right"></i></a>
       </div>
 
     </div> <!-- /container -->
