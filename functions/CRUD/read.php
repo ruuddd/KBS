@@ -142,8 +142,12 @@ function createOrder($pdo, $email, $date, $basketId) {
     $stmt = $pdo->prepare("INSERT INTO bestelling(order_id, email, date, basket_id) VALUES (NULL,'" . $email . "' ,'" . $date . "' ,'" . $basketId . "')");
     $stmt->execute();
     $query = $pdo->prepare("UPDATE sessie SET order_id = LAST_INSERT_ID() WHERE basket_id = " . $basketId . "");
-    $query->execute();
+    $query->execute();    
+    $query2 = $pdo->prepare("SELECT order_id FROM bestelling WHERE order_id = LAST_INSERT_ID() ");
+    $query2->execute();
+    $orderId=$query2->fetch(PDO::FETCH_ASSOC);
     $_SESSION['id'] = NULL;
+    return $orderId['order_id'];
 }
 
 //kijkt of de email al bestaat en returnt true of false bij ja of nee

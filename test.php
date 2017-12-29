@@ -10,7 +10,7 @@
         <div class="slideshow-container">
 
             <?php
-            $artikelId = "";
+            $artikelId = 0;
             $products = findAllProducts($pdo);
             foreach ($products as $key => $value) {
                 $artikelNaam = $value['product_name'];

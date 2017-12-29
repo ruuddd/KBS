@@ -6,7 +6,7 @@
                 </div>
             </div> 
                 <div class="main-login main-center">
-                <form class="form-horizontal" method="post" action="/kbs/bestellingVerwerk/">
+                <form class="form-horizontal" method="post" action="/kbs/bestellingBevestig/">
 
             <div class="form-group">
                 <label for="name" class="cols-sm-2 control-label">Voornaam *</label>
