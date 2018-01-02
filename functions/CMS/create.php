@@ -41,3 +41,22 @@ function insertArtikel($conn, $product_name, $product_price, $product_descriptio
     //Laad de homepagina van het CMS
     return home($conn);
 }
+
+function insertCategory($conn, $category_name, $category_description)
+{
+    if (empty($category_name) || empty($category_description)) 
+    {
+        $_SESSION["melding"] = "Hey je moet alles invullen";   
+    }
+    else
+    {
+        $stmt = $conn->prepare("INSERT INTO category (category_name, category_description) VALUES (:category_name, :category_description)"); //De prepare SQL voor het inserten van een product
+        $stmt->bindParam(':category_name', $category_name); //bindParam bind een variabele aan een plek in de prepare statement
+        $stmt->bindParam(':category_description', $category_description);
+        //Voert de SQL uit
+        $stmt->execute();
+    }
+    
+    //Laad de homepagina van het CMS
+    return home($conn);
+}

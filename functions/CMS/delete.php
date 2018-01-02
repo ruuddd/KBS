@@ -16,3 +16,18 @@ function removeProduct($conn)
 		}
 	}
 }
+
+function removeCategory($conn)
+{
+	if ($_GET) 
+	{
+		if (!empty($_GET["categoryId"])) 
+		{
+
+			$stmt = $conn->prepare("DELETE FROM category WHERE category_id = ?");
+			$stmt->execute([$_GET["categoryId"]]);
+			$_SESSION["removed"] = "Succesvol verwijdert";
+			header("location: /kbs/functions/cms/?actie=homeCategories&m=removed");
+		}
+	}
+}

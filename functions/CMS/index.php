@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 include("../loginCheck.php");
 include("warning.php");
@@ -22,6 +21,10 @@ if (checkRights($_SESSION, 1))
 	include('../dbConnect.php');
 	//Zet een standaart actie die als pagina wordt geopend
 	$actie = "home";
+
+	//Laad de meldingen
+	print(warning($_SESSION, $_GET));
+
 	//Checken welke link er wordt aangegeven en haalt de pagina bij deze link op
 	if(!empty($_GET['actie']))
 	{
@@ -39,6 +42,10 @@ if (checkRights($_SESSION, 1))
 	{
 		print($actie($pdo, $_GET["productId"]));
 	}
+	elseif($actie == "cUpdate")
+	{
+		print($actie($pdo, $_GET["categoryId"]));
+	}
 	else
 	{
 		if (isset($_GET["insertArtikel"])) 
@@ -49,10 +56,14 @@ if (checkRights($_SESSION, 1))
 		{
 			updateArtikel($pdo, $_POST["naam"], $_POST["prijs"], $_POST["beschrijving"], $_FILES["file"], $_POST["aantal"], $_POST["category_id"]);
 		}
-		//Laad de meldingen
-		print(warning($_SESSION, "cms_melding"));
+		elseif (isset($_GET["insertCategory"])) 
+		{
+			insertCategory($pdo, $_POST["category_name"] , $_POST["category_description"]);
+		}
 		//Opent een pagina als er geen optie was voor een custom pagina
 		print($actie($pdo));
+
+		
 	}
 	?>
 			   </div>

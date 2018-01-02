@@ -5,9 +5,10 @@ function home($conn)
 	$content = $conn->prepare("SELECT * FROM product");
     $content->execute();
     $result = $content->fetchAll();
-    $return = "<a href='?actie=aToevoegen'>toevoegen<a/>
-
-    <table>";
+    $return = "
+    <table class='table'><tr><td class='table-primary'><a href='?actie=home'>artikelen</a></td><td class='table-primary'><a href='?actie=homeCategories'>categorien</a></td></tr></table>
+    <table class='table'>
+     <thead class='thead-dark'><th>naam</th><th>aantal</th><th>afbeelding</th><th colspan='2'><a href='?actie=aToevoegen'>toevoegen<a/></th></thead>";
     foreach ($result as $key => $value) 
     {
     	$product_name = $value["product_name"];
@@ -18,6 +19,26 @@ function home($conn)
     }
     $return .= "</tr></table>";
 	return $return;
+}
+
+function homeCategories($conn)
+{
+    $content = $conn->prepare("SELECT * FROM category");
+    $content->execute();
+    $result = $content->fetchAll();
+    $return = "
+    <table class='table'><tr><td class='table-primary'><a href='?actie=home'>artikelen</a></td><td class='table-primary'><a href='?actie=homeCategories'>categorien</a></td></tr></table>
+    <table class='table'>
+     <thead class='thead-dark'><th>naam</th><th>beschrijving</th><th colspan='2'><a href='?actie=cToevoegen'>toevoegen<a/></th></thead>";
+    foreach ($result as $key => $value) 
+    {
+        $category_name = $value["category_name"];
+        $category_description = $value["category_description"];
+        $category_id = $value["category_id"];
+        $return .= "<tr><td>$category_name</td><td>$category_description</td><td><a href='?actie=removeCategory&categoryId=$category_id'>x</a></td><td><a href='?actie=cUpdate&categoryId=$category_id'>-</a></td></tr>";
+    }
+    $return .= "</tr></table>";
+    return $return;
 }
 
 function getCategories($conn)
@@ -185,5 +206,82 @@ function aUpdate($conn, $product_id)
             </table>
         </form>';
         return $form;
+
+}
+
+function cToevoegen($conn)
+{
+    //Zet een formulier in de variabele form
+    $form = '<form action="?actie=homeCategories&insertCategory" method="post" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>
+                        categorie naam
+                    </td>
+                    <td>
+                        <input type="text" name="category_name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        categorie beschrijving
+                    </td>
+                    <td>
+                        <input type="text" name="category_description" />
+                    </td>
+                </tr>
+                <tr>
+                    </td><td>
+                    <td>
+                        <input type="submit" />
+                    </td>
+                </tr>
+            </table>
+        </form>';
+    return $form;
+}
+
+function cUpdate($conn, $category_id)
+{
+    $product = $conn->prepare("SELECT * FROM `category` WHERE `category`.category_id = ?");
+    $product->execute([$category_id]);
+    $result = $product->fetchAll();
+
+    $category_name = "";
+    $category_description = "";
+
+    foreach ($result as $key => $value) 
+    {
+        $category_name = $value["category_name"];
+        $category_description = $value["category_description"];
+    }
+
+    $form = '<form action="?actie=homeCategories&insertCategory" method="post" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>
+                        categorie naam
+                    </td>
+                    <td>
+                        <input type="text" name="category_name" value="'.$category_name.'" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        categorie beschrijving
+                    </td>
+                    <td>
+                        <input type="text" name="category_description" value="'.$category_description.'" />
+                    </td>
+                </tr>
+                <tr>
+                    </td><td>
+                    <td>
+                        <input type="submit" />
+                    </td>
+                </tr>
+            </table>
+        </form>';
+    return $form;
 
 }
