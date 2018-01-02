@@ -18,14 +18,14 @@
                     $artikelBeschrijving = $value['product_description'];
         }
     //toont de informatie door html te printen
-    print('
+    print($artikelAfbeelding.'
     <div class="container">
         <div class="card">
             <div class="container-fliud">
                 <div class="wrapper row">
                     <div class="preview col-md-6">           
                         <div class="preview-pic tab-content">
-                          <div class="tab-pane active" id="pic-1"><img src="../images/artikelen/'.$artikelAfbeelding.'" /></div>
+                          <div class="tab-pane active" id="pic-1"><img src="images/artikelen'.$artikelAfbeelding.'" /></div>
                         </div>
           </div>
 
@@ -45,8 +45,15 @@
                             <span class="color blue"></span>
                         </h5>
                         <div class="action">
-                            <button class="add-to-cart btn btn-default" type="button">add to cart</button>
-                        </div>' )?>
+                                    <form method="post"><button type="submit" class="btn btn-primary" action="winkelmandje.php" name="addToBasket">Toevoegen aan winkelmand</button>
+                                    <input type="hidden" name="artikelId" value="' . $_GET['product'] . '"</input></form>
+                        </div>' );
+    if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['addToBasket'])) 
+        {
+        checkSessionId($pdo);
+        addProductToBasket($pdo, $_POST['artikelId'], $_SESSION['id']);
+        }
+    ?>
                     </div>
                 </div>
             </div>

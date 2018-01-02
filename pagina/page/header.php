@@ -1,9 +1,10 @@
 <!-- Bootstrap core CSS -->
-<link href="/kbs/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="/kbs/css/custom.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="/kbs/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container alt-navbar">
@@ -36,9 +37,6 @@
                     </li>');
                 }
                 ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="/KBS/test/">TEST</a>
-                </li>
             </ul>
         </div>
 
@@ -48,7 +46,7 @@
 
             <div class="nav-item">
                 <?php
-                $date = date('Y-m-d H:i:s');
+                $date = date('Y-m-d');
                 //kijkt of ingelogd is; zoja toont de volledige naam, anders de login link
                 if (!empty($_SESSION['ingelogd'])) {
                     if ($_SESSION['ingelogd']) {
@@ -58,7 +56,8 @@
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">' . $_SESSION['fullname'] . '
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="/kbs/mijn/">Mijn account</a></li>
+                            <li><a href="/kbs/gegevens/">Mijn gegevens</a></li>
+                            <li><a href="/kbs/orders/">Mijn orders</a></li>
                             <li><a href="/kbs/pagina/inloggen/verwerk.php?actie=uitloggen">Uitloggen</a></li>
                         </ul>
                     </div>'
@@ -85,6 +84,16 @@
             <div class="nav-item">
                 <a class="nav-item" href="/KBS/winkelmandje/">
                     <img src="http://localhost/KBS/shopping-cart-button.png" height="50" width="50" alt="winkelmand"/></a>
+                <span  class="cart-items-count"><span class=" notification-counter">
+                    <?php if (isset($_SESSION['id']))
+                        {
+                        print(countBasketItems($pdo, $_SESSION['id']));
+                        }
+                else
+                    {
+                    print ('0');
+                    }?>
+                    </span></span>
         </form>
     </div>
 </nav>

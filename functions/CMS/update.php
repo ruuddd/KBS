@@ -1,5 +1,5 @@
 <?php
-	
+
 	function updateArtikel($conn, )
 	{
 		$product = $conn->prepare("	");

@@ -3,17 +3,14 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/slideShow.css">
-        <?php
-        include 'functions/CRUD/read.php';
-        include 'functions/dbConnect.php';
-        ?>
+
     </head>
     <body>
 
         <div class="slideshow-container">
 
             <?php
-            $artikelId = "";
+            $artikelId = 0;
             $products = findAllProducts($pdo);
             foreach ($products as $key => $value) {
                 $artikelNaam = $value['product_name'];
