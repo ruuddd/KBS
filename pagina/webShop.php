@@ -20,7 +20,7 @@ foreach ($products as $key => $value) {
                 (
                 '<a href="/KBS/artikel/' . $artikelId . '" name=' . $artikelId . '>
                 <div style="cursor:pointer; class = "col-md-3" v-for = "item in selling">
-                    <div class = "card"><img src = "../images/artikelen' . $artikelAfbeelding . '" height = "250" width = "250" alt = "' . $artikelNaam . '"/>
+                    <div class = "card"><img src = "../images/artikelen/' . $artikelAfbeelding . '" height = "250" width = "250" alt = "' . $artikelNaam . '"/>
                         <div class = "card-block">
                         <h6 class = "card-title">' . $artikelNaam . '</h6>
                             <div class = "card-text">Nog <strong> ' . $artikelBeschikbaarheid . ' </strong> beschikbaar</div><br>

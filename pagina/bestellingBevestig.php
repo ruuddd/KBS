@@ -125,7 +125,7 @@ $orderId = createOrder($pdo, $emailadres, $date, $_SESSION['id']);
     </div>
 </div>
           
-<a href="/KBS/BestellingBevestig/" class="btn btn-primary btn-block">Bestelling bevestigen<i class="fa fa-angle-right"></i></a>
+<a href="/KBS/BestellingAfgerond/" class="btn btn-primary btn-block">Bestelling bevestigen<i class="fa fa-angle-right"></i></a>
       </div>
 
     </div> <!-- /container -->
