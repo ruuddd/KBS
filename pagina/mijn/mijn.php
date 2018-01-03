@@ -9,6 +9,6 @@ foreach (findAllUsers($pdo) as $value) {
 print("<p>Welkom $klantNaam</p>" . "<br>");
 ?>
 
-<p><a href="/kbs/gegevens/">Gegevens aanpassen</a></p><br>
+<p><a href="/kbs/gegevensAanpassen/">Gegevens aanpassen</a></p><br>
 
 <p><a href="/kbs/orders/">Mijn orders</a></p>
