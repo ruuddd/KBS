@@ -86,6 +86,9 @@ include 'pagina/inloggen/dbCheck.php';
                         case "gegevensAanpassen";
                             include_once 'pagina/mijn/aanpassenGegevens.php';
                             break;
+                        case "melding";
+                            include_once 'pagina/mijn/melding.php';
+                            break;
 
                         default:
                             checkPage(check(), $pdo);

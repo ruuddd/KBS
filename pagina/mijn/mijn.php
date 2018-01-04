@@ -4,10 +4,10 @@ foreach (findAllUsers($pdo) as $value) {
     $klantNaam = $value['firstname'];
     $klantTussenvoegsel = $value['insertion'];
     $klantAchternaam = $value['lastname'];
-    $klantVolledigenaam = $klantNaam . " " . $klantTussenvoegsel . " " . $klantAchternaam;
+    //$klantVolledigenaam = $klantNaam . " " . $klantTussenvoegsel . " " . $klantAchternaam;
 }
 
-print("<div class='col-md-5'><p>Welkom $klantVolledigenaam</p></div>" . "<br>");
+//print("<div class='col-md-5'><p>Welkom $klantVolledigenaam</p></div>" . "<br>");
 ?>
 
 <div class="col-md-5"><p><a href="/kbs/gegevensAanpassen/">Gegevens aanpassen</a></p></div><br>
