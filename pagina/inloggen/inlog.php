@@ -45,7 +45,7 @@ if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
                         <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Log in</button>
                     </div>
                     <div class="login-register">
-                        <a href="reset_password.php">Wachtwoord vergeten</a>
+                        <a href="/KBS/resetwachtwoord/">Wachtwoord vergeten</a>
                     </div>
                 </form>
             </div>

@@ -89,6 +89,9 @@ include 'pagina/inloggen/dbCheck.php';
                         case "melding";
                             include_once 'pagina/mijn/melding.php';
                             break;
+                        case "resetwachtwoord";
+                            include_once 'pagina/inloggen/wachtwoordVergeten.php';
+                            break;
 
                         default:
                             checkPage(check(), $pdo);

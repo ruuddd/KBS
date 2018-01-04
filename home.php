@@ -14,28 +14,27 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
 
-                                <?php
-                                $teller=0;
-                    $stmt = $pdo->prepare("SELECT product_image, product_id, product_name FROM product ORDER BY product_id DESC LIMIT 3");
-                    $stmt->execute();
-                    $newestProducts = $stmt->fetchall(PDO::FETCH_ASSOC);
-                    foreach ($newestProducts as $value){
-                        
-                    if ($teller == 0)
-                        {
-                        print(            
+                <?php
+                $teller = 0;
+                $stmt = $pdo->prepare("SELECT product_image, product_id, product_name FROM product ORDER BY product_id DESC LIMIT 3");
+                $stmt->execute();
+                $newestProducts = $stmt->fetchall(PDO::FETCH_ASSOC);
+                foreach ($newestProducts as $value) {
+
+                    if ($teller == 0) {
+                        print(
                                 '<div class="item active">
-                                    <img src="/kbs/images/artikelen/' . $value['product_image'].'" alt="'.$value['product_name'].'">
+                                    <img style="min-height: 300px; min-width: 300px; max-height: 300px; min-height: 300px;" src="/kbs/images/artikelen/' . $value['product_image'] . '" alt="' . $value['product_name'] . '">
                                 </div>'
                         );
-                        }
-                    else {print(            
+                    } else {
+                        print(
                                 '<div class="item">
-                                    <img src="/kbs/images/artikelen/' . $value['product_image'].'"  alt="'.$value['product_name'].'">
+                                    <img style="min-height: 300px; min-width: 300px; max-height: 300px; min-height: 300px;" src="/kbs/images/artikelen/' . $value['product_image'] . '"  alt="' . $value['product_name'] . '">
                                 </div>');
                     }
                     $teller++;
-                    }
+                }
                 ?>
 
 
