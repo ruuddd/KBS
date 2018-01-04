@@ -22,7 +22,7 @@ function updateUser($addressId, $voornaam, $tussenvoegsel, $achternaam, $telefoo
 
     //print($adresGegevens->queryString);
 
-    $persoonsGegevens = $pdo->prepare("UPDATE person SET firstname = '" . $voornaam . "', lastname = '" . $achternaam . "', phonenumber = '" . $telefoonnummer . "', insertion = '" . $tussenvoegsel . "' WHERE email= '" . $_SESSION['emailadres'] . "'");
+    $persoonsGegevens = $pdo->prepare("UPDATE person SET firstname = ?, lastname = ?, phonenumber = ?, insertion = ? WHERE email= '" . $_SESSION['emailadres'] . "'");
     $persoonsGegevens->execute([$voornaam, $achternaam, $telefoonnummer, $tussenvoegsel]);
 }
 
