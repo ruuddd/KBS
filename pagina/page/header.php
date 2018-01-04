@@ -70,7 +70,7 @@
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Inloggen | Registreren
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="/KBS/login/">Inloggen </a></li>
+                            <li><a href="/KBS/login/">Inloggen</a></li>
                             <li><a href="/kbs/registratie/">Registreren</a></li>
                         </ul>
                     </div>
