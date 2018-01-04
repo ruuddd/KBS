@@ -2,8 +2,8 @@
 
 function warning($session, $get)
 {
-	if (isset($_GET["m"])) {
-		$name = $_GET["m"];
+	if (isset($get["m"])) {
+		$name = $get["m"];
 		if (isset($session[$name])) 
 		{
 			$session = $session[$name];
@@ -18,7 +18,16 @@ function warning($session, $get)
 	{
 		if (isset($_SESSION["cms_melding"])) 
 		{
-			$session = $session[$name];
+			$session = $session[$get];
+			$warning = "<div class='alert alert-info'>
+							<span class='glyphicon glyphicon-info-sign aria-hidden='true'></span>
+							$session
+						</div>";
+			return $warning;
+		}
+		else
+		{
+			$session = $session[$get];
 			$warning = "<div class='alert alert-info'>
 							<span class='glyphicon glyphicon-info-sign aria-hidden='true'></span>
 							$session

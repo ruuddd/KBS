@@ -4,7 +4,7 @@
     Categorien
   </button>
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="">Alle producten</a>
+    <a class="dropdown-item" href="/KBS/webshop/">Alle producten</a>
     <div class="dropdown-divider"></div>
     <?php 
     $categories = $pdo->prepare("SELECT DISTINCT(category_name) FROM category C RIGHT JOIN productcategory PC ON C.category_id = PC.category_id");
