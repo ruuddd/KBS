@@ -12,7 +12,8 @@ function removeProduct($conn)
 
 			$stmt = $conn->prepare("DELETE FROM product WHERE product_id = ?");
 			$stmt->execute([$_GET["productId"]]);
-			header("location: /kbs/functions/cms/");
+			$_SESSION["removed"] = "Succesvol verwijdert";
+			header("location: /kbs/functions/cms/?actie=home&m=removed");
 		}
 	}
 }
