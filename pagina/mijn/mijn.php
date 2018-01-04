@@ -1,13 +1,5 @@
 <?php
-foreach (findAllUsers($pdo) as $value) {
-    $klantEmail = $value['email'];
-    $klantNaam = $value['firstname'];
-    $klantTussenvoegsel = $value['insertion'];
-    $klantAchternaam = $value['lastname'];
-    $klantVolledigenaam = $klantNaam . " " . $klantTussenvoegsel . " " . $klantAchternaam;
-}
-
-print("<div class='col-md-5'><p>Welkom $klantVolledigenaam</p></div>" . "<br>");
+print("<div class='col-md-5'><p>Welkom " . $_SESSION['fullname'] . "</p></div>" . "<br>");
 ?>
 
 <div class="col-md-5"><p><a href="/kbs/gegevensAanpassen/">Gegevens aanpassen</a></p></div><br>

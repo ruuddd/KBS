@@ -19,7 +19,7 @@ $gebruikersGegevens = getUser($_SESSION['emailadres'], $pdo);
                 <label for="insertion" class="cols-sm-2 control-label">Tussenvoegsel</label>
                 <div class="cols-sm-10">
                     <div class="input-group">
-                        <input required type="text" class="form-control" name="insertion" id="email"  value="<?= $gebruikersGegevens['insertion'] ?>"/>
+                        <input type="text" class="form-control" name="insertion" id="email"  value="<?= $gebruikersGegevens['insertion'] ?>"/>
                     </div>
                 </div>
 
