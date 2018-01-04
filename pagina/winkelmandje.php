@@ -6,12 +6,12 @@
     </head>
     <body>
         <?php
-        if ($_SERVER['REQUEST_METHOD'] == "POST" and filter_input(METHOD_POST,'removeProduct')) {
-            removeProductFromBasket($pdo, $_POST['artikelId'], $_SESSION['id']);
+        if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['removeProduct'])) {
+            removeProductFromBasket($pdo, filter_input(INPUT_POST,'artikelId'), $_SESSION['id']);
         }
 
-        if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['refreshProduct'])) {
-            updateAmount($pdo, $_POST['amount'], $_POST['artikelId'], $_SESSION['id']);
+        if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['refreshProduct'])) {
+            updateAmount($pdo, filter_input(INPUT_POST,'amount'), filter_input(INPUT_POST,'artikelId'), $_SESSION['id']);
         }
 
         checkSessionId($pdo);
