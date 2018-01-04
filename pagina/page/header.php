@@ -30,7 +30,7 @@
                     <a class="nav-link" href="/KBS/overons/">Over ons</a>
                 </li>
                 <?php
-                if (!empty($_SESSION['ingelogd']) && checkRights($user, 1)) {
+                if (!empty($_SESSION['ingelogd']) && checkRights($_SESSION, 1)) {
                     print(
                             '<li class="nav-item">
                         <a class="nav-link" href="/KBS/functions/CMS/">CMS</a>

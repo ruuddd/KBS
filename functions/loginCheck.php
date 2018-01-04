@@ -1,11 +1,11 @@
 <?php
 
-function checkRights($user, $required)
+function checkRights($session, $required)
 {
 	$rights = false;
-	if (isset($_SESSION["ingelogd"]) && $_SESSION["ingelogd"]) 
+	if (isset($session["ingelogd"]) && $session["ingelogd"]) 
 	{
-		if ($_SESSION['role'] == $required) 
+		if ($session['role'] == $required) 
 		{
 			$rights = true;
 		}

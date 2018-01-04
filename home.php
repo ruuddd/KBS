@@ -3,7 +3,7 @@
     <div class="col-md-4">
         <h2>Welkom!</h2>
         <p>
-            Wij zijn een winkel gevestigd in Terherne dat zich specialiseert in het verkopen van kleding, sieraden en meer in een nautische stemming.<br><br>
+            Wij zijn De Ferver, gevestigd in Terherne en wij verkopen kleding, sieraden en meer in een nautische stemming.<br><br>
             <a href="/KBS/overons/">Hier leest u meer over ons.</a>
         </p>
     </div>

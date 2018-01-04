@@ -18,37 +18,50 @@
         $_SESSION['melding'] = "U bent nu uitgelogd";
     } else {
         //in alle andere gevallen doe een inlog poging
-        if (!empty($emailadres) && !empty($wachtwoord)) {
+        if (isset($_SESSION["uses"])) {
+            $_SESSION["uses"]++;
+        }
+        else
+        {
+            $_SESSION["uses"] = 1;
+        }
+        if ($_SESSION["uses"] == 3) {
+            
+        }
+        else
+        {
+            if (!empty($emailadres) && !empty($wachtwoord)) {
 
-            $user = getUser($emailadres, $pdo);
+                $user = getUser($emailadres, $pdo);
 
-            if (logUser($user, $wachtwoord)) {
-                //sessie variabelen worden hierpas aangemaakt en toegewezen
-                $_SESSION['melding'] = "Je bent ingelogd als $emailadres";
-                $_SESSION['ingelogd'] = true;
-                $_SESSION['emailadres'] = $emailadres;
-                $_SESSION['role'] = $user['role'];
-                $_SESSION['firstname'] = $user['firstname'];
-                $_SESSION['insertion'] = $user['insertion'];
-                $_SESSION['lastname'] = $user['lastname'];
-                $_SESSION['fullname'] = $user['firstname'] . " " . $user['insertion'] . " " . $user['lastname'];
-                $_SESSION['customer'] = $user['insertion'] . " " . $user['lastname'];
-                $_SESSION['phonenumber'] = $user['phonenumber'];
-                $_SESSION['country'] = $user['country'];
-                $_SESSION['zipcode'] = $user['zipcode'];
-                $_SESSION['streetname'] = $user['streetname'];
-                $_SESSION['addressnumber'] = $user['addressnumber'];
-                $_SESSION['city'] = $user['city'];
-
-                $link = "../../home/";
+                if (logUser($user, $wachtwoord)) {
+                    //sessie variabelen worden hierpas aangemaakt en toegewezen
+                    $_SESSION['melding'] = "Je bent ingelogd als $emailadres";
+                    $_SESSION['ingelogd'] = true;
+                    $_SESSION['emailadres'] = $emailadres;
+                    $_SESSION['role'] = $user['role'];
+                    $_SESSION['firstname'] = $user['firstname'];
+                    $_SESSION['insertion'] = $user['insertion'];
+                    $_SESSION['lastname'] = $user['lastname'];
+                    $_SESSION['fullname'] = $user['firstname'] . " " . $user['insertion'] . " " . $user['lastname'];
+                    $_SESSION['customer'] = $user['insertion'] . " " . $user['lastname'];
+                    $_SESSION['phonenumber'] = $user['phonenumber'];
+                    $_SESSION['country'] = $user['country'];
+                    $_SESSION['zipcode'] = $user['zipcode'];
+                    $_SESSION['streetname'] = $user['streetname'];
+                    $_SESSION['addressnumber'] = $user['addressnumber'];
+                    $_SESSION['city'] = $user['city'];
+                    $_SESSION['uses'] = 0;
+                    $link = "../../home/";
+                } else {
+                    //wees nooit te specifiek waarom de gebruiker niet kan inloggen.
+                    $_SESSION['melding'] = "Uw emailadres en/of wachtwoord is niet juist";
+                }
             } else {
-                //wees nooit te specifiek waarom de gebruiker niet kan inloggen.
-                $_SESSION['melding'] = "Uw emailadres en/of wachtwoord is niet juist";
-            }
-        } else {
             // er zijn geen waardes geset via het formulier
 
-            $_SESSION['melding'] = "Beide velden zijn verplicht";
+                $_SESSION['melding'] = "Beide velden zijn verplicht";
+            }
         }
     }
 //de verwerking is klaar, ga via een redirect weer terug naar de index
