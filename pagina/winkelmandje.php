@@ -6,7 +6,7 @@
     </head>
     <body>
         <?php
-        if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['removeProduct'])) {
+        if ($_SERVER['REQUEST_METHOD'] == "POST" and filter_input(METHOD_POST,'removeProduct')) {
             removeProductFromBasket($pdo, $_POST['artikelId'], $_SESSION['id']);
         }
 
