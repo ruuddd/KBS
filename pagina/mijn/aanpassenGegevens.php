@@ -5,70 +5,70 @@ $gebruikersGegevens = getUser($_SESSION['emailadres'], $pdo);
 ?>
 <div class="container">
     <div class="main-login main-center">
-        <form method="POST" action="verwerk.php" class="form-horizontal">
+        <form method="POST" action="/kbs/pagina/mijn/verwerk.php" class="form-horizontal">
             <div class="form-group">
                 <label for="email" class="cols-sm-2 control-label">Dit zijn de gegevens die bij dit emailadres horen: <?= $gebruikersGegevens['email'] ?></label><br><br>
 
-                <label for="email" class="cols-sm-2 control-label">Voornaam</label>
+                <label for="firstname" class="cols-sm-2 control-label">Voornaam</label>
                 <div class="cols-sm-10">
                     <div class="input-group">
-                        <input required type="text" class="form-control" name="woonplaats" id="email"  value="<?= $gebruikersGegevens['firstname'] ?>"/>
+                        <input required type="text" class="form-control" name="firstname" id="email"  value="<?= $gebruikersGegevens['firstname'] ?>"/>
                     </div>
                 </div>
 
-                <label for="email" class="cols-sm-2 control-label">Tussenvoegsel</label>
+                <label for="insertion" class="cols-sm-2 control-label">Tussenvoegsel</label>
                 <div class="cols-sm-10">
                     <div class="input-group">
-                        <input required type="text" class="form-control" name="woonplaats" id="email"  value="<?= $gebruikersGegevens['insertion'] ?>"/>
+                        <input required type="text" class="form-control" name="insertion" id="email"  value="<?= $gebruikersGegevens['insertion'] ?>"/>
                     </div>
                 </div>
 
-                <label for="email" class="cols-sm-2 control-label">Achternaam</label>
+                <label for="lastname" class="cols-sm-2 control-label">Achternaam</label>
                 <div class="cols-sm-10">
                     <div class="input-group">
-                        <input required type="text" class="form-control" name="woonplaats" id="email"  value="<?= $gebruikersGegevens['lastname'] ?>"/>
+                        <input required type="text" class="form-control" name="lastname" id="email"  value="<?= $gebruikersGegevens['lastname'] ?>"/>
                     </div>
                 </div>
 
-                <label for="email" class="cols-sm-2 control-label">telefoonnummer</label>
+                <label for="phonenumber" class="cols-sm-2 control-label">telefoonnummer</label>
                 <div class="cols-sm-10">
                     <div class="input-group">
-                        <input required type="text" class="form-control" name="woonplaats" id="email"  value="<?= $gebruikersGegevens['phonenumber'] ?>"/>
+                        <input required type="text" class="form-control" name="phonenumber" id="email"  value="<?= $gebruikersGegevens['phonenumber'] ?>"/>
                     </div>
                 </div>
 
-                <label for="email" class="cols-sm-2 control-label">land</label>
+                <label for="country" class="cols-sm-2 control-label">land</label>
                 <div class="cols-sm-10">
                     <div class="input-group">
-                        <input required type="text" class="form-control" name="woonplaats" id="email"  value="<?= $gebruikersGegevens['country'] ?>"/>
+                        <input required type="text" class="form-control" name="country" id="email"  value="<?= $gebruikersGegevens['country'] ?>"/>
                     </div>
                 </div>
 
-                <label for="email" class="cols-sm-2 control-label">woonplaats</label>
+                <label for="city" class="cols-sm-2 control-label">woonplaats</label>
                 <div class="cols-sm-10">
                     <div class="input-group">
-                        <input required type="text" class="form-control" name="woonplaats" id="email"  value="<?= $gebruikersGegevens['city'] ?>"/>
+                        <input required type="text" class="form-control" name="city" id="email"  value="<?= $gebruikersGegevens['city'] ?>"/>
                     </div>
                 </div>
 
-                <label for="email" class="cols-sm-2 control-label">postcode</label>
+                <label for="zipcode" class="cols-sm-2 control-label">postcode</label>
                 <div class="cols-sm-10">
                     <div class="input-group">
-                        <input required type="text" class="form-control" name="woonplaats" id="email"  value="<?= $gebruikersGegevens['zipcode'] ?>"/>
+                        <input required type="text" class="form-control" name="zipcode" id="email"  value="<?= $gebruikersGegevens['zipcode'] ?>"/>
                     </div>
                 </div>
 
-                <label for="email" class="cols-sm-2 control-label">straatnaam</label>
+                <label for="streetname" class="cols-sm-2 control-label">straatnaam</label>
                 <div class="cols-sm-10">
                     <div class="input-group">
-                        <input required type="text" class="form-control" name="woonplaats" id="email"  value="<?= $gebruikersGegevens['streetname'] ?>"/>
+                        <input required type="text" class="form-control" name="streetname" id="email"  value="<?= $gebruikersGegevens['streetname'] ?>"/>
                     </div>
                 </div>
 
-                <label for="email" class="cols-sm-2 control-label">huisnummer</label>
+                <label for="addressnumber" class="cols-sm-2 control-label">huisnummer</label>
                 <div class="cols-sm-10">
                     <div class="input-group">
-                        <input required type="text" class="form-control" name="woonplaats" id="email"  value="<?= $gebruikersGegevens['addressnumber'] ?>"/>
+                        <input required type="text" class="form-control" name="addressnumber" id="email"  value="<?= $gebruikersGegevens['addressnumber'] ?>"/>
                     </div>
                 </div>
             </div>
