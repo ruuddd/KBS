@@ -83,31 +83,9 @@ if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $totalPrice = 0;
-                                    foreach ($productInfo as $value) {
-                                        $totalPrice += ($value['amount'] * $value['product_price']);
-                                        print('
-    							<tr>
-    								<td>' . $value['product_name'] . '</td>
-            						<td class="text-right">' . $value['amount'] . '</td>
-            						<td class="text-right">' . $value['product_price'] . '</td>
-                                    <td class="text-right">' . ($value['amount'] * $value['product_price']) . '</td>
-    							</tr>
-    							<tr>
-    								<td class="no-line"></td>
-    								<td class="no-line"></td>
-    								<td class="no-line text-right"><strong>Verzendkosten</strong></td>
-    								<td class="no-line text-right">incl.</td>
-    							</tr>
-                                                        ');
-                                    }
+                                    print(getOrderderedItems($productInfo));
                                     ?>
-                                    <tr>
-                                        <td class="no-line"></td>
-                                        <td class="no-line"></td>
-                                        <td class="no-line text-right"><strong>Totaal</strong></td>
-                                        <td class="no-line text-right"><?php print($totalPrice); ?></td>
-                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>

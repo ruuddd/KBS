@@ -82,7 +82,7 @@ function addProductToBasket($pdo, $product, $sessionId) {
 //haalt een product uit het winkelmandje
 function removeProductFromBasket($pdo, $product, $sessionId) {
     $stmt = $pdo->prepare("DELETE FROM basket where basket_id = ? AND product_id = ?");
-    $stmt->execute([$sessionId,$product]);
+    $stmt->execute([$sessionId, $product]);
 }
 
 //zet $page op de huidige pagina in de url, standaard home als niks ingevuld is en webshop als er gezocht word in de zoekbalk
@@ -90,7 +90,7 @@ function check() {
     $page = "home";
     if (search()) {
         $page = 'webshop';
-    } else if (filter_input(INPUT_GET,'page')) {
+    } else if (filter_input(INPUT_GET, 'page')) {
         $page = filter_input(INPUT_GET, 'page');
     }
 
@@ -116,7 +116,7 @@ function getPage($page, $pdo) {
 //haalt alle producten op waar de naam, beschrijving of een categorie heeft wat lijkt op wat in de zoekbalk staat
 function searchProducts($search, $pdo) {
     $stmt = $pdo->prepare("SELECT p.product_id, p.product_name, p.product_price, p.product_description, p.product_image, p.availability FROM product p LEFT JOIN productcategory PC ON P.product_id = PC.product_id LEFT JOIN category C ON C.category_id=PC.category_id WHERE p.product_name LIKE ? OR c.category_name LIKE ? OR p.Product_description LIKE ?");
-    $stmt->execute(['%'.$search.'%','%'.$search.'%','%'.$search.'%']);
+    $stmt->execute(['%' . $search . '%', '%' . $search . '%', '%' . $search . '%']);
     $products = $stmt->fetchall(PDO::FETCH_ASSOC);
     return $products;
     //$pdo = null;
@@ -141,10 +141,11 @@ function createOrder($pdo, $email, $date, $basketId) {
     $stmt = $pdo->prepare("INSERT INTO bestelling(order_id, email, date, basket_id) VALUES (NULL,? ,? ,?)");
     $stmt->execute([$email, $date, $basketId]);
     $query = $pdo->prepare("UPDATE sessie SET order_id = LAST_INSERT_ID() WHERE basket_id = ?");
-    $query->execute([$basketId]);    
+    $query->execute([$basketId]);
+
     $query2 = $pdo->prepare("SELECT order_id FROM bestelling WHERE order_id = LAST_INSERT_ID() ");
     $query2->execute();
-    $orderId=$query2->fetch(PDO::FETCH_ASSOC);
+    $orderId = $query2->fetch(PDO::FETCH_ASSOC);
     return $orderId['order_id'];
 }
 
@@ -176,4 +177,35 @@ function countBasketItems($pdo, $sessionId) {
         }
     }
     return $itemsAmount;
+}
+
+function getOrderderedItems($productInfo) {
+    $totalPrice = 0;
+    $result = "";
+    foreach ($productInfo as $value) {
+        $totalPrice += ($value['amount'] * $value['product_price']);
+        $result .= '
+            <tr>
+            <td>' . $value['product_name'] . '</td>
+            <td class="text-right">' . $value['amount'] . '</td>
+            <td class="text-right">' . $value['product_price'] . '</td>
+            <td class="text-right">' . ($value['amount'] * $value['product_price']) . '</td>
+            </tr>
+
+            ';
+    }
+    $result .= '
+<tr>
+                    <td class="no-line"></td>
+                    <td class="no-line"></td>
+                    <td class="no-line text-right"><strong>Verzendkosten</strong></td>
+                    <td class="no-line text-right">incl.</td>
+            </tr>
+<tr>
+                                        <td class="no-line"></td>
+                                        <td class="no-line"></td>
+                                        <td class="no-line text-right"><strong>Totaal</strong></td>
+                                        <td class="no-line text-right">' . $totalPrice . '</td>
+                                    </tr>';
+    return $result;
 }
