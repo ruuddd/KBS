@@ -1,5 +1,6 @@
 <?php
 $productInfo = basketProducts($_SESSION['id'], $pdo);
+$_SESSION["betaling"] = true;
 if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
     $voornaam = $_SESSION['firstname'];
     $tussenvoegsel = $_SESSION['insertion'];
@@ -13,21 +14,20 @@ if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
     $woonplaats = $_SESSION['city'];
 } else {
 
-        $voornaam = filter_input(INPUT_POST, 'voornaam');
-        $tussenvoegsel = filter_input(INPUT_POST, 'tussenvoegsel');
-        $achternaam = filter_input(INPUT_POST, 'achternaam');
-        $emailadres = filter_input(INPUT_POST, 'emailadres');
-        $telefoonnummer = filter_input(INPUT_POST, 'telefoonnummer');
-        $straatnaam = filter_input(INPUT_POST, 'straatnaam');
-        $huisnummer = filter_input(INPUT_POST, 'huisnummer');
-        $postcode = filter_input(INPUT_POST, 'postcode');
-        $woonplaats = filter_input(INPUT_POST, 'woonplaats');
-        $land = filter_input(INPUT_POST, 'land');
-        
-        if (!empty($voornaam) && !empty($achternaam) && !empty($emailadres) && !empty($telefoonnummer) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land) && !checkEmailExists($pdo, $emailadres))
-            {
-                createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, "NULL", $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo); 
-            } 
+    $voornaam = filter_input(INPUT_POST, 'voornaam');
+    $tussenvoegsel = filter_input(INPUT_POST, 'tussenvoegsel');
+    $achternaam = filter_input(INPUT_POST, 'achternaam');
+    $emailadres = filter_input(INPUT_POST, 'emailadres');
+    $telefoonnummer = filter_input(INPUT_POST, 'telefoonnummer');
+    $straatnaam = filter_input(INPUT_POST, 'straatnaam');
+    $huisnummer = filter_input(INPUT_POST, 'huisnummer');
+    $postcode = filter_input(INPUT_POST, 'postcode');
+    $woonplaats = filter_input(INPUT_POST, 'woonplaats');
+    $land = filter_input(INPUT_POST, 'land');
+
+    if (!empty($voornaam) && !empty($achternaam) && !empty($emailadres) && !empty($telefoonnummer) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land) && !checkEmailExists($pdo, $emailadres)) {
+        createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, "NULL", $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo);
+    }
 }
 ?>
 <div class="container">
@@ -86,7 +86,7 @@ if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
                                     $totalPrice = 0;
                                     foreach ($productInfo as $value) {
                                         $totalPrice += ($value['amount'] * $value['product_price']);
-                                        echo('
+                                        print('
     							<tr>
     								<td>' . $value['product_name'] . '</td>
             						<td class="text-right">' . $value['amount'] . '</td>
@@ -94,15 +94,9 @@ if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
                                     <td class="text-right">' . ($value['amount'] * $value['product_price']) . '</td>
     							</tr>
     							<tr>
-    								<td class="thick-line"></td>
-    								<td class="thick-line"></td>
-    								<td class="thick-line text-right"><strong>VAT - 12%</strong></td>
-    								<td class="thick-line text-right">incl.</td>
-    							</tr>
-    							<tr>
     								<td class="no-line"></td>
     								<td class="no-line"></td>
-    								<td class="no-line text-right"><strong>Shipping</strong></td>
+    								<td class="no-line text-right"><strong>Verzendkosten</strong></td>
     								<td class="no-line text-right">incl.</td>
     							</tr>
                                                         ');
@@ -112,7 +106,7 @@ if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
                                         <td class="no-line"></td>
                                         <td class="no-line"></td>
                                         <td class="no-line text-right"><strong>Totaal</strong></td>
-                                        <td class="no-line text-right"><?php echo($totalPrice); ?></td>
+                                        <td class="no-line text-right"><?php print($totalPrice); ?></td>
                                     </tr>
                                 </tbody>
                             </table>

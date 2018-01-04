@@ -85,14 +85,13 @@
                 <a class="nav-item" href="/KBS/winkelmandje/">
                     <img src="http://localhost/KBS/shopping-cart.png" height="50" width="50" alt="winkelmand"/></a>
                 <span  class="cart-items-count"><span class=" notification-counter">
-                    <?php if (isset($_SESSION['id']))
-                        {
-                        print(countBasketItems($pdo, $_SESSION['id']));
+                        <?php
+                        if (isset($_SESSION['id']) && !$_SESSION["role"] == 1) {
+                            print(countBasketItems($pdo, $_SESSION['id']));
+                        } else {
+                            print ('0');
                         }
-                else
-                    {
-                    print ('0');
-                    }?>
+                        ?>
                     </span></span>
         </form>
     </div>
