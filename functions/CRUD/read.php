@@ -59,7 +59,7 @@ function checkSessionId($pdo) {
     }
     if (empty($sessies['basket_id'])) {
         $stmt2 = $pdo->prepare("INSERT INTO sessie (basket_id, order_id) VALUES (? ,NULL)");
-        $stmt2->execute($_SESSION['id']);
+        $stmt2->execute([$_SESSION['id']]);
     }
 
     return $_SESSION['id'];
