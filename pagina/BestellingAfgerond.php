@@ -2,14 +2,6 @@
 
 $productInfo = basketProducts($_SESSION['id'], $pdo);
 
-foreach ($productInfo as $value) {
-    $totalPrice += ($value['amount'] * $value['product_price']);
-    $value['product_name'];
-    $value['amount'];
-    $value['product_price'];
-    ($value['amount'] * $value['product_price']);
-}
-
 
 if ($_SESSION['betaling']) {
     $orderId = createOrder($pdo, $_SESSION['emailadres'], $date, $_SESSION['id']);
@@ -58,12 +50,21 @@ Hebben wij je betaling ontvangen dan zullen we je bestelling zo spoedig mogelijk
 Heb je aangegeven dat jij je pakketje bij ons in de winkel wilt afhalen? Maak dan een afspraak per mail [welk mailadres?] of telefoon/Whatsapp 06 2516 3811. Of kom langs tijdens openingstijden [linkje naar openingstijden] van onze winkel.<br>
 -Wil jij je pakketje zelf in de winkel komen afhalen, maak dan een afspraak per mail [mailadres] of telefoon/Whatsapp 06 2516 3811. Of kom langs tijdens openingstijden van onze winkel.<br><br>
 
-
 <strong>Jouw bestelling:</strong><br>
-[artikel] &euro; [bedrag]<br>
-[artikel] &euro; [bedrag] etc.....<br>
-Verzendkosten &euro; [bedrag] / Afhalen in De Ferver<br>
-Totaalbedrag &euro; [bedrag]<br><br>
+<table class='table table-condensed'>
+                                <thead>
+                                    <tr>
+                                        <td><strong>Product</strong></td>
+                                        <td class='text-right'><strong>Hoeveelheid</strong></td>
+                                        <td class='text-right'><strong>Prijs per stuk</strong></td>
+                                        <td class='text-right'><strong>Subtotaal</strong></td>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                " . getOrderderedItems($productInfo) . "
+                                </tbody>
+                            </table>
 
 <strong>Jouw betaling:</strong><br>
 &euro; [bedrag] overmaken<br>
@@ -87,7 +88,7 @@ Buorren 51<br>
 ";
 
     mail($aan, $onderwerp, $inhoud, $headers);
-    $_SESSION["betaling"] = false;
+    //$_SESSION["betaling"] = false;
 } else {
     echo 'Geen toegang';
 }

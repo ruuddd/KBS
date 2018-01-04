@@ -142,10 +142,10 @@ function createOrder($pdo, $email, $date, $basketId) {
     $stmt = $pdo->prepare("INSERT INTO bestelling(order_id, email, date, basket_id) VALUES (NULL,'" . $email . "' ,'" . $date . "' ,'" . $basketId . "')");
     $stmt->execute();
     $query = $pdo->prepare("UPDATE sessie SET order_id = LAST_INSERT_ID() WHERE basket_id = " . $basketId . "");
-    $query->execute();    
+    $query->execute();
     $query2 = $pdo->prepare("SELECT order_id FROM bestelling WHERE order_id = LAST_INSERT_ID() ");
     $query2->execute();
-    $orderId=$query2->fetch(PDO::FETCH_ASSOC);
+    $orderId = $query2->fetch(PDO::FETCH_ASSOC);
     return $orderId['order_id'];
 }
 
@@ -177,4 +177,35 @@ function countBasketItems($pdo, $sessionId) {
         }
     }
     return $itemsAmount;
+}
+
+function getOrderderedItems($productInfo) {
+    $totalPrice = 0;
+    $result = "";
+    foreach ($productInfo as $value) {
+        $totalPrice += ($value['amount'] * $value['product_price']);
+        $result .= '
+            <tr>
+            <td>' . $value['product_name'] . '</td>
+            <td class="text-right">' . $value['amount'] . '</td>
+            <td class="text-right">' . $value['product_price'] . '</td>
+            <td class="text-right">' . ($value['amount'] * $value['product_price']) . '</td>
+            </tr>
+
+            ';
+    }
+    $result .= '
+<tr>
+                    <td class="no-line"></td>
+                    <td class="no-line"></td>
+                    <td class="no-line text-right"><strong>Verzendkosten</strong></td>
+                    <td class="no-line text-right">incl.</td>
+            </tr>
+<tr>
+                                        <td class="no-line"></td>
+                                        <td class="no-line"></td>
+                                        <td class="no-line text-right"><strong>Totaal</strong></td>
+                                        <td class="no-line text-right">' . $totalPrice . '</td>
+                                    </tr>';
+    return $result;
 }
