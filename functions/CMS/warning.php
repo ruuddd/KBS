@@ -27,12 +27,15 @@ function warning($session, $get)
 		}
 		else
 		{
-			$session = $session[$get];
-			$warning = "<div class='alert alert-info'>
-							<span class='glyphicon glyphicon-info-sign aria-hidden='true'></span>
-							$session
-						</div>";
-			return $warning;
+			if (!empty($get)) 
+			{
+				$session = $session[$get];
+				$warning = "<div class='alert alert-info'>
+								<span class='glyphicon glyphicon-info-sign aria-hidden='true'></span>
+								$session
+							</div>";
+				return $warning;
+			}
 		}
 	}
 
