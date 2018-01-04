@@ -1,8 +1,11 @@
 <div class="container">
 
     <div class="col-md-4">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <h2>Welkom!</h2>
+        <p>
+            Wij zijn een winkel gevestigd in Terherne dat zich specialiseert in het verkopen van kleding, sieraden en meer in een nautische stemming.<br><br>
+            <a href="/KBS/overons/">Hier leest u meer over ons.</a>
+        </p>
     </div>
 
     <div class="col-md-4">
@@ -37,8 +40,14 @@
     </div>
 
     <div class="col-md-4">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <h2>Service</h2>
+        <p>
+        <ul>
+            <li>Gratis verzending bij een besteling boven de €100</li>
+            <li>Wij staan altijd voor u klaar</li>
+            <li>Voor 18:00 besteld, morgen in huis</li>
+        </ul>
+        </p>
     </div>
 
 </div>

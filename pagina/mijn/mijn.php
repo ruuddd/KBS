@@ -7,9 +7,11 @@ foreach (findAllUsers($pdo) as $value) {
     $klantVolledigenaam = $klantNaam . " " . $klantTussenvoegsel . " " . $klantAchternaam;
 }
 
-print("<p>Welkom $klantVolledigenaam</p>" . "<br>");
+print("<div class='col-md-5'><p>Welkom $klantVolledigenaam</p></div>" . "<br>");
 ?>
 
-<p><a href="/kbs/gegevensAanpassen/">Gegevens aanpassen</a></p><br>
+<div class="col-md-5"><p><a href="/kbs/gegevensAanpassen/">Gegevens aanpassen</a></p></div><br>
 
-<p><a href="/kbs/orders/">Mijn orders</a></p>
+<div class="col-md-5"><p><a href="/kbs/orders/">Mijn orders</a></p></div>
+
+<div class="col-md-5"><p><a href="/kbs/pagina/inloggen/verwerk.php?actie=uitloggen">Uitloggen</a></p></div>
