@@ -1,4 +1,5 @@
 <?php
+
 include_once 'functies.inc.php';
 
 function getUser($emailadres, $conn) {
@@ -15,14 +16,13 @@ function getUser($emailadres, $conn) {
     }
 }
 
-function updateUser($addressId, $voornaam, $tussenvoegsel, $achternaam, $telefoonnummer, $land, $woonplaats, $postcode, $straatnaam, $huisnummer, $pdo) 
-{    
-    $adresGegevens = $pdo->prepare("UPDATE address SET country = '".$land."', zipcode = '".$postcode."', streetname = '".$straatnaam."', addressnumber = '".$huisnummer."', city = '".$woonplaats."' WHERE address_id= '" . $addressId . "'");
+function updateUser($addressId, $voornaam, $tussenvoegsel, $achternaam, $telefoonnummer, $land, $woonplaats, $postcode, $straatnaam, $huisnummer, $pdo) {
+    $adresGegevens = $pdo->prepare("UPDATE address SET country = ?, zipcode = ?, streetname = ?, addressnumber = ?, city = ? WHERE address_id= '" . $addressId . "'");
     $adresGegevens->execute([$land, $postcode, $straatnaam, $huisnummer, $woonplaats]);
-    
+
     //print($adresGegevens->queryString);
 
-    $persoonsGegevens = $pdo->prepare("UPDATE person SET firstname = '".$voornaam."', lastname = '".$achternaam."', phonenumber = '".$telefoonnummer."', insertion = '".$tussenvoegsel."' WHERE email= '" . $_SESSION['emailadres'] . "'");
+    $persoonsGegevens = $pdo->prepare("UPDATE person SET firstname = ?, lastname = ?, phonenumber = ?, insertion = ? WHERE email= '" . $_SESSION['emailadres'] . "'");
     $persoonsGegevens->execute([$voornaam, $achternaam, $telefoonnummer, $tussenvoegsel]);
 }
 
@@ -39,8 +39,7 @@ function logUser($emailadres, $wachtwoord) {
     }
 }
 
-function createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, $wachtwoord, $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo) 
-{    
+function createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, $wachtwoord, $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo) {
     $adresGegevens = $pdo->prepare("INSERT INTO `address` (`address_id`, `country`, `zipcode`, `streetname`, `addressnumber`, `city`) VALUES (?, ?, ?, ?, ?, ?)");
     $adresGegevens->execute([NULL, $land, $postcode, $straatnaam, $huisnummer, $woonplaats]);
 
