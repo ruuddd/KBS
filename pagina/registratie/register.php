@@ -56,7 +56,7 @@ include 'pagina/inloggen/melding.inc.php';
                 <label for="email" class="cols-sm-2 control-label">Telefoonnummer *</label>
                 <div class="cols-sm-10">
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                        <span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
                         <input required type="text" class="form-control" name="telefoonnummer" id="email"  placeholder="Voer uw telefoonnummer in"/>
                     </div>
                 </div>
@@ -90,7 +90,7 @@ include 'pagina/inloggen/melding.inc.php';
                     <label for="email" class="cols-sm-2 control-label">Straatnaam *</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
                             <input required type="text" class="form-control" name="straatnaam" id="email"  placeholder="Voer uw straatnaam in"/>
                         </div>
                     </div>
@@ -100,7 +100,7 @@ include 'pagina/inloggen/melding.inc.php';
                     <label for="email" class="cols-sm-2 control-label">Huisnummer *</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
                             <input required type="text" class="form-control" name="huisnummer" id="email"  placeholder="Voer uw huisnummer in"/>
                         </div>
                     </div>
@@ -110,7 +110,7 @@ include 'pagina/inloggen/melding.inc.php';
                     <label for="email" class="cols-sm-2 control-label">Postcode *</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
                             <input required type="text" class="form-control" name="postcode" id="email"  placeholder="Voer uw postcode in"/>
                         </div>
                     </div>
@@ -120,7 +120,7 @@ include 'pagina/inloggen/melding.inc.php';
                     <label for="email" class="cols-sm-2 control-label">Woonplaats *</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
                             <input required type="text" class="form-control" name="woonplaats" id="email"  placeholder="Voer uw woonplaats in"/>
                         </div>
                     </div>
@@ -130,7 +130,7 @@ include 'pagina/inloggen/melding.inc.php';
                     <label for="email" class="cols-sm-2 control-label">Land *</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
                             <input required type="text" class="form-control" name="land" id="email"  placeholder="Voer uw land in"/>
                         </div>
                     </div>

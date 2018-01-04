@@ -18,7 +18,7 @@ elseif ($_SESSION['uses'] == 3) {
     <?php
 } else {
     ?>
-    <div class="row main">
+    <div class="container">
 
         <div class="main-login main-center">
             <form class="form-horizontal" method="post" action="/kbs/pagina/inloggen/verwerk.php">
