@@ -12,14 +12,14 @@ if ($_SESSION['betaling']) {
     <p class='lead'><strong>Controleer uw email</strong> voor verdere instructies om uw bestelling af te ronden.</p>
     <hr>
     <p>
-        Heeft u nog vragen? <a href='../overons/'>Bereik ons</a>
+        Heeft u nog vragen? <a href='../overons/'>U bereikt ons hier</a>
     </p>
     <p class='lead'>
         <a class='btn btn-primary btn-sm' href='/KBS/home/' role='button'>Terug naar homepagina</a>
     </p>
 </div>");
 
-    $klantVolledigeNaam = $_SESSION['firstname'] . " " . $_SESSION['insertion'] . " " . $_SESSION['lastname'];
+    $klantVolledigeNaam = ucfirst($_SESSION['firstname']) . " " . $_SESSION['insertion'] . " " . ucfirst($_SESSION['lastname']);
     $klantEmail = $_SESSION["emailadres"];
 
     //echo $klantEmail;
@@ -34,7 +34,7 @@ if ($_SESSION['betaling']) {
 <html>
 <p>
 
-Beste " . $klantVolledigeNaam . " <br><br>
+Beste " . $klantVolledigeNaam . ", <br><br>
 
 <b><i>Bedankt voor je bestelling met ordernummer " . $orderId . " bij De Ferver.</b></i><br><br>
 
@@ -67,10 +67,10 @@ Heb je aangegeven dat jij je pakketje bij ons in de winkel wilt afhalen? Maak da
                             </table>
 
 <strong>Jouw betaling:</strong><br>
-&euro; [bedrag] overmaken<br>
+&euro;" . getTotalPrice($productInfo) . " overmaken<br>
 t.n.v. De Ferver<br>
-IBAN NL44 INGB 000 9217 95<br>
-o.v.v. ordernummer [ordernummer]<br><br>
+IBAN: NL44 INGB 000 9217 95<br>
+Met betalingskenmerk: <b><i>ordernummer " . $orderId . "</i></b><br><br>
 
 <strong>Bezorgadres:</strong><br>
 
@@ -88,7 +88,7 @@ Buorren 51<br>
 ";
 
     mail($aan, $onderwerp, $inhoud, $headers);
-    //$_SESSION["betaling"] = false;
+    $_SESSION["betaling"] = false;
 } else {
     echo 'Geen toegang';
 }

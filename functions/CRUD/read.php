@@ -188,8 +188,8 @@ function getOrderderedItems($productInfo) {
             <tr>
             <td>' . $value['product_name'] . '</td>
             <td class="text-right">' . $value['amount'] . '</td>
-            <td class="text-right">' . $value['product_price'] . '</td>
-            <td class="text-right">' . ($value['amount'] * $value['product_price']) . '</td>
+            <td class="text-right">&euro;' . $value['product_price'] . '</td>
+            <td class="text-right">&euro;' . ($value['amount'] * $value['product_price']) . '</td>
             </tr>
 
             ';
@@ -205,7 +205,15 @@ function getOrderderedItems($productInfo) {
                                         <td class="no-line"></td>
                                         <td class="no-line"></td>
                                         <td class="no-line text-right"><strong>Totaal</strong></td>
-                                        <td class="no-line text-right">' . $totalPrice . '</td>
+                                        <td class="no-line text-right">&euro;' . $totalPrice . '</td>
                                     </tr>';
     return $result;
+}
+
+function getTotalPrice($productInfo) {
+    $totalPrice = 0;
+    foreach ($productInfo as $value) {
+        $totalPrice += ($value['amount'] * $value['product_price']);
+    }
+    return $totalPrice;
 }
