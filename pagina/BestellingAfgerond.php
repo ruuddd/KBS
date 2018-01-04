@@ -1,7 +1,9 @@
 <?php
 
 $productInfo = basketProducts($_SESSION['id'], $pdo);
-
+foreach ($productInfo as $value){
+    updateRemainingAmount($pdo, $value['product_id'], $value['amount']);
+}
 
 if ($_SESSION['betaling']) {
     $orderId = createOrder($pdo, $_SESSION['emailadres'], $date, $_SESSION['id']);
