@@ -51,7 +51,7 @@
                     $_SESSION['streetname'] = $user['streetname'];
                     $_SESSION['addressnumber'] = $user['addressnumber'];
                     $_SESSION['city'] = $user['city'];
-
+                    $_SESSION['uses'] = 0;
                     $link = "../../home/";
                 } else {
                     //wees nooit te specifiek waarom de gebruiker niet kan inloggen.
