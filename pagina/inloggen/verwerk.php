@@ -32,13 +32,14 @@
                 $_SESSION['insertion'] = $user['insertion'];
                 $_SESSION['lastname'] = $user['lastname'];
                 $_SESSION['fullname'] = $user['firstname'] . " " . $user['insertion'] . " " . $user['lastname'];
+                $_SESSION['customer'] = $user['insertion'] . " " . $user['lastname'];
                 $_SESSION['phonenumber'] = $user['phonenumber'];
                 $_SESSION['country'] = $user['country'];
                 $_SESSION['zipcode'] = $user['zipcode'];
                 $_SESSION['streetname'] = $user['streetname'];
                 $_SESSION['addressnumber'] = $user['addressnumber'];
-                $_SESSION['city'] = $user['city'];                
-                
+                $_SESSION['city'] = $user['city'];
+
                 $link = "../../home/";
             } else {
                 //wees nooit te specifiek waarom de gebruiker niet kan inloggen.
