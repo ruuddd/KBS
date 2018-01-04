@@ -55,6 +55,8 @@ function insertCategory($conn, $category_name, $category_description)
         $stmt->bindParam(':category_description', $category_description);
         //Voert de SQL uit
         $stmt->execute();
+        $_SESSION["inserted"] = "Succesvol toegevoegd";
+        header("location: /kbs/functions/cms/?actie=home&m=inserted");
     }
     
     //Laad de homepagina van het CMS
