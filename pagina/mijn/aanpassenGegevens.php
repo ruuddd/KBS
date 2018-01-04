@@ -7,7 +7,7 @@ $gebruikersGegevens = getUser($_SESSION['emailadres'], $pdo);
     <div class="main-login main-center">
         <form method="POST" action="verwerk.php" class="form-horizontal">
             <div class="form-group">
-                <label for="email" class="cols-sm-2 control-label">Dit zijn de gegevens van de eigenaar van dit emailadres: <?= $gebruikersGegevens['email'] ?></label><br><br>
+                <label for="email" class="cols-sm-2 control-label">Dit zijn de gegevens die bij dit emailadres horen: <?= $gebruikersGegevens['email'] ?></label><br><br>
 
                 <label for="email" class="cols-sm-2 control-label">Voornaam</label>
                 <div class="cols-sm-10">
