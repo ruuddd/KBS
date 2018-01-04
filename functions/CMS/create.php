@@ -37,9 +37,8 @@ function insertArtikel($conn, $product_name, $product_price, $product_descriptio
     $stmt = $conn->prepare("INSERT INTO productcategory (product_id, category_id) VALUES (LAST_INSERT_ID(), :category_id)");
     $stmt->bindParam(':category_id', $category_id);
     $stmt->execute();
-	
-    //Laad de homepagina van het CMS
-    return home($conn);
+	$_SESSION["inserted"] = "Succesvol toegevoegd";
+    header("location: /kbs/functions/cms/?actie=home&m=inserted");
 }
 
 function insertCategory($conn, $category_name, $category_description)
@@ -56,9 +55,6 @@ function insertCategory($conn, $category_name, $category_description)
         //Voert de SQL uit
         $stmt->execute();
         $_SESSION["inserted"] = "Succesvol toegevoegd";
-        header("location: /kbs/functions/cms/?actie=home&m=inserted");
+        header("location: /kbs/functions/cms/?actie=homeCategories&m=inserted");
     }
-    
-    //Laad de homepagina van het CMS
-    return home($conn);
 }
