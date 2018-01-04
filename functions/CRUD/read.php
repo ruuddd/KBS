@@ -217,3 +217,8 @@ function getTotalPrice($productInfo) {
     }
     return $totalPrice;
 }
+
+function updateRemainingAmount($pdo, $productId, $amount) {
+        $stmt = $pdo->prepare("UPDATE product SET availability = availability-? WHERE product_id = ?");
+        $stmt->execute([$amount, $productId]);
+}
