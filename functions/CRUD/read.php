@@ -146,7 +146,6 @@ function createOrder($pdo, $email, $date, $basketId) {
     $query2 = $pdo->prepare("SELECT order_id FROM bestelling WHERE order_id = LAST_INSERT_ID() ");
     $query2->execute();
     $orderId=$query2->fetch(PDO::FETCH_ASSOC);
-    $_SESSION['id'] = NULL;
     return $orderId['order_id'];
 }
 

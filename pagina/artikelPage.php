@@ -18,14 +18,14 @@
                     $artikelBeschrijving = $value['product_description'];
         }
     //toont de informatie door html te printen
-    print($artikelAfbeelding.'
+    print('
     <div class="container">
         <div class="card">
             <div class="container-fliud">
                 <div class="wrapper row">
                     <div class="preview col-md-6">           
                         <div class="preview-pic tab-content">
-                          <div class="tab-pane active" id="pic-1"><img src="images/artikelen'.$artikelAfbeelding.'" /></div>
+                          <div class="tab-pane active" id="pic-1"><img src="../images/artikelen/' . $artikelAfbeelding .'" /></div>
                         </div>
           </div>
 

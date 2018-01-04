@@ -1,3 +1,4 @@
+<?php $_SESSION['id'] = NULL;?>
 <div class="jumbotron text-xs-center">
   <h1 class="display-3">Bedankt voor uw bestelling!</h1>
   <p class="lead"><strong>Controleer uw email</strong> voor verdere instructies om uw bestelling af te ronden.</p>

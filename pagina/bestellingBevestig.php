@@ -32,7 +32,6 @@ else
                 createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, "NULL", $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo); 
             }    
     }
-$orderId = createOrder($pdo, $emailadres, $date, $_SESSION['id']); 
 
 ?>
  <div class="container">
@@ -43,7 +42,7 @@ $orderId = createOrder($pdo, $emailadres, $date, $_SESSION['id']);
 <div>
 <center>  
 <h4>Bevestig uw bestelling</h4>
-<h5>Order number: # <?php print($orderId); ?> </h5>
+<h5>Order number: # <?php print(createOrder($pdo, $emailadres, $date, $_SESSION['id'])); ?> </h5>
 <hr />  
 </div>
 </center>
