@@ -1,5 +1,5 @@
 <?php
-
+//verwijderd een product
 function removeProduct($conn)
 {
 	if ($_GET) 
@@ -17,7 +17,7 @@ function removeProduct($conn)
 		}
 	}
 }
-
+//verwijderd een categorie
 function removeCategory($conn)
 {
 	if ($_GET) 

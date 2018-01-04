@@ -14,17 +14,30 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
 
-                <div class="item active">
-                    <img src="/kbs/images/web/pand.jpg" alt="pand">
-                </div>
+                                <?php
+                                $teller=0;
+                    $stmt = $pdo->prepare("SELECT product_image, product_id, product_name FROM product ORDER BY product_id DESC LIMIT 3");
+                    $stmt->execute();
+                    $newestProducts = $stmt->fetchall(PDO::FETCH_ASSOC);
+                    foreach ($newestProducts as $value){
+                        
+                    if ($teller == 0)
+                        {
+                        print(            
+                                '<div class="item active">
+                                    <img src="/kbs/images/artikelen/' . $value['product_image'].'" alt="'.$value['product_name'].'">
+                                </div>'
+                        );
+                        }
+                    else {print(            
+                                '<div class="item">
+                                    <img src="/kbs/images/artikelen/' . $value['product_image'].'"  alt="'.$value['product_name'].'">
+                                </div>');
+                    }
+                    $teller++;
+                    }
+                ?>
 
-                <div class="item">
-                    <img src="/kbs/images/web/skutsje.jpg" alt="skutsje">
-                </div>
-
-                <div class="item">
-                    <img src="/kbs/images/web/kussen.jpg" alt="kussen">
-                </div>
 
                 <!-- Left and right controls -->
                 <a class="left carousel-control" href="#myCarousel" data-slide="prev">
