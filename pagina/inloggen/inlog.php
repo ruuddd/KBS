@@ -8,15 +8,16 @@ if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
     include '../mijn.php';
     print('<a href="/kbs/pagina/inloggen/verwerk.php?actie=uitloggen">Uitloggen</a>');
 
-}
-elseif ($_SESSION['uses'] == 3) {
+} else {
+    if (isset($_SESSION['uses']) && $_SESSION["uses"] == 3) {
     ?> 
         <div class='alert alert-info'>
             <span class='glyphicon glyphicon-info-sign aria-hidden='true'></span>
             U heeft teveel ingelogt probeer dit opnieuw op een later moment.
         </div>
     <?php
-} else {
+}
+else{
     ?>
     <div class="container">
 
@@ -52,6 +53,7 @@ elseif ($_SESSION['uses'] == 3) {
         </div>
     </div>
     <?php
+}
 }
 ?>
 
