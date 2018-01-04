@@ -27,7 +27,7 @@ function warning($session, $get)
 		}
 		else
 		{
-			if (!empty($get)) 
+			if (!empty($get["m"])) 
 			{
 				$session = $session[$get];
 				$warning = "<div class='alert alert-info'>

@@ -7,6 +7,15 @@ if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
     //laadt nu pas de beveiligde inhoud
     include '../mijn.php';
     print('<a href="/kbs/pagina/inloggen/verwerk.php?actie=uitloggen">Uitloggen</a>');
+
+}
+elseif ($_SESSION['uses'] == 3) {
+    ?> 
+        <div class='alert alert-info'>
+            <span class='glyphicon glyphicon-info-sign aria-hidden='true'></span>
+            U heeft teveel ingelogt probeer dit opnieuw op een later moment.
+        </div>
+    <?php
 } else {
     ?>
     <div class="row main">
