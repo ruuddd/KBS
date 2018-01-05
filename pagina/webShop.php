@@ -17,8 +17,6 @@
             ?>
         </div>
     </div>
-
-</div>
 </div>
 <?php
 $_SESSION['winkelmandItems'] = 0;
