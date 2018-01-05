@@ -244,7 +244,7 @@ function getOrders($orderPrijs) {
         $result .= '<tr>
                         <td>' . $value['order_id'] . '</td>
                         <td>' . $_SESSION['fullname'] . '</td>
-                        <td>e' . $_SESSION['emailadres'] . '</td>
+                        <td>' . $_SESSION['emailadres'] . '</td>
                         <td>' . $value['date'] . '</td>
                         <td>' . $totaalOrder . '</td>
                     </tr>';
