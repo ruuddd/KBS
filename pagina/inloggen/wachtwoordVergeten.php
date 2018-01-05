@@ -20,9 +20,8 @@
 </div>
 
 <?php
-if (isset($_POST['wijzigwachtwoord'])) {
-    /* Alle $_POST array waardes een nieuwe variabele naam geven en niet direct $_POST benaderen later in het script */
-    $email = filter_input(INPUT_POST, 'wijzigwachtwoordemail');
+$email = filter_input(INPUT_POST, 'wijzigwachtwoordemail');
+if (!empty($email)) {
     /* Checken of de email een geldig formaat heeft (x@x.com en niet x@x <- html vindt dit goed) */
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $_SESSION['melding'] = "Ongeldig e-mailadres!";

@@ -106,7 +106,7 @@ print_r($_SESSION);
             </div>
         </div>
 
-        <a href="/KBS/BestellingAfgerond/" class="btn btn-primary btn-block">Bestelling bevestigen<i class="fa fa-angle-right"></i></a>
+        <a href="/KBS/BestellingAfgerond/" class="btn btn-primary btn-block">Bestelling bevestigen <i class="fa fa-angle-right"></i></a>
     </div>
 </div> <!-- /container -->
 <?php print_r ($_SESSION);?>

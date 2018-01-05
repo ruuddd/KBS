@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-        <div class="row main">
-            <div class="panel-heading">
-                <div class="panel-title text-center">
-                    <hr />
-                </div>
-            </div> 
-                <div class="main-login main-center">
-                <form class="form-horizontal" method="post" action="/kbs/bestellingBevestig/">
+<div class="row main">
+    <div class="panel-heading">
+        <div class="panel-title text-center">
+            <hr />
+        </div>
+    </div>
+    <div class="main-login main-center">
+        <form class="form-horizontal" method="post" action="/kbs/bestellingBevestig/">
 
             <div class="form-group">
                 <label for="name" class="cols-sm-2 control-label">Voornaam *</label>
@@ -57,10 +57,10 @@
                     </div>
                 </div>
             </div>
-            
-<!--    </div>
-     <div class="main-login main-center">
-        <form class="form-horizontal" method="post" action="verwerk.php">-->
+
+            <!--    </div>
+                 <div class="main-login main-center">
+                    <form class="form-horizontal" method="post" action="verwerk.php">-->
 
 
             <div class="form-group">
@@ -112,13 +112,13 @@
                     </div>
                 </div>
             </div>
-                        <div class="login-register">
+            <div class="login-register">
                 <p><strong>
                         Velden met een * zijn verplicht
                     </strong></p>
             </div>
-                        <div class="form-group ">
-                <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Naar betalen</button>
+            <div class="form-group ">
+                <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Doorgaan <i class="fa fa-angle-right"></i></button>
             </div>
 
             <div class="login-register">

@@ -5,11 +5,11 @@ include_once '../inloggen/functies.inc.php';
 include '../inloggen/dbCheck.php';
 include '../../functions/dbConnect.php';
 
-$emailadres = filter_input(INPUT_POST, 'emailadres');
+$email = filter_input(INPUT_POST, 'emailadres');
 //$link = "../../registratie/";
 
-if (!empty($emailadres) && $_SESSION['emailadres'] == $emailadres) {
-    deleteUser($pdo, $emailadres);
+if (!empty($email) && $_SESSION['emailadres'] == $email) {
+    deleteUser($pdo, $email);
     $_SESSION['melding'] = "Uw account is verwijderd";
     print 'hoi';
 } else {
