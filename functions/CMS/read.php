@@ -31,7 +31,7 @@ function homeCategories($conn) {
         $category_name = $value["category_name"];
         $category_description = $value["category_description"];
         $category_id = $value["category_id"];
-        $return .= "<tr><td>$category_name</td><td>$category_description</td><td><a href='?actie=removeCategory&categoryId=$category_id'>x</a></td><td><a href='?actie=cUpdate&categoryId=$category_id'>-</a></td></tr>";
+        $return .= "<tr><td>$category_name</td><td>$category_description</td><td><a href='?actie=cUpdate&categoryId=$category_id'>Wijzig</a></td><td><a href='?actie=removeCategory&categoryId=$category_id'>Verwijder</a></td></tr>";
     }
     $return .= "</tr></table>";
     return $return;
