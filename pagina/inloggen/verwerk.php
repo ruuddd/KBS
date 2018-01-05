@@ -13,9 +13,13 @@
     $actie = filter_input(INPUT_GET, 'actie');
 
     if ($actie == 'uitloggen') {
+        if (isset($_SESSION['id'])){
+            $sessionId=$_SESSION['id'];
+        }
         session_destroy();  //gooi de oude sessie weg
         session_start(); //start weer een nieuwe
         $_SESSION['melding'] = "U bent nu uitgelogd";
+        $_SESSION['id']=$sessionId;
     } else {
         //in alle andere gevallen doe een inlog poging
         if (isset($_SESSION["uses"])) {

@@ -5,6 +5,17 @@ include("warning.php");
 include("../../pagina/page/header.php");
 include '../../functions/CRUD/read.php';
 ?>
+<script>
+function myFunction() {
+    var txt;
+    if (confirm("Weet u zeker dat u dit artikel wil verwijderen?") == true) {
+        txt = "You pressed OK!";
+    } else {
+        txt = "You pressed Cancel!";
+    }
+    document.getElementById("demo").innerHTML = txt;
+}
+</script>
 <main role="main">
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">

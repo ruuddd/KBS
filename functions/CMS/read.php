@@ -13,7 +13,7 @@ function home($conn) {
         $availability = $value["availability"];
         $url = $value["product_image"];
         $product_id = $value["product_id"];
-        $return .= "<tr><td>$product_name</td><td>$availability</td><td>$url</td><td><a href='?actie=aUpdate&productId=$product_id'>Wijzig</a></td><td><a href='?actie=removeProduct&productId=$product_id'>Verwijder</a></td></tr>";
+        $return .= "<tr><td>$product_name</td><td>$availability</td><td>$url</td><td><a href='?actie=aUpdate&productId=$product_id'>Wijzig</a></td><td><a href='?actie=removeProduct&productId=$product_id'  onclick='myFunction()'>Verwijder</a></td></tr>";
     }
     $return .= "</tr></table>";
     return $return;

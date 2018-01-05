@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 include '../inloggen/dbCheck.php';
 include '../../functions/dbConnect.php';
