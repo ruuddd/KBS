@@ -105,6 +105,6 @@ if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
             </div>
         </div>
 
-        <a href="/KBS/BestellingAfgerond/" class="btn btn-primary btn-block">Bestelling bevestigen <i class="fa fa-angle-right"></i></a>
+        <a href="/KBS/bestellingafgerond/" class="btn btn-primary btn-block">Bestelling bevestigen <i class="fa fa-angle-right"></i></a>
     </div>
 </div> <!-- /container -->

@@ -65,8 +65,8 @@ include 'pagina/inloggen/dbCheck.php';
                         case "mail";
                             include_once "pagina/phpMail.php";
                             break;
-                        case "BestellingAfgerond";
-                            include_once "pagina/BestellingAfgerond.php";
+                        case "bestellingafgerond";
+                            include_once "pagina/bestellingAfgerond.php";
                             break;
                         case "ganaarbetalen";
                             include_once 'pagina/gaNaarBetalen.php';
@@ -91,6 +91,9 @@ include 'pagina/inloggen/dbCheck.php';
                             break;
                         case "wachtwoordvergeten";
                             include_once 'pagina/inloggen/wachtwoordVergeten.php';
+                            break;
+                        case "overons";
+                            include_once 'pagina/overOns.php';
                             break;
 
                         default:
