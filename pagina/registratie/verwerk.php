@@ -23,10 +23,14 @@
 
     if (!empty($voornaam) && !empty($achternaam) && !empty($emailadres) && filter_var($emailadres, FILTER_VALIDATE_EMAIL) && !empty($telefoonnummer) && !empty($wachtwoord) && !empty($bevestig_wachtwoord) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land)) { //controleer of de variabelen niet leeg zijn
         if ($wachtwoord == $bevestig_wachtwoord && strlen($wachtwoord) > 5) {
+            if (!checkEmailExists($pdo, $emailadres)){
             createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, $wachtwoord, $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo);
 
             $_SESSION['melding'] = "U bent geregistreerd!";
             $link = "../../login/";
+            } else{
+                $_SESSION['melding'] = "Dit emailadres bestaat al";
+            }
         } else {
             $_SESSION['melding'] = "Uw wachtwoorden komen niet overeen of zijn niet lang genoeg (minimaal 6 tekens)";
         }
