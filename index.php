@@ -89,11 +89,8 @@ include 'pagina/inloggen/dbCheck.php';
                         case "melding";
                             include_once 'pagina/mijn/melding.php';
                             break;
-                        case "resetwachtwoord";
+                        case "wachtwoordvergeten";
                             include_once 'pagina/inloggen/wachtwoordVergeten.php';
-                            break;
-                        case "verwijderaccount";
-                            include_once 'pagina/mijn/verwijderAccount.php';
                             break;
 
                         default:

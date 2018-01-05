@@ -1,6 +1,9 @@
 <?php
 //include die een DIV met HTML print
-if (isset($_SESSION['melding'])){include_once 'pagina/inloggen/melding.inc.php'; $_SESSION['melding']=NULL;};
+if (isset($_SESSION['melding'])) {
+    include_once 'pagina/inloggen/melding.inc.php';
+    $_SESSION['melding'] = NULL;
+};
 
 
 if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
@@ -43,7 +46,7 @@ if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
                         <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Log in</button>
                     </div>
                     <div class="login-register">
-                        <a href="/KBS/resetwachtwoord/">Wachtwoord vergeten</a>
+                        <a href="/KBS/wachtwoordvergeten/">Wachtwoord vergeten</a> of <a href="/KBS/registratie/">Registeren</a>
                     </div>
                 </form>
             </div>
