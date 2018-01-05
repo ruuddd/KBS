@@ -1,6 +1,6 @@
 <footer class="footer">
     <div class="container">
-        <p class="footertext"><a href="https://www.facebook.com/deferverterherne/?ref=br_rs" class="fa fa-facebook"><a href="tel:0566 689 219" class="fa fa-phone">&nbsp;</a>&copy; De Ferver 2017</p>
+        <p class="footertext">&copy; De Ferver 2018</p>
     </div>
 </footer>
 

@@ -12,7 +12,7 @@
         <h2>Contact</h2>
         <h2>
 
-            <a href="tel:0566 689 219"<button type="button" class="btn btn-default btn-sm">
+            <a href="tel:0625163811"<button type="button" class="btn btn-default btn-sm">
                     <span class="glyphicon glyphicon-earphone"></span> Telefoon
                 </button></a>
 
@@ -22,7 +22,7 @@
                 </button></a>
 
 
-            <a href="https://www.facebook.com/deferverterherne/"><button type="button" class="btn btn-default btn-sm">
+            <a href="https://www.facebook.com/deferverterherne/" target="_blank"><button type="button" class="btn btn-default btn-sm">
                     <span class="fa fa-facebook-official" aria-hidden="true"></span> Facebook
                 </button></a>
 
