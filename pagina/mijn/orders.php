@@ -1,7 +1,7 @@
 <?php
 $email = $_SESSION['emailadres'];
 $order = getOrdersquery($pdo, $email);
-print_r($order);
+//print_r($order);
 ?>
 
 <div class="container">
