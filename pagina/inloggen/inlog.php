@@ -4,8 +4,6 @@ include 'pagina/inloggen/melding.inc.php';
 
 
 if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
-    //laadt nu pas de beveiligde inhoud
-    include '../mijn.php';
     print('<a href="/kbs/pagina/inloggen/verwerk.php?actie=uitloggen">Uitloggen</a>');
 } else {
     if (isset($_SESSION['uses']) && $_SESSION["uses"] == 3) {

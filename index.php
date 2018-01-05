@@ -92,6 +92,9 @@ include 'pagina/inloggen/dbCheck.php';
                         case "resetwachtwoord";
                             include_once 'pagina/inloggen/wachtwoordVergeten.php';
                             break;
+                        case "verwijderaccount";
+                            include_once 'pagina/mijn/verwijderAccount.php';
+                            break;
 
                         default:
                             checkPage(check(), $pdo);
