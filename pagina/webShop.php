@@ -1,5 +1,4 @@
 <div class="container">
-<<<<<<< HEAD
     <div class="btn-group">
         <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Categorieën
@@ -18,27 +17,8 @@
             ?>
         </div>
     </div>
-=======
-<div class="btn-group">
-  <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Categorieën
-  </button>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="/KBS/webshop/">Alle producten</a>
-    <div class="dropdown-divider"></div>
-    <?php 
-    $categories = $pdo->prepare("SELECT DISTINCT(category_name) FROM category C RIGHT JOIN productcategory PC ON C.category_id = PC.category_id");
-    $categories->execute();
-    //FetchAll haalt de data op uit de database en zet het in een array
-    $result = $categories->fetchAll();
-    foreach ($result as $value)
-        {
-        print('<a class="dropdown-item" href="'.$value['category_name'].'">'.$value["category_name"].'</a>');        
-        }
-    ?>
-  </div>
+
 </div>
->>>>>>> 03da042cb0debfff98903606ae21d3a12b61ddfd
 </div>
 <?php
 $_SESSION['winkelmandItems'] = 0;
