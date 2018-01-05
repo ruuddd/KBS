@@ -238,8 +238,13 @@ function getOrdersQuery($pdo, $email) {
 
 function getOrders($orderPrijs) {
     $result = "";
+<<<<<<< HEAD
     $totaalOrder = 0;
     foreach ($orderPrijs as $value) {
+=======
+    $totaalOrder=0;
+    foreach ($order as $value) {
+>>>>>>> f65232e8190d11919b2b9e8980b681c394fb94c0
         $totaalOrder += ($value['amount'] * $value['product_price']);
         $result .= '<tr>
                         <td>' . $value['order_id'] . '</td>
