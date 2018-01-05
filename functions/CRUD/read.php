@@ -232,14 +232,18 @@ function getOrderderedItems($productInfo) {
 function getOrdersQuery($pdo, $email) {
     $stmt = $pdo->prepare("SELECT * FROM bestelling LEFT JOIN basket ON bestelling.basket_id = basket.basket_id JOIN product ON basket.product_id=product.product_id WHERE email=?");
     $stmt->execute([$email]);
-    $orders=$stmt->fetchAll(PDO::FETCH_ASSOC);
+    $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $orders;
 }
 
-function getOrders($orderPrijs) {
+function getOrders($order) {
     $result = "";
+<<<<<<< HEAD
+    foreach ($order as $value) {
+=======
     $totaalOrder=0;
     foreach ($orderPrijs as $value) {
+>>>>>>> f0b9d4799ea78ff9ddaab5222e237197792b2ca9
         $totaalOrder += ($value['amount'] * $value['product_price']);
         $result .= '<tr>
                         <td>' . $value['order_id'] . '</td>
