@@ -83,7 +83,7 @@ include 'pagina/inloggen/dbCheck.php';
                         case "orders";
                             include_once 'pagina/mijn/orders.php';
                             break;
-                        case "gegevensAanpassen";
+                        case "gegevenswijzigen";
                             include_once 'pagina/mijn/aanpassenGegevens.php';
                             break;
                         case "melding";

@@ -1,28 +1,25 @@
 <?php
 
-function home($conn)
-{
-	$content = $conn->prepare("SELECT * FROM product");
+function home($conn) {
+    $content = $conn->prepare("SELECT * FROM product");
     $content->execute();
     $result = $content->fetchAll();
     $return = "
     <table class='table'><tr><td class='table-primary'><a href='?actie=home'>artikelen</a></td><td class='table-primary'><a href='?actie=homeCategories'>categorien</a></td></tr></table>
     <table class='table'>
      <thead class='thead-dark'><th>naam</th><th>aantal</th><th>afbeelding</th><th colspan='2'><a href='?actie=aToevoegen'>toevoegen<a/></th></thead>";
-    foreach ($result as $key => $value) 
-    {
-    	$product_name = $value["product_name"];
-    	$availability = $value["availability"];
+    foreach ($result as $key => $value) {
+        $product_name = $value["product_name"];
+        $availability = $value["availability"];
         $url = $value["product_image"];
         $product_id = $value["product_id"];
-    	$return .= "<tr><td>$product_name</td><td>$availability</td><td>$url</td><td><a href='?actie=removeProduct&productId=$product_id'>x</a></td><td><a href='?actie=aUpdate&productId=$product_id'>-</a></td></tr>";
+        $return .= "<tr><td>$product_name</td><td>$availability</td><td>$url</td><td><a href='?actie=aUpdate&productId=$product_id'>Wijzig</a></td><td><a href='?actie=removeProduct&productId=$product_id'>Verwijder</a></td></tr>";
     }
     $return .= "</tr></table>";
-	return $return;
+    return $return;
 }
 
-function homeCategories($conn)
-{
+function homeCategories($conn) {
     $content = $conn->prepare("SELECT * FROM category");
     $content->execute();
     $result = $content->fetchAll();
@@ -30,8 +27,7 @@ function homeCategories($conn)
     <table class='table'><tr><td class='table-primary'><a href='?actie=home'>artikelen</a></td><td class='table-primary'><a href='?actie=homeCategories'>categorien</a></td></tr></table>
     <table class='table'>
      <thead class='thead-dark'><th>naam</th><th>beschrijving</th><th colspan='2'><a href='?actie=cToevoegen'>toevoegen<a/></th></thead>";
-    foreach ($result as $key => $value) 
-    {
+    foreach ($result as $key => $value) {
         $category_name = $value["category_name"];
         $category_description = $value["category_description"];
         $category_id = $value["category_id"];
@@ -41,8 +37,7 @@ function homeCategories($conn)
     return $return;
 }
 
-function getCategories($conn)
-{
+function getCategories($conn) {
     //SQL
     $categories = $conn->prepare("SELECT * FROM category");
     $categories->execute();
@@ -50,8 +45,7 @@ function getCategories($conn)
     $result = $categories->fetchAll();
     $options = "<datalist id='category'>";
     //De foreach loopt door de array
-    foreach ($result as $key => $value) 
-    {
+    foreach ($result as $key => $value) {
         //Per rij wordt er een optie toegevoegd aan de variabele optie
         $category_name = $value["category_name"];
         $category_id = $value["category_id"];
@@ -61,8 +55,7 @@ function getCategories($conn)
     return $options;
 }
 
-function aToevoegen($conn)
-{
+function aToevoegen($conn) {
     //Zet een formulier in de variabele form
     $form = '<form action="?actie=home&insertArtikel" method="post" enctype="multipart/form-data">
             <table>
@@ -75,8 +68,8 @@ function aToevoegen($conn)
                     </td>
                     <td>
                         <input list="category" name="category_id">
-                        '. getCategories($conn) //Haalt een lijst met categorien op
-                         .'
+                        ' . getCategories($conn) //Haalt een lijst met categorien op
+            . '
                     </td>
                 </tr>
                 <tr>
@@ -114,7 +107,7 @@ function aToevoegen($conn)
                 </tr>
                 <tr>
                     <td>
-                        
+
                     </td>
                     <td>
                         <input type="submit" name="">
@@ -125,8 +118,7 @@ function aToevoegen($conn)
     return $form;
 }
 
-function aUpdate($conn, $product_id)
-{
+function aUpdate($conn, $product_id) {
     $product = $conn->prepare("SELECT * FROM `product` JOIN `productcategory` JOIN `category` WHERE `product`.product_id = ? GROUP BY `product`.`product_id`");
     $product->execute([$product_id]);
     $result = $product->fetchAll();
@@ -138,8 +130,7 @@ function aUpdate($conn, $product_id)
     $availability = "";
     $category_name = "";
 
-    foreach ($result as $key => $value) 
-    {
+    foreach ($result as $key => $value) {
         $product_name = $value["product_name"];
         $product_price = $value["product_price"];
         $product_description = $value["product_description"];
@@ -155,11 +146,11 @@ function aUpdate($conn, $product_id)
                         naam
                     </td>
                     <td>
-                        <input type="text" name="naam" value="'.$product_name.'" />
+                        <input type="text" name="naam" value="' . $product_name . '" />
                     </td>
                     <td>
-                        <input list="category" name="category_id" value="'.$category_id.'">
-                        '. getCategories($conn) .'
+                        <input list="category" name="category_id" value="' . $category_id . '">
+                        ' . getCategories($conn) . '
                     </td>
                 </tr>
                 <tr>
@@ -167,7 +158,7 @@ function aUpdate($conn, $product_id)
                         prijs
                     </td>
                     <td>
-                        <input type="number" name="prijs" step="any" value="'.$product_price.'" />
+                        <input type="number" name="prijs" step="any" value="' . $product_price . '" />
                     </td>
                 </tr>
                 <tr>
@@ -175,15 +166,15 @@ function aUpdate($conn, $product_id)
                         beschrijving
                     </td>
                     <td>
-                        <input type="text" name="beschrijving" value="'.$product_description.'" />
+                        <input type="text" name="beschrijving" value="' . $product_description . '" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input name="file" type="file" value="/kbs/images/artikelen/'.$product_image.'" onchange="readURL(this);" />
+                        <input name="file" type="file" value="/kbs/images/artikelen/' . $product_image . '" onchange="readURL(this);" />
                     </td>
                     <td>
-                        <img id="image" width="250" height="250" src="/kbs/images/artikelen/'.$product_image.'" alt="your image" />
+                        <img id="image" width="250" height="250" src="/kbs/images/artikelen/' . $product_image . '" alt="your image" />
                         <div onclick="openFile()" class="selectFile"></div>
                     </td>
                 </tr>
@@ -192,12 +183,12 @@ function aUpdate($conn, $product_id)
                         aantal
                     </td>
                     <td>
-                        <input type="number" name="aantal" value="'.$availability.'" />
+                        <input type="number" name="aantal" value="' . $availability . '" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        
+
                     </td>
                     <td>
                         <input type="submit" name="">
@@ -205,12 +196,10 @@ function aUpdate($conn, $product_id)
                 </tr>
             </table>
         </form>';
-        return $form;
-
+    return $form;
 }
 
-function cToevoegen($conn)
-{
+function cToevoegen($conn) {
     //Zet een formulier in de variabele form
     $form = '<form action="?actie=homeCategories&insertCategory" method="post" enctype="multipart/form-data">
             <table>
@@ -241,8 +230,7 @@ function cToevoegen($conn)
     return $form;
 }
 
-function cUpdate($conn, $category_id)
-{
+function cUpdate($conn, $category_id) {
     $product = $conn->prepare("SELECT * FROM `category` WHERE `category`.category_id = ?");
     $product->execute([$category_id]);
     $result = $product->fetchAll();
@@ -250,8 +238,7 @@ function cUpdate($conn, $category_id)
     $category_name = "";
     $category_description = "";
 
-    foreach ($result as $key => $value) 
-    {
+    foreach ($result as $key => $value) {
         $category_name = $value["category_name"];
         $category_description = $value["category_description"];
     }
@@ -263,7 +250,7 @@ function cUpdate($conn, $category_id)
                         categorie naam
                     </td>
                     <td>
-                        <input type="text" name="category_name" value="'.$category_name.'" />
+                        <input type="text" name="category_name" value="' . $category_name . '" />
                     </td>
                 </tr>
                 <tr>
@@ -271,7 +258,7 @@ function cUpdate($conn, $category_id)
                         categorie beschrijving
                     </td>
                     <td>
-                        <input type="text" name="category_description" value="'.$category_description.'" />
+                        <input type="text" name="category_description" value="' . $category_description . '" />
                     </td>
                 </tr>
                 <tr>
@@ -283,5 +270,4 @@ function cUpdate($conn, $category_id)
             </table>
         </form>';
     return $form;
-
 }

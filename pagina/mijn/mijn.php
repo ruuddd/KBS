@@ -2,7 +2,7 @@
 print("<div class='col-md-5'><p>Welkom " . $_SESSION['fullname'] . "</p></div>" . "<br>");
 ?>
 
-<div class="col-md-5"><p><a href="/kbs/gegevensAanpassen/">Gegevens aanpassen</a></p></div><br>
+<div class="col-md-5"><p><a href="/kbs/gegevenswijzigen/">Gegevens aanpassen</a></p></div><br>
 
 <div class="col-md-5"><p><a href="/kbs/orders/">Mijn orders</a></p></div>
 
