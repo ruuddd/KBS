@@ -15,8 +15,8 @@ $postcode = filter_input(INPUT_POST, 'zipcode');
 $straatnaam = filter_input(INPUT_POST, 'streetname');
 $huisnummer = filter_input(INPUT_POST, 'addressnumber');
 $email = $_SESSION['emailadres'];
-$userCheck = $pdo->prepare("SELECT address_id FROM person WHERE email='" . $email . "'");
-$userCheck->execute();
+$userCheck = $pdo->prepare("SELECT address_id FROM person WHERE email=?");
+$userCheck->execute($email);
 $addressId = $userCheck->fetch(PDO::FETCH_ASSOC);
 
 
@@ -25,4 +25,3 @@ if (!empty($voornaam) && !empty($tussenvoegsel) && !empty($achternaam) && !empty
 }
     header('Location: ' . $link);
     exit();
-?>

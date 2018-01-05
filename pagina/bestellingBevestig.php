@@ -41,7 +41,6 @@ if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
         createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, "NULL", $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo);
     }
 }
-print_r($_SESSION);
 ?>
 <div class="container">
 
@@ -109,4 +108,3 @@ print_r($_SESSION);
         <a href="/KBS/BestellingAfgerond/" class="btn btn-primary btn-block">Bestelling bevestigen <i class="fa fa-angle-right"></i></a>
     </div>
 </div> <!-- /container -->
-<?php print_r ($_SESSION);?>
