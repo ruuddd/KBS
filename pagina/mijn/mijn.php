@@ -1,5 +1,5 @@
 <?php
-print("<div class='col-md-5'><p>Welkom " . $_SESSION['fullname'] . "</p></div>" . "<br>");
+print("<div class='col-md-5'><p>Welkom " . ucfirst($_SESSION['firstname']) . $_SESSION['insertion'] . ucfirst($_SESSION['lastname']) . "</p></div>" . "<br>");
 ?>
 
 <div class="col-md-5"><p><a href="/kbs/gegevenswijzigen/">Gegevens aanpassen</a></p></div><br>
