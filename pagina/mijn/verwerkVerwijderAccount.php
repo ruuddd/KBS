@@ -11,6 +11,7 @@ $emailadres = filter_input(INPUT_POST, 'emailadres');
 if (!empty($emailadres) && $_SESSION['emailadres'] == $emailadres) {
     deleteUser($pdo, $emailadres);
     $_SESSION['melding'] = "Uw account is verwijderd";
+    print 'hoi';
 } else {
     print("nee");
 }
