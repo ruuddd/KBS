@@ -179,6 +179,25 @@ function countBasketItems($pdo, $sessionId) {
     return $itemsAmount;
 }
 
+function getTotalPrice($productInfo) {
+    $totalPrice = 0;
+    foreach ($productInfo as $value) {
+        $totalPrice += ($value['amount'] * $value['product_price']);
+    }
+    return $totalPrice;
+}
+
+function updateRemainingAmount($pdo, $productId, $amount) {
+    $stmt = $pdo->prepare("UPDATE product SET availability = availability-? WHERE product_id = ?");
+    $stmt->execute([$amount, $productId]);
+}
+
+function getOrderFromUser($pdo, $email) {
+    $stmt = $pdo->prepare("SELECT * FROM bestelling WHERE email = ?");
+    $stmt->execute([$email]);
+    return $email;
+}
+
 function getOrderderedItems($productInfo) {
     $totalPrice = 0;
     $result = "";
@@ -210,15 +229,22 @@ function getOrderderedItems($productInfo) {
     return $result;
 }
 
-function getTotalPrice($productInfo) {
-    $totalPrice = 0;
-    foreach ($productInfo as $value) {
-        $totalPrice += ($value['amount'] * $value['product_price']);
-    }
-    return $totalPrice;
+function getTotalOrderPriceQuery($pdo, $email) {
+    $stmt = $pdo->prepare("SELECT * FROM bestelling LEFT JOIN basket ON bestelling.basket_id = basket.basket_id JOIN product ON basket.product_id=product.product_id WHERE email=?");
+    $stmt->execute([$email]);
 }
 
-function updateRemainingAmount($pdo, $productId, $amount) {
-        $stmt = $pdo->prepare("UPDATE product SET availability = availability-? WHERE product_id = ?");
-        $stmt->execute([$amount, $productId]);
+function getTotalOrderPrice($orderPrijs) {
+    $result = "";
+    foreach ($orderPrijs as $value) {
+        $totaalOrder += ($value['amount'] * $value['product_price']);
+        $result .= '<tr>
+                        <td>' . $value['order_id'] . '</td>
+                        <td>' . $_SESSION['fullname'] . '</td>
+                        <td>e' . $_SESSION['emailadres'] . '</td>
+                        <td>' . $value['date'] . '</td>
+                        <td>' . $totaalOrder . '</td>
+                    </tr>';
+    }
+    return $result;
 }
