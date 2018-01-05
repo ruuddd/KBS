@@ -1,6 +1,6 @@
 <?php
 $email = $_SESSION['emailadres'];
-$orderPrijs = getTotalOrderPriceQuery($pdo, $email);
+$order = getOrders($pdo, $email);
 ?>
 
 <div class="container">
@@ -9,17 +9,15 @@ $orderPrijs = getTotalOrderPriceQuery($pdo, $email);
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Product Name</th>
-                        <th>Full Name</th>
+                        <th>Ordernr</th>
+                        <th>Naam</th>
                         <th>Email</th>
-                        <th>Date</th>
-                        <th>Price</th>
-                        <th>Status</th>
+                        <th>Datum</th>
+                        <th>Prijs</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php print(getTotalOrderPrice($orderPrijs)); ?>
+                    <?php print(getOrders($orderPrijs)); ?>
                 </tbody>
             </table>
         </div>

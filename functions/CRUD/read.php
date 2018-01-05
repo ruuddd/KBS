@@ -229,12 +229,12 @@ function getOrderderedItems($productInfo) {
     return $result;
 }
 
-function getTotalOrderPriceQuery($pdo, $email) {
+function getOrdersQuery($pdo, $email) {
     $stmt = $pdo->prepare("SELECT * FROM bestelling LEFT JOIN basket ON bestelling.basket_id = basket.basket_id JOIN product ON basket.product_id=product.product_id WHERE email=?");
     $stmt->execute([$email]);
 }
 
-function getTotalOrderPrice($orderPrijs) {
+function getOrders($orderPrijs) {
     $result = "";
     foreach ($orderPrijs as $value) {
         $totaalOrder += ($value['amount'] * $value['product_price']);
