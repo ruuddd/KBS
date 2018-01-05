@@ -21,7 +21,7 @@
                     //FetchAll haalt de data op uit de database en zet het in een array
                     $result = $categories->fetchAll();
                     foreach ($result as $values) {
-                        print('<a class="dropdown-item" href="' . $values['category_name'] . '">' . $values["category_name"] . '</a>');
+                        print('<a class="dropdown-item" href="../webshop/' . $values['category_name'] . '">' . $values["category_name"] . '</a>');
                     }
                     ?>
                 </div>
