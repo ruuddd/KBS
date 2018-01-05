@@ -112,6 +112,6 @@ include 'pagina/inloggen/dbCheck.php';
     <?php
     include_once 'pagina/page/footer.php';
     ?>
-
+    <script src='js/saveClick.js'></script>
 </body>
 </html>

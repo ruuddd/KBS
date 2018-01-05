@@ -18,7 +18,7 @@ $order = getOrdersquery($pdo, $email);
                     </tr>
                 </thead>
                 <tbody>
-                    <?php print $order; ?>
+                    <?php print getOrders($order); ?>
                 </tbody>
             </table>
         </div>

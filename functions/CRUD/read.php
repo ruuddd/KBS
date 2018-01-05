@@ -236,21 +236,17 @@ function getOrdersQuery($pdo, $email) {
     return $orders;
 }
 
-function getOrders($order) {
+function getOrders($orderPrijs) {
     $result = "";
-<<<<<<< HEAD
-    foreach ($order as $value) {
-=======
-    $totaalOrder=0;
+    $totaalOrder = 0;
     foreach ($orderPrijs as $value) {
->>>>>>> f0b9d4799ea78ff9ddaab5222e237197792b2ca9
         $totaalOrder += ($value['amount'] * $value['product_price']);
         $result .= '<tr>
                         <td>' . $value['order_id'] . '</td>
                         <td>' . $_SESSION['fullname'] . '</td>
-                        <td>e' . $_SESSION['emailadres'] . '</td>
+                        <td>' . $_SESSION['emailadres'] . '</td>
                         <td>' . $value['date'] . '</td>
-                        <td>' . $totaalOrder . '</td>
+                        <td>&euro;' . $totaalOrder . '</td>
                     </tr>';
     }
     return $result;
