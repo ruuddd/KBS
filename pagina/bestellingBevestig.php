@@ -24,6 +24,18 @@ if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
     $postcode = filter_input(INPUT_POST, 'postcode');
     $woonplaats = filter_input(INPUT_POST, 'woonplaats');
     $land = filter_input(INPUT_POST, 'land');
+    $_SESSION['emailadres'] = $emailadres;
+    $_SESSION['firstname'] = $voornaam;
+    $_SESSION['insertion'] = $tussenvoegsel;
+    $_SESSION['lastname'] = $achternaam;
+    $_SESSION['fullname'] = $_SESSION['firstname'] . " " . $_SESSION['insertion'] . " " . $_SESSION['lastname'];
+    $_SESSION['customer'] = $_SESSION['insertion'] . " " . $_SESSION['lastname'];
+    $_SESSION['phonenumber'] = $telefoonnummer;
+    $_SESSION['country'] = $land;
+    $_SESSION['zipcode'] = $postcode;
+    $_SESSION['streetname'] = $straatnaam;
+    $_SESSION['addressnumber'] = $huisnummer;
+    $_SESSION['city'] = $woonplaats;
 
     if (!empty($voornaam) && !empty($achternaam) && !empty($emailadres) && !empty($telefoonnummer) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land) && !checkEmailExists($pdo, $emailadres)) {
         createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, "NULL", $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo);
