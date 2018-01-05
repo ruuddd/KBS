@@ -5,13 +5,14 @@ html {
     margin-left:auto;
     margin-right:auto;
 }
+
 html, body{
     margin:0px;
     padding:0px;
 }
 
 body {
-    margin-bottom: 60px; /* Margin bottom by footer height */
+    margin-bottom: 50px; /* Margin bottom by footer height */
 }
 .footer {
     position: absolute;
@@ -49,7 +50,7 @@ p
 
 .alt-navbar
 {
-    min-width: 1300px;
+    min-width: 1400px;
     padding: 10px;
 }
 .jumbotron
@@ -238,19 +239,3 @@ form
     padding-bottom: 5px;
 }
 
-.navbar{
-    border-radius: 0px;
-    position: fixed;
-}
-
-.wow{
-    min-height: 300px;
-    min-width: 300px;
-    max-height: 300px;
-    max-width: 300px;
-}
-
-.table-responsive{margin-top:25px;}
-.navbar{
-    border-radius: 0px;
-}

@@ -1,32 +1,30 @@
 <div class="container">
-<div class="btn-group">
-  <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Categorien
-  </button>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="/KBS/webshop/">Alle producten</a>
-    <div class="dropdown-divider"></div>
-    <?php 
-    $categories = $pdo->prepare("SELECT DISTINCT(category_name) FROM category C RIGHT JOIN productcategory PC ON C.category_id = PC.category_id");
-    $categories->execute();
-    //FetchAll haalt de data op uit de database en zet het in een array
-    $result = $categories->fetchAll();
-    foreach ($result as $value)
-        {
-        print('<a class="dropdown-item" href="'.$value['category_name'].'">'.$value["category_name"].'</a>');        
-        }
-    ?>
-  </div>
-</div>
+    <div class="btn-group">
+        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categorieën
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="/KBS/webshop/">Alle producten</a>
+            <div class="dropdown-divider"></div>
+            <?php
+            $categories = $pdo->prepare("SELECT DISTINCT(category_name) FROM category C RIGHT JOIN productcategory PC ON C.category_id = PC.category_id");
+            $categories->execute();
+            //FetchAll haalt de data op uit de database en zet het in een array
+            $result = $categories->fetchAll();
+            foreach ($result as $value) {
+                print('<a class="dropdown-item" href="' . $value['category_name'] . '">' . $value["category_name"] . '</a>');
+            }
+            ?>
+        </div>
+    </div>
 </div>
 <?php
-
-$_SESSION['winkelmandItems']=0;
+$_SESSION['winkelmandItems'] = 0;
 //haalt producten op; alle producten die searchproducts find als er gezocht wordt en anders alle beschikbare producten
 if (search()) {
     $products = searchProducts($_POST['search'], $pdo);
-} elseif(isset($_GET['product']) && $_GET['product']) {
-    $stmt = $pdo->prepare("SELECT p.product_id, p.product_name, p.product_price, p.product_description, p.product_image, p.availability FROM product p LEFT JOIN productcategory PC ON P.product_id = PC.product_id LEFT JOIN category C ON C.category_id=PC.category_id WHERE c.category_name LIKE '%".$_GET["product"]."%'");
+} elseif (isset($_GET['product']) && $_GET['product']) {
+    $stmt = $pdo->prepare("SELECT p.product_id, p.product_name, p.product_price, p.product_description, p.product_image, p.availability FROM product p LEFT JOIN productcategory PC ON P.product_id = PC.product_id LEFT JOIN category C ON C.category_id=PC.category_id WHERE c.category_name LIKE '%" . $_GET["product"] . "%'");
     $stmt->execute();
     $products = $stmt->fetchall(PDO::FETCH_ASSOC);
 } else {
@@ -50,7 +48,7 @@ foreach ($products as $key => $value) {
                             <div class = "card-text">Nog <strong> ' . $artikelBeschikbaarheid . ' </strong> beschikbaar</div><br>
                                 <div class = "card-text">€' . $artikelPrijs . '</div><br>
                                     <div class="row justify-content-end">
-                                    <form method="post"><button type="submit" class="btn btn-primary" action="winkelmandje.php" name="addToBasket">Toevoegen aan winkelmand</button>
+                                    <form method="post"><button type="submit" class="btn btn-primary text-center" action="winkelmandje.php" name="addToBasket">Toevoegen aan winkelmand</button>
                                     <input type="hidden" name="artikelId" value="' . $artikelId . '"</input></form>
                                 </div>
                             </div>

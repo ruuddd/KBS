@@ -5,7 +5,7 @@ function home($conn) {
     $content->execute();
     $result = $content->fetchAll();
     $return = "
-    <table class='table'><tr><td class='table-primary'><a href='?actie=home'>artikelen</a></td><td class='table-primary'><a href='?actie=homeCategories'>categorien</a></td></tr></table>
+    <table class='table'><tr><td class='table-primary'><a href='?actie=home'>artikelen</a></td><td class='table-primary'><a href='?actie=homeCategories'>categorieën</a></td></tr></table>
     <table class='table'>
      <thead class='thead-dark'><th>naam</th><th>aantal</th><th>afbeelding</th><th colspan='2'><a href='?actie=aToevoegen'>toevoegen<a/></th></thead>";
     foreach ($result as $key => $value) {
