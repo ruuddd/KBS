@@ -1,6 +1,6 @@
 <?php
 //include die een DIV met HTML print
-include 'pagina/inloggen/melding.inc.php';
+if (isset($_SESSION['melding'])){include_once 'pagina/inloggen/melding.inc.php'; $_SESSION['melding']=NULL;};
 
 
 if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {

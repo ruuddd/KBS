@@ -2,7 +2,7 @@
 session_start();
 include '../inloggen/dbCheck.php';
 include '../../functions/dbConnect.php';
-$link = "/kbs/melding/";
+$link = "/kbs/gegevens/";
 //actueel ondersteund alternatief voor $_POST['gebruikersnaam'] etc
 $voornaam = filter_input(INPUT_POST, 'firstname');
 $tussenvoegsel = filter_input(INPUT_POST, 'insertion');
@@ -31,6 +31,7 @@ $addressId = $userCheck->fetch(PDO::FETCH_ASSOC);
     $_SESSION['streetname'] = $straatnaam;
     $_SESSION['addressnumber'] = $huisnummer;
     $_SESSION['city'] = $woonplaats;
+    $_SESSION['melding']='uw gegevens zijn aangepast';
 
 if (!empty($voornaam) && !empty($tussenvoegsel) && !empty($achternaam) && !empty($telefoonnummer) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land)) {
     updateUser($addressId["address_id"], $voornaam, $tussenvoegsel, $achternaam, $telefoonnummer, $land, $woonplaats, $postcode, $straatnaam, $huisnummer, $pdo);

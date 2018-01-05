@@ -1,5 +1,5 @@
 <?php
-include 'pagina/inloggen/melding.inc.php';
+if (isset($_SESSION['melding'])){include_once 'pagina/inloggen/melding.inc.php'; $_SESSION['melding']=NULL;};
 ?>
 <div class="row main">
 
