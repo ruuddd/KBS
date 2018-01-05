@@ -6,7 +6,7 @@ include 'pagina/inloggen/melding.inc.php';
 if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
     print('<a href="/kbs/pagina/inloggen/verwerk.php?actie=uitloggen">Uitloggen</a>');
 } else {
-    if (isset($_SESSION['uses']) && $_SESSION["uses"] == 3) {
+    if (isset($_SESSION['uses']) && $_SESSION["uses"] == 4) {
         ?>
         <div class='alert alert-info'>
             <span class='glyphicon glyphicon-info-sign' aria-hidden='true'></span>

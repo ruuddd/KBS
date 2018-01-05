@@ -75,11 +75,7 @@ $gebruikersGegevens = getUser($_SESSION['emailadres'], $pdo);
 
             <div>
                 <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Aanpassen</button>
-            </div>
-
+            </div><br>
         </form>
-        <a href="/kbs/verwijderaccount/"><div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Verwijder account</button>
-            </div></a>
     </div>
 </div>

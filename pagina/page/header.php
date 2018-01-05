@@ -9,7 +9,7 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container alt-navbar">
         <a class="nav-tem" href="/KBS/home/">
-            <img src="http://drpattydental.com/wp-content/uploads/2017/05/placeholder.png" height="50" width="65" alt="Ferver Logo"/>
+            <img src="/kbs/images/web/logo.jpg" height="50" width="65" alt="Ferver Logo"/>
         </a>
 
 
@@ -86,8 +86,7 @@
                     <img src="http://localhost/KBS/shopping-cart.png" height="50" width="50" alt="winkelmand"/></a>
                 <span  class="cart-items-count"><span class=" notification-counter">
                         <?php
-                        
-                        if (isset($_SESSION['id']) && (((!isset($_SESSION['ingelogd'])) || ! $_SESSION["role"] == 1))) {
+                        if (isset($_SESSION['id']) && (((!isset($_SESSION['ingelogd'])) || !$_SESSION["role"] == 1))) {
                             print(countBasketItems($pdo, $_SESSION['id']));
                         } else {
                             print ('0');

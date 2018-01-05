@@ -23,5 +23,5 @@ $addressId = $userCheck->fetch(PDO::FETCH_ASSOC);
 if (!empty($voornaam) && !empty($tussenvoegsel) && !empty($achternaam) && !empty($telefoonnummer) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land)) {
     updateUser($addressId["address_id"], $voornaam, $tussenvoegsel, $achternaam, $telefoonnummer, $land, $woonplaats, $postcode, $straatnaam, $huisnummer, $pdo);
 }
-    header('Location: ' . $link);
-    exit();
+header('Location: ' . $link);
+exit();

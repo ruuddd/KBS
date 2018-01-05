@@ -55,9 +55,8 @@
         <h2>Service</h2>
         <p>
         <ul>
-            <li>Gratis verzending bij een besteling boven de €100</li>
             <li>Wij staan altijd voor u klaar</li>
-            <li>Voor 18:00 besteld, morgen in huis</li>
+            <li>Voor 17:00 besteld, morgen in huis</li>
         </ul>
         </p>
     </div>
