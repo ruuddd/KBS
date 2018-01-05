@@ -232,6 +232,8 @@ function getOrderderedItems($productInfo) {
 function getOrdersQuery($pdo, $email) {
     $stmt = $pdo->prepare("SELECT * FROM bestelling LEFT JOIN basket ON bestelling.basket_id = basket.basket_id JOIN product ON basket.product_id=product.product_id WHERE email=?");
     $stmt->execute([$email]);
+    $orders=$stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $orders;
 }
 
 function getOrders($orderPrijs) {

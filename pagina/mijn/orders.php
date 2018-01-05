@@ -17,7 +17,7 @@ $order = getOrders($pdo, $email);
                     </tr>
                 </thead>
                 <tbody>
-                    <?php print(getOrders($orderPrijs)); ?>
+                    <?php print(getOrders($order)); ?>
                 </tbody>
             </table>
         </div>
