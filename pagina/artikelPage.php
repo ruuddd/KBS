@@ -7,6 +7,27 @@
 
     </head>
     <body>
+        <div class="container">
+            <div class="btn-group">
+                <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categorieën
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/KBS/webshop/">Alle producten</a>
+                    <div class="dropdown-divider"></div>
+                    <?php
+                    $categories = $pdo->prepare("SELECT DISTINCT(category_name) FROM category C RIGHT JOIN productcategory PC ON C.category_id = PC.category_id");
+                    $categories->execute();
+                    //FetchAll haalt de data op uit de database en zet het in een array
+                    $result = $categories->fetchAll();
+                    foreach ($result as $values) {
+                        print('<a class="dropdown-item" href="' . $values['category_name'] . '">' . $values["category_name"] . '</a>');
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+
         <?php
         //haalt informatie op van het product waar op geklikt is in de webshop
         foreach (findOneProduct($_GET['product'], $pdo) as $value) {
