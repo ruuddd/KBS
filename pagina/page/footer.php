@@ -1,8 +1,3 @@
-<!-- Bootstrap core CSS -->
-<link href="./css/bootstrap.min.css" rel="stylesheet">
-<link href="./css/custom.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <footer class="footer">
     <div class="container">
         <p class="footertext"><a href="https://www.facebook.com/deferverterherne/?ref=br_rs" class="fa fa-facebook"><a href="tel:0566 689 219" class="fa fa-phone">&nbsp;</a>&copy; De Ferver 2017</p>

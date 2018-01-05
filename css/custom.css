@@ -251,3 +251,6 @@ form
 }
 
 .table-responsive{margin-top:25px;}
+.navbar{
+    border-radius: 0px;
+}
