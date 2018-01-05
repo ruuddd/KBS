@@ -143,10 +143,10 @@ function createOrder($pdo, $email, $date, $basketId) {
     $query = $pdo->prepare("UPDATE sessie SET order_id = LAST_INSERT_ID() WHERE basket_id = ?");
     $query->execute([$basketId]);
 
-    $query2 = $pdo->prepare("SELECT order_id FROM bestelling WHERE order_id = LAST_INSERT_ID() ");
-    $query2->execute();
-    $orderId = $query2->fetch(PDO::FETCH_ASSOC);
-    return $orderId['order_id'];
+//    $query2 = $pdo->prepare("SELECT order_id FROM bestelling WHERE order_id = LAST_INSERT_ID() ");
+//    $query2->execute();
+//    $orderId = $query2->fetch(PDO::FETCH_ASSOC);
+//    return $orderId['order_id'];
 }
 
 //kijkt of de email al bestaat en returnt true of false bij ja of nee
@@ -230,7 +230,7 @@ function getOrderderedItems($productInfo) {
 }
 
 function getOrdersQuery($pdo, $email) {
-    $stmt = $pdo->prepare("SELECT * FROM bestelling LEFT JOIN basket ON bestelling.basket_id = basket.basket_id JOIN product ON basket.product_id=product.product_id WHERE email=?");
+    $stmt = $pdo->prepare("SELECT order_id, date, SUM(product_price*amount)as product_price FROM bestelling LEFT JOIN basket ON bestelling.basket_id = basket.basket_id JOIN product ON basket.product_id=product.product_id WHERE email= ? GROUP BY order_id");
     $stmt->execute([$email]);
     $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $orders;
@@ -238,15 +238,13 @@ function getOrdersQuery($pdo, $email) {
 
 function getOrders($orderPrijs) {
     $result = "";
-    $totaalOrder = 0;
     foreach ($orderPrijs as $value) {
-        $totaalOrder += ($value['amount'] * $value['product_price']);
         $result .= '<tr>
                         <td>' . $value['order_id'] . '</td>
                         <td>' . $_SESSION['fullname'] . '</td>
                         <td>' . $_SESSION['emailadres'] . '</td>
                         <td>' . $value['date'] . '</td>
-                        <td>&euro;' . $totaalOrder . '</td>
+                        <td>&euro;' . $value['product_price'] . '</td>
                     </tr>';
     }
     return $result;
