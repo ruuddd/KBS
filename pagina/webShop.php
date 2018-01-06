@@ -30,6 +30,7 @@ if (search()) {
 } else {
     $products = findAllProducts($pdo);
 }
+if (empty($products)){print '<div class="col-md-4"><h2>Er zijn momenteel geen artikelen.</h2></div>';}
 foreach ($products as $key => $value) {
     $artikelNaam = $value['product_name'];
     $artikelPrijs = $value['product_price'];

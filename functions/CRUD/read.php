@@ -25,7 +25,7 @@ function search() {
 
 //haalt gegevens op van alle producted in de database
 function findAllProducts($pdo) {
-    $stmt = $pdo->prepare("SELECT * FROM product");
+    $stmt = $pdo->prepare("SELECT * FROM product WHERE availability >0");
     $stmt->execute();
     $allProducts = $stmt->fetchall(PDO::FETCH_ASSOC);
     return $allProducts;
@@ -115,7 +115,7 @@ function getPage($page, $pdo) {
 
 //haalt alle producten op waar de naam, beschrijving of een categorie heeft wat lijkt op wat in de zoekbalk staat
 function searchProducts($search, $pdo) {
-    $stmt = $pdo->prepare("SELECT p.product_id, p.product_name, p.product_price, p.product_description, p.product_image, p.availability FROM product p LEFT JOIN productcategory PC ON P.product_id = PC.product_id LEFT JOIN category C ON C.category_id=PC.category_id WHERE p.product_name LIKE ? OR c.category_name LIKE ? OR p.Product_description LIKE ?");
+    $stmt = $pdo->prepare("SELECT p.product_id, p.product_name, p.product_price, p.product_description, p.product_image, p.availability FROM product p LEFT JOIN productcategory PC ON P.product_id = PC.product_id LEFT JOIN category C ON C.category_id=PC.category_id WHERE (p.product_name LIKE ? OR c.category_name LIKE ? OR p.Product_description LIKE ?) AND availability >0");
     $stmt->execute(['%' . $search . '%', '%' . $search . '%', '%' . $search . '%']);
     $products = $stmt->fetchall(PDO::FETCH_ASSOC);
     return $products;
