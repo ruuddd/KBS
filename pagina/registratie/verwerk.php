@@ -5,6 +5,7 @@
     include_once '../inloggen/functies.inc.php';
     include '../inloggen/dbCheck.php';
     include '../../functions/dbConnect.php';
+    include '../../functions/CRUD/read.php';
 
 //actueel ondersteund alternatief voor $_POST['gebruikersnaam'] etc
     $link = "../../registratie/";

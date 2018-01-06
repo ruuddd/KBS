@@ -143,23 +143,25 @@ function createOrder($pdo, $email, $date, $basketId) {
     $query = $pdo->prepare("UPDATE sessie SET order_id = LAST_INSERT_ID() WHERE basket_id = ?");
     $query->execute([$basketId]);
 
-//    $query2 = $pdo->prepare("SELECT order_id FROM bestelling WHERE order_id = LAST_INSERT_ID() ");
-//    $query2->execute();
-//    $orderId = $query2->fetch(PDO::FETCH_ASSOC);
-//    return $orderId['order_id'];
+    $query2 = $pdo->prepare("SELECT order_id FROM bestelling WHERE order_id = LAST_INSERT_ID() ");
+    $query2->execute();
+    $orderId = $query2->fetch(PDO::FETCH_ASSOC);
+    return $orderId['order_id'];
 }
 
 //kijkt of de email al bestaat en returnt true of false bij ja of nee
 function checkEmailExists($pdo, $email) {
     $stmt = $pdo->prepare("SELECT email FROM person");
     $stmt->execute();
-    $allEmails = $stmt->fetchall();
+    $allEmails = $stmt->fetchall(PDO::FETCH_ASSOC);
     foreach ($allEmails as $value) {
-        if ($email == $value) {
+        while ($check = !true){
+        if ($email == $value['email']) {
             $check = true;
         } else {
             $check = false;
         }
+    } 
     }
     return $check;
 }

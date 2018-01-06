@@ -40,7 +40,7 @@
 
                 if (logUser($user, $wachtwoord)) {
                     //sessie variabelen worden hierpas aangemaakt en toegewezen
-                    $_SESSION['melding'] = "Je bent ingelogd als $emailadres";
+                    //$_SESSION['melding'] = "Je bent ingelogd als $emailadres";
                     $_SESSION['ingelogd'] = true;
                     $_SESSION['emailadres'] = $emailadres;
                     $_SESSION['role'] = $user['role'];
