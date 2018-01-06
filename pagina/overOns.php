@@ -17,7 +17,7 @@
                 </button></a>
 
 
-            <a href="mailto:someone@example.com"<button type="button" class="btn btn-default btn-sm">
+            <a href="mailto:jannekevellinga@hotmail.com"<button type="button" class="btn btn-default btn-sm">
                     <span class="glyphicon glyphicon-envelope"></span> E-mail
                 </button></a>
 
@@ -30,9 +30,9 @@
         </h2><br><br><br>
         <h5>
             <b>Openingstijden:</b><br><br>
-            April - September<br>
+            April - September<br><br>
             Op maandag tot en met vrijdag van 09:00 tot 17:00
-        </h5><br><br><br><br>
+        </h5><br><br><br>
     </div>
 
     <div class="col-md-6">
