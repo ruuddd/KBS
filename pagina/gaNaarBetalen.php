@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 <div class="row main">
-    <div class="panel-heading">
-        <div class="panel-title text-center">
-            <hr />
-        </div>
-    </div>
     <div class="main-login main-center">
         <form class="form-horizontal" method="post" action="/kbs/bestellingBevestig/">
-
+            <h3><a href="/kbs/login/">Heeft u al een account? Hier logt u in. <i class="fa fa-angle-right"></i></a></h3>
             <div class="form-group">
                 <label for="name" class="cols-sm-2 control-label">Voornaam *</label>
                 <div class="cols-sm-10">
@@ -119,10 +114,6 @@
             </div>
             <div class="form-group ">
                 <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Doorgaan <i class="fa fa-angle-right"></i></button>
-            </div>
-
-            <div class="login-register">
-                <a href="inloggen/inlog.php">Login</a>
             </div>
         </form>
     </div>
