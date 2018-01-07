@@ -155,13 +155,13 @@ function checkEmailExists($pdo, $email) {
     $stmt->execute();
     $allEmails = $stmt->fetchall(PDO::FETCH_ASSOC);
     foreach ($allEmails as $value) {
-        while ($check = !true){
-        if ($email == $value['email']) {
-            $check = true;
-        } else {
-            $check = false;
+        while ($check = !true) {
+            if ($email == $value['email']) {
+                $check = true;
+            } else {
+                $check = false;
+            }
         }
-    } 
     }
     return $check;
 }
@@ -181,6 +181,7 @@ function countBasketItems($pdo, $sessionId) {
     return $itemsAmount;
 }
 
+//haalt toaalprijs van een order op
 function getTotalPrice($productInfo) {
     $totalPrice = 0;
     foreach ($productInfo as $value) {
@@ -189,17 +190,20 @@ function getTotalPrice($productInfo) {
     return $totalPrice;
 }
 
+//wanneer een order is geplaatst wordt de beschikbare hoeveelheid in de database aangepast
 function updateRemainingAmount($pdo, $productId, $amount) {
     $stmt = $pdo->prepare("UPDATE product SET availability = availability-? WHERE product_id = ?");
     $stmt->execute([$amount, $productId]);
 }
 
+//order van een gebruiker ophalen
 function getOrderFromUser($pdo, $email) {
     $stmt = $pdo->prepare("SELECT * FROM bestelling WHERE email = ?");
     $stmt->execute([$email]);
     return $email;
 }
 
+//order in een tabel printen
 function getOrderderedItems($productInfo) {
     $totalPrice = 0;
     $result = "";
@@ -231,6 +235,7 @@ function getOrderderedItems($productInfo) {
     return $result;
 }
 
+//query om order op te halen
 function getOrdersQuery($pdo, $email) {
     $stmt = $pdo->prepare("SELECT order_id, date, SUM(product_price*amount)as product_price FROM bestelling LEFT JOIN basket ON bestelling.basket_id = basket.basket_id JOIN product ON basket.product_id=product.product_id WHERE email= ? GROUP BY order_id");
     $stmt->execute([$email]);
@@ -238,6 +243,7 @@ function getOrdersQuery($pdo, $email) {
     return $orders;
 }
 
+//functie om alle orders in een tabel te plaatsen
 function getOrders($orderPrijs) {
     $result = "";
     foreach ($orderPrijs as $value) {

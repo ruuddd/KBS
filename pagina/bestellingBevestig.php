@@ -37,7 +37,8 @@ if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
     $_SESSION['addressnumber'] = $huisnummer;
     $_SESSION['city'] = $woonplaats;
 
-    if (!empty($voornaam) && !empty($achternaam) && !empty($emailadres) && !empty($telefoonnummer) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land) && !checkEmailExists($pdo, $emailadres)) {
+    //kijkt of email al bestaat, alle velden goed zijn ingevuld en of het emailadres wel echt een emailadres is
+    if (!empty($voornaam) && !empty($achternaam) && !empty($emailadres) && filter_var($emailadres, FILTER_VALIDATE_EMAIL) && !empty($telefoonnummer) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land) && !checkEmailExists($pdo, $emailadres)) {
         createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, "NULL", $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo);
     }
 }

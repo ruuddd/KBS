@@ -7,6 +7,7 @@
 
     </head>
     <body>
+        <!--Dropdown met alle categorieën-->
         <div class="container">
             <div class="btn-group">
                 <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -22,7 +23,7 @@
                     $result = $categories->fetchAll();
                     foreach ($result as $values) {
                         print('<a class="dropdown-item" href="../webshop/' . $values['category_name'] . '">' . $values["category_name"] . '</a>');
-                    }
+                    } //print alle categorieën in de database
                     ?>
                 </div>
             </div>
@@ -37,7 +38,7 @@
             $artikelBeschikbaarheid = $value['availability'];
             $artikelBeschrijving = $value['product_description'];
         }
-        //toont de informatie door html te printen
+        //laat een specifiek artikel uit de database zien met de volgende informatie: afbeelding, naam, beschrijving, artikelprijs
         print('
     <div class="container">
         <div class="card">
@@ -48,7 +49,6 @@
                           <div class="tab-pane active" id="pic-1"><img src="../images/artikelen/' . $artikelAfbeelding . '" /></div>
                         </div>
           </div>
-
                     <div class="details col-md-6">
                         <h2 class="">' . $artikelNaam . '</h2><br>
                         <p class="product-description">' . $artikelBeschrijving . '</p>

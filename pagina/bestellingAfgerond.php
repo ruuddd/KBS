@@ -1,5 +1,8 @@
 <?php
 
+//bedank pagina
+
+
 $productInfo = basketProducts($_SESSION['id'], $pdo);
 foreach ($productInfo as $value) {
     updateRemainingAmount($pdo, $value['product_id'], $value['amount']);
@@ -20,6 +23,9 @@ if ($_SESSION['betaling']) {
         <a class='btn btn-primary btn-sm' href='/KBS/home/' role='button'>Terug naar homepagina</a>
     </p>
 </div>");
+
+
+    //stuurt een bevestigingsmail met instructies naar de klant die een artikel heeft gekocht
 
     $klantVolledigeNaam = ucfirst($_SESSION['firstname']) . " " . $_SESSION['insertion'] . " " . ucfirst($_SESSION['lastname']);
     $klantEmail = $_SESSION["emailadres"];
@@ -62,7 +68,7 @@ Heeft u aangegeven dat u uw pakketje bij ons in de winkel wilt afhalen? Maak dan
             <td class='text-right'><strong>Subtotaal</strong></td>
         </tr>
     </thead>
-    
+
     <tbody>
         " . getOrderderedItems($productInfo) . "
     </tbody>

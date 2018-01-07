@@ -7,7 +7,6 @@
     include '../../functions/dbConnect.php';
     include '../../functions/CRUD/read.php';
 
-//actueel ondersteund alternatief voor $_POST['gebruikersnaam'] etc
     $link = "../../registratie/";
     $voornaam = filter_input(INPUT_POST, 'voornaam');
     $tussenvoegsel = filter_input(INPUT_POST, 'tussenvoegsel');
@@ -22,14 +21,17 @@
     $woonplaats = filter_input(INPUT_POST, 'woonplaats');
     $land = filter_input(INPUT_POST, 'land');
 
+    //controleert of alle velden juist zijn ingevuld (email adres in de juiste format, bevestigingswachtwoord is gelijk aan wachtwoord)
     if (!empty($voornaam) && !empty($achternaam) && !empty($emailadres) && filter_var($emailadres, FILTER_VALIDATE_EMAIL) && !empty($telefoonnummer) && !empty($wachtwoord) && !empty($bevestig_wachtwoord) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land)) { //controleer of de variabelen niet leeg zijn
+        //controleert of het wachtwoord wel lang genoeg is (minimaal 6 tekens)
         if ($wachtwoord == $bevestig_wachtwoord && strlen($wachtwoord) > 5) {
-            if (!checkEmailExists($pdo, $emailadres)){
-            createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, $wachtwoord, $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo);
+            //controleert of het emailadres al in gebruik is
+            if (!checkEmailExists($pdo, $emailadres)) {
+                createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, $wachtwoord, $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo);
 
-            $_SESSION['melding'] = "U bent geregistreerd!";
-            $link = "../../login/";
-            } else{
+                $_SESSION['melding'] = "U bent geregistreerd!";
+                $link = "../../login/";
+            } else {
                 $_SESSION['melding'] = "Dit emailadres bestaat al";
             }
         } else {

@@ -2,6 +2,7 @@
 
 include_once 'functies.inc.php';
 
+//haalt gebruikers op uit database
 function getUser($emailadres, $conn) {
     $userCheck = $conn->prepare("SELECT email FROM person WHERE email='" . $emailadres . "'");
     $userCheck->execute();
@@ -16,6 +17,7 @@ function getUser($emailadres, $conn) {
     }
 }
 
+//update user gegevens via gegevens aanpassen scherm
 function updateUser($addressId, $voornaam, $tussenvoegsel, $achternaam, $telefoonnummer, $land, $woonplaats, $postcode, $straatnaam, $huisnummer, $pdo) {
     $adresGegevens = $pdo->prepare("UPDATE address SET country = ?, zipcode = ?, streetname = ?, addressnumber = ?, city = ? WHERE address_id= '" . $addressId . "'");
     $adresGegevens->execute([$land, $postcode, $straatnaam, $huisnummer, $woonplaats]);
@@ -26,8 +28,7 @@ function updateUser($addressId, $voornaam, $tussenvoegsel, $achternaam, $telefoo
     $persoonsGegevens->execute([$voornaam, $achternaam, $telefoonnummer, $tussenvoegsel]);
 }
 
-//function logUser($emailadres, $wachtwoord)
-
+//log gebruiker in
 function logUser($emailadres, $wachtwoord) {
     $dbPass = $emailadres["password"];
     if (password_verify($wachtwoord, $dbPass)) {
@@ -39,6 +40,7 @@ function logUser($emailadres, $wachtwoord) {
     }
 }
 
+//registreer een gebruiker
 function createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefoonnummer, $wachtwoord, $straatnaam, $huisnummer, $postcode, $woonplaats, $land, $pdo) {
     $adresGegevens = $pdo->prepare("INSERT INTO `address` (`address_id`, `country`, `zipcode`, `streetname`, `addressnumber`, `city`) VALUES (?, ?, ?, ?, ?, ?)");
     $adresGegevens->execute([NULL, $land, $postcode, $straatnaam, $huisnummer, $woonplaats]);
@@ -46,9 +48,4 @@ function createUser($voornaam, $tussenvoegsel, $achternaam, $emailadres, $telefo
 
     $persoonsGegevens = $pdo->prepare("INSERT INTO `person` (`email`, `role`, `address_id`, `password`, `firstname`, `lastname`, `phonenumber`, `insertion`) VALUES (?, ?, LAST_INSERT_ID(), ?, ?, ?, ?, ?)");
     $persoonsGegevens->execute([$emailadres, 2, hashWachtwoord($wachtwoord), $voornaam, $achternaam, $telefoonnummer, $tussenvoegsel]);
-}
-
-function deleteUser($pdo, $emailadres) {
-    $stmt = $pdo->prepare("DELETE FROM person WHERE email=?");
-    $stmt->execute([$emailadres]);
 }

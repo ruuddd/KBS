@@ -5,7 +5,7 @@ function home($conn) {
     $content->execute();
     $result = $content->fetchAll();
     $return = "
-    <table class='table'><tr><td class='table-primary'><a href='?actie=home'>artikelen</a></td><td class='table-primary'><a href='?actie=homeCategories'>categorien</a></td><td class='table-primary'><a href='?actie=homeOrders'>orders</a></td></tr></table>
+    <table class='table'><tr><td class='table-primary'><a href='?actie=home'>artikelen</a></td><td class='table-primary'><a href='?actie=homeCategories'>categorieën</a></td><td class='table-primary'><a href='?actie=homeOrders'>orders</a></td></tr></table>
     <table class='table'>
      <thead class='thead-dark'><th>naam</th><th>aantal</th><th>afbeelding</th><th colspan='2'><a href='?actie=aToevoegen'>toevoegen<a/></th></thead>";
     foreach ($result as $key => $value) {
@@ -24,7 +24,7 @@ function homeCategories($conn) {
     $content->execute();
     $result = $content->fetchAll();
     $return = "
-    <table class='table'><tr><td class='table-primary'><a href='?actie=home'>artikelen</a></td><td class='table-primary'><a href='?actie=homeCategories'>categorien</a></td><td class='table-primary'><a href='?actie=homeOrders'>orders</a></td></tr></table>
+    <table class='table'><tr><td class='table-primary'><a href='?actie=home'>artikelen</a></td><td class='table-primary'><a href='?actie=homeCategories'>categorieën</a></td><td class='table-primary'><a href='?actie=homeOrders'>orders</a></td></tr></table>
     <table class='table'>
      <thead class='thead-dark'><th>naam</th><th>beschrijving</th><th colspan='2'><a href='?actie=cToevoegen'>toevoegen<a/></th></thead>";
     foreach ($result as $key => $value) {
@@ -37,17 +37,15 @@ function homeCategories($conn) {
     return $return;
 }
 
-function homeOrders($conn)
-{
+function homeOrders($conn) {
     $content = $conn->prepare("SELECT DISTINCT email, basket_id FROM bestelling");
     $content->execute();
     $result = $content->fetchAll();
     $return = "
-    <table class='table'><tr><td class='table-primary'><a href='?actie=home'>artikelen</a></td><td class='table-primary'><a href='?actie=homeCategories'>categorien</a></td></td><td class='table-primary'><a href='?actie=homeOrders'>orders</a></td></tr></table>
+    <table class='table'><tr><td class='table-primary'><a href='?actie=home'>artikelen</a></td><td class='table-primary'><a href='?actie=homeCategories'>categorieën</a></td></td><td class='table-primary'><a href='?actie=homeOrders'>orders</a></td></tr></table>
     <table class='table'>
      <thead class='thead-dark'><th>email</th><th>bekijken</th></thead>";
-    foreach ($result as $key => $value) 
-    {
+    foreach ($result as $key => $value) {
         $email = $value["email"];
         $order_id = $value["basket_id"];
         $return .= "<tr><td>$email</td><td><a href='?actie=getOrder&orderId=$order_id' ><span class='glyphicon glyphicon-eye-open'></span></a></td></tr>";
@@ -55,8 +53,8 @@ function homeOrders($conn)
     $return .= "</tr></table>";
     return $return;
 }
-function getOrder($conn, $order_id)
-{
+
+function getOrder($conn, $order_id) {
     $stmt = $conn->prepare("SELECT * FROM basket LEFT JOIN product ON basket.product_id=product.product_id  JOIN sessie on basket.basket_id=sessie.basket_id  where basket.basket_id = ?");
     $stmt->execute([$order_id]);
     $basketProducts = $stmt->fetchall(PDO::FETCH_ASSOC);
@@ -64,16 +62,14 @@ function getOrder($conn, $order_id)
     <table class='table'><tr><td class='table-primary'><a href='?actie=homeOrders'>Terug</a></td></tr></table>
     <table class='table'>
      <thead class='thead-dark'><th>product naam</th><th>aantal</th></thead>";
-    foreach ($basketProducts as $key => $value) 
-    {
+    foreach ($basketProducts as $key => $value) {
         $product_name = $value["product_name"];
         $amount = $value["amount"];
-        $return .= "<tr><td>$product_name</td><td>$amount</td></tr>";    
+        $return .= "<tr><td>$product_name</td><td>$amount</td></tr>";
     }
     $return .= "</tr></table>";
     return $return;
 }
-
 
 function getCategories($conn) {
     //SQL
@@ -108,7 +104,7 @@ function aToevoegen($conn) {
                     </td>
                     <td>
                         <input list="category" name="category_id">
-                        ' . getCategories($conn) //Haalt een lijst met categorien op
+                        ' . getCategories($conn) //Haalt een lijst met categorieën op
             . '
                     </td>
                 </tr>
@@ -181,7 +177,7 @@ function aUpdate($conn, $product_id) {
 
     $form = '
     <table class="table"><tr><td class="table-primary"><a href="?actie=home">Terug</a></td></tr></table>
-    <form action="?actie=updateArtikel&productId='.$_GET["productId"].'" method="post" enctype="multipart/form-data">
+    <form action="?actie=updateArtikel&productId=' . $_GET["productId"] . '" method="post" enctype="multipart/form-data">
             <table>
                 <tr>
                     <td>
@@ -213,7 +209,7 @@ function aUpdate($conn, $product_id) {
                 </tr>
                 <tr>
                     <td>
-                        
+
                     </td>
                     <td>
                         <img id="image" width="250" height="250" src="/kbs/images/artikelen/' . $product_image . '" alt="your image" />
@@ -289,7 +285,7 @@ function cUpdate($conn, $category_id) {
 
     $form = '
     <table class="table"><tr><td class="table-primary"><a href="?actie=homeCategories">Terug</a></td></tr></table>
-    <form action="?actie=updateCategory&categoryId='.$_GET["categoryId"].'" method="post" enctype="multipart/form-data">
+    <form action="?actie=updateCategory&categoryId=' . $_GET["categoryId"] . '" method="post" enctype="multipart/form-data">
             <table>
                 <tr>
                     <td>

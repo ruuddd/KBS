@@ -6,34 +6,30 @@
     include 'dbCheck.php';
     include '../../functions/dbConnect.php';
 
-//filter_input is veiliger dan direct POSTen
+//filter_input is veiliger dan direct POST-en
     $link = "../../login/";
     $emailadres = filter_input(INPUT_POST, 'emailadres');
     $wachtwoord = filter_input(INPUT_POST, 'wachtwoord');
     $actie = filter_input(INPUT_GET, 'actie');
 
     if ($actie == 'uitloggen') {
-        if (isset($_SESSION['id'])){
-            $sessionId=$_SESSION['id'];
+        if (isset($_SESSION['id'])) {
+            $sessionId = $_SESSION['id'];
         }
         session_destroy();  //gooi de oude sessie weg
         session_start(); //start weer een nieuwe
         $_SESSION['melding'] = "U bent nu uitgelogd";
-        $_SESSION['id']=$sessionId;
+        $_SESSION['id'] = $sessionId;
     } else {
         //in alle andere gevallen doe een inlog poging
         if (isset($_SESSION["uses"])) {
-            $_SESSION["uses"]++;
-        }
-        else
-        {
+            $_SESSION["uses"] ++;
+        } else {
             $_SESSION["uses"] = 1;
         }
         if ($_SESSION["uses"] == 3) {
-            
-        }
-        else
-        {
+
+        } else {
             if (!empty($emailadres) && !empty($wachtwoord)) {
 
                 $user = getUser($emailadres, $pdo);
@@ -58,12 +54,11 @@
                     $_SESSION['uses'] = 0;
                     $link = "../../home/";
                 } else {
-                    //wees nooit te specifiek waarom de gebruiker niet kan inloggen.
+                    //gebruiker heeft verkeerde gegevens ingevoerd
                     $_SESSION['melding'] = "Uw emailadres en/of wachtwoord is niet juist";
                 }
             } else {
-            // er zijn geen waardes geset via het formulier
-
+                // niet alle velden zijn ingevuld
                 $_SESSION['melding'] = "Beide velden zijn verplicht";
             }
         }

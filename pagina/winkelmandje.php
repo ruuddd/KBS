@@ -34,6 +34,7 @@
                     $totalPrice = 0;
 
                     foreach ($productInfo as $value) {
+                        //print alle artikelen in het winkelmandje in een tabel
                         print('
                     <tr>
                         <td data-th="Product">
@@ -68,6 +69,7 @@
                         <td class="hidden-xs text-center"><strong>€<?php print($totalPrice); ?></strong></td>
                         <?php
                         if (countBasketItems($pdo, $_SESSION['id']) > 0) {
+                            //wanneer ingelogd direct door naar bestelling afronden, zo niet dan naar pagina om gegevens in te vullen
                             if (!isset($_SESSION['ingelogd'])) {
                                 print('<td><a href="/KBS/ganaarbetalen/" class="btn btn-success btn-block">Bestelling afronden <i class="fa fa-angle-right"></i></a></td>');
                             } elseif (isset($_SESSION['ingelogd'])) {

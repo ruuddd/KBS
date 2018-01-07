@@ -3,7 +3,7 @@
     <div class="col-md-4">
         <h2>Welkom!</h2>
         <p>
-            Wij zijn De Ferver, gevestigd in Terherne. Wij verkopen artikelen in een nautische stemming.<br><br>
+            Wij zijn De Ferver, een winkel in Terherne. Wij verkopen kleding, cadeau's en sieraden in een nautische sfeer.<br><br>
             <a href="/KBS/overons/">Hier leest u meer over ons.</a>
         </p>
     </div>
@@ -11,7 +11,6 @@
     <div class="col-md-4">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-            <!-- Wrapper for slides -->
             <div class="carousel-inner">
 
                 <?php
@@ -37,8 +36,7 @@
                 }
                 ?>
 
-
-                <!-- Left and right controls -->
+                <!-- Knoppen om naar links en naar rechts te gaan door de slideshow -->
                 <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                     <span class="sr-only">Previous</span>

@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include '../inloggen/dbCheck.php';
 include '../../functions/dbConnect.php';
@@ -19,20 +20,21 @@ $userCheck = $pdo->prepare("SELECT address_id FROM person WHERE email=?");
 $userCheck->execute($email);
 $addressId = $userCheck->fetch(PDO::FETCH_ASSOC);
 
-    $_SESSION['emailadres'] = $email;
-    $_SESSION['firstname'] = $voornaam;
-    $_SESSION['insertion'] = $tussenvoegsel;
-    $_SESSION['lastname'] = $achternaam;
-    $_SESSION['fullname'] = $_SESSION['firstname'] . " " . $_SESSION['insertion'] . " " . $_SESSION['lastname'];
-    $_SESSION['customer'] = $_SESSION['insertion'] . " " . $_SESSION['lastname'];
-    $_SESSION['phonenumber'] = $telefoonnummer;
-    $_SESSION['country'] = $land;
-    $_SESSION['zipcode'] = $postcode;
-    $_SESSION['streetname'] = $straatnaam;
-    $_SESSION['addressnumber'] = $huisnummer;
-    $_SESSION['city'] = $woonplaats;
-    $_SESSION['melding']='uw gegevens zijn aangepast';
+$_SESSION['emailadres'] = $email;
+$_SESSION['firstname'] = $voornaam;
+$_SESSION['insertion'] = $tussenvoegsel;
+$_SESSION['lastname'] = $achternaam;
+$_SESSION['fullname'] = $_SESSION['firstname'] . " " . $_SESSION['insertion'] . " " . $_SESSION['lastname'];
+$_SESSION['customer'] = $_SESSION['insertion'] . " " . $_SESSION['lastname'];
+$_SESSION['phonenumber'] = $telefoonnummer;
+$_SESSION['country'] = $land;
+$_SESSION['zipcode'] = $postcode;
+$_SESSION['streetname'] = $straatnaam;
+$_SESSION['addressnumber'] = $huisnummer;
+$_SESSION['city'] = $woonplaats;
+$_SESSION['melding'] = 'uw gegevens zijn aangepast';
 
+//controlleer of de velden ingevuld zijn
 if (!empty($voornaam) && !empty($tussenvoegsel) && !empty($achternaam) && !empty($telefoonnummer) && !empty($straatnaam) && !empty($huisnummer) && !empty($woonplaats) && !empty($postcode) && !empty($land)) {
     updateUser($addressId["address_id"], $voornaam, $tussenvoegsel, $achternaam, $telefoonnummer, $land, $woonplaats, $postcode, $straatnaam, $huisnummer, $pdo);
 }
