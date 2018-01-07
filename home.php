@@ -24,7 +24,7 @@
                     if ($teller == 0) {
                         print(
                                 '<div class="item active">
-                                    <img style="min-height: 300px; min-width: 300px; max-height: 300px; min-height: 300px;" src="/kbs/images/artikelen/' . $value['product_image'] . '" alt="' . $value['product_name'] . '">
+                                    <img style="min-height: 300px; min-width: 300px; max-height: 300px; min-width: 300px;" src="/kbs/images/artikelen/' . $value['product_image'] . '" alt="' . $value['product_name'] . '">
                                 </div>'
                         );
                     } else {
