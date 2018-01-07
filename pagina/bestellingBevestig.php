@@ -1,7 +1,6 @@
 <?php
 $productInfo = basketProducts($_SESSION['id'], $pdo);
 $_SESSION["betaling"] = true;
-print_r($_SESSION);
 if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd']) {
     $voornaam = $_SESSION['firstname'];
     $tussenvoegsel = $_SESSION['insertion'];
