@@ -1,8 +1,11 @@
 <div class="container">
 
-    <div class="col-md-4">
+    <div class="col-md-7">
         <h2>Over ons</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. <br><br>
+        <p>De Ferver is een sfeervolle winkel met verrassende cadeaus, stoere woonaccessoires en kleding, kunstzinnige sieraden, hippe sjaaltjes en tassen, originele spullen van zeildoek en de leukste Friese producten. 
+
+De Ferver heeft een eigen stijl, oog voor detail en is net even anders. Bestel in de webwinkel of kom gezellig langs in ons authentieke pand in het centrum van het Friese dorpje Terherne.
+Oant sjen! Tot ziens! <br><br>
         </p>
     </div>
 

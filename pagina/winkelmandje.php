@@ -7,11 +7,11 @@
     <body>
         <?php
         if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['removeProduct'])) {
-            removeProductFromBasket($pdo, filter_input(INPUT_POST,'artikelId'), $_SESSION['id']);
+            removeProductFromBasket($pdo, filter_input(INPUT_POST, 'artikelId'), $_SESSION['id']);
         }
 
         if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['refreshProduct'])) {
-            updateAmount($pdo, filter_input(INPUT_POST,'amount'), filter_input(INPUT_POST,'artikelId'), $_SESSION['id']);
+            updateAmount($pdo, filter_input(INPUT_POST, 'amount'), filter_input(INPUT_POST, 'artikelId'), $_SESSION['id']);
         }
 
         checkSessionId($pdo);
@@ -62,17 +62,18 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td><a href="/KBS/webshop/" class="btn btn-warning"><i class="fa fa-angle-left"></i>Verder winkelen</a></td>
+                        <td><a href="/KBS/webshop/" class="btn btn-warning"><i class="fa fa-angle-left"></i> Verder winkelen</a></td>
                         <td class="text-center"><strong>Totaal bedrag:</strong></td>
                         <td colspan="1" class="hidden-xs"></td>
                         <td class="hidden-xs text-center"><strong>€<?php print($totalPrice); ?></strong></td>
-                        <?php if(countBasketItems($pdo, $_SESSION['id'])>0){
-                                if(!isset($_SESSION['ingelogd']))
-                                {print('<td><a href="/KBS/ganaarbetalen/" class="btn btn-success btn-block">Bestelling afronden<i class="fa fa-angle-right"></i></a></td>');
-                                }elseif (isset($_SESSION['ingelogd'])){
-                                    print('<td><a href="/KBS/bestellingBevestig/" class="btn btn-success btn-block">Bestelling afronden<i class="fa fa-angle-right"></i></a></td>');
-                                }
-                                }
+                        <?php
+                        if (countBasketItems($pdo, $_SESSION['id']) > 0) {
+                            if (!isset($_SESSION['ingelogd'])) {
+                                print('<td><a href="/KBS/ganaarbetalen/" class="btn btn-success btn-block">Bestelling afronden <i class="fa fa-angle-right"></i></a></td>');
+                            } elseif (isset($_SESSION['ingelogd'])) {
+                                print('<td><a href="/KBS/bestellingBevestig/" class="btn btn-success btn-block">Bestelling afronden <i class="fa fa-angle-right"></i></a></td>');
+                            }
+                        }
                         ?>
 
                     </tr>
