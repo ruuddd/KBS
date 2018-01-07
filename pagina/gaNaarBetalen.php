@@ -115,6 +115,13 @@
             <div class="form-group ">
                 <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Doorgaan <i class="fa fa-angle-right"></i></button>
             </div>
+<<<<<<< HEAD
+
+            <div class="login-register">
+                <a href="/KBS/login/">Login</a>
+            </div>
+=======
+>>>>>>> 7c11ac4e0aa364a05ac82af0e6237ed266daf163
         </form>
     </div>
 </div>
