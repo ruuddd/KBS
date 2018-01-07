@@ -3,7 +3,7 @@
     <div class="col-md-4">
         <h2>Welkom!</h2>
         <p>
-            Wij zijn De Ferver, gevestigd in Terherne en wij verkopen kleding, sieraden en meer in een nautische stemming.<br><br>
+            Wij zijn De Ferver, gevestigd in Terherne. Wij verkopen artikelen in een nautische stemming.<br><br>
             <a href="/KBS/overons/">Hier leest u meer over ons.</a>
         </p>
     </div>
@@ -16,21 +16,21 @@
 
                 <?php
                 $teller = 0;
-                $stmt = $pdo->prepare("SELECT product_image, product_id, product_name FROM product ORDER BY product_id DESC LIMIT 3");
+                $stmt = $pdo->prepare("SELECT product_image, product_id, product_name FROM product ORDER BY product_id DESC LIMIT 4");
                 $stmt->execute();
                 $newestProducts = $stmt->fetchall(PDO::FETCH_ASSOC);
                 foreach ($newestProducts as $value) {
-
+                    //haalt vier niewste artikelen op uit de database een geeft deze weer in een slideshow.
                     if ($teller == 0) {
                         print(
                                 '<div class="item active">
-                                    <img style="min-height: 300px; min-width: 300px; max-height: 300px; min-width: 300px;" src="/kbs/images/artikelen/' . $value['product_image'] . '" alt="' . $value['product_name'] . '">
+                                    <a href="/KBS/artikel/' . $value['product_id'] . '"><img style="min-height: 300px; min-width: 300px; max-height: 300px; min-width: 300px;" src="/kbs/images/artikelen/' . $value['product_image'] . '" alt="' . $value['product_name'] . '"></a>
                                 </div>'
                         );
                     } else {
                         print(
                                 '<div class="item">
-                                    <img style="min-height: 300px; min-width: 300px; max-height: 300px; min-height: 300px;" src="/kbs/images/artikelen/' . $value['product_image'] . '"  alt="' . $value['product_name'] . '">
+                                    <a href="/KBS/artikel/' . $value['product_id'] . '"><img style="min-height: 300px; min-width: 300px; max-height: 300px; min-height: 300px;" src="/kbs/images/artikelen/' . $value['product_image'] . '"  alt="' . $value['product_name'] . '"></a>
                                 </div>');
                     }
                     $teller++;
