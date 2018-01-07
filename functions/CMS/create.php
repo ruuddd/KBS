@@ -17,11 +17,7 @@ function insertArtikel($conn, $product_name, $product_price, $product_descriptio
 {
 
 	$product_image_Url = checkImg($product_image); //Checkt en upload de afbeelding
-    if (empty($product_name) || empty($product_price) || empty($product_description) || empty($availability) || empty($category_id)) 
-    {
-        $_SESSION["melding"] = "Hey je moet alles invullen";   
-    }
-    else
+    if (!empty($product_name) && !empty($product_price) && !empty($product_description) && !empty($availability)) 
     {
         $stmt = $conn->prepare("INSERT INTO product (product_name, product_price, product_image, product_description, availability) VALUES (:product_name, :product_price,:product_image, :product_description, :availability)"); //De prepare SQL voor het inserten van een product
         $stmt->bindParam(':product_name', $product_name); //bindParam bind een variabele aan een plek in de prepare statement
@@ -31,30 +27,47 @@ function insertArtikel($conn, $product_name, $product_price, $product_descriptio
         $stmt->bindParam(':availability', $availability);
         //Voert de SQL uit
         $stmt->execute();
-    }
 
-    //Uitleg zie hierboven
-    $stmt = $conn->prepare("INSERT INTO productcategory (product_id, category_id) VALUES (LAST_INSERT_ID(), :category_id)");
-    $stmt->bindParam(':category_id', $category_id);
-    $stmt->execute();
-	$_SESSION["inserted"] = "Succesvol toegevoegd";
-    header("location: /kbs/functions/cms/?actie=home&m=inserted");
+        //Uitleg zie hierboven
+        $stmt = $conn->prepare("INSERT INTO productcategory (product_id, category_id) VALUES (LAST_INSERT_ID(), :category_id)");
+        $stmt->bindParam(':category_id', $category_id);
+        $stmt->execute();
+
+        $_SESSION["inserted"] = "Succesvol toegevoegd";
+        header("location: /kbs/functions/cms/?actie=home&m=inserted");
+    }
+    else
+    {
+        $_SESSION["failed"] = "Iets is niet ingevult";
+        header("location: /kbs/functions/cms/?actie=aToevoegen&m=failed");  
+    }
 }
 
 function insertCategory($conn, $category_name, $category_description)
 {
-    if (empty($category_name) || empty($category_description)) 
+    if (!empty($category_name) && !empty($category_description)) 
     {
-        $_SESSION["melding"] = "Hey je moet alles invullen";   
+        $ifExist = $conn->prepare("SELECT * FROM category WHERE category_name = ?");
+        $ifExist->execute([$category_name]);
+        if ($ifExist->rowCount() > 0) 
+        {
+            $_SESSION["exist"] = "Er bestaad al een categorie met deze naam";
+            header("location: /kbs/functions/cms/?actie=cToevoegen&m=exist");
+        }
+        else
+        {
+            $stmt = $conn->prepare("INSERT INTO category (category_name, category_description) VALUES (:category_name, :category_description)"); //De prepare SQL voor het inserten van een product
+            $stmt->bindParam(':category_name', $category_name); //bindParam bind een variabele aan een plek in de prepare statement
+            $stmt->bindParam(':category_description', $category_description);
+            //Voert de SQL uit
+            $stmt->execute();
+            $_SESSION["inserted"] = "Succesvol toegevoegd";
+            header("location: /kbs/functions/cms/?actie=homeCategories&m=inserted");  
+        }
     }
     else
     {
-        $stmt = $conn->prepare("INSERT INTO category (category_name, category_description) VALUES (:category_name, :category_description)"); //De prepare SQL voor het inserten van een product
-        $stmt->bindParam(':category_name', $category_name); //bindParam bind een variabele aan een plek in de prepare statement
-        $stmt->bindParam(':category_description', $category_description);
-        //Voert de SQL uit
-        $stmt->execute();
-        $_SESSION["inserted"] = "Succesvol toegevoegd";
-        header("location: /kbs/functions/cms/?actie=homeCategories&m=inserted");
+        $_SESSION["failed"] = "Niet alles is igevult";
+        header("location: /kbs/functions/cms/?actie=cToevoegen&m=failed");
     }
 }

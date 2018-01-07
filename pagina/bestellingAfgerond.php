@@ -1,6 +1,7 @@
 <?php
+
 $productInfo = basketProducts($_SESSION['id'], $pdo);
-foreach ($productInfo as $value){
+foreach ($productInfo as $value) {
     updateRemainingAmount($pdo, $value['product_id'], $value['amount']);
 }
 
@@ -37,37 +38,37 @@ if ($_SESSION['betaling']) {
 
 Beste " . $klantVolledigeNaam . ", <br><br>
 
-<b><i>Bedankt voor je bestelling met ordernummer " . $orderId . " bij De Ferver.</b></i><br><br>
+<b><i>Bedankt voor uw bestelling met ordernummer " . $orderId . " bij De Ferver.</b></i><br><br>
 
 Hoe gaat het nu verder?<br><br>
 
 <strong>Bedrag overmaken</strong><br>
-De volgende stap voor jou is het per bank overmaken van het totaalbedrag (zie hieronder bij Jouw betaling).<br><br>
+De volgende stap voor u is het per bank overmaken van het totaalbedrag.<br><br>
 
 <strong>Verzending</strong><br>
-Hebben wij je betaling ontvangen dan zullen we je bestelling zo spoedig mogelijk verzenden per PostNL. Je ontvangt dan een verzendbevestiging met daarin de Track&Trace code en de factuur.<br><br>
+Hebben wij uw betaling ontvangen dan zullen we uw bestelling zo spoedig mogelijk verzenden met PostNL. U ontvangt dan een verzendbevestiging met daarin de Track&Trace code en de factuur.<br><br>
 
 <strong>Ophalen</strong><br>
-Heb je aangegeven dat jij je pakketje bij ons in de winkel wilt afhalen? Maak dan een afspraak per mail [welk mailadres?] of telefoon/Whatsapp 06 2516 3811. Of kom langs tijdens openingstijden [linkje naar openingstijden] van onze winkel.<br>
--Wil jij je pakketje zelf in de winkel komen afhalen, maak dan een afspraak per mail [mailadres] of telefoon/Whatsapp 06 2516 3811. Of kom langs tijdens openingstijden van onze winkel.<br><br>
+Heeft u aangegeven dat u uw pakketje bij ons in de winkel wilt afhalen? Maak dan een afspraak per mail: contact@deferver.com of telefoon/Whatsapp 06 2516 3811. Of kom langs in de winkel *openings tijden in een url*.<br>
+-Wilt u uw pakketje zelf in de winkel komen afhalen, maak dan een afspraak per mail: contact@deferver.com of telefoon/Whatsapp 06 2516 3811. Of kom langs in de winkel *openings tijden in een url*.<br><br>
 
-<strong>Jouw bestelling:</strong><br>
+<strong>Uw bestelling:</strong><br>
 <table class='table table-condensed'>
-                                <thead>
-                                    <tr>
-                                        <td><strong>Product</strong></td>
-                                        <td class='text-right'><strong>Hoeveelheid</strong></td>
-                                        <td class='text-right'><strong>Prijs per stuk</strong></td>
-                                        <td class='text-right'><strong>Subtotaal</strong></td>
+    <thead>
+        <tr>
+            <td><strong>Product</strong></td>
+            <td class='text-right'><strong>Hoeveelheid</strong></td>
+            <td class='text-right'><strong>Prijs per stuk</strong></td>
+            <td class='text-right'><strong>Subtotaal</strong></td>
+        </tr>
+    </thead>
+    
+    <tbody>
+        " . getOrderderedItems($productInfo) . "
+    </tbody>
+</table>
 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                " . getOrderderedItems($productInfo) . "
-                                </tbody>
-                            </table>
-
-<strong>Jouw betaling:</strong><br>
+<strong>Uw betaling:</strong><br>
 &euro;" . getTotalPrice($productInfo) . " overmaken<br>
 t.n.v. De Ferver<br>
 IBAN: NL44 INGB 000 9217 95<br>
@@ -82,7 +83,7 @@ Met betalingskenmerk: <b><i>ordernummer " . $orderId . "</i></b><br><br>
 <strong>Afhaaladres:</strong><br>
 De Ferver<br>
 Buorren 51<br>
-8493 LD TERHERNE<br><br>
+8493 LD, Terherne<br><br>
 
 </p>
 </html>

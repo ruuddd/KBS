@@ -28,6 +28,7 @@ function myFunction() {
                     include('read.php');
                     include("create.php");
                     include("delete.php");
+                    include("update.php");
                     include('../dbConnect.php');
                     //Zet een standaart actie die als pagina wordt geopend
                     $actie = "home";
@@ -36,25 +37,46 @@ function myFunction() {
                     print(warning($_SESSION, $_GET));
 
                     //Checken welke link er wordt aangegeven en haalt de pagina bij deze link op
-                    if (!empty($_GET['actie'])) {
+                    if (!empty($_GET['actie'])) 
+                    {
                         $actie = $_GET['actie'];
                     }
 
-                    if ($actie == "insertArtikel") {
+                    if ($actie == "insertArtikel") 
+                    {
                         $webpage = $_POST["webpage"];
                         $content = $_POST["content"];
                         $taal = $_POST["taal"];
                         print(insertHome($pdo, $webpage, $taal, $content));
-                    } elseif ($actie == "aUpdate") {
+                    } 
+                    elseif ($actie == "aUpdate") 
+                    {
                         print($actie($pdo, $_GET["productId"]));
-                    } elseif ($actie == "cUpdate") {
+                    } 
+                    elseif ($actie == "cUpdate") 
+                    {
                         print($actie($pdo, $_GET["categoryId"]));
-                    } else {
-                        if (isset($_GET["insertArtikel"])) {
+                    } 
+                    elseif($actie == "updateCategory")
+                    {
+                        updateCategory($pdo, $_GET["categoryId"], $_POST["category_name"], $_POST["category_description"]);
+                    }
+                    elseif ($actie == "updateArtikel") 
+                    {
+                        updateArtikel($pdo, $_POST["naam"], $_POST["prijs"], $_POST["beschrijving"], $_POST["aantal"], $_GET["productId"]);
+                    } 
+                    elseif($actie == "getOrder")
+                    {
+                        print($actie($pdo, $_GET["orderId"]));
+                    }
+                    else 
+                    {
+                        if (isset($_GET["insertArtikel"])) 
+                        {
                             insertArtikel($pdo, $_POST["naam"], $_POST["prijs"], $_POST["beschrijving"], $_FILES["file"], $_POST["aantal"], $_POST["category_id"]);
-                        } elseif (isset($_GET["updateArtikel"])) {
-                            updateArtikel($pdo, $_POST["naam"], $_POST["prijs"], $_POST["beschrijving"], $_FILES["file"], $_POST["aantal"], $_POST["category_id"]);
-                        } elseif (isset($_GET["insertCategory"])) {
+                        } 
+                        elseif (isset($_GET["insertCategory"])) 
+                        {
                             insertCategory($pdo, $_POST["category_name"], $_POST["category_description"]);
                         }
                         //Opent een pagina als er geen optie was voor een custom pagina
