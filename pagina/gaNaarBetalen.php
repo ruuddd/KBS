@@ -122,7 +122,7 @@
             </div>
 
             <div class="login-register">
-                <a href="inloggen/inlog.php">Login</a>
+                <a href="/KBS/login/">Login</a>
             </div>
         </form>
     </div>
