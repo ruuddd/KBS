@@ -1,8 +1,6 @@
 <?php
 
 //bedank pagina
-
-
 $productInfo = basketProducts($_SESSION['id'], $pdo);
 foreach ($productInfo as $value) {
     updateRemainingAmount($pdo, $value['product_id'], $value['amount']);
